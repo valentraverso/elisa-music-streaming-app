@@ -1,5 +1,5 @@
 // Config 
-import {RouterProvider , createBrowserRouter} from 'react-router-dom';
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
 
 import {LayoutMain} from '../UI/layouts/Users/';
 
@@ -18,6 +18,6 @@ const router = createBrowserRouter([
 
 export default function Router(){
     return(
-        <RouterProvider router = {router} />
+        <RouterProvider router={router} />
     )
 }
