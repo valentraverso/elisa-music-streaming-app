@@ -1,14 +1,16 @@
 // Config 
 import {RouterProvider , createBrowserRouter} from 'react-router-dom';
 
+import {LayoutMain} from '../UI/layouts/Users/';
+
 
 const router = createBrowserRouter([
     {
-        element:<LayoutUser/>,
+        element:<LayoutMain/>,
         children:[
             {
                 path:'/',
-                element:<Main/>
+                element:<p>Hola</p>
             }
         ]
     }
