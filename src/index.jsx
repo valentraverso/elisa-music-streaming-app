@@ -2,19 +2,7 @@
 import ReactDOM from 'react-dom/client';
 import Router from './Routes/Router';
 import reportWebVitals from './reportWebVitals';
-import { createGlobalStyle } from 'styled-components';
-
-
-const GlobalStyle = createGlobalStyle`
-  * {
-    font-family: 'Montserrat', sans-serif;
-    font-family: 'Rubik', sans-serif;
-    background-color: #0A1428;
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
-  }
-`
+import { GlobalStyle } from './UI/Styles/config';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
