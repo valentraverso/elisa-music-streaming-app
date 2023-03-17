@@ -7,7 +7,8 @@ import { createGlobalStyle } from 'styled-components';
 
 const GlobalStyle = createGlobalStyle`
   * {
-    font-family: 'Kanit';
+    font-family: 'Montserrat', sans-serif;
+    font-family: 'Rubik', sans-serif;
     background-color: #0A1428;
     box-sizing: border-box;
     margin: 0;
