@@ -2,6 +2,7 @@
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 
 import {LayoutMain, LayoutSearch, LayoutLibrary} from '../UI/layouts/Users/';
+import { Main } from "../UI/pages/users";
 
 
 const router = createBrowserRouter([
@@ -10,7 +11,7 @@ const router = createBrowserRouter([
         children:[
             {
                 path:'/',
-                element:<p>Hola</p>
+                element:<Main />
             }
         ]
     },

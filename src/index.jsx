@@ -3,17 +3,20 @@ import ReactDOM from 'react-dom/client';
 import Router from './Routes/Router';
 import reportWebVitals from './reportWebVitals';
 import { GlobalStyle } from './UI/Styles/config';
+import { Auth0Provider } from '@auth0/auth0-react';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
-  <>
-  <GlobalStyle />
-  <Router />
-   
-  </>
+  <Auth0Provider
+    domain="elisa-music.eu.auth0.com"
+    clientId="fsVFdfmlECj5SasV748GC1Hqx1OXulLD"
+    authorizationParams={{
+      redirect_uri: window.location.origin
+    }}
+  >
+    <GlobalStyle />
+    <Router />
+  </Auth0Provider>
 );
 
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
 reportWebVitals();
