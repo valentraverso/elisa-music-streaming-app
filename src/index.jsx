@@ -1,4 +1,3 @@
-
 import ReactDOM from 'react-dom/client';
 import Router from './Routes/Router';
 import reportWebVitals from './reportWebVitals';
@@ -11,7 +10,7 @@ root.render(
     domain="elisa-music.eu.auth0.com"
     clientId="fsVFdfmlECj5SasV748GC1Hqx1OXulLD"
     authorizationParams={{
-      redirect_uri: window.location.origin
+      redirect_uri: "http://localhost:3000/"
     }}
   >
     <GlobalStyle />

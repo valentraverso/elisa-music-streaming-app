@@ -1,8 +1,12 @@
 // Config 
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 
+// Layouts
 import {LayoutMain, LayoutSearch, LayoutLibrary} from '../UI/layouts/Users/';
-import { Main } from "../UI/pages/users";
+
+// Pages
+import { Login, Main } from "../UI/pages/users";
+import PrivateRoutes from "./RouteTypes";
 
 
 const router = createBrowserRouter([
@@ -11,7 +15,7 @@ const router = createBrowserRouter([
         children:[
             {
                 path:'/',
-                element:<Main />
+                element:<PrivateRoutes><Main /></PrivateRoutes>
             }
         ]
     },
@@ -20,7 +24,7 @@ const router = createBrowserRouter([
         children:[
             {
                 path:'/search',
-                element:<p>Resultados</p>
+                element:<PrivateRoutes></PrivateRoutes>
             }
         ]
     },
@@ -29,9 +33,13 @@ const router = createBrowserRouter([
         children:[
             {
                 path:'/library',
-                element:<p>Libreria</p>
+                element:<PrivateRoutes></PrivateRoutes>
             }
         ]
+    },
+    {
+        path: '/login',
+        element: <Login />
     }
 ])
 
