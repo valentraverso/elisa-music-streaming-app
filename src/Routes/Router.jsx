@@ -1,7 +1,7 @@
 // Config 
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 
-import {LayoutMain, LayoutSearch} from '../UI/layouts/Users/';
+import {LayoutMain, LayoutSearch, LayoutLibrary} from '../UI/layouts/Users/';
 
 
 const router = createBrowserRouter([
@@ -23,6 +23,15 @@ const router = createBrowserRouter([
             }
         ]
     },
+    {
+        element:<LayoutLibrary/>,
+        children:[
+            {
+                path:'/library',
+                element:<p>Libreria</p>
+            }
+        ]
+    }
 ])
 
 export default function Router(){

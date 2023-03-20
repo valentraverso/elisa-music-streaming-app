@@ -18,7 +18,7 @@ export const SearchBarIcon = styled.div`
     display: flex;
     align-items: center;
     justify-content: center;
-}
+
 `
 
 export const SearchBarInput = styled.input`
