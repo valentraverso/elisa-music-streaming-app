@@ -1,7 +1,7 @@
 // Config 
 import {RouterProvider , createBrowserRouter} from 'react-router-dom';
 
-import {LayoutMain} from '../UI/layouts/Users/';
+import {LayoutMain, LayoutSearch} from '../UI/layouts/Users/';
 
 
 const router = createBrowserRouter([
@@ -13,7 +13,16 @@ const router = createBrowserRouter([
                 element:<p>Hola</p>
             }
         ]
-    }
+    },
+    {
+        element:<LayoutSearch/>,
+        children:[
+            {
+                path:'/search',
+                element:<p>Resultados</p>
+            }
+        ]
+    },
 ])
 
 export default function Router(){
