@@ -3,21 +3,22 @@ import { useAuth0 } from '@auth0/auth0-react';
 
 export function Main() {
     const {
+        user,
         isAuthenticated,
         loginWithRedirect,
         logout
     } = useAuth0();
 
-    console.log(isAuthenticated)
+    console.log(JSON.stringify(user))
 
     return (
         <>
             {
                 !isAuthenticated &&
-                <button onClick={loginWithRedirect}>Log in</button>
+                <button onClick={() => loginWithRedirect()}>Log in</button>
             }
             {
-                !isAuthenticated && (
+                isAuthenticated && (
                     <button onClick={() => {
                         logout({
                             logoutParams: {
