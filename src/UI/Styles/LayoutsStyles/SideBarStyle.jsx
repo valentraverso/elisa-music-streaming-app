@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { colors } from "../../config";
+import { colors } from "../config";
 
 export const SideBarContainer = styled.div `
     position: fixed;

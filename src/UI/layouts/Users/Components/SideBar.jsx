@@ -1,5 +1,5 @@
 import React from 'react'
-import { SideBarContainer, IconsContainer } from '../../../Styles/LayoutsStyles/LayoutMainStyle/SideBarStyle'
+import { SideBarContainer, IconsContainer } from '../../../Styles/LayoutsStyles/SideBarStyle'
 import { BiHomeAlt2, BiSearch, BiLibrary } from "react-icons/bi";
 import { NavLink } from 'react-router-dom';
 
