@@ -1,4 +1,4 @@
-import { Main, Logo, LogoLetters, StyledLink, Navbar, LogoContainer } from "../../../Styles/LayoutsStyles/LayoutMainStyle/NavbarStyle";
+import { Main, Logo, LogoLetters, StyledLink, Navbar, LogoContainer } from "../../../Styles/LayoutsStyles/NavbarStyle";
 
 function NavbarMain() {
     return (

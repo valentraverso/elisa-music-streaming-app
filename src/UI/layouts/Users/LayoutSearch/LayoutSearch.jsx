@@ -1,5 +1,5 @@
 import { Outlet } from "react-router";
-import { Main, Test, Logo } from "../../../Styles/LayoutsStyles/LayoutMainStyle/LayoutMainStyle";
+import { Main, Test, Logo } from "../../../Styles/LayoutsStyles/LayoutMainStyle";
 import { SearchBar } from "../Components/SearchBar";
 import { SideBar } from "../Components/SideBar";
 

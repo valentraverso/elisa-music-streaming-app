@@ -1,5 +1,5 @@
-import { SearchBarContainer, SearchBarIcon, SearchBarInput, IconSearch } from "../../../Styles/LayoutsStyles/LayoutMainStyle/SearchBarStyle"
-import { Main } from "../../../Styles/LayoutsStyles/LayoutMainStyle/NavbarStyle"
+import { SearchBarContainer, SearchBarIcon, SearchBarInput, IconSearch } from "../../../Styles/LayoutsStyles/SearchBarStyle"
+import { Main } from "../../../Styles/LayoutsStyles/NavbarStyle"
 
 export function SearchBar (){
     return(
