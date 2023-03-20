@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 
 export const Main = styled.div`
 position: relative;
-height: 10%;
+height: 60px;
 width: 100%;
 `;
 
