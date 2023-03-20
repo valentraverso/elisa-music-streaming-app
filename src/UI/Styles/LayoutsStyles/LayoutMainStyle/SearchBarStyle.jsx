@@ -1,5 +1,6 @@
 import styled from 'styled-components';
 import { colors } from "../../config";
+import { BiSearch } from "react-icons/bi"
 
 export const SearchBarContainer = styled.div`
     display: flex;
@@ -7,14 +8,17 @@ export const SearchBarContainer = styled.div`
     height: 100%;
     width: 100%;
     position: relative;
-    padding: 5% 10%;
+    padding: 3% 10%;
 `;
 
 export const SearchBarIcon = styled.div`
     background-color: ${colors.white};
-    position: absolute;
-    left: 0;
-
+    position: relative;
+    left: 6%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
 `
 
 export const SearchBarInput = styled.input`
@@ -22,4 +26,11 @@ export const SearchBarInput = styled.input`
     width: 100%;
     border-radius: 5px;
     border: 0;
-`; 
+`;
+
+export const IconSearch = styled(BiSearch)`
+    color: #000;
+    background: #fff;
+    font-size: 1.5rem;
+    position: absolute;
+`
