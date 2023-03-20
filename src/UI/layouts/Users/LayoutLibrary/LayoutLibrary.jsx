@@ -3,7 +3,6 @@ import { Main} from "../../../Styles/LayoutsStyles/LayoutMainStyle";
 import { SideBar } from "../Components/SideBar";
 import { BarLibrary } from "../Components/BarLibrary";
 
-
 export function LayoutLibrary () {
     return(
         <Main>

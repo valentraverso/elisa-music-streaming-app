@@ -1,5 +1,6 @@
-import { Main } from "../../../Styles/LayoutsStyles/NavbarStyle"
-import { IconAddAlbum, IconSettings, IconAvatar, ContainerIconsMenuLibrary } from "../../../Styles/LayoutsStyles/BarLibraryStyle"
+import { Main } from "../../../Styles/LayoutsStyles/NavbarStyle";
+import { IconAddAlbum, IconSettings, IconAvatar, ContainerIconsMenuLibrary, UserAvatar } from "../../../Styles/LayoutsStyles/BarLibraryStyle";
+import { useAuth0 } from "@auth0/auth0-react";
 
 export const BarLibrary = () => {
   return (
@@ -7,7 +8,9 @@ export const BarLibrary = () => {
             <ContainerIconsMenuLibrary>
                 <IconSettings/>
                 <IconAddAlbum/>
-                <IconAvatar />
+                <IconAvatar>              
+                    <UserAvatar/>
+                </IconAvatar>
             </ContainerIconsMenuLibrary>
         </Main>
   )
