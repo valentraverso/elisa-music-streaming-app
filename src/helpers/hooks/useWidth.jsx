@@ -1,13 +1,26 @@
 import { useState, useEffect } from "react";
 
-const useWidth = () => {
-    const [width, setWidth] = useState(window.innerWidth); // default width, detect on server.
+const UseWidth = (thresholds) => {
+    const [width, setWidth] = useState(null);
+  
     useEffect(() => {
-        const handleResize = () => setWidth(window.innerWidth);
-        window.addEventListener("resize", handleResize);
-        return () => window.removeEventListener("resize", handleResize);
-    }, []);
+      function handleResize() {
+        const newWidth = Object.entries(thresholds)
+          .reverse()
+          .find(([threshold]) => window.innerWidth >= threshold)?.[1];
+  
+        setWidth(newWidth);
+      }
+  
+      handleResize();
+      window.addEventListener('resize', handleResize);
+  
+      return () => {
+        window.removeEventListener('resize', handleResize);
+      };
+    }, [thresholds]);
+  
     return width;
-};
+  };
 
-export default useWidth;
+export default UseWidth;
