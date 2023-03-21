@@ -3,9 +3,7 @@ import { useAuth0 } from '@auth0/auth0-react';
 
 export function Main() {
     const {
-        user,
         isAuthenticated,
-        loginWithRedirect,
         logout
     } = useAuth0();
 
