@@ -1,15 +1,24 @@
 import { Outlet } from "react-router";
-import { Main} from "../../../Styles/LayoutsStyles/LayoutMainStyle";
+import { Main } from "../../../Styles/LayoutsStyles/LayoutMainStyle";
 import { SideBar } from "../Components/SideBar";
 import { BarLibrary } from "../Components/BarLibrary";
+import { useAuth0 } from "@auth0/auth0-react";
+import SkeletonLibrary from "./SkeletonLibrary";
 
-
-export function LayoutLibrary () {
-    return(
+export function LayoutLibrary() {
+    const { isLoading } = useAuth0();
+    return (
         <Main>
-            <BarLibrary/>
-            <Outlet /> 
+            {
+                isLoading ?
+                    <SkeletonLibrary />
+                    :
+                    <>
+                        <BarLibrary />
+                        <Outlet />
+                    </>
+            }
             <SideBar />
-        </Main> 
-        );
+        </Main>
+    );
 }

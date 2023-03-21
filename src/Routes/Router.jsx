@@ -25,7 +25,7 @@ const router = createBrowserRouter([
         children:[
             {
                 path:'/search',
-                element:<PrivateRoutes></PrivateRoutes>
+                element:<PrivateRoutes><p>Hola</p></PrivateRoutes>
             }
         ]
     },

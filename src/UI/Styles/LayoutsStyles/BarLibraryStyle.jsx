@@ -32,3 +32,10 @@ export const IconAvatar = styled.div`
     border-radius: 200px;
     width: 45px;
 `
+
+export const UserAvatar = styled.img`
+object-fit: cover;
+width: 100%;
+height: 100%;
+border-radius: 200px;
+`
