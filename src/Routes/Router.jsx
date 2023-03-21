@@ -2,7 +2,7 @@
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 
 // Layouts
-import {LayoutMain, LayoutSearch, LayoutLibrary} from '../UI/layouts/Users/';
+import {LayoutMain, SearchBarPage, LayoutLibrary} from '../UI/layouts/Users/';
 
 // Pages
 import { Login, Main, Profile, Settings, Connections } from "../UI/pages/users";
@@ -34,7 +34,7 @@ const router = createBrowserRouter([
         ]
     },
     {
-        element:<LayoutSearch/>,
+        element:<SearchBarPage/>,
         children:[
             {
                 path:'/search',
