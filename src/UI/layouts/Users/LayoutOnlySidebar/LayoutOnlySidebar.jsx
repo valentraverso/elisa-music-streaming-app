@@ -16,10 +16,12 @@ export function LayoutOnlySidebar() {
 
     if (isMobile) {
         return (
+            <>
             <Main>
                 <Outlet />
-                <SideBar />
             </Main>
+                <SideBar />
+            </>
         )
     }
 }
