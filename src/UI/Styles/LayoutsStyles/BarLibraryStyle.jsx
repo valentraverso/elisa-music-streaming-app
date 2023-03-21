@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { colors } from "../config";
+import { colors, device } from "../config";
 import { FiSettings } from "react-icons/fi"
 import { CiSquarePlus } from "react-icons/ci"
 
@@ -13,6 +13,9 @@ export const ContainerIconsMenuLibrary = styled.div`
     align-items: center;
     column-gap: 5%;
     padding: 0 5%;
+    @media ${device.desktop}{
+        column-gap:1%;
+    }
 `
 
 export const IconSettings = styled(FiSettings)`
