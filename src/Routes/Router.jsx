@@ -5,7 +5,7 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import {LayoutMain, LayoutSearch, LayoutLibrary} from '../UI/layouts/Users/';
 
 // Pages
-import { Login, Main, Profile, Settings } from "../UI/pages/users";
+import { Login, Main, Profile, Settings, Connections } from "../UI/pages/users";
 
 import PrivateRoutes from "./RouteTypes";
 
@@ -24,6 +24,10 @@ const router = createBrowserRouter([
             {
                 path: '/user/settings',
                 element: <PrivateRoutes><Settings /></PrivateRoutes>
+            },
+            {
+                path: '/connections/:typeConnection',
+                element: <PrivateRoutes><Connections /></PrivateRoutes>
             }
         ]
     },
