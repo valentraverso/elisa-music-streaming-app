@@ -1,15 +1,27 @@
 import styled from "styled-components";
 import { colors } from "../../config.jsx";
 
-export const GeneralDiv = styled.div`
+export const GeneralDivMenu = styled.div`
     width: 90%;
+    margin: 0 auto;
+`
+
+export const DivPlaylistsDisplay = styled.div`
+    display: grid;
+    grid-template-columns: 80px 150px;
+    gap: 10px;
+    margin-top: 10px;
+`
+
+export const GeneralDiv = styled.div`
+    width: 100%;
     margin: 10% auto;
 `
 
 export const PageTitle = styled.p`
     font-size: 25px;
     font-weight: bold;
-    width: 80%;
+    width: 100%;
     margin: 10px auto;
 `
 

@@ -5,10 +5,8 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import {LayoutMain, LayoutSearch, LayoutLibrary} from '../UI/layouts/Users/';
 
 // Pages
-import { Login, Main, Profile, Settings, Connections } from "../UI/pages/users";
-
+import { Login, Main, Profile, Settings, Connections, Library} from "../UI/pages/users";
 import { Playlist } from "../UI/pages/users/Playlist/Playlist";
-import { MenuPlaylists } from "../UI/pages/users/MenuPaylists/MenuPlaylists";
 import PrivateRoutes from "./RouteTypes";
 
 const router = createBrowserRouter([
@@ -47,7 +45,15 @@ const router = createBrowserRouter([
         children:[
             {
                 path:'/library',
-                element:<PrivateRoutes></PrivateRoutes>
+                element:<PrivateRoutes><Library /></PrivateRoutes>
+            },
+            {
+                path:'/playlist',
+                element:<Playlist img="https://i.scdn.co/image/ab67616d0000b27396384c98ac4f3e7c2440f5b5" playlistName="Sad Playlist" info="50 Songs" likes="50 Likes" btnLike={true}/>
+            },
+            {
+                path:'/album',
+                element:<Playlist img="https://i.scdn.co/image/ab67616d0000b27396384c98ac4f3e7c2440f5b5" playlistName="My Album" info="10 Songs" likes="50 Likes" btnLike={false}/>
             }
             
         ]

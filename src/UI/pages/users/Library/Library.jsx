@@ -1,12 +1,12 @@
 import { ListPlaylists } from "./components/ListPlaylists"
-import { PageTitle } from "../../../Styles/Pages/Users/MenuPlaylistsStyle"
+import { PageTitle, GeneralDivMenu } from "../../../Styles/Pages/Users/MenuPlaylistsStyle"
 
-export const MenuPlaylists = () => {
+export const Library = () => {
   return (
-    <div>
+    <GeneralDivMenu>
         <PageTitle>Playlists</PageTitle>
         <ListPlaylists name="My Playlists"/>
         <ListPlaylists name="Followed Playlists" />
-    </div>
+    </GeneralDivMenu>
   )
 }
