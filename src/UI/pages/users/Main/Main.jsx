@@ -9,14 +9,8 @@ export function Main() {
         logout
     } = useAuth0();
 
-    console.log(JSON.stringify(user))
-
     return (
         <>
-            {
-                !isAuthenticated &&
-                <button onClick={() => loginWithRedirect()}>Log in</button>
-            }
             {
                 isAuthenticated && (
                     <button onClick={() => {
