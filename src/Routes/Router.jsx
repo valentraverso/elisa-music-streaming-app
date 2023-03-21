@@ -19,10 +19,6 @@ const router = createBrowserRouter([
                 element:<PrivateRoutes><Main /></PrivateRoutes>
             },
             {
-                path: '/user/settings',
-                element: <PrivateRoutes><Settings /></PrivateRoutes>
-            },
-            {
                 path: '/connections/:typeConnection',
                 element: <PrivateRoutes><Connections /></PrivateRoutes>
             }
@@ -43,6 +39,10 @@ const router = createBrowserRouter([
             {
                 path: '/user/profile',
                 element: <Profile />
+            },
+            {
+                path: '/user/settings',
+                element: <PrivateRoutes><Settings /></PrivateRoutes>
             }
         ]
     },
@@ -53,7 +53,6 @@ const router = createBrowserRouter([
                 path:'/library',
                 element:<PrivateRoutes></PrivateRoutes>
             }
-            
         ]
     },
     {

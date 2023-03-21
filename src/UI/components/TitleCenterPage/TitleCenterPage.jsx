@@ -9,7 +9,10 @@ const navigate = useNavigate();
   return (
     <ContainerMenuTitle>
         <ContainerBackIcon>
+          {
+            back &&
             <IoMdArrowRoundBack onClick={() => navigate(-1)}/>
+          }
         </ContainerBackIcon>
         <ContainterTitleCenter>
             <TitleMenu>{title}</TitleMenu>
