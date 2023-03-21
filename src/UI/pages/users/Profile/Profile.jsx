@@ -1,4 +1,5 @@
-import { ContainerProfile, ContainerTopProfile, ImageProfile, H1NameProfile, DivInfoProfile, SpanInfoProfile } from "../../../Styles/Pages/Users/Profile";
+import { ContainerProfile, ContainerTopProfile, ImageProfile, H1NameProfile, DivInfoProfile, SpanInfoProfile } from "../../../Styles/Pages/Users/ProfileStyle";
+import FollowButton from "../../../components/FollowButton/FollowButton";
 import { useAuth0 } from "@auth0/auth0-react";
 
 export function Profile() {
@@ -19,6 +20,7 @@ export function Profile() {
                     |
                     <SpanInfoProfile>1 Album</SpanInfoProfile>
                 </DivInfoProfile>
+                <FollowButton status='Follow' />
             </ContainerTopProfile>
         </ContainerProfile>
     )
