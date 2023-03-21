@@ -5,7 +5,8 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import {LayoutMain, LayoutSearch, LayoutLibrary} from '../UI/layouts/Users/';
 
 // Pages
-import { Login, Main } from "../UI/pages/users";
+import { Login, Main, Profile } from "../UI/pages/users";
+
 import PrivateRoutes from "./RouteTypes";
 
 const router = createBrowserRouter([
@@ -15,6 +16,10 @@ const router = createBrowserRouter([
             {
                 path:'/',
                 element:<PrivateRoutes><Main /></PrivateRoutes>
+            },
+            {
+                path: '/profile',
+                element: <PrivateRoutes><Profile /></PrivateRoutes>
             }
         ]
     },
@@ -32,7 +37,7 @@ const router = createBrowserRouter([
         children:[
             {
                 path:'/library',
-                element:<PrivateRoutes></PrivateRoutes>
+                element:<PrivateRoutes><p>Profile</p></PrivateRoutes>
             }
         ]
     },
