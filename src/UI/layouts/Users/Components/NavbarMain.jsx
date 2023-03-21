@@ -7,7 +7,7 @@ function NavbarMain() {
                 <StyledLink to={"/"}>
                     <LogoContainer>
                         <Logo src="/assets/images/logos/logo.webp" />
-                        <LogoLetters> Elisa</LogoLetters>
+                        <LogoLetters> Elisa </LogoLetters>
                     </LogoContainer>
                 </StyledLink>
             </Navbar>

@@ -1,25 +1,33 @@
 import { Outlet } from "react-router";
-import useWidth from "../../../../helpers/hooks/useWidth";
 import { Main, Test, Logo } from "../../../Styles/LayoutsStyles/LayoutMainStyle";
 import { SearchBar } from "../Components/SearchBar";
+import { SearchBarDesktop } from "../Components/SearchBarDesktop";
 import { SideBar } from "../Components/SideBar";
-import LayoutMenuDesktopSearch from "../LayoutMenuDesktop/LayoutMenuDesktopSearch";
+import UseWidth from "../../../../helpers/hooks/useWidth";
 
 
 export function LayoutSearch () {
-    const width = useWidth();
 
-    if(width > 720){
-        return (
-            <LayoutMenuDesktopSearch />
-        )
-    }
+    const width = UseWidth({
+        0: 'mobile',
+        720: 'tablet',
+        1024: 'desktop',
+    });
     
+    const isMobile = width === 'mobile';
+    const isTabletOrAbove = width !== 'mobile';
+
     return(
         <Main>
-            <SearchBar/>
+
+            {isMobile && <SearchBar/>}
             <Outlet /> 
+            {isTabletOrAbove && 
+            <>
+            <SearchBarDesktop />
             <SideBar />
+            </>
+            }
         </Main>    
         );
 }
