@@ -1,4 +1,5 @@
 import { useAuth0 } from "@auth0/auth0-react";
+import TitleCenterPage from "../../../components/TitleCenterPage/TitleCenterPage";
 import { ContainerSettings, SubClassSettingsTitle, TitleSetting, ContainerTitleSettings, LogOutButton } from "../../../Styles/Pages/Users/SettingsStyle";
 
 export function Settings() {
@@ -14,6 +15,7 @@ export function Settings() {
 
   return (
     <ContainerSettings>
+        <TitleCenterPage title='Settings'/>
         <SubClassSettingsTitle>Account</SubClassSettingsTitle>
         <ContainerTitleSettings>
         <TitleSetting>Edit user</TitleSetting>
