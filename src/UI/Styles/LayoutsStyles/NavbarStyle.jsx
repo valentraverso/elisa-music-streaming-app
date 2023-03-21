@@ -24,8 +24,7 @@ height: 90%;
 export const StyledLink = styled(Link)`
 text-decoration: none;
 color: white;
-height: 50px;
-
+height: 60px;
 
 ` 
 
@@ -34,7 +33,10 @@ height: 100%;
 display: flex;
 align-items: center;
 justify-content: space-evenly;
-
+@media ${device.desktop}{
+    justify-content:center;
+    column-gap:2%;
+}
 `
 
 export const LogoLetters = styled.span`
