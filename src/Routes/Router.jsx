@@ -6,6 +6,7 @@ import {LayoutMain, LayoutSearch, LayoutLibrary} from '../UI/layouts/Users/';
 
 // Pages
 import { Login, Main } from "../UI/pages/users";
+import { Playlist } from "../UI/pages/users/Playlist/Playlist";
 import PrivateRoutes from "./RouteTypes";
 
 
@@ -34,6 +35,10 @@ const router = createBrowserRouter([
             {
                 path:'/library',
                 element:<PrivateRoutes></PrivateRoutes>
+            },
+            {
+                path: '/playlist',
+                element: <Playlist />
             }
         ]
     },
