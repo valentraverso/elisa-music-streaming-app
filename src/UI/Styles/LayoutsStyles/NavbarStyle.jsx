@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import { Link } from "react-router-dom";
+import { device } from "../config";
 
 export const Main = styled.div`
 position: relative;
@@ -12,7 +13,9 @@ display: grid;
 grid-template-columns: 30% 70%;
 width: 100%;
 height: 100%;
-
+@media ${device.desktop}{
+    grid-template-columns: 25% 50% 25%;
+}
 `
 
 export const Logo = styled.img`

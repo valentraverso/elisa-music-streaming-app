@@ -10,6 +10,8 @@ export const colors = {
 
 export const device = {
   "desktop": `(min-width: 768px)`,
+  "tablet": `(min-width: 480px)`,
+  "mobile": `(max-width: 480px)`
 }
 
 export const GlobalStyle = createGlobalStyle`
