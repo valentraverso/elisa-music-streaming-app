@@ -1,6 +1,6 @@
 import styled from "styled-components";
-import { Link } from "react-router-dom";
-import { device } from "../config";
+import { NavLink } from "react-router-dom";
+import { colors, device } from "../config";
 
 export const Main = styled.div`
 position: relative;
@@ -21,11 +21,11 @@ height: 100%;
 export const Logo = styled.img`
 height: 90%;
 `
-export const StyledLink = styled(Link)`
-text-decoration: none;
-color: white;
-height: 60px;
 
+export const StyledLink = styled(NavLink)`
+text-decoration: none;
+color: ${colors.white};
+height: 60px;
 ` 
 
 export const LogoContainer = styled.div`
