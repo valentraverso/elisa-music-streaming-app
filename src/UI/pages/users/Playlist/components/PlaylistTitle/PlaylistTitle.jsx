@@ -10,7 +10,9 @@ export const PlaylistTitle = (props) => {
             <Info>{props.info}</Info>
             <ContainerLikes>
                 <TotalLikes>{props.likes}</TotalLikes>
-                <ButtonLike>Like</ButtonLike>
+                {
+                  props.btnLike ? <ButtonLike>Like</ButtonLike> : null
+                }
             </ContainerLikes>
         </ContainerPlaylistInfo>
     </ContainerTitlePlaylist>

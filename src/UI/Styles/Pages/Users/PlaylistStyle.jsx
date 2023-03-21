@@ -61,21 +61,21 @@ export const ContainerSongsList = styled.div`
     margin: 10% auto;
     display: flex;
     flex-direction: column;
-    width: 80%;
+    width: 100%;
 `
 
 export const ContainerSong = styled.div`
     display: grid;
-    grid-template-columns: auto 60% auto;
-    gap: 5%;
+    grid-template-columns: auto 78% auto;
     align-items: center;
     margin-top: 0.7rem;
 `
 
 
 export const ImgSong = styled.img`
-    width: 40px;
+    width: 53px;
     grid-column: 1;
+    border-radius: 5px;
 `
 
 export const ContainerSongInfo = styled.div`

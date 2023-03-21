@@ -7,6 +7,7 @@ import {LayoutMain, LayoutSearch, LayoutLibrary} from '../UI/layouts/Users/';
 // Pages
 import { Login, Main } from "../UI/pages/users";
 import { Playlist } from "../UI/pages/users/Playlist/Playlist";
+import { MenuPlaylists } from "../UI/pages/users/MenuPaylists/MenuPlaylists";
 import PrivateRoutes from "./RouteTypes";
 
 const router = createBrowserRouter([
@@ -37,8 +38,17 @@ const router = createBrowserRouter([
             },
             {
                 path: '/playlist',
-                element: <Playlist />
+                element: <Playlist img = "https://i.scdn.co/image/ab67616d0000b27396384c98ac4f3e7c2440f5b5"  playlistName="Sad Playlist" info="40 Songs" likes= "100 Likes" btnLike={true}/>
+            },
+            {
+                path: '/album',
+                element: <Playlist img = "https://i.scdn.co/image/ab67616d0000b27396384c98ac4f3e7c2440f5b5"  playlistName="My Album" info="40 Songs" likes= "100 Likes" btnLike={false}/>
+            },
+            {
+                path: '/playlists',
+                element: <MenuPlaylists />
             }
+            
         ]
     },
     {
