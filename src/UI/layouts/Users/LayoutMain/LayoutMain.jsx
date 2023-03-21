@@ -35,7 +35,6 @@ function LayoutMain(){
              <NavbarMain />
             <SideBar />
             <CategoryeButtons />
-           
             </>
             }
 

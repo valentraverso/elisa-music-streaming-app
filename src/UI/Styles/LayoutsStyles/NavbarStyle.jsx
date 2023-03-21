@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import { Link } from "react-router-dom";
+import { device } from "../config";
 
 export const Main = styled.div`
 position: relative;
@@ -12,7 +13,9 @@ display: grid;
 grid-template-columns: 30% 70%;
 width: 100%;
 height: 100%;
-
+@media ${device.desktop}{
+    grid-template-columns: 25% 50% 25%;
+}
 `
 
 export const Logo = styled.img`
@@ -21,8 +24,7 @@ height: 90%;
 export const StyledLink = styled(Link)`
 text-decoration: none;
 color: white;
-height: 50px;
-
+height: 60px;
 
 ` 
 
@@ -31,7 +33,10 @@ height: 100%;
 display: flex;
 align-items: center;
 justify-content: space-evenly;
-
+@media ${device.desktop}{
+    justify-content:center;
+    column-gap:2%;
+}
 `
 
 export const LogoLetters = styled.span`

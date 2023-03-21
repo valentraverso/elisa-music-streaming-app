@@ -3,14 +3,14 @@ import { IconAddAlbum, IconSettings, IconAvatar, ContainerIconsMenuLibrary, User
 import { useAuth0 } from "@auth0/auth0-react";
 
 export const BarLibraryDesktop = () => {
-    const {user: {picture}} = useAuth0();
+    const {user} = useAuth0();
   return (
         <Main>
         <ContainerIconsMenuLibrary>
             <IconSettings/>
             <IconAddAlbum/>
             <IconAvatar>              
-                <UserAvatar src={picture}/>
+                <UserAvatar src={user?.picture}/>
             </IconAvatar>
         </ContainerIconsMenuLibrary>
         </Main>

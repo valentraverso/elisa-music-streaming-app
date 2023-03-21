@@ -10,9 +10,7 @@ export const SideBarContainer = styled.div `
     height: 60px;
     color: ${colors.white};
     @media ${device.desktop} {
-        top: 0;
-        width: 50%;
-        left: 25%;
+        position:relative;
     }
 `
 

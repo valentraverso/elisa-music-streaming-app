@@ -6,7 +6,7 @@ import { BarLibraryDesktop } from './BarLibraryDesktop';
 import { useAuth0 } from "@auth0/auth0-react";
 
 export const SideBarDesktop = () => {
-    const {user: {picture}} = useAuth0();
+  
     return (
         
         <SideBarContainerDesktop>
