@@ -1,6 +1,7 @@
 import { SideBar } from "../Components/SideBar";
 import UseWidth from "../../../../helpers/hooks/useWidth";
 import { Outlet } from "react-router-dom";
+import { Main } from "../../../Styles/LayoutsStyles/LayoutMainStyle";
 
 export function LayoutOnlySidebar() {
     const width = UseWidth({
@@ -15,10 +16,10 @@ export function LayoutOnlySidebar() {
 
     if (isMobile) {
         return (
-            <>
+            <Main>
                 <Outlet />
                 <SideBar />
-            </>
+            </Main>
         )
     }
 }

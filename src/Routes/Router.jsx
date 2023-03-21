@@ -3,6 +3,7 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 
 // Layouts
 import {LayoutMain, LayoutSearch, LayoutLibrary} from '../UI/layouts/Users/';
+import { LayoutOnlySidebar } from "../UI/layouts/Users/LayoutOnlySidebar/LayoutOnlySidebar";
 
 // Pages
 import { Login, Main, Profile, Settings, Connections } from "../UI/pages/users";
@@ -16,10 +17,6 @@ const router = createBrowserRouter([
             {
                 path:'/',
                 element:<PrivateRoutes><Main /></PrivateRoutes>
-            },
-            {
-                path: '/user/profile',
-                element: <PrivateRoutes><Profile /></PrivateRoutes>
             },
             {
                 path: '/user/settings',
@@ -37,6 +34,15 @@ const router = createBrowserRouter([
             {
                 path:'/search',
                 element:<PrivateRoutes><p>Hola</p></PrivateRoutes>
+            }
+        ]
+    },
+    {
+        element: <PrivateRoutes><LayoutOnlySidebar /></PrivateRoutes>,
+        children: [
+            {
+                path: '/user/profile',
+                element: <Profile />
             }
         ]
     },
