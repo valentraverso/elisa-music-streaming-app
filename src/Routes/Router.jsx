@@ -8,7 +8,6 @@ import {LayoutMain, LayoutSearch, LayoutLibrary} from '../UI/layouts/Users/';
 import { Login, Main } from "../UI/pages/users";
 import PrivateRoutes from "./RouteTypes";
 
-
 const router = createBrowserRouter([
     {
         element:<LayoutMain/>,
