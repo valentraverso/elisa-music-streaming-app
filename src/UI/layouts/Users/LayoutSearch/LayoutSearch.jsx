@@ -1,6 +1,7 @@
 import { Outlet } from "react-router";
 import { Main, Test, Logo } from "../../../Styles/LayoutsStyles/LayoutMainStyle";
 import { SearchBar } from "../Components/SearchBar";
+import { SearchBarDesktop } from "../Components/SearchBarDesktop";
 import { SideBar } from "../Components/SideBar";
 import UseWidth from "../../../../helpers/hooks/useWidth";
 
@@ -21,7 +22,12 @@ export function LayoutSearch () {
 
             {isMobile && <SearchBar/>}
             <Outlet /> 
-            {isTabletOrAbove && <SideBar />}
+            {isTabletOrAbove && 
+            <>
+            <SearchBarDesktop />
+            <SideBar />
+            </>
+            }
         </Main>    
         );
 }

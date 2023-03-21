@@ -18,6 +18,7 @@ export const ContainerIconsMenuLibrary = styled.div`
     }
 `
 
+
 export const IconSettings = styled(FiSettings)`
     color: ${colors.white};
     font-size: 1.5rem;
