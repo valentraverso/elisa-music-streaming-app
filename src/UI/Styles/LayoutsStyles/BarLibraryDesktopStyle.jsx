@@ -3,8 +3,6 @@ import { colors, device } from "../config";
 import { FiSettings } from "react-icons/fi"
 import { CiSquarePlus } from "react-icons/ci"
 
-
-
 export const ContainerIconsMenuLibrary = styled.div`
   height: 100%;
   width: 30%;
@@ -20,7 +18,6 @@ export const ContainerIconsMenuLibrary = styled.div`
     column-gap: 1%;
   }
 `;
-
 
 export const IconSettings = styled(FiSettings)`
     color: ${colors.white};
