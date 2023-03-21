@@ -9,7 +9,6 @@ import { Login, Main } from "../UI/pages/users";
 import { Playlist } from "../UI/pages/users/Playlist/Playlist";
 import PrivateRoutes from "./RouteTypes";
 
-
 const router = createBrowserRouter([
     {
         element:<LayoutMain/>,

@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { colors } from "../config";
+import { colors, device } from "../config";
 
 export const SideBarContainer = styled.div `
     position: fixed;
@@ -9,6 +9,11 @@ export const SideBarContainer = styled.div `
     width: 100%;
     height: 60px;
     color: ${colors.white};
+    @media ${device.desktop} {
+        top: 0;
+        width: 50%;
+        left: 25%;
+    }
 `
 
 export const IconsContainer = styled.div`
@@ -20,4 +25,8 @@ export const IconsContainer = styled.div`
     margin: 0 auto;
     border-top: 0.5px solid ${colors.white};
     height: 100%;
+    @media ${device.desktop}{
+        border-top:0;
+        border-bottom: 0.5px solid ${colors.white};
+    }
 `
