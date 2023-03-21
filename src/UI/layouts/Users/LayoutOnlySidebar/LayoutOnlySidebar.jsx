@@ -1,7 +1,7 @@
 import { SideBar } from "../Components/SideBar";
 import UseWidth from "../../../../helpers/hooks/useWidth";
 import { Outlet } from "react-router-dom";
-import { Main } from "../../../Styles/LayoutsStyles/LayoutMainStyle";
+import { Main } from "../../../Styles/LayoutsStyles/GeneralLayoutStyles";
 
 export function LayoutOnlySidebar() {
     const width = UseWidth({
