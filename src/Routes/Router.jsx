@@ -7,8 +7,6 @@ import {LayoutMain, LayoutSearch, LayoutLibrary} from '../UI/layouts/Users/';
 // Pages
 import { Login, Main, Profile, Settings, Connections } from "../UI/pages/users";
 
-import { Playlist } from "../UI/pages/users/Playlist/Playlist";
-import { MenuPlaylists } from "../UI/pages/users/MenuPaylists/MenuPlaylists";
 import PrivateRoutes from "./RouteTypes";
 
 const router = createBrowserRouter([
@@ -20,7 +18,7 @@ const router = createBrowserRouter([
                 element:<PrivateRoutes><Main /></PrivateRoutes>
             },
             {
-                path: '/profile',
+                path: '/user/profile',
                 element: <PrivateRoutes><Profile /></PrivateRoutes>
             },
             {
