@@ -1,15 +1,15 @@
 import { ContainerTitlePlaylist, ImgPlaylist, ContainerPlaylistInfo, Title, Info, ContainerLikes, TotalLikes, ButtonLike} from "../../../../../Styles/Pages/Users/PlaylistStyle";
 
 
-export const PlaylistTitle = () => {
+export const PlaylistTitle = (props) => {
   return (
     <ContainerTitlePlaylist>
-        <ImgPlaylist src="https://chartex.com/_next/image?url=https%3A%2F%2Fi.scdn.co%2Fimage%2Fab67706f0000000360b57682c9a3e8708eda27d8&w=640&q=75" />
+        <ImgPlaylist src= {props.img} />
         <ContainerPlaylistInfo>
-            <Title>Sad Playlist </Title>
-            <Info>50 songs</Info>
+            <Title>{props.playlistName}</Title>
+            <Info>{props.info}</Info>
             <ContainerLikes>
-                <TotalLikes>100 likes</TotalLikes>
+                <TotalLikes>{props.likes}</TotalLikes>
                 <ButtonLike>Like</ButtonLike>
             </ContainerLikes>
         </ContainerPlaylistInfo>

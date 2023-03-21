@@ -1,9 +1,8 @@
-import React from 'react'
-import { ContainerSong, ContainerSongInfo, ContainerSongsList, ImgSong, NameArtist, SongSettings, TitleSmall, ButtonAddSong } from '../../../../../Styles/Pages/Users/PlaylistStyle'
-import {songs} from "../../../../../../songs.js"
+import { ContainerSong, ContainerSongInfo, ContainerSongsList, ImgSong, NameArtist, SongSettings, TitleSmall,
+    ButtonAddSong } from '../../../../../Styles/Pages/Users/PlaylistStyle';
+import {songs} from "../../../../../../songs.js";
 
 export const SongsList = () => {
-    console.log(songs);
   return (
     <ContainerSongsList>
         
@@ -17,10 +16,8 @@ export const SongsList = () => {
                     </ContainerSongInfo>
                     <SongSettings>...</SongSettings>
                 </ContainerSong>
-
                 )
             })}
-    <ButtonAddSong> + Add new Song</ButtonAddSong>
     </ContainerSongsList>
   )
 }
