@@ -8,6 +8,10 @@ export const colors = {
     "blue": "#3B46F1"
 }
 
+export const device = {
+  "desktop": `(min-width: 768px)`,
+}
+
 export const GlobalStyle = createGlobalStyle`
   * {
     font-family: 'Montserrat', sans-serif;
