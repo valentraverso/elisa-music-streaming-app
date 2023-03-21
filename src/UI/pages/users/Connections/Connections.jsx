@@ -1,24 +1,18 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
 import { useParams } from "react-router-dom";
-import { ContainerConnections, ContainerStatusConnection, StatusConnectionTitle, LinkTypeStatusConnection } from '../../../Styles/Pages/Users/ConnectionsStyle'
+import UserCardFollow from '../../../components/UserCardFollow/UserCardFollow';
+import { ContainerConnections, ContainerUsers } from '../../../Styles/Pages/Users/ConnectionsStyle'
+import StatusConnectionMenu from './components/StatusConnectionMenu';
 
 export function Connections() {
-    const {typeConnection} = useParams();
+    const { typeConnection } = useParams();
     console.log(typeConnection)
     return (
         <ContainerConnections>
-            <ContainerStatusConnection>
-                <LinkTypeStatusConnection to='/connections/mutual'>
-                    <StatusConnectionTitle>Mutual</StatusConnectionTitle>
-                </LinkTypeStatusConnection>
-                <LinkTypeStatusConnection to='/connections/followers'>
-                    <StatusConnectionTitle>Followers</StatusConnectionTitle>
-                </LinkTypeStatusConnection>
-                <LinkTypeStatusConnection to='/connections/following'>
-                    <StatusConnectionTitle>Following</StatusConnectionTitle>
-                </LinkTypeStatusConnection>
-            </ContainerStatusConnection>
+            <StatusConnectionMenu />
+            <ContainerUsers>
+                <UserCardFollow />
+            </ContainerUsers>
         </ContainerConnections>
     )
 }

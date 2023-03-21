@@ -3,6 +3,7 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 
 // Layouts
 import {LayoutMain, LayoutSearch, LayoutLibrary} from '../UI/layouts/Users/';
+import { LayoutOnlySidebar } from "../UI/layouts/Users/LayoutOnlySidebar/LayoutOnlySidebar";
 
 // Pages
 import { Login, Main, Profile, Settings, Connections, Library} from "../UI/pages/users";
@@ -18,14 +19,6 @@ const router = createBrowserRouter([
                 element:<PrivateRoutes><Main /></PrivateRoutes>
             },
             {
-                path: '/profile',
-                element: <PrivateRoutes><Profile /></PrivateRoutes>
-            },
-            {
-                path: '/user/settings',
-                element: <PrivateRoutes><Settings /></PrivateRoutes>
-            },
-            {
                 path: '/connections/:typeConnection',
                 element: <PrivateRoutes><Connections /></PrivateRoutes>
             }
@@ -37,6 +30,19 @@ const router = createBrowserRouter([
             {
                 path:'/search',
                 element:<PrivateRoutes><p>Hola</p></PrivateRoutes>
+            }
+        ]
+    },
+    {
+        element: <PrivateRoutes><LayoutOnlySidebar /></PrivateRoutes>,
+        children: [
+            {
+                path: '/user/profile',
+                element: <Profile />
+            },
+            {
+                path: '/user/settings',
+                element: <PrivateRoutes><Settings /></PrivateRoutes>
             }
         ]
     },
@@ -55,7 +61,6 @@ const router = createBrowserRouter([
                 path:'/album',
                 element:<Playlist img="https://i.scdn.co/image/ab67616d0000b27396384c98ac4f3e7c2440f5b5" playlistName="My Album" info="10 Songs" likes="50 Likes" btnLike={false}/>
             }
-            
         ]
     },
     {

@@ -11,7 +11,6 @@ margin-top: 5%;
     justify-content: space-around;`
 
 export const StatusConnectionTitle = styled.span`
-   
 `
 
 export const LinkTypeStatusConnection = styled(NavLink)`
@@ -21,3 +20,4 @@ text-decoration:none;
     font-weight:800;
 }
 `
+export const ContainerUsers = styled.div``

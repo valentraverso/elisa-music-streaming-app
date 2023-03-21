@@ -19,7 +19,7 @@ export const TitleSetting = styled.span`
 `
 export const LogOutButton = styled.span`
 position: absolute;
-    bottom: 90px;
+    bottom: 20px;
     right: 10%;
     color:${colors.grey}
     `
