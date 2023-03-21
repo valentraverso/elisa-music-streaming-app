@@ -10,7 +10,9 @@ export const BarLibrary = () => {
     return (
         <Main>
             <ContainerIconsMenuLibrary>
-                <IconSettings />
+                <Link to={links.settings}>
+                    <IconSettings />
+                </Link>
                 <IconAddAlbum />
                 <Link to={links.profile}>
                     <IconAvatar>

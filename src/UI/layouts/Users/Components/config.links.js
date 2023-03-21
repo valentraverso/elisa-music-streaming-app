@@ -1,3 +1,4 @@
 export const links = {
-    profile: "/user/profile"
+    profile: "/user/profile",
+    settings: "/user/settings"
 }
