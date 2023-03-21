@@ -1,5 +1,5 @@
 import { Skeleton } from "@mui/material";
-import { IconAddAlbum, IconSettings, IconAvatar, ContainerIconsMenuLibrary, UserAvatar } from "../../../Styles/LayoutsStyles/BarLibraryStyle";
+import { IconAddAlbum, IconSettings, IconAvatar, ContainerIconsMenuLibrary } from "../../../Styles/LayoutsStyles/BarLibraryStyle";
 
 export default function SkeletonLibrary() {
     return (
