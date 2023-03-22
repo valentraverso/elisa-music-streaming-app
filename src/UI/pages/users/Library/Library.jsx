@@ -1,6 +1,6 @@
 // import { ListPlaylists } from "./components/ListPlaylists";
 import { ListPlaylists } from "./components/ListPlaylists";
-import { PageTitle, GeneralDivMenu, DivChangePlaylistAlbum, PageChanger } from "../../../Styles/Pages/Users/MenuPlaylistsStyle";
+import { PageTitle, GeneralDivMenu, DivChangePlaylistAlbum, PageChanger, BtnAddNew} from "../../../Styles/Pages/Users/MenuPlaylistsStyle";
 import { Link } from "react-router-dom";
 import { device } from "../../../Styles/config";
 import UseWidth from "../../../../helpers/hooks/useWidth";
@@ -17,16 +17,16 @@ export const Library = () => {
 });
   return (
     <GeneralDivMenu>
-        {width === 'desktop' ?
+        {
         <DivChangePlaylistAlbum>
-          <PageTitle>{type ==="playlist" ? "Playlist":"Album"}</PageTitle>
-          <Link to={type !=="playlist" ? "/user/library/playlist":"/user/library/album"}>
-            <PageChanger>{type !=="playlist" ? "Playlist":"Album"}</PageChanger>
+          <PageTitle>{type ==="Playlist" ? "Playlist":"Albums"}</PageTitle>
+          <Link to={type !=="Playlist" ? "/user/library/Playlist":"/user/library/Album"}>
+            <PageChanger>{type !=="Playlist" ? "Playlist":"Albums"}</PageChanger>
           </Link>
-        </DivChangePlaylistAlbum> : null
+        </DivChangePlaylistAlbum>
         }
-        <ListPlaylists name="My Playlists"/>
-        <ListPlaylists name="Followed Playlists" />
+        <ListPlaylists name={"My " + type + "s"}/>
+        <ListPlaylists name={"Followed " + type + "s"} />
     </GeneralDivMenu>
   )
 }

@@ -1,27 +1,32 @@
-import { GeneralDiv, PageTitle, DivTypePlaylist,Subtitle, ImgPlaylist, DivInfoPlaylist, TitlePlaylist, DivAllPlaylist} from "../../../../Styles/Pages/Users/MenuPlaylistsStyle";
+import { GeneralDiv, DivTypePlaylist,Subtitle, DivAllPlaylist, BtnAddNew, DivBtnAddNew} from "../../../../Styles/Pages/Users/MenuPlaylistsStyle";
 import { PlaylistDisplay } from "./PlaylistDisplay";
 import { Link} from "react-router-dom";
+import { useParams } from "react-router-dom";
 
 export const ListPlaylists = ({name}) => {
+  const {type} = useParams();
   return (
     <GeneralDiv>
         <DivTypePlaylist>
             <Subtitle>{name}</Subtitle>
             <DivAllPlaylist>
               <Link to = "/playlist">
-                <PlaylistDisplay name = "Sad Playlist"/>
+                <PlaylistDisplay name = {"Sad "+ type}/>
               </Link>
               <Link to = "/playlist">
-                <PlaylistDisplay name ="Chill Playlist" />
+                <PlaylistDisplay name ={"Chill "+ type} />
               </Link>
               <Link to = "/playlist">
-              < PlaylistDisplay name ="Rock Playlist"/>
+              < PlaylistDisplay name ={"Rock "+ type}/>
               </Link>
               <Link to = "/playlist">
-                <PlaylistDisplay name = "Sad Playlist"/>
+                <PlaylistDisplay name = {"Hola Beats "+ type}/>
               </Link>
             </DivAllPlaylist>
         </DivTypePlaylist>
+        <DivBtnAddNew>
+          <BtnAddNew>Add new {type}</BtnAddNew>
+        </DivBtnAddNew>
     </GeneralDiv>
     
   )
