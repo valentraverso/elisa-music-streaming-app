@@ -3,6 +3,9 @@ import { colors, device } from "../../config.jsx";
 
 export const GeneralDivMenu = styled.div`
     margin: 0 auto;
+    @media ${device.mobile} {
+        margin-bottom: 10vh;
+    }
 `
 
 export const DivPlaylistsDisplay = styled.div`
@@ -23,6 +26,8 @@ export const GeneralDiv = styled.div`
         margin: 2% auto;
     }
 `
+
+// Manage change between PLAYLISTS and ALBUMS
 
 export const DivChangePlaylistAlbum = styled.div`
     width: 200px;
@@ -47,6 +52,8 @@ export const PageChanger = styled.p`
     margin: 0px auto;
 `
 
+// Show TyoeOfPlaylists
+
 export const DivTypePlaylist = styled.div`
 
 `
@@ -55,6 +62,8 @@ export const Subtitle = styled.p`
 
 `
 
+// div with all the PLAYLISTS. Exp: MY PLAYLISTS, followed playlists
+
 export const DivAllPlaylist = styled.div`
     @media ${device.desktop} {
         display: flex;
@@ -62,6 +71,7 @@ export const DivAllPlaylist = styled.div`
         gap: 4%;
     }
 `
+// Inside DivAllPlaylist, General INFO PLAYLIST
 
 export const DivPlaylists = styled.div`
     display: grid;
@@ -80,6 +90,8 @@ export const ImgPlaylist = styled.img`
     }
 `
 
+// Inside DivPlaylists, TITLE AND INFO OF THE PLAYLIST, div, title(p) and info(p)
+
 export const DivInfoPlaylist = styled.div`
     display: flex;
     flex-direction: column;
@@ -92,4 +104,21 @@ export const TitlePlaylist = styled.p`
 
 export const InfoPlaylist = styled.p`
     font-size: 12px;
+`
+
+
+// ADD NEW, div and button
+
+export const DivBtnAddNew=styled.div`
+    margin-top: 3%;
+    display: flex;
+    margin-right: 8%;
+    justify-content: end;
+`
+
+export const BtnAddNew = styled.button`
+    margin-top: 3%;
+    border: none;
+    font-weight: bold;
+    cursor: pointer;
 `
