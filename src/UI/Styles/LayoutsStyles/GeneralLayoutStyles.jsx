@@ -7,7 +7,8 @@ width: 90%;
 margin: 5% auto;
 min-height: 90vh;
 @media ${device.desktop}{
-    min-height: 60vh;
+    min-height: 70vh;
+    margin: 2% auto;
 }
 `
 
