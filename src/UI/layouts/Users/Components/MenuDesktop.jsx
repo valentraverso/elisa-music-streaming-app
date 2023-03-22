@@ -5,9 +5,12 @@ import { Link, NavLink } from 'react-router-dom';
 import { IconAddAlbum, IconSettings, IconAvatar, ContainerIconsMenuLibrary, UserAvatar } from "../../../Styles/LayoutsStyles/BarLibraryStyle";
 import { useAuth0 } from "@auth0/auth0-react";
 import { links } from "../../../config.links";
+import { SearchBarContainer, SearchBarIcon, SearchBarInput, IconSearch } from "../../../Styles/LayoutsStyles/SearchBarStyle"
+import { colors } from "../../../Styles/config";
 
-export default function MenuDesktop() {
+export default function MenuDesktop({ search = false }) {
     const { user } = useAuth0();
+
 
     return (
         <Main>
@@ -23,9 +26,18 @@ export default function MenuDesktop() {
                         <NavLink to="/">
                             <BiHomeAlt2 />
                         </NavLink>
-                        <NavLink to="/search">
-                            <BiSearch />
-                        </NavLink>
+                        {
+                            search ?
+                                <SearchBarContainer>
+                                    <SearchBarIcon><IconSearch stroke={colors.black} fill={colors.black} /></SearchBarIcon>
+                                    <SearchBarInput />
+                                </SearchBarContainer>
+                                :
+                                <NavLink to="/search">
+                                    <BiSearch />
+                                </NavLink>
+                        }
+
                         <NavLink to={links.library}>
                             <BiLibrary />
                         </NavLink>
@@ -38,7 +50,7 @@ export default function MenuDesktop() {
                     <Link to={links.upload}>
                         <IconAddAlbum />
                     </Link>
-                    <Link to={ links.profile }>
+                    <Link to={links.profile}>
                         <IconAvatar>
                             <UserAvatar src={user?.picture} />
                         </IconAvatar>
