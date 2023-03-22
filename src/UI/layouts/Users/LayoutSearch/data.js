@@ -1,4 +1,4 @@
-export const playlistsRecomendados = [
+export const playlistsRecomendados2 = [
     {
         autor: "Artista 1",
         cancion: "Cancion 1",
@@ -17,7 +17,7 @@ export const playlistsRecomendados = [
 ];
 
 
-const BighestHits = [
+const BighestHits2 = [
     {
         autor: "Artista 1",
         cancion: "Canción 1",
@@ -35,7 +35,7 @@ const BighestHits = [
     }
 ];
 
-const Throwbackjams = [
+const Throwbackjams2 = [
     {
         autor: "Artista 1",
         cancion: "Canción 1",

@@ -9,7 +9,7 @@ export const ContainerIconsMenuLibrary = styled.div`
   height: 100%;
   width: 30%;
   position: fixed;
-  top: -31rem;
+  top: -45%;
   left: 70%;
   display: flex;
   justify-content: end;

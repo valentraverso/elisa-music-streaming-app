@@ -2,7 +2,7 @@ import { Main } from "../../../Styles/LayoutsStyles/LayoutMainStyle";
 import { ResultsNotFound, SearchBarContainer, SearchBarIcon, SearchBarInput, IconSearch, RecentSearch, RecentSearchListContainer, RecentSearchListElements } from "../../../Styles/LayoutsStyles/SearchBarStyleDesktop";
 import { SideBar } from "../Components/SideBar"; 
 import { useState, useEffect } from "react";
-import { playlistsRecomendados } from "./data";
+import { playlistsRecomendados2 } from "./data";
 
 function SearchBarPage() {
   const [searchTerm, setSearchTerm] = useState("");
@@ -14,7 +14,7 @@ function SearchBarPage() {
     if (searchTerm.trim() !== "") {
       setRecentSearches([...recentSearches, searchTerm]);
       setSearchResults(
-        playlistsRecomendados.filter((playlist) =>
+        playlistsRecomendados2.filter((playlist) =>
           playlist.cancion.toLowerCase().includes(searchTerm.toLowerCase())
         )
       );

@@ -5,7 +5,8 @@ import { device } from "../config";
 export const Main = styled.div`
 position: relative;
 height: 60px;
-width: 100%;
+width: 10%;
+
 `;
 
 export const Navbar = styled.div`
