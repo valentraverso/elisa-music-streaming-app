@@ -50,11 +50,11 @@ const router = createBrowserRouter([
         ]
     },
     {
-        element:<LayoutLibrary/>,
+        element:<PrivateRoutes><LayoutLibrary/></PrivateRoutes>,
         children:[
             {
                 path:'/library',
-                element:<PrivateRoutes><Library /></PrivateRoutes>
+                element:<Library />
             },
             {
                 path:'/playlist',

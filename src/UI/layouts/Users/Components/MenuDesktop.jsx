@@ -1,12 +1,12 @@
 import { Main, Logo, LogoLetters, StyledLink, Navbar, LogoContainer } from "../../../Styles/LayoutsStyles/NavbarStyle";
 import { SideBarContainer, IconsContainer } from '../../../Styles/LayoutsStyles/SideBarStyle'
 import { BiHomeAlt2, BiSearch, BiLibrary } from "react-icons/bi";
-import { NavLink } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
 import { IconAddAlbum, IconSettings, IconAvatar, ContainerIconsMenuLibrary, UserAvatar } from "../../../Styles/LayoutsStyles/BarLibraryStyle";
 import { useAuth0 } from "@auth0/auth0-react";
 
 export default function MenuDesktop() {
-    const { user} = useAuth0();
+    const { user } = useAuth0();
 
     return (
         <Main>
@@ -32,7 +32,9 @@ export default function MenuDesktop() {
                 </SideBarContainer>
                 <ContainerIconsMenuLibrary>
                     <IconSettings />
-                    <IconAddAlbum />
+                    <Link to='/user/upload'>
+                        <IconAddAlbum />
+                    </Link>
                     <IconAvatar>
                         <UserAvatar src={user?.picture} />
                     </IconAvatar>
