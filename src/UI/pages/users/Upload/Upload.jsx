@@ -1,7 +1,7 @@
 import { useState } from "react";
 import ReactImageUploading from "react-images-uploading";
 import TitleCenterPage from "../../../components/TitleCenterPage/TitleCenterPage";
-import { SpanDragorClick, PlacerDivUpload, PlacerImageUpload, ContainerUploaderImage, IconNoUploadImage } from "../../../Styles/Pages/Users/UploadStyle";
+import { SpanDragorClick, PlacerDivUpload, PlacerImageUpload, ContainerUploaderImage, IconNoUploadImage, InputForm, LabelInputForm, ContainerInputs } from "../../../Styles/Pages/Users/UploadStyle";
 
 export function Upload() {
   const [imageUpload, setImageUpload] = useState();
@@ -19,7 +19,7 @@ export function Upload() {
         value={imageUpload}
         onChange={handlerImageUpload}
         acceptType={['jpg', 'gif', 'png', 'webp']}
-        dataURLKey="album_img_url"
+        dataURLKey="albumImgUrl"
       >
         {
           ({ imageList,
@@ -33,7 +33,7 @@ export function Upload() {
                 <PlacerDivUpload onClick={onImageUpload} {...dragProps}>
                   {
                     imageUpload ?
-                      <PlacerImageUpload src={imageUpload[0].album_img_url} />
+                      <PlacerImageUpload src={imageUpload[0].albumImgUrl} />
                       :
                       <IconNoUploadImage />
                   }
@@ -45,7 +45,11 @@ export function Upload() {
           }
         }
       </ReactImageUploading>
-      
+      <ContainerInputs>
+        <LabelInputForm for='albumTitle'>Album title</LabelInputForm><br />
+        <InputForm type='text' name='albumTitle' />
+      </ContainerInputs>
+      <LabelInputForm for='albumTitle'>Genre</LabelInputForm><br />
     </>
   )
 }

@@ -32,3 +32,22 @@ export const IconNoUploadImage = styled(HiOutlinePencil)`
 font-size:5rem;
 background: ${colors.grey};
 `
+
+export const ContainerInputs = styled.div`
+margin: 4% 0;
+`
+
+export const LabelInputForm = styled.label`
+`
+
+export const InputForm = styled.input`
+border: 0;
+    border-bottom: 1px solid ${colors.white};
+    width: 100%;
+    font-size: 1.5rem;
+    padding: 10px 0 5px;
+&:focus{
+    outline:none;
+    border-bottom: 1px solid ${colors.blue};
+}
+`
