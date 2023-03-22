@@ -2,6 +2,8 @@ import { ContainerProfile, ContainerTopProfile, ImageProfile, H1NameProfile, Div
 import FollowButton from "../../../components/FollowButton/FollowButton";
 import { useAuth0 } from "@auth0/auth0-react";
 import TitleCenterPage from "../../../components/TitleCenterPage/TitleCenterPage";
+import { links } from "../../../config.links";
+import { Link } from "react-router-dom";
 
 
 export function Profile() {
@@ -14,9 +16,13 @@ export function Profile() {
                 <ImageProfile src={picture} />
                 <H1NameProfile>{name}</H1NameProfile>
                 <DivInfoProfile>
-                    <SpanInfoProfile>15 Followers</SpanInfoProfile>
+                    <Link to={links.connections + "/followers"}>
+                        <SpanInfoProfile>15 Followers</SpanInfoProfile>
+                    </Link>
                     |
-                    <SpanInfoProfile>10 Following</SpanInfoProfile>
+                    <Link to={links.connections + "/following"}>
+                        <SpanInfoProfile>10 Following</SpanInfoProfile>
+                    </Link>
                 </DivInfoProfile>
                 <DivInfoProfile>
                     <SpanInfoProfile>5 playlists</SpanInfoProfile>

@@ -6,7 +6,7 @@ import {LayoutMain, LayoutSearch, LayoutLibrary} from '../UI/layouts/Users/';
 import { LayoutOnlySidebar } from "../UI/layouts/Users/LayoutOnlySidebar/LayoutOnlySidebar";
 
 // Pages
-import { Login, Main, Profile, Settings, Connections, Library} from "../UI/pages/users";
+import { Login, Main, Profile, Settings, Connections, Library, Upload} from "../UI/pages/users";
 import { Playlist } from "../UI/pages/users/Playlist/Playlist";
 import PrivateRoutes from "./RouteTypes";
 
@@ -17,10 +17,6 @@ const router = createBrowserRouter([
             {
                 path:'/',
                 element:<PrivateRoutes><Main /></PrivateRoutes>
-            },
-            {
-                path: '/connections/:typeConnection',
-                element: <PrivateRoutes><Connections /></PrivateRoutes>
             }
         ]
     },
@@ -42,7 +38,14 @@ const router = createBrowserRouter([
             },
             {
                 path: '/user/settings',
-                element: <PrivateRoutes><Settings /></PrivateRoutes>
+                element: <Settings />
+            },
+            {
+                path: '/connections/:typeConnection',
+                element: <Connections />
+            },{
+                path: '/user/upload',
+                element: <Upload />
             }
         ]
     },

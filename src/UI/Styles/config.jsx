@@ -26,6 +26,7 @@ export const GlobalStyle = createGlobalStyle`
   }
   a {
     color: ${colors.white};
+    text-decoration: none;
   }
 `
 

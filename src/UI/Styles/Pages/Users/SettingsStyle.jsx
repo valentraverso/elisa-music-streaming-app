@@ -2,7 +2,6 @@ import styled from "styled-components";
 import { colors } from "../../config";
 
 export const ContainerSettings = styled.div`
-width: 90%;
 margin: auto;
 `
 export const ContainerTitleSettings = styled.div`
@@ -20,6 +19,5 @@ export const TitleSetting = styled.span`
 export const LogOutButton = styled.span`
 position: absolute;
     bottom: 20px;
-    right: 10%;
     color:${colors.grey}
     `

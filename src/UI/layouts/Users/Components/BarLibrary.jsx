@@ -13,7 +13,9 @@ export const BarLibrary = () => {
                 <Link to={links.settings}>
                     <IconSettings />
                 </Link>
-                <IconAddAlbum />
+                <Link to={links.upload}>
+                    <IconAddAlbum />
+                </Link>
                 <Link to={links.profile}>
                     <IconAvatar>
                         <UserAvatar src={user?.picture} />
