@@ -4,6 +4,7 @@ import TitleCenterPage from "../../../components/TitleCenterPage/TitleCenterPage
 import { SpanDragorClick, PlacerDivUpload, PlacerImageUpload, ContainerUploaderImage, IconNoUploadImage, InputForm, LabelInputForm, ContainerInputs, SpanGenreButton, ContainerButtonsGenre, PViewMore, ButtonAddTrack, SpanDeleteSong, ContainerUpload, ContainerDeleteSong, ButtonUploadAlbum, ContainerUploadButton } from "../../../Styles/Pages/Users/UploadStyle";
 import { AiOutlineDelete } from 'react-icons/ai';
 import UseWidth from "../../../../helpers/hooks/useWidth";
+import { links } from "../../../config.links";
 
 export function Upload() {
   const width = UseWidth();
@@ -25,7 +26,7 @@ export function Upload() {
     <ContainerUpload>
       {
         width !== 'desktop' &&
-        <TitleCenterPage title='Upload' back={true} link='/library' />
+        <TitleCenterPage title='Upload' back={true} link={links.library} />
       }
       <ReactImageUploading
         value={imageUpload}
