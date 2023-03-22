@@ -20,7 +20,6 @@ export const GlobalStyle = createGlobalStyle`
     font-family: 'Rubik', sans-serif;
     background-color: #0A1428;
     box-sizing: border-box;
-    height: 100rem;
     margin: 0;
     padding: 0;
     color: ${colors.white}

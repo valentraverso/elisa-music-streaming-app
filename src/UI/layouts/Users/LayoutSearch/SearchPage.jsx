@@ -1,5 +1,5 @@
 import { Main } from "../../../Styles/LayoutsStyles/LayoutMainStyle";  
-import { SearchBar } from "../Components/SearchBar"; 
+import { ResultsNotFound, SearchBarContainer, SearchBarIcon, SearchBarInput, IconSearch, RecentSearch, RecentSearchListContainer, RecentSearchListElements } from "../../../Styles/LayoutsStyles/SearchBarStyleDesktop";
 import { SideBar } from "../Components/SideBar"; 
 import { useState, useEffect } from "react";
 import { playlistsRecomendados } from "./data";
@@ -11,7 +11,14 @@ function SearchBarPage() {
 
   const handleSearch = (event) => {
     event.preventDefault();
-    setRecentSearches([...recentSearches, searchTerm]);
+    if (searchTerm.trim() !== "") {
+      setRecentSearches([...recentSearches, searchTerm]);
+      setSearchResults(
+        playlistsRecomendados.filter((playlist) =>
+          playlist.cancion.toLowerCase().includes(searchTerm.toLowerCase())
+        )
+      );
+    }
   };
 
   const handleSearchTermChange = (event) => {
@@ -19,35 +26,43 @@ function SearchBarPage() {
   };
 
   useEffect(() => {
-    const filteredResults = playlistsRecomendados.filter((playlist) =>
-      playlist.cancion.toLowerCase().includes(searchTerm.toLowerCase())
-    );
-    setSearchResults(filteredResults);
+    if (searchTerm.trim() === "") {
+      setSearchResults([]);
+    }
   }, [searchTerm]);
 
   return (
     <Main>
       <SideBar />
-      <div>
-        <input value={searchTerm} onChange={handleSearchTermChange} onSubmit={handleSearch} />
-        <div>
-          Recent searches: 
-          <ul>
-            {recentSearches.map((search, index) => (
-              <li key={index}>{search}</li>
-            ))}
-          </ul>
-        </div>
-        {searchResults.length > 0 ? (
-          <ul>
-            {searchResults.map((playlist) => (
-              <li key={playlist.id}>{playlist.cancion}</li>
-            ))}
-          </ul>
-        ) : (
-          <p>No se encontraron resultados</p>
+      <SearchBarContainer>
+        <form onSubmit={handleSearch}>
+          <SearchBarInput value={searchTerm} onChange={handleSearchTermChange} placeholder="Search" />
+          <SearchBarIcon type="submit">
+            <IconSearch />
+          </SearchBarIcon>
+        </form>
+  </SearchBarContainer>
+    
+        {searchTerm.trim() === "" && recentSearches.length > 0 && (
+          <RecentSearch>
+            Recent searches: 
+            <RecentSearchListContainer>
+              {recentSearches.map((search, index) => (
+                <RecentSearchListElements key={index}>{search}</RecentSearchListElements>
+              ))}
+            </RecentSearchListContainer>
+          </RecentSearch>
         )}
-      </div>
+  
+        {searchResults.length > 0 ? (
+          <RecentSearchListContainer>
+            {searchResults.map((playlist) => (
+              <RecentSearchListElements key={playlist.id}>{playlist.cancion}</RecentSearchListElements>
+            ))}
+          </RecentSearchListContainer>
+        ) : (
+          searchTerm.trim() !== "" && <ResultsNotFound>No se encontraron resultados</ResultsNotFound>
+        )}
     </Main>
   );
 }
