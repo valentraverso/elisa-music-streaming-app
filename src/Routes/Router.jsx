@@ -2,7 +2,7 @@
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 
 // Layouts
-import {LayoutMain, SearchBarPage, LayoutLibrary, LayoutSearch} from '../UI/layouts/Users/';
+import {LayoutMain, LayoutLibrary, LayoutSearch} from '../UI/layouts/Users/';
 
 // Pages
 import { Login, Main, Profile, Settings, Connections } from "../UI/pages/users";

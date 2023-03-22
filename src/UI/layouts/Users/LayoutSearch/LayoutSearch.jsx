@@ -4,7 +4,6 @@ import { SearchBar } from "../Components/SearchBar";
 import { SearchBarDesktop } from "../Components/SearchBarDesktop";
 import { SideBar } from "../Components/SideBar";
 import UseWidth from "../../../../helpers/hooks/useWidth";
-import { SearchBarPage } from "./SearchPage";
 
 
 
@@ -20,13 +19,12 @@ function LayoutSearch() {
   
     return(
       <Main>
-        <SearchBarPage />
+        
         {isMobile && <SearchBar/>}
         <Outlet /> 
         {isTabletOrAbove && 
         <>
           
-         
         </>
         }
       </Main>    
