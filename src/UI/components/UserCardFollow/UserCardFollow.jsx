@@ -2,7 +2,7 @@ import { ContainerUserCard, ContainerUserInfo, UserImage, UserName } from "../..
 import FollowButton from "../FollowButton/FollowButton";
 
 
-export default function UserCardFollow({avatar = '/assets/images/dif/avatar/adam-sandler.webp', name = 'Elisa User', status = false}) {
+export default function UserCardFollow({avatar = '/assets/images/dif/avatar/adam-sandler.webp', name = 'Elisa User', status = 'Follow'}) {
   return (
     <ContainerUserCard>
         <ContainerUserInfo>
@@ -12,7 +12,7 @@ export default function UserCardFollow({avatar = '/assets/images/dif/avatar/adam
           <UserName>{name}</UserName>
         </ContainerUserInfo>
         <ContainerUserInfo>
-          <FollowButton status='Follow' />
+          <FollowButton status={status} />
         </ContainerUserInfo>
     </ContainerUserCard>
   )
