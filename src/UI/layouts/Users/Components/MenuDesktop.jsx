@@ -1,12 +1,13 @@
 import { Main, Logo, LogoLetters, StyledLink, Navbar, LogoContainer } from "../../../Styles/LayoutsStyles/NavbarStyle";
 import { SideBarContainer, IconsContainer } from '../../../Styles/LayoutsStyles/SideBarStyle'
 import { BiHomeAlt2, BiSearch, BiLibrary } from "react-icons/bi";
-import { NavLink } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
 import { IconAddAlbum, IconSettings, IconAvatar, ContainerIconsMenuLibrary, UserAvatar } from "../../../Styles/LayoutsStyles/BarLibraryStyle";
 import { useAuth0 } from "@auth0/auth0-react";
+import { links } from "../../../config.links";
 
 export default function MenuDesktop() {
-    const { user} = useAuth0();
+    const { user } = useAuth0();
 
     return (
         <Main>
@@ -25,17 +26,23 @@ export default function MenuDesktop() {
                         <NavLink to="/search">
                             <BiSearch />
                         </NavLink>
-                        <NavLink to="/library">
+                        <NavLink to={links.library}>
                             <BiLibrary />
                         </NavLink>
                     </IconsContainer>
                 </SideBarContainer>
                 <ContainerIconsMenuLibrary>
-                    <IconSettings />
-                    <IconAddAlbum />
-                    <IconAvatar>
-                        <UserAvatar src={user?.picture} />
-                    </IconAvatar>
+                    <Link to={links.settings}>
+                        <IconSettings />
+                    </Link>
+                    <Link to={links.upload}>
+                        <IconAddAlbum />
+                    </Link>
+                    <Link to={ links.profile }>
+                        <IconAvatar>
+                            <UserAvatar src={user?.picture} />
+                        </IconAvatar>
+                    </Link>
                 </ContainerIconsMenuLibrary>
             </Navbar>
         </Main>

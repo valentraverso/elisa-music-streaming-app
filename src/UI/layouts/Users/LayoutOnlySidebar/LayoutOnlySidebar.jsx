@@ -2,6 +2,7 @@ import { SideBar } from "../Components/SideBar";
 import UseWidth from "../../../../helpers/hooks/useWidth";
 import { Outlet } from "react-router-dom";
 import { Main } from "../../../Styles/LayoutsStyles/GeneralLayoutStyles";
+import MenuDesktop from "../Components/MenuDesktop";
 
 export function LayoutOnlySidebar() {
     const width = UseWidth({
@@ -10,18 +11,24 @@ export function LayoutOnlySidebar() {
         1024: 'desktop',
     });
 
-    const isMobile = width === 'mobile';
-    const isTabletOrAbove = width !== 'mobile';
-
-
-    if (isMobile) {
+    if (width === 'desktop') {
         return (
             <>
-            <Main>
-                <Outlet />
-            </Main>
-                <SideBar />
+                <MenuDesktop />
+                <Main>
+                    <Outlet />
+                </Main>
             </>
         )
     }
+
+    return (
+        <>
+            <Main>
+                <Outlet />
+            </Main>
+            <SideBar />
+        </>
+    )
+
 }
