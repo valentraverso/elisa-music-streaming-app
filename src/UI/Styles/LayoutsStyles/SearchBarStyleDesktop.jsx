@@ -3,6 +3,7 @@ import { colors } from "../config";
 import { BiSearch } from "react-icons/bi"
 
 export const SearchBarContainer = styled.div`
+    position: fixed;
     display: flex;
     justify-content: center;
     height: 100%;

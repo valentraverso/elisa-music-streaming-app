@@ -10,6 +10,7 @@ export const Main = styled.div`
 `;
 
 export const Navbar = styled.div`
+position: fixed;
 display: grid;
 grid-template-columns: 30% 70%;
 width: 100%;
