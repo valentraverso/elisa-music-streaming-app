@@ -1,7 +1,8 @@
 import { useState } from "react";
 import ReactImageUploading from "react-images-uploading";
 import TitleCenterPage from "../../../components/TitleCenterPage/TitleCenterPage";
-import { SpanDragorClick, PlacerDivUpload, PlacerImageUpload, ContainerUploaderImage, IconNoUploadImage, InputForm, LabelInputForm, ContainerInputs, SpanGenreButton, ContainerButtonsGenre, PViewMore, ButtonAddTrack } from "../../../Styles/Pages/Users/UploadStyle";
+import { SpanDragorClick, PlacerDivUpload, PlacerImageUpload, ContainerUploaderImage, IconNoUploadImage, InputForm, LabelInputForm, ContainerInputs, SpanGenreButton, ContainerButtonsGenre, PViewMore, ButtonAddTrack, SpanDeleteSong, ContainerUpload, ContainerDeleteSong, ButtonUploadAlbum, ContainerUploadButton } from "../../../Styles/Pages/Users/UploadStyle";
+import {AiOutlineDelete} from 'react-icons/ai';
 
 export function Upload() {
   const [imageUpload, setImageUpload] = useState();
@@ -18,7 +19,7 @@ export function Upload() {
   console.log(songsUpload)
 
   return (
-    <>
+    <ContainerUpload>
       <TitleCenterPage title='Upload' back={true} link='/library' />
       <ReactImageUploading
         value={imageUpload}
@@ -100,6 +101,9 @@ export function Upload() {
                             <LabelInputForm htmlFor={`songFeat-${index}`}>Feat</LabelInputForm><br />
                             <InputForm type='text' name={`songFeat-${index}`} maxLength={50}/>
                           </ContainerInputs>
+                          <ContainerDeleteSong>
+                          <SpanDeleteSong onClick={() => onSongRemove(index)} >Delete track <AiOutlineDelete /></SpanDeleteSong>
+                          </ContainerDeleteSong>
                         </div>
                       )
                     })
@@ -110,6 +114,12 @@ export function Upload() {
           }
         </ReactImageUploading>
       </ContainerInputs>
-    </>
+      {
+        songsUpload.length >= 1 &&
+      <ContainerUploadButton>
+      <ButtonUploadAlbum>Upload</ButtonUploadAlbum>
+      </ContainerUploadButton>
+      }
+    </ContainerUpload>
   )
 }
