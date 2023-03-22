@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import FollowButton from "../../../components/FollowButton/FollowButton";
 import { device } from "../../config";
 
 export const ContainerProfile = styled.div``
@@ -38,10 +39,29 @@ export const H1NameProfile = styled.h1`
 font-size: 25px;
     font-weight: 800;
     margin: 10px 0;
+@media ${device.desktop}{
+    font-size:40px;
+}
+`
+
+export const DivConnectionsProfile = styled.div`
+@media ${device.desktop}{
+    display: flex;
+    justify-content: space-between;
+}`
+
+export const DivDiscographyProfile = styled.div`
+@media ${device.desktop}{
+    display: flex;
+    justify-content: space-between;
+}
 `
 
 export const DivInfoProfile = styled.div`
-
+@media ${device.desktop}{
+    width: 75%;
+    font-size:1.2rem;
+}
 `
 
 export const SpanInfoProfile = styled.span`
