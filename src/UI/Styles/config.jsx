@@ -9,7 +9,7 @@ export const colors = {
 }
 
 export const device = {
-  "desktop": `(min-width: 768px)`,
+  "desktop": `(min-width: 1024px)`,
   "tablet": `(min-width: 480px)`,
   "mobile": `(max-width: 480px)`
 }

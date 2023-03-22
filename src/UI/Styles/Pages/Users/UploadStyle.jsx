@@ -3,6 +3,10 @@ import {HiOutlinePencil} from "react-icons/hi"
 import { colors } from "../../config";
 import { ButtonFollowStyled } from "../../components/FollowButtonStyle";
 
+export const ContainerUpload = styled.div`
+margin-bottom: 130px;
+`
+
 export const ContainerUploaderImage = styled.div`
 display: flex;
     flex-direction: column;
@@ -45,7 +49,7 @@ export const InputForm = styled.input`
 border: 0;
     border-bottom: 1px solid ${colors.white};
     width: 100%;
-    font-size: 1.5rem;
+    font-size: 1.2rem;
     padding: 10px 0 5px;
 &:focus{
     outline:none;
@@ -69,4 +73,31 @@ color:${colors.grey};
 
 export const ButtonAddTrack = styled(ButtonFollowStyled)`
 margin: 0;
+`
+
+export const ContainerDeleteSong = styled.div`
+height: 1.5rem;
+    display: block;
+    `
+
+export const SpanDeleteSong = styled.span`
+float: right;
+display: flex;
+& > svg{
+    font-size: 1.2rem;
+}
+`
+
+export const ContainerUploadButton = styled.div`
+display: flex;
+    justify-content: center;
+    margin-top: 10%;
+`
+
+export const ButtonUploadAlbum = styled.button`
+font-size: 1.5rem;
+    border: 0;
+    border-radius: 5px;
+    background: blue;
+    padding: 10px 20%;
 `
