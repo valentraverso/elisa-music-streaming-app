@@ -11,7 +11,7 @@ export const ContainerIconsMenuLibrary = styled.div`
     align-items: center;
     column-gap: 5%;
     @media ${device.desktop}{
-        column-gap:1%;
+        justify-content:center;
     }
 `
 

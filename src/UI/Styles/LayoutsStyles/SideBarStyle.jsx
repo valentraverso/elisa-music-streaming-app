@@ -11,6 +11,7 @@ export const SideBarContainer = styled.div `
     color: ${colors.white};
     @media ${device.desktop} {
         position:relative;
+        height: 100%;
     }
 `
 

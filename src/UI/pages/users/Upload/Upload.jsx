@@ -1,16 +1,19 @@
 import { useState } from "react";
 import ReactImageUploading from "react-images-uploading";
 import TitleCenterPage from "../../../components/TitleCenterPage/TitleCenterPage";
-import { SpanDragorClick, PlacerDivUpload, PlacerImageUpload, ContainerUploaderImage, IconNoUploadImage, InputForm, LabelInputForm, ContainerInputs } from "../../../Styles/Pages/Users/UploadStyle";
+import { SpanDragorClick, PlacerDivUpload, PlacerImageUpload, ContainerUploaderImage, IconNoUploadImage, InputForm, LabelInputForm, ContainerInputs, SpanGenreButton, ContainerButtonsGenre, PViewMore, ButtonAddTrack } from "../../../Styles/Pages/Users/UploadStyle";
 
 export function Upload() {
   const [imageUpload, setImageUpload] = useState();
+  const [songsUpload, setSongsUpload] = useState();
 
   const handlerImageUpload = (imageList) => {
     setImageUpload(imageList);
   }
 
-  console.log(imageUpload)
+  const handlerSongsUpload = (songList) => {
+    setSongsUpload(songList);
+  }
 
   return (
     <>
@@ -49,7 +52,49 @@ export function Upload() {
         <LabelInputForm for='albumTitle'>Album title</LabelInputForm><br />
         <InputForm type='text' name='albumTitle' />
       </ContainerInputs>
-      <LabelInputForm for='albumTitle'>Genre</LabelInputForm><br />
+      <ContainerInputs>
+        <LabelInputForm>Genre</LabelInputForm><br />
+        <ContainerButtonsGenre>
+          <SpanGenreButton>Rock</SpanGenreButton>
+          <SpanGenreButton>Pop</SpanGenreButton>
+          <SpanGenreButton>Hip Hop</SpanGenreButton>
+          <SpanGenreButton>Reggaeton</SpanGenreButton>
+          <SpanGenreButton>Indie</SpanGenreButton>
+          <SpanGenreButton>Rap</SpanGenreButton>
+        </ContainerButtonsGenre>
+        <PViewMore>View more</PViewMore>
+      </ContainerInputs>
+      <ContainerInputs>
+        <ReactImageUploading
+          value={songsUpload}
+          onChange={handlerSongsUpload}
+          acceptType={['jpg', 'gif', 'png', 'webp']}
+          dataURLKey="albumImgUrl"
+        >
+          {
+            ({ imageList: songList,
+              onImageUpload: onSongUpload,
+              onImageRemove: onSongRemove,
+              errors,
+             }) => {
+              return (
+                <ContainerUploaderImage>
+                  <PlacerDivUpload>
+                    {
+                      imageUpload ?
+                        <PlacerImageUpload src={imageUpload[0].albumImgUrl} />
+                        :
+                        <IconNoUploadImage />
+                    }
+
+                  </PlacerDivUpload>
+                  <ButtonAddTrack onClick={onSongUpload}>Add track</ButtonAddTrack>
+                </ContainerUploaderImage>
+              )
+            }
+          }
+        </ReactImageUploading>
+      </ContainerInputs>
     </>
   )
 }
