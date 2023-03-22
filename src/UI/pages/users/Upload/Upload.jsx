@@ -5,7 +5,7 @@ import { SpanDragorClick, PlacerDivUpload, PlacerImageUpload, ContainerUploaderI
 
 export function Upload() {
   const [imageUpload, setImageUpload] = useState();
-  const [songsUpload, setSongsUpload] = useState();
+  const [songsUpload, setSongsUpload] = useState([]);
 
   const handlerImageUpload = (imageList) => {
     setImageUpload(imageList);
@@ -73,22 +73,38 @@ export function Upload() {
           acceptType={['mp3']}
           dataURLKey="songURL"
           allowNonImageType
+          multiple
         >
           {
             ({ imageList: songList,
               onImageUpload: onSongUpload,
               onImageRemove: onSongRemove,
               errors,
-             }) => {
+            }) => {
               return (
-                <ContainerUploaderImage>
+                <>
                   <ButtonAddTrack onClick={onSongUpload}>Add track</ButtonAddTrack>
                   {
-                    songsUpload?.map((song) => {
-                      <p>{song}</p>
+                    songsUpload.map((song, index) => {
+                      return (
+                        <div key={index}>
+                          <ContainerInputs>
+                            <LabelInputForm htmlFor={`file-${index}`}>File</LabelInputForm><br />
+                            <InputForm type='text' value={song.file.name} name={`file-${index}`} />
+                          </ContainerInputs>
+                          <ContainerInputs>
+                            <LabelInputForm htmlFor={`songTitle-${index}`}>Song Title</LabelInputForm><br />
+                            <InputForm type='text' name={`songTitle-${index}`} maxLength={50}/>
+                          </ContainerInputs>
+                          <ContainerInputs>
+                            <LabelInputForm htmlFor={`songFeat-${index}`}>Feat</LabelInputForm><br />
+                            <InputForm type='text' name={`songFeat-${index}`} maxLength={50}/>
+                          </ContainerInputs>
+                        </div>
+                      )
                     })
                   }
-                </ContainerUploaderImage>
+                </>
               )
             }
           }
