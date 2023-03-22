@@ -24,11 +24,27 @@ export const GeneralDiv = styled.div`
     }
 `
 
+export const DivChangePlaylistAlbum = styled.div`
+    width: 200px;
+    display: grid;
+    grid-template-columns: auto auto;
+    /* display: flex;
+    flex-direction: row;
+    gap: 10%; */
+`
+
 export const PageTitle = styled.p`
     font-size: 25px;
     font-weight: bold;
     width: 100%;
-    margin: 10px auto;
+    margin: 0px auto;
+
+`
+
+export const PageChanger = styled.p`
+    font-size: 25px;
+    width: 100%;
+    margin: 0px auto;
 `
 
 export const DivTypePlaylist = styled.div`

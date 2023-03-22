@@ -2,11 +2,11 @@
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 
 // Layouts
-import {LayoutMain, LayoutSearch, LayoutLibrary} from '../UI/layouts/Users/';
+import {LayoutMain, LayoutSearch, LayoutLibrary} from '../UI/layouts/Users';
 import { LayoutOnlySidebar } from "../UI/layouts/Users/LayoutOnlySidebar/LayoutOnlySidebar";
 
 // Pages
-import { Login, Main, Profile, Settings, Connections, Library, Upload} from "../UI/pages/users";
+import { Login, Main, Profile, Settings, Connections, Library, Upload, LibraryAlbums} from "../UI/pages/users";
 import { Playlist } from "../UI/pages/users/Playlist/Playlist";
 import PrivateRoutes from "./RouteTypes";
 
@@ -53,7 +53,7 @@ const router = createBrowserRouter([
         element:<PrivateRoutes><LayoutLibrary/></PrivateRoutes>,
         children:[
             {
-                path:'/library',
+                path:'/user/library/:type',
                 element:<Library />
             },
             {
