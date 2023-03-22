@@ -1,6 +1,7 @@
 import styled from "styled-components";
 import {HiOutlinePencil} from "react-icons/hi"
 import { colors } from "../../config";
+import { ButtonFollowStyled } from "../../components/FollowButtonStyle";
 
 export const ContainerUploaderImage = styled.div`
 display: flex;
@@ -50,4 +51,22 @@ border: 0;
     outline:none;
     border-bottom: 1px solid ${colors.blue};
 }
+`
+
+export const ContainerButtonsGenre = styled.div`
+display: grid;
+grid-template-columns: 1fr 1fr 1fr;
+`
+
+export const SpanGenreButton = styled(ButtonFollowStyled)`
+padding: 5px 0px;
+`
+
+export const PViewMore = styled.p`
+text-align: center;
+color:${colors.grey};
+`
+
+export const ButtonAddTrack = styled(ButtonFollowStyled)`
+margin: 0;
 `
