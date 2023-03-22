@@ -26,7 +26,7 @@ export default function MenuDesktop() {
                         <NavLink to="/search">
                             <BiSearch />
                         </NavLink>
-                        <NavLink to="/library">
+                        <NavLink to={links.library}>
                             <BiLibrary />
                         </NavLink>
                     </IconsContainer>
@@ -38,9 +38,11 @@ export default function MenuDesktop() {
                     <Link to={links.upload}>
                         <IconAddAlbum />
                     </Link>
-                    <IconAvatar>
-                        <UserAvatar src={user?.picture} />
-                    </IconAvatar>
+                    <Link to={ links.profile }>
+                        <IconAvatar>
+                            <UserAvatar src={user?.picture} />
+                        </IconAvatar>
+                    </Link>
                 </ContainerIconsMenuLibrary>
             </Navbar>
         </Main>

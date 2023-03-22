@@ -4,16 +4,21 @@ import { useAuth0 } from "@auth0/auth0-react";
 import TitleCenterPage from "../../../components/TitleCenterPage/TitleCenterPage";
 import { links } from "../../../config.links";
 import { Link } from "react-router-dom";
-
+import UseWidth from "../../../../helpers/hooks/useWidth";
 
 export function Profile() {
     const { user: { picture, name } } = useAuth0();
+    const width = UseWidth();
 
     return (
         <ContainerProfile>
-            <TitleCenterPage title='Profile' back={true} />
+            {
+                width !== 'desktop' &&
+                <TitleCenterPage title='Profile' back={true} />
+            }
             <ContainerTopProfile>
                 <ImageProfile src={picture} />
+                <div>
                 <H1NameProfile>{name}</H1NameProfile>
                 <DivInfoProfile>
                     <Link to={links.connections + "/followers"}>
@@ -30,6 +35,7 @@ export function Profile() {
                     <SpanInfoProfile>1 Album</SpanInfoProfile>
                 </DivInfoProfile>
                 <FollowButton status='Follow' />
+                </div>
             </ContainerTopProfile>
         </ContainerProfile>
     )
