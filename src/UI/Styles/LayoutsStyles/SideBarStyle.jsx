@@ -42,5 +42,6 @@ export const IconsContainer = styled.div`
     @media ${device.desktop}{
         border-top:0;
         border-bottom: 0.5px solid ${colors.white};
+        border: 0;
     }
 `

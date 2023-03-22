@@ -15,6 +15,8 @@ export function Upload() {
     setSongsUpload(songList);
   }
 
+  console.log(songsUpload)
+
   return (
     <>
       <TitleCenterPage title='Upload' back={true} link='/library' />
@@ -22,7 +24,7 @@ export function Upload() {
         value={imageUpload}
         onChange={handlerImageUpload}
         acceptType={['jpg', 'gif', 'png', 'webp']}
-        dataURLKey="albumImgUrl"
+        dataURLKey="albumImgURL"
       >
         {
           ({ imageList,
@@ -36,7 +38,7 @@ export function Upload() {
                 <PlacerDivUpload onClick={onImageUpload} {...dragProps}>
                   {
                     imageUpload ?
-                      <PlacerImageUpload src={imageUpload[0].albumImgUrl} />
+                      <PlacerImageUpload src={imageUpload[0].albumImgURL} />
                       :
                       <IconNoUploadImage />
                   }
@@ -49,7 +51,7 @@ export function Upload() {
         }
       </ReactImageUploading>
       <ContainerInputs>
-        <LabelInputForm for='albumTitle'>Album title</LabelInputForm><br />
+        <LabelInputForm htmlFor='albumTitle'>Album title</LabelInputForm><br />
         <InputForm type='text' name='albumTitle' />
       </ContainerInputs>
       <ContainerInputs>
@@ -68,8 +70,9 @@ export function Upload() {
         <ReactImageUploading
           value={songsUpload}
           onChange={handlerSongsUpload}
-          acceptType={['jpg', 'gif', 'png', 'webp']}
-          dataURLKey="albumImgUrl"
+          acceptType={['mp3']}
+          dataURLKey="songURL"
+          allowNonImageType
         >
           {
             ({ imageList: songList,
@@ -79,16 +82,12 @@ export function Upload() {
              }) => {
               return (
                 <ContainerUploaderImage>
-                  <PlacerDivUpload>
-                    {
-                      imageUpload ?
-                        <PlacerImageUpload src={imageUpload[0].albumImgUrl} />
-                        :
-                        <IconNoUploadImage />
-                    }
-
-                  </PlacerDivUpload>
                   <ButtonAddTrack onClick={onSongUpload}>Add track</ButtonAddTrack>
+                  {
+                    songsUpload?.map((song) => {
+                      <p>{song}</p>
+                    })
+                  }
                 </ContainerUploaderImage>
               )
             }
