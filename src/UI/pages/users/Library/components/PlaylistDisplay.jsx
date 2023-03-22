@@ -1,4 +1,4 @@
-import { DivPlaylistsDisplay, ImgPlaylist, DivInfoPlaylist, TitlePlaylist, InfoPlaylist} from "../../../../Styles/Pages/Users/MenuPlaylistsStyle"
+import { DivPlaylistsDisplay, ImgPlaylist, DivInfoPlaylist, TitlePlaylist, InfoPlaylist, DivAllPlaylist} from "../../../../Styles/Pages/Users/MenuPlaylistsStyle"
 
 
 export const PlaylistDisplay = (props) => {

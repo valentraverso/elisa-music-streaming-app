@@ -1,4 +1,4 @@
-import { GeneralDiv, PageTitle, DivTypePlaylist,Subtitle, ImgPlaylist, DivInfoPlaylist, TitlePlaylist, InfoPlaylist} from "../../../../Styles/Pages/Users/MenuPlaylistsStyle";
+import { GeneralDiv, PageTitle, DivTypePlaylist,Subtitle, ImgPlaylist, DivInfoPlaylist, TitlePlaylist, DivAllPlaylist} from "../../../../Styles/Pages/Users/MenuPlaylistsStyle";
 import { PlaylistDisplay } from "./PlaylistDisplay";
 import { useNavigate } from "react-router-dom";
 
@@ -8,9 +8,11 @@ export const ListPlaylists = ({name, data}) => {
     <GeneralDiv>
         <DivTypePlaylist>
             <Subtitle>{name}</Subtitle>
-            <PlaylistDisplay name = "Sad Playlist" onClick ={navigate("/playlist")}/>
-            <PlaylistDisplay name ="Chill Playlist" />
-            <PlaylistDisplay name ="Rock Playlist"/>
+            <DivAllPlaylist>
+              <PlaylistDisplay name = "Sad Playlist" onClick ={navigate("/playlist")}/>
+              <PlaylistDisplay name ="Chill Playlist" />
+              <PlaylistDisplay name ="Rock Playlist"/>
+            </DivAllPlaylist>
         </DivTypePlaylist>
     </GeneralDiv>
     

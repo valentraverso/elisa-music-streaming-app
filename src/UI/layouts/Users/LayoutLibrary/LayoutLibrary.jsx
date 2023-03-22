@@ -9,6 +9,23 @@ import MenuDesktop from "../Components/MenuDesktop";
 
 export function LayoutLibrary() {
     const { isLoading } = useAuth0();
+    const width = UseWidth({
+        0: 'mobile',
+        720: 'tablet',
+        1024: 'desktop',
+    });
+
+    if (width === 'desktop') {
+        return (
+            <>
+                <MenuDesktop />
+                <Main>
+                    <Outlet />
+                </Main>
+            </>
+        )
+    }
+
     return (
         <Main>
             {
