@@ -6,11 +6,7 @@ import { AiOutlineDelete } from 'react-icons/ai';
 import UseWidth from "../../../../helpers/hooks/useWidth";
 
 export function Upload() {
-  const width = UseWidth({
-    0: 'mobile',
-    720: 'tablet',
-    1024: 'desktop',
-  });
+  const width = UseWidth();
 
   const [imageUpload, setImageUpload] = useState();
   const [songsUpload, setSongsUpload] = useState([]);

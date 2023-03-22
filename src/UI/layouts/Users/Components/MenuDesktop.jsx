@@ -4,6 +4,7 @@ import { BiHomeAlt2, BiSearch, BiLibrary } from "react-icons/bi";
 import { Link, NavLink } from 'react-router-dom';
 import { IconAddAlbum, IconSettings, IconAvatar, ContainerIconsMenuLibrary, UserAvatar } from "../../../Styles/LayoutsStyles/BarLibraryStyle";
 import { useAuth0 } from "@auth0/auth0-react";
+import { links } from "../../../config.links";
 
 export default function MenuDesktop() {
     const { user } = useAuth0();
@@ -31,8 +32,10 @@ export default function MenuDesktop() {
                     </IconsContainer>
                 </SideBarContainer>
                 <ContainerIconsMenuLibrary>
-                    <IconSettings />
-                    <Link to='/user/upload'>
+                    <Link to={links.settings}>
+                        <IconSettings />
+                    </Link>
+                    <Link to={links.upload}>
                         <IconAddAlbum />
                     </Link>
                     <IconAvatar>
