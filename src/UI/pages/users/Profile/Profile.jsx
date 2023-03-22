@@ -1,4 +1,4 @@
-import { ContainerProfile, ContainerTopProfile, ImageProfile, H1NameProfile, DivInfoProfile, SpanInfoProfile } from "../../../Styles/Pages/Users/ProfileStyle";
+import { ContainerProfile, ContainerTopProfile, ImageProfile, H1NameProfile, DivInfoProfile, SpanInfoProfile, ContainerProfileData } from "../../../Styles/Pages/Users/ProfileStyle";
 import FollowButton from "../../../components/FollowButton/FollowButton";
 import { useAuth0 } from "@auth0/auth0-react";
 import TitleCenterPage from "../../../components/TitleCenterPage/TitleCenterPage";
@@ -18,24 +18,23 @@ export function Profile() {
             }
             <ContainerTopProfile>
                 <ImageProfile src={picture} />
-                <div>
-                <H1NameProfile>{name}</H1NameProfile>
-                <DivInfoProfile>
-                    <Link to={links.connections + "/followers"}>
-                        <SpanInfoProfile>15 Followers</SpanInfoProfile>
-                    </Link>
-                    |
-                    <Link to={links.connections + "/following"}>
-                        <SpanInfoProfile>10 Following</SpanInfoProfile>
-                    </Link>
-                </DivInfoProfile>
-                <DivInfoProfile>
-                    <SpanInfoProfile>5 playlists</SpanInfoProfile>
-                    |
-                    <SpanInfoProfile>1 Album</SpanInfoProfile>
-                </DivInfoProfile>
-                <FollowButton status='Follow' />
-                </div>
+                <ContainerProfileData>
+                    <H1NameProfile>{name}</H1NameProfile>
+                    <DivInfoProfile>
+                        <Link to={links.connections + "/followers"}>
+                            <SpanInfoProfile>15 Followers</SpanInfoProfile>
+                        </Link>
+                        |
+                        <Link to={links.connections + "/following"}>
+                            <SpanInfoProfile>10 Following</SpanInfoProfile>
+                        </Link>
+                    <br/>
+                        <SpanInfoProfile>5 playlists</SpanInfoProfile>
+                        |
+                        <SpanInfoProfile>1 Album</SpanInfoProfile>
+                    </DivInfoProfile>
+                    <FollowButton status='Follow' />
+                </ContainerProfileData>
             </ContainerTopProfile>
         </ContainerProfile>
     )
