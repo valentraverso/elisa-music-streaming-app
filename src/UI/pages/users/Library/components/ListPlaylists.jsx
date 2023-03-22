@@ -2,7 +2,7 @@ import { GeneralDiv, PageTitle, DivTypePlaylist,Subtitle, ImgPlaylist, DivInfoPl
 import { PlaylistDisplay } from "./PlaylistDisplay";
 import { Link} from "react-router-dom";
 
-export const ListPlaylists = ({name, data}) => {
+export const ListPlaylists = ({name}) => {
   return (
     <GeneralDiv>
         <DivTypePlaylist>
@@ -16,6 +16,9 @@ export const ListPlaylists = ({name, data}) => {
               </Link>
               <Link to = "/playlist">
               < PlaylistDisplay name ="Rock Playlist"/>
+              </Link>
+              <Link to = "/playlist">
+                <PlaylistDisplay name = "Sad Playlist"/>
               </Link>
             </DivAllPlaylist>
         </DivTypePlaylist>
