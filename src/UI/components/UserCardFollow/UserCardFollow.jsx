@@ -1,4 +1,4 @@
-import { ContainerUserCard, ContainerUserInfo, UserImage, UserName } from "../../Styles/components/UserCardFollowStyle";
+import { ContainerFollowButton, ContainerUserCard, ContainerUserInfo, UserImage, UserName } from "../../Styles/components/UserCardFollowStyle";
 import FollowButton from "../FollowButton/FollowButton";
 
 
@@ -11,9 +11,9 @@ export default function UserCardFollow({avatar = '/assets/images/dif/avatar/adam
         <ContainerUserInfo>
           <UserName>{name}</UserName>
         </ContainerUserInfo>
-        <ContainerUserInfo>
+        <ContainerFollowButton>
           <FollowButton status={status} />
-        </ContainerUserInfo>
+        </ContainerFollowButton>
     </ContainerUserCard>
   )
 }
