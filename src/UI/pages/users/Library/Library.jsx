@@ -1,5 +1,5 @@
-import { ListPlaylists } from "./components/ListPlaylists"
-import { PageTitle, GeneralDivMenu } from "../../../Styles/Pages/Users/MenuPlaylistsStyle"
+import { ListPlaylists } from "./components/ListPlaylists";
+import { PageTitle, GeneralDivMenu } from "../../../Styles/Pages/Users/MenuPlaylistsStyle";
 
 export const Library = () => {
   return (
