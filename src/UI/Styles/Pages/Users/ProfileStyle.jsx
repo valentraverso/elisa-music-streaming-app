@@ -1,5 +1,4 @@
 import styled from "styled-components";
-import FollowButton from "../../../components/FollowButton/FollowButton";
 import { device } from "../../config";
 
 export const ContainerProfile = styled.div``
