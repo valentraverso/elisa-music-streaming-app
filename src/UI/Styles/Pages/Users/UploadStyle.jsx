@@ -1,10 +1,14 @@
 import styled from "styled-components";
 import {HiOutlinePencil} from "react-icons/hi"
-import { colors } from "../../config";
+import { colors, device } from "../../config";
 import { ButtonFollowStyled } from "../../components/FollowButtonStyle";
 
 export const ContainerUpload = styled.div`
 margin-bottom: 130px;
+@media ${device.desktop}{
+    width: 50%;
+    margin: 0 auto;
+}
 `
 
 export const ContainerUploaderImage = styled.div`

@@ -2,9 +2,16 @@ import { useState } from "react";
 import ReactImageUploading from "react-images-uploading";
 import TitleCenterPage from "../../../components/TitleCenterPage/TitleCenterPage";
 import { SpanDragorClick, PlacerDivUpload, PlacerImageUpload, ContainerUploaderImage, IconNoUploadImage, InputForm, LabelInputForm, ContainerInputs, SpanGenreButton, ContainerButtonsGenre, PViewMore, ButtonAddTrack, SpanDeleteSong, ContainerUpload, ContainerDeleteSong, ButtonUploadAlbum, ContainerUploadButton } from "../../../Styles/Pages/Users/UploadStyle";
-import {AiOutlineDelete} from 'react-icons/ai';
+import { AiOutlineDelete } from 'react-icons/ai';
+import UseWidth from "../../../../helpers/hooks/useWidth";
 
 export function Upload() {
+  const width = UseWidth({
+    0: 'mobile',
+    720: 'tablet',
+    1024: 'desktop',
+  });
+
   const [imageUpload, setImageUpload] = useState();
   const [songsUpload, setSongsUpload] = useState([]);
 
@@ -20,7 +27,10 @@ export function Upload() {
 
   return (
     <ContainerUpload>
-      <TitleCenterPage title='Upload' back={true} link='/library' />
+      {
+        width !== 'desktop' &&
+        <TitleCenterPage title='Upload' back={true} link='/library' />
+      }
       <ReactImageUploading
         value={imageUpload}
         onChange={handlerImageUpload}
@@ -95,14 +105,14 @@ export function Upload() {
                           </ContainerInputs>
                           <ContainerInputs>
                             <LabelInputForm htmlFor={`songTitle-${index}`}>Song Title</LabelInputForm><br />
-                            <InputForm type='text' name={`songTitle-${index}`} maxLength={50}/>
+                            <InputForm type='text' name={`songTitle-${index}`} maxLength={50} />
                           </ContainerInputs>
                           <ContainerInputs>
                             <LabelInputForm htmlFor={`songFeat-${index}`}>Feat</LabelInputForm><br />
-                            <InputForm type='text' name={`songFeat-${index}`} maxLength={50}/>
+                            <InputForm type='text' name={`songFeat-${index}`} maxLength={50} />
                           </ContainerInputs>
                           <ContainerDeleteSong>
-                          <SpanDeleteSong onClick={() => onSongRemove(index)} >Delete track <AiOutlineDelete /></SpanDeleteSong>
+                            <SpanDeleteSong onClick={() => onSongRemove(index)} >Delete track <AiOutlineDelete /></SpanDeleteSong>
                           </ContainerDeleteSong>
                         </div>
                       )
@@ -116,9 +126,9 @@ export function Upload() {
       </ContainerInputs>
       {
         songsUpload.length >= 1 &&
-      <ContainerUploadButton>
-      <ButtonUploadAlbum>Upload</ButtonUploadAlbum>
-      </ContainerUploadButton>
+        <ContainerUploadButton>
+          <ButtonUploadAlbum>Upload</ButtonUploadAlbum>
+        </ContainerUploadButton>
       }
     </ContainerUpload>
   )
