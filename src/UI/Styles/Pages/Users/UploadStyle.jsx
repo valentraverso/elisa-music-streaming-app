@@ -68,6 +68,9 @@ grid-template-columns: 1fr 1fr 1fr;
 
 export const SpanGenreButton = styled(ButtonFollowStyled)`
 padding: 5px 0px;
+@media ${device.desktop}{
+    margin: 5%;
+}
 `
 
 export const PViewMore = styled.p`
