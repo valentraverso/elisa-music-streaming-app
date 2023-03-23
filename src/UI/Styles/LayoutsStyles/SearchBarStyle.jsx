@@ -8,7 +8,7 @@ export const SearchBarContainer = styled.div`
     height: 100%;
     width: 100%;
     position: relative;
-    padding: 3% 5%;
+    padding: 3% 0;
 `;
 
 export const SearchBarIcon = styled.div`
