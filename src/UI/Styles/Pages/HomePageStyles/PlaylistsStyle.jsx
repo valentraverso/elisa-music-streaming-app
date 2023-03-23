@@ -5,12 +5,24 @@ export const ContainerPlaylist = styled.div`
   display: flex;
   flex-direction: row;
   justify-content: center;
-  overflow-x: auto;
-  overflow-y: hidden;
+  /* overflow-x: scroll;
+  overflow-y: scroll; */
   white-space: nowrap;
   width: 100%;
-  max-width: 1200px; /* Establecer un ancho máximo para que no se corte la mitad de los playlists */
-  margin: 0 auto; /* Centrar el contenedor */
+  max-width: 1200px; 
+  margin: 0 auto; 
+  .content::-webkit-scrollbar-x {
+  height: 8px;
+}
+
+.content::-webkit-scrollbar-thumb {
+  background-color: #bbb;
+  border-radius: 10px;
+}
+
+.content::-webkit-scrollbar-thumb:hover {
+  background-color: #999;
+}
 `;
 
 
@@ -44,7 +56,7 @@ export const Playlist = styled.div`
     margin: 0.5rem;
     color: #b3b3b3;
   }
-
+  
 `;
 
 export const PlaylistTitle = styled.h2`

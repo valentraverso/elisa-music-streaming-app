@@ -2,32 +2,50 @@ export const playlistsRecomendados = [
     {
       autor: "Artista 1",
       cancion: "Mi Mix 1",
-      foto: "https://images.unsplash.com/photo-1619983081593-e2ba5b543168?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1740&q=80"
+      foto: "https://images.unsplash.com/photo-1619983081593-e2ba5b543168?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1740&q=80",
+      link: "https://youtu.be/UwxatzcYf9Q",
+      id: "1",
+      songIndex: 1
     },
     {
       autor: "Artista 2",
       cancion: "Mi Mix 2",
-      foto: "https://images.unsplash.com/photo-1538113300105-e51e4560b4aa?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=654&q=80"
+      foto: "https://images.unsplash.com/photo-1538113300105-e51e4560b4aa?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=654&q=80",
+      link: "https://www.youtube.com/watch?v=VIDEO_ID_1",
+      id: "2",
+      songIndex: 2
     },
     {
       autor: "Artista 3",
       cancion: " Mi Mix 3",
-      foto: "https://images.unsplash.com/photo-1503135935062-b7d1f5a0690f?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=774&q=80"
+      foto: "https://images.unsplash.com/photo-1503135935062-b7d1f5a0690f?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=774&q=80",
+      link: "https://www.youtube.com/watch?v=VIDEO_ID_1",
+      id: "3",
+      songIndex: 3
     },
     {
       autor: "Artista 4",
       cancion: " Mi Mix 4",
-      foto: "https://images.unsplash.com/photo-1609929986664-da89f338a479?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=774&q=80"
+      foto: "https://images.unsplash.com/photo-1609929986664-da89f338a479?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=774&q=80",
+      link: "https://www.youtube.com/watch?v=VIDEO_ID_1",
+      id: "4",
+      songIndex: 4
     },
     {
       autor: "Artista 5",
       cancion: " Mi Mix 5",
-      foto: "https://images.unsplash.com/photo-1536849249744-44e01e7a089d?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2574&q=80"
+      foto: "https://images.unsplash.com/photo-1536849249744-44e01e7a089d?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2574&q=80",
+      link: "https://www.youtube.com/watch?v=VIDEO_ID_1",
+      id: "5",
+      songIndex: 5
     },
     {
       autor: "Artista 6",
       cancion: " Mi Mix 6",
-      foto: "https://images.unsplash.com/photo-1504805572947-34fad45aed93?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2607&q=80"
+      foto: "https://images.unsplash.com/photo-1504805572947-34fad45aed93?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2607&q=80",
+      link: "https://www.youtube.com/watch?v=VIDEO_ID_1",
+      id: "6",
+      songIndex: 6
     }
   ];
 

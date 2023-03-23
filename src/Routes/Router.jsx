@@ -5,7 +5,7 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import {LayoutMain, SearchBarPage, LayoutLibrary, LayoutSearch} from '../UI/layouts/Users/';
 
 // Pages
-import { Login, Main, Profile, Settings, Connections,HomePage } from "../UI/pages/users";
+import { Login, Main, Profile, Settings, Connections,HomePage, PlayerPage } from "../UI/pages/users";
 
 import { Playlist } from "../UI/pages/users/Playlist/Playlist";
 import { MenuPlaylists } from "../UI/pages/users/MenuPaylists/MenuPlaylists";
@@ -30,6 +30,10 @@ const router = createBrowserRouter([
             {
                 path: '/connections/:typeConnection',
                 element: <PrivateRoutes><Connections /></PrivateRoutes>
+            },
+            {
+                path: '/PlayerPage/:id',
+                element: <PrivateRoutes><PlayerPage /></PrivateRoutes>
             }
         ]
     },
