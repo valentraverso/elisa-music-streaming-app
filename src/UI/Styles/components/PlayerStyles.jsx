@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { colors } from "../config";
 
 export const ContainerPlayer = styled.div`
     display: grid;
@@ -12,6 +13,7 @@ export const ContainerPlayer = styled.div`
     margin: 0 auto;
     height: 50px;
     align-items: center;
+    background-color: ${colors.grey};
 `
 
 export const ContainerInfoSong = styled.div`
