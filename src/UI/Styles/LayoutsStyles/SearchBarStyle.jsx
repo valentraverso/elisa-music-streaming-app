@@ -9,6 +9,7 @@ export const SearchBarContainer = styled.div`
     width: 100%;
     position: relative;
     padding: 3% 0;
+    color: ${colors.black};
     @media ${device.desktop}{
         margin: 0 5%;
         padding: 1% 0;
@@ -30,7 +31,8 @@ export const SearchBarInput = styled.input`
     border-radius: 5px;
     border: 0;
     padding: 0 12%;
-    font-size: 1rem;
+    font-size: 1.5rem;
+    color:${colors.black}
 `;
 
 export const IconSearch = styled(BiSearch)`
