@@ -5,20 +5,35 @@ export const ContainerPlayer = styled.div`
     grid-template-columns: 60% 40%;
     border-radius: 10px;
     position: fixed;
-    bottom: 60px;
+    bottom: 70px;
     left: 0px;
     right: 0px;
+    width: 90%;
+    margin: 0 auto;
+    height: 50px;
+    align-items: center;
 `
 
 export const ContainerInfoSong = styled.div`
-    width: auto;
-    display: flex;
-    flex-direction: row;
+    display: grid;
+    grid-template-columns: 30% 70%;
 `
 
 export const ImgInfoSong = styled.img`
-    width: 53px;
-    height: 53px;
+    width: 40px;
+    height: 40px;
     border-radius: 5px;
+    margin: auto;
 `
 
+export const ContainerDataSong = styled.div`
+
+`
+
+export const SpanSongTitle = styled.span`
+
+`
+
+export const SpanSongArtist = styled.span`
+
+`
