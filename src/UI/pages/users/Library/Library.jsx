@@ -5,6 +5,7 @@ import { Link } from "react-router-dom";
 import { device } from "../../../Styles/config";
 import UseWidth from "../../../../helpers/hooks/useWidth";
 import { useParams } from "react-router-dom";
+import { Player } from "../../../components/Player/Player";
 
 
 export const Library = () => {
@@ -27,6 +28,7 @@ export const Library = () => {
         }
         <ListPlaylists name={"My " + type + "s"}/>
         <ListPlaylists name={"Followed " + type + "s"} />
+        <Player/>
     </GeneralDivMenu>
   )
 }
