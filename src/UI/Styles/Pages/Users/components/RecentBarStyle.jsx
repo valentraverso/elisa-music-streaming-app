@@ -1,7 +1,12 @@
 import styled from "styled-components";
 
+export const H1RecentTitle = styled.span`
+    font-weight: bold;
+    font-size: 1.5rem;
+    margin-top: 0;
+`
+
 export const ContainerRecentSearch = styled.div`
-    margin: 5% auto;
     display: flex;
     flex-direction: column;
     width: 100%;
@@ -16,15 +21,21 @@ export const ContainerRecent = styled.div`
 
 
 export const RecentImg = styled.img`
-    width: 40px;
-    grid-column: 1;
+    width: 53px;
+    height: 53px;
+    margin: auto;
+    display: block;
     border-radius: 5px;
+`
+
+export const ContainerRecentImg = styled.div`
+    
 `
 
 export const RecentDescription = styled.div`
     display: flex;
     flex-direction: column;
-    grid-column: 2;
+    padding-left: 5%;
 `
 
 
@@ -36,10 +47,21 @@ export const Artist = styled.p`
     font-size: 14px;
 `
 
-export const DeleteRecentSearch = styled.div`
-    grid-column: 3;
+export const SpanDeleteRecentSearch = styled.span`
+    
 `
 
-export const DeleteHistory = styled.div`
+export const DeleteRecentSearch = styled.div`
+    text-align: right;
+`
+
+export const ContainerDeleteHistory = styled.div`
     
+    margin: 5% 0;
+    text-align: right;
+    
+`
+
+export const DeleteHistory = styled.span`
+    font-size: 1rem;
 `
