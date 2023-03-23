@@ -11,6 +11,7 @@ export const SearchBarContainer = styled.div`
     padding: 3% 0;
     @media ${device.desktop}{
         margin: 0 5%;
+        padding: 1% 0;
     }
 `;
 
