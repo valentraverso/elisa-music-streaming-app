@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { colors } from "../config";
+import { colors, device } from "../config";
 import { BiSearch } from "react-icons/bi"
 
 export const SearchBarContainer = styled.div`
@@ -9,6 +9,9 @@ export const SearchBarContainer = styled.div`
     width: 100%;
     position: relative;
     padding: 3% 0;
+    @media ${device.desktop}{
+        margin: 0 5%;
+    }
 `;
 
 export const SearchBarIcon = styled.div`
