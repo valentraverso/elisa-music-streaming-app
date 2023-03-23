@@ -1,0 +1,64 @@
+.generalDivPlayer{
+    display: flex;
+    flex-direction: row;
+    gap: 0px;
+    border-radius: 10px;
+}
+
+.imgPlayer{
+    all: unset;
+    width: 70px;
+    height: 70px;
+}
+
+  .rhap_additional-controls{
+    display: none;
+  }
+
+  .rhap_current-time{
+    display: none;
+  }
+
+  .rhap_stacked{
+    background-color: grey;
+    display: flex;
+    flex-direction: column-reverse;
+  }
+
+  .rhap_main {
+    background-color: grey;
+  }
+
+  .rhap_time, .rhap_current-time {
+    display: none;
+  }
+
+  .rhap_volume-controls{
+    display:none;
+  }
+
+  .rhap_controls-section{
+    display: flex;
+    justify-content: center;
+  }
+
+  svg, .rhap_container, .rhap_controls-section, .rhap_progress-section, .rhap_progress-container, .rhap_main-controls, .divImgName,
+  .pTitle, .pArtist, .divNameArtist{
+    background-color: #D9D9D9;
+  }
+
+  .rhap_progress-bar{
+    color: blue;
+  }
+
+  .rhap_progress-bar{
+    background-color: red;
+  }
+
+  .rhap_progress-indicator{
+    background: red;
+  }
+
+  .divImgName{
+    width: auto;
+  }
