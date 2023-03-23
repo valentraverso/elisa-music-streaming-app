@@ -42,7 +42,7 @@
     justify-content: center;
   }
 
-  svg, .rhap_container, .rhap_controls-section, .rhap_progress-section, .rhap_progress-container, .rhap_main-controls, .divImgName,
+  .rhap_button-clear svg, .rhap_container, .rhap_controls-section, .rhap_progress-section, .rhap_progress-container, .rhap_main-controls, .divImgName,
   .pTitle, .pArtist, .divNameArtist{
     background-color: #D9D9D9;
   }
