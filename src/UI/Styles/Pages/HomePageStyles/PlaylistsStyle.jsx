@@ -33,12 +33,14 @@ export const Playlist = styled.div`
 
   h3 {
     font-size: 1.2rem;
+    background-color: transparent;
     margin: 0.5rem;
     color: white;
   }
 
   p {
     font-size: 1rem;
+    background-color: transparent;
     margin: 0.5rem;
     color: #b3b3b3;
   }
@@ -61,3 +63,15 @@ export const PlaylistTitle = styled.h2`
 export const PlaylistImage = styled.img`
 
 `
+
+export const PlaylistBackground = styled.div`
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url(${props => props.image});
+  background-size: cover;
+  filter: blur(10px);
+  z-index: -1;
+`;
