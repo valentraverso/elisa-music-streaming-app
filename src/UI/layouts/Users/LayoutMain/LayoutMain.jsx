@@ -7,41 +7,32 @@ import { SideBarDesktop } from "../Components/SideBarDesktop";
 import UseWidth from "../../../../helpers/hooks/useWidth";
 import { CategoryeButtons } from "../Components/HomeComponents/CategoryButtons";
 import { BarLibraryDesktop } from "../Components/BarLibraryDesktop";
+import MenuDesktop from "../Components/MenuDesktop";
 
 
-function LayoutMain(){
-    const width = UseWidth({
-        0: 'mobile',
-        720: 'tablet',
-        1024: 'desktop',
-    });
-    
-    const isMobile = width === 'mobile';
-    const isTabletOrAbove = width !== 'mobile';
+function LayoutMain() {
+    const width = UseWidth();
 
-    return(
+    if (width === 'desktop') {
+        return (
+            <>
+                <MenuDesktop />
+                <Main>
+                    <Outlet />
+                </Main>
+            </>
+        )
+    }
+
+    return (
         <Main>
-            {isTabletOrAbove && 
-            <>
-            <NavbarDesktop />
-            <BarLibraryDesktop />
-            <SideBarDesktop />
-            </>
-            }
-
-            
-            {isMobile && 
-            <>
-             <NavbarMain />
-            <SideBar />
+            <NavbarMain />
             <CategoryeButtons />
-            </>
-            }
-
             <Outlet />
-        </Main>    
+            <SideBar />
+        </Main>
     );
-}; 
+};
 
 
-export {LayoutMain};
+export { LayoutMain };
