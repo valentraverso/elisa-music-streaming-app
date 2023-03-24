@@ -9,6 +9,8 @@ export const SideBarContainer = styled.div `
     width: 100%;
     height: 60px;
     color: ${colors.white};
+    background-color: ${colors["dark-blue"]};
+    opacity:0.93;
     @media ${device.desktop} {
         position:relative;
         height: 100%;
