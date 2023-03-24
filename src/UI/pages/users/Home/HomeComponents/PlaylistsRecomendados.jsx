@@ -1,9 +1,9 @@
 import { ContainerPlaylist, PlaylistBackground, Playlist, PlaylistImage,PlaylistTitle } from "../../../../Styles/Pages/HomePageStyles/PlaylistsStyle"
-import useWidth from "../../../../../helpers/hooks/useWidth";
+import UseWidth from "../../../../../helpers/hooks/useWidth";
 import { NavLink } from "react-router-dom";
 
 export function Playlists({ playlists, title }) {
-  const width = useWidth();
+  const width = UseWidth();
   return (
     <>
      {width !== "mobile" &&(
@@ -14,13 +14,14 @@ export function Playlists({ playlists, title }) {
         <NavLink
   to={`/PlayerPage/${playlist.id}`}
   key={playlist.id}
->
-          <Playlist>
-            <PlaylistBackground image={playlist.foto} />
+  >  
+      <Playlist>
+           <PlaylistBackground image={playlist.foto} />
             <PlaylistImage src={playlist.foto} alt={playlist.cancion} />
             <h3>{playlist.cancion}</h3>
             <p>{playlist.autor}</p>
           </Playlist>
+          
         </NavLink>
       ))}
        </ContainerPlaylist>

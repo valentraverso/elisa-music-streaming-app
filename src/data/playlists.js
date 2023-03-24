@@ -10,7 +10,7 @@ export const playlistsRecomendados = [
     {
       autor: "Artista 2",
       cancion: "Mi Mix 2",
-      foto: "https://images.unsplash.com/photo-1538113300105-e51e4560b4aa?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=654&q=80",
+      foto: "https://images.unsplash.com/photo-1516780236580-ef416334d5b4?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=796&q=80",
       link: "",
       id: "2",
       songIndex: 2
@@ -18,7 +18,7 @@ export const playlistsRecomendados = [
     {
       autor: "Artista 3",
       cancion: " Mi Mix 3",
-      foto: "https://images.unsplash.com/photo-1503135935062-b7d1f5a0690f?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=774&q=80",
+      foto: "https://images.unsplash.com/photo-1476370648495-3533f64427a2?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1740&q=80",
       link: "https://www.youtube.com/watch?v=VIDEO_ID_1",
       id: "3",
       songIndex: 3
@@ -26,7 +26,7 @@ export const playlistsRecomendados = [
     {
       autor: "Artista 4",
       cancion: " Mi Mix 4",
-      foto: "https://images.unsplash.com/photo-1609929986664-da89f338a479?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=774&q=80",
+      foto: "https://images.unsplash.com/photo-1501472266257-6fbdb19654ba?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=774&q=80",
       link: "https://www.youtube.com/watch?v=VIDEO_ID_1",
       id: "4",
       songIndex: 4
@@ -42,7 +42,7 @@ export const playlistsRecomendados = [
     {
       autor: "Artista 6",
       cancion: " Mi Mix 6",
-      foto: "https://images.unsplash.com/photo-1504805572947-34fad45aed93?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2607&q=80",
+      foto: "https://images.unsplash.com/photo-1563818072824-ed3d6ff52955?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80",
       link: "https://www.youtube.com/watch?v=VIDEO_ID_1",
       id: "6",
       songIndex: 6

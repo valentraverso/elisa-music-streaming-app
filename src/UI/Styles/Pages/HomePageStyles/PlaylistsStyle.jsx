@@ -10,6 +10,7 @@ export const ContainerPlaylist = styled.div`
   white-space: nowrap;
   width: 100%;
   max-width: 1200px; 
+  background-color: transparent;
   margin: 0 auto; 
   .content::-webkit-scrollbar-x {
   height: 8px;
@@ -25,16 +26,33 @@ export const ContainerPlaylist = styled.div`
 }
 `;
 
+export const PlaylistBackground = styled.div`
+  position: absolute;
+  top: -10%;
+  left: 0;
+  width: 100%;
+  height: 95%;
+  background-image: url(${props => props.image});
+  background-size: cover;
+  filter: blur(10px);
+  z-index: -1;
+  opacity: 0; /* La imagen de fondo es transparente por defecto */
+  transition: opacity 0.3s ease-in-out; /* Agrega transición para suavizar el efecto */
+`;
 
 export const Playlist = styled.div`
+  position: relative;
   width: 200px;
   height: 200px;
   margin: 10px;
   border-radius: 10px;
   box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.1);
-  &:hover {
+  cursor: pointer;
+
+  &:hover ${PlaylistBackground}{
     box-shadow: 0px 6px 10px rgba(0, 0, 0, 0.3);
     transform: translateY(-3px);
+    opacity: 1;
   }
 
   img {
@@ -44,6 +62,8 @@ export const Playlist = styled.div`
   }
 
   h3 {
+    position: absolute;
+    top: 1%;
     font-size: 1.2rem;
     background-color: transparent;
     margin: 0.5rem;
@@ -73,17 +93,8 @@ export const PlaylistTitle = styled.h2`
 
 
 export const PlaylistImage = styled.img`
-
-`
-
-export const PlaylistBackground = styled.div`
-  position: absolute;
-  top: 0;
-  left: 0;
+  display: block;
+  border-radius: 1rem;
   width: 100%;
-  height: 100%;
-  background-image: url(${props => props.image});
-  background-size: cover;
-  filter: blur(10px);
-  z-index: -1;
+  height: auto;
 `;

@@ -47,10 +47,6 @@ const router = createBrowserRouter([
                 path: '/user/upload',
                 element: <Upload />
             },
-            {
-                path: '/PlayerPage/:id',
-                element: <PrivateRoutes><PlayerPage /></PrivateRoutes>
-            }
         ]
     },
     {
@@ -73,6 +69,10 @@ const router = createBrowserRouter([
     {
         path: '/login',
         element: <Login />
+    },
+    {
+        path: '/PlayerPage/:id',
+        element: <PrivateRoutes><PlayerPage /></PrivateRoutes>
     }
 ])
 
