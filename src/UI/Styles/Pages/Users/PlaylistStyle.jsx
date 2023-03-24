@@ -83,12 +83,14 @@ export const ImgSong = styled.img`
     width: 53px;
     grid-column: 1;
     border-radius: 5px;
+    cursor: pointer;
 `
 
 export const ContainerSongInfo = styled.div`
     display: flex;
     flex-direction: column;
     grid-column: 2;
+    cursor: pointer;
 `
 
 

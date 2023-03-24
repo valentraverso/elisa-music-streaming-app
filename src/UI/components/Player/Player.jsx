@@ -4,9 +4,10 @@ import { ContainerPlayer, ContainerInfoSong, ImgInfoSong, ContainerDataSong, Spa
 import UseWidth from '../../../helpers/hooks/useWidth';
 import { colors } from '../../Styles/config';
 import {AiOutlineHeart} from 'react-icons/ai';
+import { useOutletContext } from 'react-router';
 
 export const Player = () => {
-
+  const [playerInPage, setPlayerInPage] = useOutletContext()
   const width = UseWidth();
 
   return (
@@ -18,7 +19,6 @@ export const Player = () => {
           <SpanSongArtist>La Rosi</SpanSongArtist>
         </ContainerDataSong>
       </ContainerInfoSong>
-
       {
         width !== 'desktop' ?
           <AudioPlayer
@@ -49,6 +49,7 @@ export const Player = () => {
           customAdditionalControls={[<AiOutlineHeart/>]}
           style={{ padding: 0, backgroundColor: 'inherit', boxShadow: "none", width: "98%" }}/>
   }
+    <span onClick={()=>setPlayerInPage(false)}>x</span>
 
 
     </ContainerPlayer>
