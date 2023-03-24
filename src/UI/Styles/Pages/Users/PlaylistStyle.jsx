@@ -1,6 +1,10 @@
 import styled from "styled-components";
 import { colors } from "../../config.jsx"
 
+export const ContainerPagePlaylist = styled.div`
+    
+`
+
 export const ContainerPlaylist = styled.div`
     /* font-size: 2rem; */
     display: flex;
@@ -50,11 +54,14 @@ export const TotalLikes = styled.p`
     font-weight: bold;
 `
 
-export const ButtonLike = styled.button`
+export const ButtonLike = styled.span`
     width: 100px;
     height: 24px;
     border: 1px ${colors.white} solid;
     border-radius: 5px;
+    display:flex;
+    justify-content: center;
+    align-content: center;
 `
 
 export const ContainerSongsList = styled.div`
@@ -76,12 +83,14 @@ export const ImgSong = styled.img`
     width: 53px;
     grid-column: 1;
     border-radius: 5px;
+    cursor: pointer;
 `
 
 export const ContainerSongInfo = styled.div`
     display: flex;
     flex-direction: column;
     grid-column: 2;
+    cursor: pointer;
 `
 
 
@@ -93,12 +102,12 @@ export const NameArtist = styled.p`
     font-size: 10px;
 `
 
-export const SongSettings = styled.button`
+export const SongSettings = styled.span`
     border: 0;
     grid-column: 3;
 `
 
-export const ButtonAddSong = styled.button`
+export const ButtonAddSong = styled.span`
     width: 125px;
     height: 24px;
     border: 1px ${colors.white} solid;

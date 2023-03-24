@@ -6,8 +6,10 @@ import { useAuth0 } from "@auth0/auth0-react";
 import SkeletonLibrary from "./SkeletonLibrary";
 import UseWidth from "../../../../helpers/hooks/useWidth";
 import MenuDesktop from "../Components/MenuDesktop";
+import { useState } from "react";
 
 export function LayoutLibrary() {
+    const [playerInPage, setPlayerInPage] = useState(false)
     const { isLoading } = useAuth0();
     const width = UseWidth();
 
@@ -16,11 +18,12 @@ export function LayoutLibrary() {
             <>
                 <MenuDesktop />
                 <Main>
-                    <Outlet />
+                    <Outlet context={[playerInPage, setPlayerInPage]}/>
                 </Main>
             </>
         )
     }
+
 
     return (
         <Main>
@@ -30,7 +33,7 @@ export function LayoutLibrary() {
                     :
                     <>
                         <BarLibrary />
-                        <Outlet />
+                        <Outlet context={[playerInPage, setPlayerInPage]} />
                     </>
             }
             <SideBar />

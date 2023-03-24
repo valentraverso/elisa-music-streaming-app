@@ -20,8 +20,6 @@ export function Upload() {
     setSongsUpload(songList);
   }
 
-  console.log(songsUpload)
-
   return (
     <ContainerUpload>
       {

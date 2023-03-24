@@ -8,6 +8,7 @@ margin: auto;
 }
 `
 export const ContainerTitleSettings = styled.div`
+cursor: pointer;
 display: flex;
 justify-content: space-between;
 margin: 10px 0;
@@ -28,7 +29,8 @@ export const TitleSetting = styled.span`
 export const LogOutButton = styled.span`
 position: absolute;
     bottom: 20px;
-    color:${colors.grey}
+    color:${colors.grey};
+cursor:pointer;
     @media ${device.desktop}{
         font-size:1.2rem;
     }

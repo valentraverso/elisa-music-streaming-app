@@ -7,16 +7,19 @@ export const H1RecentTitle = styled.span`
 `
 
 export const ContainerRecentSearch = styled.div`
-    display: flex;
-    flex-direction: column;
-    width: 100%;
+    
 `
-
-export const ContainerRecent = styled.div`
+export const ContainerRecentSearchAll = styled.div`
     display: grid;
     grid-template-columns: auto 75% 10%;
     align-items: center;
     margin-top: 0.7rem;
+`
+
+export const ContainerRecent = styled.div`
+    display: flex;
+    flex-direction: column;
+    width: 100%;
 `
 
 
@@ -53,6 +56,8 @@ export const SpanDeleteRecentSearch = styled.span`
 
 export const DeleteRecentSearch = styled.div`
     text-align: right;
+    justify-content:center;
+    align-items: center;
 `
 
 export const ContainerDeleteHistory = styled.div`

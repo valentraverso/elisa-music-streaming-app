@@ -1,14 +1,17 @@
 import { recentSearch } from "../recentSearch"
-import { ContainerRecentSearch, ContainerRecent, RecentImg, RecentDescription, Title, Artist, DeleteRecentSearch, DeleteHistory, H1RecentTitle, ContainerRecentImg, ContainerDeleteHistory, SpanDeleteRecentSearch } from "../../../../Styles/Pages/Users/components/RecentBarStyle"
+import { ContainerRecentSearch, ContainerRecent, RecentImg, RecentDescription, Title, Artist, DeleteRecentSearch, DeleteHistory, H1RecentTitle, ContainerRecentImg, ContainerDeleteHistory, SpanDeleteRecentSearch , ContainerRecentSearchAll} from "../../../../Styles/Pages/Users/components/RecentBarStyle"
+
+
 
 
 export const RecentSearch = () => {
     return (
         <ContainerRecentSearch>
             <H1RecentTitle>Recents</H1RecentTitle>
-            {recentSearch.map((recentSearch) => {
-                return (
                     <ContainerRecent>
+                    {recentSearch.map((recentSearch) => {
+                return (
+                        <ContainerRecentSearchAll>
                         <ContainerRecentImg>
                             <RecentImg src={recentSearch.img} />
                         </ContainerRecentImg>
@@ -21,9 +24,10 @@ export const RecentSearch = () => {
                                 X
                             </SpanDeleteRecentSearch>
                         </DeleteRecentSearch>
-                    </ContainerRecent>
+                        </ContainerRecentSearchAll>
                 )
             })}
+            </ContainerRecent>
             <ContainerDeleteHistory>
                 <DeleteHistory>
                     Delete History
