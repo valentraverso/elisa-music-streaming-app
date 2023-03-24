@@ -4,12 +4,11 @@ export const ContainerPlaylist = styled.div`
   position: relative;
   display: flex;
   flex-direction: row;
+  flex-wrap: nowrap;
   justify-content: center;
-  /* overflow-x: scroll;
-  overflow-y: scroll; */
+
   white-space: nowrap;
   width: 100%;
-  max-width: 1200px; 
   background-color: transparent;
   margin: 0 auto; 
   .content::-webkit-scrollbar-x {
@@ -23,6 +22,9 @@ export const ContainerPlaylist = styled.div`
 
 .content::-webkit-scrollbar-thumb:hover {
   background-color: #999;
+}
+@media (max-width: 768px){
+  overflow-x: scroll;
 }
 `;
 
@@ -42,8 +44,8 @@ export const PlaylistBackground = styled.div`
 
 export const Playlist = styled.div`
   position: relative;
-  width: 200px;
-  height: 200px;
+  width: 20vh;
+  height: 20vh;
   margin: 10px;
   border-radius: 10px;
   box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.1);
@@ -56,7 +58,7 @@ export const Playlist = styled.div`
   }
 
   img {
-    width: 100%;
+    width: 20vh;
     height: 150px;
     object-fit: cover;
   }
@@ -97,4 +99,5 @@ export const PlaylistImage = styled.img`
   border-radius: 1rem;
   width: 100%;
   height: auto;
+  object-fit: cover;
 `;
