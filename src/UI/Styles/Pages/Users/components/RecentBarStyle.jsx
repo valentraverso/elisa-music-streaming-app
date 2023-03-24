@@ -56,6 +56,8 @@ export const SpanDeleteRecentSearch = styled.span`
 
 export const DeleteRecentSearch = styled.div`
     text-align: right;
+    justify-content:center;
+    align-items: center;
 `
 
 export const ContainerDeleteHistory = styled.div`

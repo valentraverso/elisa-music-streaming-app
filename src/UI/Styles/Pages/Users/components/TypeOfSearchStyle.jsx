@@ -2,9 +2,9 @@ import styled from "styled-components"
 
 export const TypeOfSearchDiv = styled.div`
     display: grid;
-    grid-template-columns: repeat(3 1fr);
+    grid-template-columns: 1fr 1fr 1fr 1fr;
     width: 100%;
-    grid-gap:10px;
+    grid-gap:15px;
 `
 export const Song = styled.p`
     display: grid;
@@ -12,10 +12,10 @@ export const Song = styled.p`
     border-style: solid;
     background-color: #4a4b4d;
     border-color: #4a4b4d;
-    width:55px;
-    height:20px;
+    width:58px;
+    height:25px;
     justify-content:center;
-
+    align-items: center;
 `
 export const Artist = styled.p`
     display: grid;
@@ -23,9 +23,10 @@ export const Artist = styled.p`
     border-style: solid;
     background-color: #4a4b4d;
     border-color: #4a4b4d;
-    width:55px;
-    height:20px;
+    width:58px;
+    height:25px;
     justify-content:center;
+    align-items: center;
 `
 export const Album = styled.p`
     display: grid;
@@ -33,9 +34,10 @@ export const Album = styled.p`
     border-style: solid;
     background-color: #4a4b4d;
     border-color: #4a4b4d;
-    width:55px;
-    height:20px;
+    width:58px;
+    height:25px;
     justify-content:center;
+    align-items: center;
 `
 export const Playlist = styled.p`
     display: grid;
@@ -43,7 +45,8 @@ export const Playlist = styled.p`
     border-style: solid;
     background-color: #4a4b4d;
     border-color: #4a4b4d;
-    width:55px;
-    height:20px;
+    width:58px;
+    height:25px;
     justify-content:center;
+    align-items: center;
 `
