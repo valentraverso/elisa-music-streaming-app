@@ -4,7 +4,7 @@ import { colors, device } from "../../config";
 import { ButtonFollowStyled } from "../../components/FollowButtonStyle";
 
 export const ContainerUpload = styled.div`
-margin-bottom: 130px;
+margin-bottom: 70px;
 @media ${device.desktop}{
     width: 50%;
     margin: 0 auto;
@@ -55,6 +55,7 @@ border: 0;
     width: 100%;
     font-size: 1.2rem;
     padding: 10px 0 5px;
+    background-color: ${colors["dark-blue"]};
 &:focus{
     outline:none;
     border-bottom: 1px solid ${colors.blue};
