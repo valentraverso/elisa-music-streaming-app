@@ -6,5 +6,6 @@ export function SearchResults(){
     console.log(type + query)
     return(
         <TypeOfSearch/>
+        
     )
 }
