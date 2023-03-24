@@ -21,24 +21,33 @@ export const Player = () => {
         </ContainerDataSong>
       </ContainerInfoSong>
 
-    <AudioPlayer
+    {width !== "desktop" ? <AudioPlayer
       src="/assets/songs/ZOO-INTRO.mp3"
-      showDownloadProgress={
-        width !== "desktop" && false
-      }
-      showFilledProgress={
-        width !== "desktop" && false
-      }
-      showJumpControls={
-        width !== "desktop" && false
-      }
+      showDownloadProgress={false}
+      showFilledProgress={false}
+      showJumpControls={false}
       layout="horizontal"
       customAdditionalControls={[]}
       showSkipControls= {true}
       customVolumeControls = {[]}
       customProgressBarSection={[]}
       style={{padding: 0, backgroundColor: colors.grey, boxShadow: "none", width: "98%"}}
-    />
+      
+    /> : 
+      <AudioPlayer 
+      src="/assets/songs/ZOO-INTRO.mp3"
+      showDownloadProgress={false}
+      showFilledProgress={false}
+      showJumpControls={false}
+      layout="horizontal"
+      customAdditionalControls={[]}
+      showSkipControls= {true}
+      customVolumeControls = {[]}
+      // customProgressBarSection={[]}
+      style={{padding: 0, backgroundColor: colors.grey, boxShadow: "none", width: "98%"}}
+      />
+      
+    }
 
     </ContainerPlayer>
   )

@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import { colors } from "../config";
+import { device } from "../config";
 
 export const ContainerPlayer = styled.div`
     display: grid;
@@ -15,6 +16,12 @@ export const ContainerPlayer = styled.div`
     align-items: center;
     background-color: ${colors.grey};
     opacity: 0.9;
+    @media ${device.desktop} {
+        grid-template-columns: 20% auto;
+        border-radius: 5px 5px 0 0;
+        width: 100%;
+        bottom: 0;
+    }
 `
 
 export const ContainerInfoSong = styled.div`
@@ -34,7 +41,7 @@ export const ContainerDataSong = styled.div`
 `
 
 export const SpanSongTitle = styled.span`
-
+    font-weight: bold;
 `
 
 export const SpanSongArtist = styled.span`

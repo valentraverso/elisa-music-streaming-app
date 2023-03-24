@@ -116,7 +116,7 @@ export const DivBtnAddNew=styled.div`
     justify-content: end;
 `
 
-export const BtnAddNew = styled.button`
+export const BtnAddNew = styled.span`
     margin-top: 3%;
     border: none;
     font-weight: bold;
