@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { colors } from "../../config.jsx"
+import { colors, device } from "../../config.jsx"
 
 export const ContainerLogin = styled.div`
 `
@@ -51,4 +51,5 @@ background:
 radial-gradient(farthest-side, ${colors.white} 90%,transparent ) bottom/ 10px 10px,
 linear-gradient(${colors.white} 0 0) bottom 4px left  calc(20% - 50px)/ 40% 1px,
 linear-gradient(${colors.white} 0 0) bottom 4px right calc(20% - 50px)/ 40% 1px;
-background-repeat:no-repeat;`
+background-repeat:no-repeat;
+`
