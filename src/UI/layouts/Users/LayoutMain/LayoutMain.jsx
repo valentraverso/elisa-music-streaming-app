@@ -5,15 +5,24 @@ import { SideBar } from "../Components/SideBar";
 import UseWidth from "../../../../helpers/hooks/useWidth";
 import { CategoryeButtons } from "../Components/HomeComponents/CategoryButtons";
 import MenuDesktop from "../Components/MenuDesktop";
+import { useAuth0 } from "@auth0/auth0-react";
+import MenuDesktopSkeleton from "../Components/Skeletons/MenuDesktopSkeleton";
 
 
 function LayoutMain() {
     const width = UseWidth();
+    const { isLoading: isLoadingAuth0 } = useAuth0();
 
     if (width === 'desktop') {
         return (
             <>
-                <MenuDesktop />
+                {
+                    isLoadingAuth0 ?
+                        <MenuDesktopSkeleton />
+                        :
+                        <MenuDesktop />
+                }
+
                 <Main>
                     <CategoryeButtons />
                     <Outlet />
