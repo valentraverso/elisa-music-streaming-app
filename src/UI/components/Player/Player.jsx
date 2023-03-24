@@ -16,7 +16,6 @@ export const Player = () => {
         <ImgInfoSong src="https://i.scdn.co/image/ab67616d0000b27396384c98ac4f3e7c2440f5b5" />
         <ContainerDataSong>
           <SpanSongTitle>Temazo</SpanSongTitle>
-          <br />
           <SpanSongArtist>La Rosi</SpanSongArtist>
         </ContainerDataSong>
       </ContainerInfoSong>
