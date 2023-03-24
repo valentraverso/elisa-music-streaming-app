@@ -22,15 +22,18 @@ export const ContainerPlayer = styled.div`
         bottom:0;
         border-radius: 5px 5px 0 0;
         height:80px;
-        grid-template-columns: 40% 60%;
+        grid-template-columns: 30% 70%;
     }
 `
+
+// grid-template-columns: 80px auto;
+// padding-left: 10%;
 
 export const ContainerInfoSong = styled.div`
     display: grid;
     grid-template-columns: 30% 70%;
     @media ${device.desktop}{
-        grid-template-columns: 10% 90%;
+        grid-template-columns: 80px auto;
         padding-left: 10%;
     }
 `

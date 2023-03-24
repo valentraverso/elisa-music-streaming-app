@@ -3,8 +3,9 @@ import { colors, device } from "../../config.jsx";
 
 export const GeneralDivMenu = styled.div`
     margin: 0 auto;
+    margin-bottom: 12vw;
     @media ${device.mobile} {
-        margin-bottom: 10vh;
+        margin-bottom: 17vh;
     }
 `
 
@@ -116,7 +117,7 @@ export const DivBtnAddNew=styled.div`
     justify-content: end;
 `
 
-export const BtnAddNew = styled.button`
+export const BtnAddNew = styled.span`
     margin-top: 3%;
     border: none;
     font-weight: bold;
