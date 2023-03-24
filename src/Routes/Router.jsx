@@ -6,7 +6,7 @@ import {LayoutMain, LayoutSearch, LayoutLibrary} from '../UI/layouts/Users';
 import { LayoutOnlySidebar } from "../UI/layouts/Users/LayoutOnlySidebar/LayoutOnlySidebar";
 
 // Pages
-import { Login, Main, Profile, Settings, Connections,HomePage, PlayerPage, Library, Upload, LibraryAlbums, Search, SearchResults} from "../UI/pages/users";
+import { Login, Main, Profile, Settings, Connections, HomePage, PlayerPage, Library, Upload, LibraryAlbums, Search, SearchResults} from "../UI/pages/users";
 import { Playlist } from "../UI/pages/users/Playlist/Playlist";
 import PrivateRoutes from "./RouteTypes";
 
