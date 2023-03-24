@@ -1,4 +1,4 @@
-import { ContainerProfile, ContainerTopProfile, ImageProfile, H1NameProfile, DivInfoProfile, SpanInfoProfile, ContainerProfileData, DivConnectionsProfile, DivDiscographyProfile } from "../../../Styles/Pages/Users/ProfileStyle";
+import { ContainerProfile, ContainerTopProfile, ImageProfile, H1NameProfile, DivInfoProfile, SpanInfoProfile, ContainerProfileData, DivConnectionsProfile, DivDiscographyProfile, ContainerPlaylistProfile } from "../../../Styles/Pages/Users/ProfileStyle";
 import { useAuth0 } from "@auth0/auth0-react";
 import TitleCenterPage from "../../../components/TitleCenterPage/TitleCenterPage";
 import { links } from "../../../config.links";
@@ -41,14 +41,22 @@ export function Profile() {
                     <FollowButton status='Follow' />
                 </ContainerProfileData>
             </ContainerTopProfile>
-            <div>
+            <ContainerPlaylistProfile>
                 <Subtitle>Playlists</Subtitle>
                 <DivAllPlaylist>
                     <Link to="/playlist">
                         <PlaylistDisplay name={"Sad"} />
                     </Link>
                 </DivAllPlaylist>
-            </div>
+            </ContainerPlaylistProfile>
+            <ContainerPlaylistProfile>
+                <Subtitle>Albums</Subtitle>
+                <DivAllPlaylist>
+                    <Link to="/playlist">
+                        <PlaylistDisplay name={"Sad"} />
+                    </Link>
+                </DivAllPlaylist>
+            </ContainerPlaylistProfile>
         </ContainerProfile>
     )
 }

@@ -69,3 +69,7 @@ margin: 0 10px;
     margin: 0;
 }
 `
+
+export const ContainerPlaylistProfile = styled.div`
+margin: 5% 0;
+`
