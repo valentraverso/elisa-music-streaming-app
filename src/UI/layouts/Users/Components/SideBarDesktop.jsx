@@ -4,6 +4,7 @@ import { BiHomeAlt2, BiSearch, BiLibrary } from "react-icons/bi";
 import { NavLink } from 'react-router-dom';
 import { BarLibraryDesktop } from './BarLibraryDesktop';
 import { useAuth0 } from "@auth0/auth0-react";
+import { links } from '../../../config.links';
 
 export const SideBarDesktop = () => {
   
@@ -17,7 +18,7 @@ export const SideBarDesktop = () => {
                 <NavLink to="/search">
                     <BiSearch />
                 </NavLink>
-                <NavLink to="/library">
+                <NavLink to={links.library}>
                     <BiLibrary />
                 </NavLink>
             </IconsContainer>

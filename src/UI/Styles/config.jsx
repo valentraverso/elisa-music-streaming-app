@@ -18,11 +18,13 @@ export const GlobalStyle = createGlobalStyle`
   * {
     font-family: 'Montserrat', sans-serif;
     font-family: 'Rubik', sans-serif;
-    background-color: #0A1428;
     box-sizing: border-box;
     margin: 0;
     padding: 0;
     color: ${colors.white}
+  }
+  body{
+    background-color: ${colors['dark-blue']};
   }
   a {
     color: ${colors.white};

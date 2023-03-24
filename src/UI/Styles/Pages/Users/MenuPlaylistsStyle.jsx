@@ -58,7 +58,7 @@ export const DivTypePlaylist = styled.div`
 
 `
 
-export const Subtitle = styled.p`
+export const Subtitle = styled.h2`
 
 `
 

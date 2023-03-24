@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { colors } from "../../config.jsx"
+import { colors, device } from "../../config.jsx"
 
 export const ContainerLogin = styled.div`
 `
@@ -33,7 +33,8 @@ justify-content: space-evenly;
     background-image: url('/assets/images/dif/muchos-albums.jpg');
     width: 100%;
   height: 75vh;
-  
+  background-repeat: no-repeat;
+    background-size: cover;
   -webkit-filter: blur(5px);
   -moz-filter: blur(5px);
   -o-filter: blur(5px);
@@ -51,4 +52,5 @@ background:
 radial-gradient(farthest-side, ${colors.white} 90%,transparent ) bottom/ 10px 10px,
 linear-gradient(${colors.white} 0 0) bottom 4px left  calc(20% - 50px)/ 40% 1px,
 linear-gradient(${colors.white} 0 0) bottom 4px right calc(20% - 50px)/ 40% 1px;
-background-repeat:no-repeat;`
+background-repeat:no-repeat;
+`
