@@ -14,6 +14,7 @@ export const ContainerPlayer = styled.div`
     height: 50px;
     align-items: center;
     background-color: ${colors.grey};
+    opacity: 0.9;
 `
 
 export const ContainerInfoSong = styled.div`
