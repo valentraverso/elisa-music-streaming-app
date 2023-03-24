@@ -6,8 +6,8 @@ import { CiSquarePlus } from "react-icons/ci"
 export const ContainerIconsMenuLibrary = styled.div`
   height: 100%;
   width: 30%;
-  position: fixed;
-  top: -45%;
+  position: absolute;
+  top: -3rem;
   left: 70%;
   display: flex;
   justify-content: end;
