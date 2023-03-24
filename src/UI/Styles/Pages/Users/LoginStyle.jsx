@@ -33,7 +33,8 @@ justify-content: space-evenly;
     background-image: url('/assets/images/dif/muchos-albums.jpg');
     width: 100%;
   height: 75vh;
-  
+  background-repeat: no-repeat;
+    background-size: cover;
   -webkit-filter: blur(5px);
   -moz-filter: blur(5px);
   -o-filter: blur(5px);
