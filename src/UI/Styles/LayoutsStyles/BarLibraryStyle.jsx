@@ -3,8 +3,6 @@ import { colors, device } from "../config";
 import { FiSettings } from "react-icons/fi"
 import { CiSquarePlus } from "react-icons/ci"
 
-
-
 export const ContainerIconsMenuLibrary = styled.div`
     height: 100%;
     width: 100%;
@@ -12,9 +10,8 @@ export const ContainerIconsMenuLibrary = styled.div`
     justify-content: end;
     align-items: center;
     column-gap: 5%;
-    padding: 0 5%;
     @media ${device.desktop}{
-        column-gap:1%;
+        justify-content:center;
     }
 `
 

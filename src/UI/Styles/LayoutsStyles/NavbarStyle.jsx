@@ -1,12 +1,16 @@
 import styled from "styled-components";
-import { Link } from "react-router-dom";
-import { device } from "../config";
+import { NavLink } from "react-router-dom";
+import { colors, device } from "../config";
 
 export const Main = styled.div`
 position: relative;
 height: 60px;
-width: 10%;
-
+width: 100%;
+@media ${device.desktop}{
+    height:80px;
+    border-bottom: 1px solid rgb(252, 253, 255);
+    height: 100%;
+}
 `;
 
 export const Navbar = styled.div`
@@ -24,12 +28,18 @@ height: 100%;
 export const Logo = styled.img`
 
 height: 90%;
+@media ${device.desktop}{
+    height: 60%;
+}
 `
-export const StyledLink = styled(Link)`
-text-decoration: none;
-color: white;
-height: 60px;
 
+export const StyledLink = styled(NavLink)`
+text-decoration: none;
+color: ${colors.white};
+height: 60px;
+@media ${device.desktop}{
+    height:80px;
+}
 ` 
 
 export const LogoContainer = styled.div`
@@ -39,7 +49,6 @@ align-items: center;
 justify-content: space-evenly;
 @media ${device.desktop}{
     justify-content:center;
-    column-gap:2%;
 }
 `
 

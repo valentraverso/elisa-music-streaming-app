@@ -1,24 +1,28 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
 import { useParams } from "react-router-dom";
-import { ContainerConnections, ContainerStatusConnection, StatusConnectionTitle, LinkTypeStatusConnection } from '../../../Styles/Pages/Users/ConnectionsStyle'
+import UseWidth from '../../../../helpers/hooks/useWidth';
+import TitleCenterPage from '../../../components/TitleCenterPage/TitleCenterPage';
+import UserCardFollow from '../../../components/UserCardFollow/UserCardFollow';
+import { ContainerConnections, ContainerUsers } from '../../../Styles/Pages/Users/ConnectionsStyle'
+import StatusConnectionMenu from './components/StatusConnectionMenu';
 
 export function Connections() {
-    const {typeConnection} = useParams();
-    console.log(typeConnection)
+    const { typeConnection } = useParams(); 
+    const width = UseWidth();
+
     return (
-        <ContainerConnections>
-            <ContainerStatusConnection>
-                <LinkTypeStatusConnection to='/connections/mutual'>
-                    <StatusConnectionTitle>Mutual</StatusConnectionTitle>
-                </LinkTypeStatusConnection>
-                <LinkTypeStatusConnection to='/connections/followers'>
-                    <StatusConnectionTitle>Followers</StatusConnectionTitle>
-                </LinkTypeStatusConnection>
-                <LinkTypeStatusConnection to='/connections/following'>
-                    <StatusConnectionTitle>Following</StatusConnectionTitle>
-                </LinkTypeStatusConnection>
-            </ContainerStatusConnection>
-        </ContainerConnections>
+        <>
+            {
+                width !== 'desktop' &&
+                <TitleCenterPage title='Connections' back={true} />
+
+            }
+            <ContainerConnections>
+                <StatusConnectionMenu />
+                <ContainerUsers>
+                    <UserCardFollow status={typeConnection === 'mutual' || typeConnection === 'following' ? 'Following' : 'Follow'} />
+                </ContainerUsers>
+            </ContainerConnections>
+        </>
     )
 }

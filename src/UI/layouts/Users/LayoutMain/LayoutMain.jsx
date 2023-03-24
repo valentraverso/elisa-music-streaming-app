@@ -1,5 +1,5 @@
 import { Outlet } from "react-router";
-import { Main } from "../../../Styles/LayoutsStyles/LayoutMainStyle";
+import { Main } from "../../../Styles/LayoutsStyles/GeneralLayoutStyles";
 import { NavbarMain } from "../Components/NavbarMain";
 import { NavbarDesktop } from "../Components/NavbarDesktop";
 import { SideBar } from "../Components/SideBar";

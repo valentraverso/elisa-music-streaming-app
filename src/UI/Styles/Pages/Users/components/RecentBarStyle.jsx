@@ -1,35 +1,67 @@
-// import styled from "styled-components";
+import styled from "styled-components";
 
-// export const Main = styled.div`
+export const H1RecentTitle = styled.span`
+    font-weight: bold;
+    font-size: 1.5rem;
+    margin-top: 0;
+`
 
-// `;
+export const ContainerRecentSearch = styled.div`
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+`
 
-// export const ContainerRecentSearch = styled.div`
-//     font-size: 1 rem;
-//     display:flex;
-//     flex-direction: column;
-// `;
+export const ContainerRecent = styled.div`
+    display: grid;
+    grid-template-columns: auto 75% 10%;
+    align-items: center;
+    margin-top: 0.7rem;
+`
 
-// export const RecentTitle = styled.div`
-//     display: flex
-// `;
 
-// export const RecentResult = styled.div`
+export const RecentImg = styled.img`
+    width: 53px;
+    height: 53px;
+    margin: auto;
+    display: block;
+    border-radius: 5px;
+`
+
+export const ContainerRecentImg = styled.div`
     
-// `;
+`
 
-// export const SongPicture = styled.img`
-    
-// `;
+export const RecentDescription = styled.div`
+    display: flex;
+    flex-direction: column;
+    padding-left: 5%;
+`
 
-// export const SongTitle = styled.div`
-    
-// `;
 
-// export const SongSinger = styled.div`
-    
-// `;
+export const Title = styled.p`
+    font-weight: bold;
+`
 
-// export const DeleteRecentSearch = styled.div`
+export const Artist = styled.p`
+    font-size: 14px;
+`
+
+export const SpanDeleteRecentSearch = styled.span`
     
-// `;
+`
+
+export const DeleteRecentSearch = styled.div`
+    text-align: right;
+`
+
+export const ContainerDeleteHistory = styled.div`
+    
+    margin: 5% 0;
+    text-align: right;
+    
+`
+
+export const DeleteHistory = styled.span`
+    font-size: 1rem;
+`

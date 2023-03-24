@@ -20,3 +20,21 @@ export const songs = [
         "img":"https://i.scdn.co/image/ab67616d0000b27396384c98ac4f3e7c2440f5b5"
     }
 ]
+
+export const myPlaylists = [
+    {
+        name: "Chill Playlist",
+        info: "Yno, Marian, Valen, Gomis and much more",
+        img : "https://i.scdn.co/image/ab67616d0000b27396384c98ac4f3e7c2440f5b5"
+    },
+    {
+        name: "Rock Playlist",
+        info: "ACDC, La Rosi, Piratas and much more",
+        img : "https://i.scdn.co/image/ab67616d0000b27396384c98ac4f3e7c2440f5b5"
+    },
+    {
+        name: "Gym Playlist",
+        info: "ACDC, La Rosi, Piratas and much more",
+        img : "https://i.scdn.co/image/ab67616d0000b27396384c98ac4f3e7c2440f5b5"
+    }
+]

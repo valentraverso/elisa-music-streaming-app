@@ -1,4 +1,4 @@
-import { Main } from "../../../Styles/LayoutsStyles/LayoutMainStyle";  
+import { Main } from "../../../Styles/LayoutsStyles/GeneralLayoutStyles";
 import { ResultsNotFound, SearchBarContainer, SearchBarIcon, SearchBarInput, IconSearch, RecentSearch, RecentSearchListContainer, RecentSearchListElements } from "../../../Styles/LayoutsStyles/SearchBarStyleDesktop";
 import { SideBar } from "../Components/SideBar"; 
 import { useState, useEffect } from "react";

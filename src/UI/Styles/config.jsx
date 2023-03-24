@@ -9,7 +9,7 @@ export const colors = {
 }
 
 export const device = {
-  "desktop": `(min-width: 768px)`,
+  "desktop": `(min-width: 1024px)`,
   "tablet": `(min-width: 480px)`,
   "mobile": `(max-width: 480px)`
 }
@@ -18,14 +18,17 @@ export const GlobalStyle = createGlobalStyle`
   * {
     font-family: 'Montserrat', sans-serif;
     font-family: 'Rubik', sans-serif;
-    background-color: #0A1428;
     box-sizing: border-box;
     margin: 0;
     padding: 0;
     color: ${colors.white}
   }
+  body{
+    background-color: ${colors['dark-blue']};
+  }
   a {
     color: ${colors.white};
+    text-decoration: none;
   }
 `
 

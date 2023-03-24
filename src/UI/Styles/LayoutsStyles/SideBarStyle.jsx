@@ -9,8 +9,11 @@ export const SideBarContainer = styled.div `
     width: 100%;
     height: 60px;
     color: ${colors.white};
+    background-color: ${colors["dark-blue"]};
+    opacity:0.93;
     @media ${device.desktop} {
         position:relative;
+        height: 100%;
     }
 `
 
@@ -41,5 +44,6 @@ export const IconsContainer = styled.div`
     @media ${device.desktop}{
         border-top:0;
         border-bottom: 0.5px solid ${colors.white};
+        border: 0;
     }
 `
