@@ -29,14 +29,8 @@ export const ImgInfoSong = styled.img`
     margin: auto;
 `
 
-export const ContainerDataSong = styled.div`
+export const ContainerDataSong = styled.div``
 
-`
+export const SpanSongTitle = styled.span``
 
-export const SpanSongTitle = styled.span`
-
-`
-
-export const SpanSongArtist = styled.span`
-
-`
+export const SpanSongArtist = styled.span``

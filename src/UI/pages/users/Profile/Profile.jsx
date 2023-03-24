@@ -5,6 +5,8 @@ import { links } from "../../../config.links";
 import { Link } from "react-router-dom";
 import UseWidth from "../../../../helpers/hooks/useWidth";
 import FollowButton from "../../../components/FollowButton/FollowButton";
+import { DivAllPlaylist, Subtitle } from '../../../Styles/Pages/Users/MenuPlaylistsStyle';
+import { PlaylistDisplay } from "../Library/components/PlaylistDisplay";
 
 export function Profile() {
     const { user: { picture, name } } = useAuth0();
@@ -39,6 +41,14 @@ export function Profile() {
                     <FollowButton status='Follow' />
                 </ContainerProfileData>
             </ContainerTopProfile>
+            <div>
+                <Subtitle>Playlists</Subtitle>
+                <DivAllPlaylist>
+                    <Link to="/playlist">
+                        <PlaylistDisplay name={"Sad"} />
+                    </Link>
+                </DivAllPlaylist>
+            </div>
         </ContainerProfile>
     )
 }
