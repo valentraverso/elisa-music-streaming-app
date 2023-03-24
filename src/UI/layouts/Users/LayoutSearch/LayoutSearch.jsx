@@ -35,7 +35,11 @@ export function LayoutSearch() {
       </>
     )
   }
-
+  const handleSearchQueryDesktop = (value) => {
+    if(value.length <= 2) {
+      navigate('/search/songs/' + value)
+    }
+  }
   return (
     <Main>
       <SearchBar handleSearchQuery={(value) => handleSearchQuery(value)} />
