@@ -1,0 +1,32 @@
+diff --git a/node_modules/react-h5-audio-player/lib/styles.css b/node_modules/react-h5-audio-player/lib/styles.css
+index 21a7bef..d25eb61 100644
+--- a/node_modules/react-h5-audio-player/lib/styles.css
++++ b/node_modules/react-h5-audio-player/lib/styles.css
+@@ -97,7 +97,7 @@
+   height: 100%;
+   position: absolute;
+   z-index: 2;
+-  background-color: #868686;
++  background-color: #3B46F1;
+   border-radius: 2px;
+ }
+ 
+@@ -121,7 +121,7 @@
+   height: 20px;
+   margin-left: -10px;
+   top: -8px;
+-  background: #868686;
++  background: #3B46F1;
+   border-radius: 50px;
+   box-shadow: rgba(134, 134, 134, 0.5) 0 0 5px;
+ }
+diff --git a/node_modules/react-h5-audio-player/lib/styles.less b/node_modules/react-h5-audio-player/lib/styles.less
+index f5115d5..528a76f 100644
+--- a/node_modules/react-h5-audio-player/lib/styles.less
++++ b/node_modules/react-h5-audio-player/lib/styles.less
+@@ -1,4 +1,4 @@
+-@rhap_theme-color: #868686;
++@rhap_theme-color: #3B46F1;
+ @rhap_background-color: #fff;
+ @rhap_bar-color: #dddddd;
+ @rhap_time-color: #333;

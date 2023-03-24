@@ -1,6 +1,10 @@
 import styled from "styled-components";
 import { colors } from "../../config.jsx"
 
+export const ContainerPagePlaylist = styled.div`
+    
+`
+
 export const ContainerPlaylist = styled.div`
     /* font-size: 2rem; */
     display: flex;

@@ -17,6 +17,7 @@ export const Library = () => {
     1024: 'desktop',
 });
   return (
+    <>
     <GeneralDivMenu>
         {
         <DivChangePlaylistAlbum>
@@ -28,7 +29,8 @@ export const Library = () => {
         }
         <ListPlaylists name={"My " + type + "s"}/>
         <ListPlaylists name={"Followed " + type + "s"} />
-        <Player/>
     </GeneralDivMenu>
+    <Player/>
+    </>
   )
 }
