@@ -6,6 +6,7 @@ import { device } from "../../../Styles/config";
 import UseWidth from "../../../../helpers/hooks/useWidth";
 import { useParams } from "react-router-dom";
 import { Player } from "../../../components/Player/Player";
+import { useOutletContext } from "react-router-dom";
 
 
 export const Library = () => {
@@ -16,6 +17,7 @@ export const Library = () => {
     720: 'tablet',
     1024: 'desktop',
 });
+const [playerInPage] = useOutletContext()
   return (
     <>
     <GeneralDivMenu>
@@ -30,7 +32,10 @@ export const Library = () => {
         <ListPlaylists name={"My " + type + "s"}/>
         <ListPlaylists name={"Followed " + type + "s"} />
     </GeneralDivMenu>
+    {
+    playerInPage &&
     <Player/>
+    }
     </>
   )
 }
