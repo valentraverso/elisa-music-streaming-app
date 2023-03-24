@@ -37,7 +37,7 @@ export const Player = () => {
       showSkipControls= {true}
       customVolumeControls = {[]}
       customProgressBarSection={[]}
-      style={{padding: 0, backgroundColor: colors.grey, boxShadow: "none", width: "98%"}}
+      style={{padding: 0, backgroundColor: colors['dark-blue']}}
     />
 
     </ContainerPlayer>
