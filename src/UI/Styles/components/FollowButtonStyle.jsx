@@ -8,6 +8,7 @@ export const ButtonFollowStyled = styled.button`
     border: 1px solid #FCFDFC;
     font-size: 1rem;
     margin: 5%;
+    background-color: ${colors["dark-blue"]};
 
     &.followed{
         background: ${colors.blue};
