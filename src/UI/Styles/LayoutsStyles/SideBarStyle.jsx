@@ -3,7 +3,7 @@ import { colors, device } from "../config";
 
 export const SideBarContainer = styled.div `
     position: fixed;
-    bottom: 0;
+    bottom: 20%;
     left: 0;
     right: 0;
     width: 100%;

@@ -4,6 +4,8 @@ import { FiSettings } from "react-icons/fi"
 import { CiSquarePlus } from "react-icons/ci"
 
 export const ContainerIconsMenuLibrary = styled.div`
+position: relative;
+    bottom: 20%;
     height: 100%;
     width: 100%;
     display: flex;

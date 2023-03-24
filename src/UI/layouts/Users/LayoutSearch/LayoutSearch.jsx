@@ -6,6 +6,7 @@ import UseWidth from "../../../../helpers/hooks/useWidth";
 import MenuDesktop from "../Components/MenuDesktop";
 
 
+
 export function LayoutSearch() {
   const navigate = useNavigate();
   const width = UseWidth();

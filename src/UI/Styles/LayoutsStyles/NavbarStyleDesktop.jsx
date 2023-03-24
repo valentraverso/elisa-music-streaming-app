@@ -10,15 +10,19 @@ export const Main = styled.div`
 `;
 
 export const Navbar = styled.div`
+position: fixed;
+top: 2rem;
 display: grid;
 grid-template-columns: 30% 70%;
-width: 100%;
-height: 100%;
+width: 10%;
+height: 0%;
+z-index: 1003;
 
 `
 
 export const Logo = styled.img`
 height: 90%;
+z-index: 1002;
 `
 export const StyledLink = styled(Link)`
 text-decoration: none;
