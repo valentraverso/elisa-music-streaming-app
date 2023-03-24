@@ -11,7 +11,7 @@ export const playlistsRecomendados = [
       autor: "Artista 2",
       cancion: "Mi Mix 2",
       foto: "https://images.unsplash.com/photo-1538113300105-e51e4560b4aa?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=654&q=80",
-      link: "https://www.youtube.com/watch?v=VIDEO_ID_1",
+      link: "",
       id: "2",
       songIndex: 2
     },

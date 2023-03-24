@@ -15,7 +15,7 @@ export function PlayerComponent() {
 
     <MainContainer>
       <SongTitle>{playlist.cancion}</SongTitle>
-      <AudioReproductor src={playlist.link} />
+      <AudioReproductor src="./onlymp3.to - Howl's Moving Castle [OST - Theme Song]-UwxatzcYf9Q-256k-1654380458841.mp3" />
     </MainContainer>
 
     <RecomendedSongs>
