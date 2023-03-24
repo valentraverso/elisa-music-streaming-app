@@ -14,7 +14,7 @@ export const ContainerPlayer = styled.div`
     height: 50px;
     align-items: center;
     background-color: ${colors.grey};
-    opacity: 0.98;
+    opacity: 0.9;
 `
 
 export const ContainerInfoSong = styled.div`
@@ -29,8 +29,14 @@ export const ImgInfoSong = styled.img`
     margin: auto;
 `
 
-export const ContainerDataSong = styled.div``
+export const ContainerDataSong = styled.div`
 
-export const SpanSongTitle = styled.span``
+`
 
-export const SpanSongArtist = styled.span``
+export const SpanSongTitle = styled.span`
+
+`
+
+export const SpanSongArtist = styled.span`
+
+`
