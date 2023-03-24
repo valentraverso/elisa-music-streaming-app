@@ -13,13 +13,13 @@ const allPlaylists = [
 ];
 
 return (
-<>
+<div>
 
 
 
 {allPlaylists.map((playlist) => (
 <Playlists playlists={playlist.playlists} title={playlist.title} />
 ))}
-</>
+</div>
 );
 }

@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { cancionesRecomendadas } from "../../../../../../data/recomendedSongs";
-import { RecomendedSongs, MiniatureSong, Td, Tr,ShowSongs,ShowSongsLogo,PlainButton, HideSongs  } from "../../../../../Styles/Pages/PlayerStyles/PlayerMobileStyle";
+import { RecomendedSongs, MiniatureSong, Td, Tr,ShowSongs,ShowSongsLogo,PlainButton, HideSongs  } from "../../../../../Styles/Pages/Users/components/PlayerStyles/PlayerMobileStyle";
 
 function RecomendedSongsListMobile() {
     const [showSongs, setShowSongs] = useState(false);
