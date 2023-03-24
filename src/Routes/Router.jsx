@@ -6,7 +6,7 @@ import {LayoutMain, LayoutSearch, LayoutLibrary} from '../UI/layouts/Users';
 import { LayoutOnlySidebar } from "../UI/layouts/Users/LayoutOnlySidebar/LayoutOnlySidebar";
 
 // Pages
-import { Login, Main, Profile, Settings, Connections, Library, Upload, LibraryAlbums, Search} from "../UI/pages/users";
+import { Login, Main, Profile, Settings, Connections, Library, Upload, LibraryAlbums, Search, SearchResults} from "../UI/pages/users";
 import { Playlist } from "../UI/pages/users/Playlist/Playlist";
 import PrivateRoutes from "./RouteTypes";
 
@@ -26,6 +26,10 @@ const router = createBrowserRouter([
             {
                 path:'/search',
                 element:<Search/>
+            },
+            {
+                path:'/search/:type/:query',
+                element:<SearchResults/>
             }
         ]
     },
