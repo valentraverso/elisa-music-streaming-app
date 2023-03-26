@@ -9,7 +9,7 @@ export const ContainerPlaylist = styled.div`
   white-space: nowrap;
   width: 100%;
   background-color: transparent;
-  margin: 0 auto; 
+  margin: 1% auto; 
   .content::-webkit-scrollbar-x {
   height: 8px;
 }
