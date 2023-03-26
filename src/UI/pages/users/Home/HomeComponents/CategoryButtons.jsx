@@ -1,5 +1,5 @@
 import React from "react";
-import { CategoryButtonsContainer, FiltersButton } from "../../../../Styles/Pages/HomePageStyles/CategoryButtonsStyles";
+import { CategoryButtonsContainer, FiltersButton } from "../../../../Styles/Pages/Users/HomePageStyles/CategoryButtonsStyles";
 
 const CategoryeButtons = () => {
 

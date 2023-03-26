@@ -1,6 +1,7 @@
 import React from "react";
 import { Playlists } from "./HomeComponents/PlaylistsRecomendados";
 import { playlistsRecomendados, Throwbackjams, Throwbackjams2, Throwbackjams3, Throwbackjams4, BighestHits } from "../../../../data/playlists";
+import { CategoryeButtons } from "./HomeComponents/CategoryButtons";
 
 export function HomePage() {
 const allPlaylists = [
@@ -15,7 +16,7 @@ const allPlaylists = [
 return (
 <div>
 
-
+ <CategoryeButtons />
 
 {allPlaylists.map((playlist) => (
 <Playlists playlists={playlist.playlists} title={playlist.title} />
