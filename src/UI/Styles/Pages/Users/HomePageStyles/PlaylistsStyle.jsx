@@ -5,7 +5,6 @@ export const ContainerPlaylist = styled.div`
   display: flex;
   flex-direction: row;
   flex-wrap: nowrap;
-  justify-content: center;
 
   white-space: nowrap;
   width: 100%;
@@ -82,13 +81,10 @@ export const Playlist = styled.div`
 `;
 
 export const PlaylistTitle = styled.h2`
-  padding-bottom: 3rem;
   padding-top: 1rem;
   color: white;
   font-size: 1rem;
   position: relative;
-  margin-left: 20%;
-  width: 50%;
   top: 0;
  
 `;

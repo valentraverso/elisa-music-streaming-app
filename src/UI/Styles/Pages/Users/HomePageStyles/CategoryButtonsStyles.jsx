@@ -7,7 +7,6 @@ export const CategoryButtonsContainer = styled.div`
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
-  margin-top: 5rem;
   width: 100%;
   overflow-x: scroll;
   &::-webkit-scrollbar {
