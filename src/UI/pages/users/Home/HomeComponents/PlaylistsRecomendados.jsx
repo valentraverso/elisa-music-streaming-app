@@ -34,12 +34,17 @@ export function Playlists({ playlists, title }) {
         
         <ContainerPlaylist>
           {playlists.map((playlist) => (
+            <NavLink
+            to={`/PlayerPage/${playlist.id}`}
+            key={playlist.id}
+            >  
             <Playlist key={playlist.cancion}>
       
               <PlaylistImage src={playlist.foto} alt={playlist.cancion} />
               <h3>{playlist.cancion}</h3>
               <p>{playlist.autor}</p>
             </Playlist>
+            </NavLink>
           ))}
         </ContainerPlaylist>
       </>

@@ -110,6 +110,11 @@ export const RecomendedSongs = styled.table`
   }
 `;
 
+export const SongsContainer = styled.div`
+  height: 100vh;
+  overflow-y: auto;
+`
+
 export const CurrentSong = styled.img`
 filter: grayscale(100%);
 position: absolute;
