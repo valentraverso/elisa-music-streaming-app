@@ -1,8 +1,9 @@
 import { cancionesRecomendadas } from "../../../../../data/recomendedSongs";
-import { RecomendedSongs, MiniatureSong, Td, Tr } from "../../../../Styles/Pages/PlayerStyles/PlayerStyle";
+import { RecomendedSongs, MiniatureSong, TableContainer, Td, Tr } from "../../../../Styles/Pages/PlayerStyles/PlayerStyle";
 
 function RecomendedSongsList() {
 return (
+    <TableContainer>
 <RecomendedSongs>
 {cancionesRecomendadas.map(cancion => (
 <Tr key={cancion.id}>
@@ -15,6 +16,7 @@ return (
 
 ))}
 </RecomendedSongs>
+</TableContainer>
 );
 }
 
