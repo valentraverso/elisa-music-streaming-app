@@ -1,5 +1,5 @@
 import ReactDOM from 'react-dom/client';
-import Router from './Routes/Router';
+import Router from './routes/Router';
 import { GlobalStyle } from './UI/Styles/config';
 import { Auth0Provider } from '@auth0/auth0-react';
 
