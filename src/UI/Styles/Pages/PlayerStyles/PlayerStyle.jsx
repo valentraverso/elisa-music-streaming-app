@@ -60,8 +60,8 @@ export const RecomendedSongs = styled.table`
   margin-top: 17rem;
   width: 35%;
   border-collapse: collapse;
-  overflow-x: scroll;
-  overflow-y: scroll;
+  overflow-x: hidden;
+  overflow-y: scroll; 
   
   td {
     padding: 10px;
@@ -106,6 +106,11 @@ export const RecomendedSongs = styled.table`
   }
 `;
 
+export const TableContainer = styled.div`
+  height: 90vh;
+  overflow-y: auto;
+`
+
 export const CurrentSong = styled.img`
 filter: grayscale(100%);
 position: absolute;
@@ -137,8 +142,7 @@ export const CurrentContent = styled.div`
 
 
 export const Td = styled.td``
-export const Tr = styled.tr`
-`
+export const Tr = styled.tr``
 export const MiniatureSong = styled.img`
 
 `

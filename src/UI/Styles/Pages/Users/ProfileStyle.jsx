@@ -71,5 +71,5 @@ margin: 0 10px;
 `
 
 export const ContainerPlaylistProfile = styled.div`
-margin: 5% 0;
+margin: 2% 0;
 `

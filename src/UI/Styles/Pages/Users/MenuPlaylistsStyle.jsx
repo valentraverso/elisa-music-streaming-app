@@ -111,14 +111,11 @@ export const InfoPlaylist = styled.p`
 // ADD NEW, div and button
 
 export const DivBtnAddNew=styled.div`
-    margin-top: 3%;
     display: flex;
-    margin-right: 8%;
     justify-content: end;
 `
 
 export const BtnAddNew = styled.span`
-    margin-top: 3%;
     border: none;
     font-weight: bold;
     cursor: pointer;
