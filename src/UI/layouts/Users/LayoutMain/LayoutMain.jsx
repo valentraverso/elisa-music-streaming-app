@@ -24,7 +24,6 @@ function LayoutMain() {
                 }
 
                 <Main>
-                    <CategoryeButtons />
                     <Outlet />
                 </Main>
             </>
@@ -34,7 +33,6 @@ function LayoutMain() {
     return (
         <Main>
             <NavbarMain />
-            <CategoryeButtons />
             <Outlet />
             <SideBar />
         </Main>

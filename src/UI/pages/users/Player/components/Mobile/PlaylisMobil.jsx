@@ -1,7 +1,7 @@
 import React from "react";
 import { useParams } from "react-router-dom";
 import { playlistsRecomendados } from "../../../../../../data/playlists";
-import { ContainerImage, PlaylistBackground, MainContainer, SongTitle, AudioReproductor } from "../../../../../Styles/Pages/PlayerStyles/PlayerMobileStyle";
+import { ContainerImage, PlaylistBackground, MainContainer, SongTitle, AudioReproductor } from "../../../../../Styles/Pages/Users/components/PlayerStyles/PlayerMobileStyle";
 
 function PlaylistMobile() {
 const { id } = useParams();
