@@ -4,7 +4,6 @@ const fetchSongByTitle = async (sub, token) =>{
     try {
         const request = await fetch(`${process.env.REACT_APP_API_URL}/users/sub/${sub}`, {
             headers: {
-                "Content-Type": "application/json",
                 Authorization: `Bearer ${token}`
             }
         })
