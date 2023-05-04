@@ -1,5 +1,5 @@
 
-const fetchSongByTitle = async (sub, token) =>{
+const getUserBySub = async (sub, token) =>{
 
     try {
         const request = await fetch(`${process.env.REACT_APP_API_URL}/users/sub/${sub}`, {
@@ -10,9 +10,8 @@ const fetchSongByTitle = async (sub, token) =>{
         const response =await request.json()
         return response
     } catch (error) {
-        console.error(error)
-        return {msg: error.message, token}
+        return {msg: error.message}
     }
 }
 
-export default fetchSongByTitle
+export default getUserBySub

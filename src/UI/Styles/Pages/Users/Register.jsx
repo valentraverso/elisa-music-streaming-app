@@ -1,6 +1,7 @@
 import styled from "styled-components";
 import { ButtonFollowStyled } from "../../components/FollowButtonStyle";
 import { ContainerUploadButton } from "./UploadStyle";
+import { colors } from "../../config";
 
 export const SectionText = styled.section`
     display: flex;
@@ -17,7 +18,7 @@ margin-top: 3%;
 `
 
 export const ButtonArtist = styled(ButtonFollowStyled)`
-    
+    background-color: ${props => props.isActive};
 `
 
 export const ContainerThreeButtons = styled.div`
@@ -35,4 +36,8 @@ export const ContainerFinishButton = styled(ContainerUploadButton)`
     right: 0;
     bottom: 0;
     width: 50%;
+`
+
+export const PrivacyPolicySpan = styled.span`
+    color: ${colors.grey};
 `
