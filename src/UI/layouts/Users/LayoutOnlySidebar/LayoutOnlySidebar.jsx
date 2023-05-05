@@ -1,5 +1,5 @@
 import { SideBar } from "../Components/SideBar";
-import UseWidth from "../../../../helpers/hooks/useWidth";
+import UseWidth from "../../../../utils/hooks/useWidth";
 import { Outlet } from "react-router-dom";
 import { Main } from "../../../Styles/LayoutsStyles/GeneralLayoutStyles";
 import MenuDesktop from "../Components/MenuDesktop";

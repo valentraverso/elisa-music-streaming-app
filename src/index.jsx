@@ -4,6 +4,7 @@ import { GlobalStyle } from './UI/Styles/config';
 import { Auth0Provider } from '@auth0/auth0-react';
 import { QueryClientProvider, QueryClient } from 'react-query';
 
+
 const root = ReactDOM.createRoot(document.getElementById('root'));
 const queryClient = new QueryClient()
 root.render(
@@ -15,9 +16,10 @@ root.render(
       audience: process.env.REACT_APP_API_URL
     }}
   >
-    <QueryClientProvider client={queryClient}>
-      <GlobalStyle />
-      <Router />
-    </QueryClientProvider>
+      <QueryClientProvider client={queryClient}>
+        <GlobalStyle />
+        <Router />
+      </QueryClientProvider>
+
   </Auth0Provider>
 );

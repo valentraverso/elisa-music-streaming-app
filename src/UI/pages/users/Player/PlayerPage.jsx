@@ -2,7 +2,7 @@ import React from "react";
 import { useParams } from "react-router-dom";
 import { PlayerComponent } from "./components/PlayerComponent";
 import { PlayerComponentMobile } from "./components/Mobile/PlayerComponentMobile";
-import UseWidth from "../../../../helpers/hooks/useWidth";
+import UseWidth from "../../../../utils/hooks/useWidth";
 import { SideBarDesktop } from "../../../layouts/Users/Components/SideBarDesktop";
 import { BarLibraryDesktop } from "../../../layouts/Users/Components/BarLibraryDesktop";
 

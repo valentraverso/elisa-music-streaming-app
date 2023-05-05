@@ -3,7 +3,7 @@ import { ListPlaylists } from "./components/ListPlaylists";
 import { PageTitle, GeneralDivMenu, DivChangePlaylistAlbum, PageChanger, BtnAddNew } from "../../../Styles/Pages/Users/MenuPlaylistsStyle";
 import { Link } from "react-router-dom";
 import { device } from "../../../Styles/config";
-import UseWidth from "../../../../helpers/hooks/useWidth";
+import UseWidth from "../../../../utils/hooks/useWidth";
 import { useParams } from "react-router-dom";
 import { Player } from "../../../components/Player/Player";
 import { useOutletContext } from "react-router-dom";

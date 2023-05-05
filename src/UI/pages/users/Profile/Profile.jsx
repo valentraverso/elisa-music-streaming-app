@@ -3,7 +3,7 @@ import { useAuth0 } from "@auth0/auth0-react";
 import TitleCenterPage from "../../../components/TitleCenterPage/TitleCenterPage";
 import { links } from "../../../config.links";
 import { Link } from "react-router-dom";
-import UseWidth from "../../../../helpers/hooks/useWidth";
+import UseWidth from "../../../../utils/hooks/useWidth";
 import FollowButton from "../../../components/FollowButton/FollowButton";
 import { DivAllPlaylist, Subtitle } from '../../../Styles/Pages/Users/MenuPlaylistsStyle';
 import { PlaylistDisplay } from "../Library/components/PlaylistDisplay";

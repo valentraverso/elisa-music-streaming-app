@@ -1,5 +1,5 @@
 import { ContainerPlaylist, PlaylistBackground, Playlist, PlaylistImage,PlaylistTitle } from "../../../../Styles/Pages/Users/HomePageStyles/PlaylistsStyle"
-import UseWidth from "../../../../../helpers/hooks/useWidth";
+import UseWidth from "../../../../../utils/hooks/useWidth";
 import { NavLink } from "react-router-dom";
 
 export function Playlists({ playlists, title }) {

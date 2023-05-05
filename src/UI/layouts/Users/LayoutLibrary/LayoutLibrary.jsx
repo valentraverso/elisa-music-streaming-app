@@ -4,7 +4,7 @@ import { SideBar } from "../Components/SideBar";
 import { BarLibrary } from "../Components/BarLibrary";
 import { useAuth0 } from "@auth0/auth0-react";
 import SkeletonLibrary from "./SkeletonLibrary";
-import UseWidth from "../../../../helpers/hooks/useWidth";
+import UseWidth from "../../../../utils/hooks/useWidth";
 import MenuDesktop from "../Components/MenuDesktop";
 import { useState } from "react";
 import MenuDesktopSkeleton from "../Components/Skeletons/MenuDesktopSkeleton";

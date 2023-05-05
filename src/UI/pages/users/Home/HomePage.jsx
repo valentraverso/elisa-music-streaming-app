@@ -3,7 +3,7 @@ import { Playlists } from "./HomeComponents/PlaylistsRecomendados";
 import { playlistsRecomendados, Throwbackjams, Throwbackjams2, Throwbackjams3, Throwbackjams4, BighestHits } from "../../../../data/playlists";
 import { CategoryeButtons } from "./HomeComponents/CategoryButtons";
 import { useQuery } from "react-query";
-import fetchSongByTitle from "../../../../api/song/fetchSongByTitle";
+import fetchSongByTitle from "../../../../utils/api/song/fetchSongByTitle";
 import { useAuth0 } from "@auth0/auth0-react";
 
 export function HomePage() {
