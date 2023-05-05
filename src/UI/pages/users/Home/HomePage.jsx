@@ -9,6 +9,7 @@ import fetchSongById from "../../../../api/song/fetchSongById";
 // import fetchSongByTitle from "../../../../api/song/index"
 import fetchAllAlbums from "../../../../api/albums/fetchAllAlbums";
 import fetchAlbumById from "../../../../api/albums/fetchAlbumById";
+import fetchSongAll from "../../../../api/song/fetchGetAll";
 
 export function HomePage() {
     const {getAccessTokenSilently} = useAuth0()
@@ -19,6 +20,9 @@ export function HomePage() {
 
         const dataId = await fetchSongById("6450edf476aa58e705d61993", token)
         console.log(dataId)
+
+        const dataAll = await fetchSongAll(token)
+        console.log(dataAll)
 })
 console.log(data);
 
