@@ -1,7 +1,7 @@
 import AudioPlayer from 'react-h5-audio-player';
 import 'react-h5-audio-player/lib/styles.css';
 import { ContainerPlayer, ContainerInfoSong, ImgInfoSong, ContainerDataSong, SpanSongTitle, SpanSongArtist } from '../../Styles/components/PlayerStyles';
-import UseWidth from '../../../utils/hooks/useWidth';
+import UseWidth from '../../../helpers/hooks/useWidth';
 import { colors } from '../../Styles/config';
 import {AiOutlineHeart} from 'react-icons/ai';
 import { useOutletContext } from 'react-router';

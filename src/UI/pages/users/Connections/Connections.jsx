@@ -1,6 +1,6 @@
 import React from 'react'
 import { useParams } from "react-router-dom";
-import UseWidth from '../../../../utils/hooks/useWidth';
+import UseWidth from '../../../../helpers/hooks/useWidth';
 import TitleCenterPage from '../../../components/TitleCenterPage/TitleCenterPage';
 import UserCardFollow from '../../../components/UserCardFollow/UserCardFollow';
 import { ContainerConnections, ContainerUsers } from '../../../Styles/Pages/Users/ConnectionsStyle'

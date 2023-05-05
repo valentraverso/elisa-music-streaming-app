@@ -2,7 +2,7 @@ import { useAuth0 } from "@auth0/auth0-react"
 import { ButtonArtist, ButtonGenre, ContainerButtonsArtist, ContainerFinishButton, ContainerThreeButtons, PrivacyPolicySpan, SectionText } from "../../../Styles/Pages/Users/Register";
 import { ButtonUploadAlbum, ContainerInputs, LabelInputForm } from "../../../Styles/Pages/Users/UploadStyle";
 import { useState } from "react";
-import postUser from "../../../../utils/api/users/postUser";
+import postUser from "../../../../api/users/postUser";
 import { useNavigate } from "react-router-dom";
 
 function Register() {

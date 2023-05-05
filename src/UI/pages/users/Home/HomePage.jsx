@@ -3,17 +3,42 @@ import { Playlists } from "./HomeComponents/PlaylistsRecomendados";
 import { playlistsRecomendados, Throwbackjams, Throwbackjams2, Throwbackjams3, Throwbackjams4, BighestHits } from "../../../../data/playlists";
 import { CategoryeButtons } from "./HomeComponents/CategoryButtons";
 import { useQuery } from "react-query";
-import fetchSongByTitle from "../../../../utils/api/song/fetchSongByTitle";
 import { useAuth0 } from "@auth0/auth0-react";
+import fetchSongByTitle from "../../../../api/song/fetchSongByTitle";
+import fetchSongById from "../../../../api/song/fetchSongById";
+// import fetchSongByTitle from "../../../../api/song/index"
+import fetchAllAlbums from "../../../../api/albums/fetchAllAlbums";
+import fetchAlbumById from "../../../../api/albums/fetchAlbumById";
 
 export function HomePage() {
     const {getAccessTokenSilently} = useAuth0()
     const {data} = useQuery(['songs'], async ()=>{
         const token = await getAccessTokenSilently()
         const data = await fetchSongByTitle("song", token)
-        return data
+        console.log(data.data)
+
+        const dataId = await fetchSongById("6450edf476aa58e705d61993", token)
+        console.log(dataId)
 })
 console.log(data);
+
+// const { data: albumsData } = useQuery(['albums'], async () => {
+//     const token = await getAccessTokenSilently();
+//     const data = await fetchAllAlbums(token);
+//     return data;
+//   });
+//   console.log(albumsData);
+
+
+const { data: albumData } = useQuery(['album', '644bc2b2093ad501e860964d'], async () => {
+    const token = await getAccessTokenSilently();
+    const data = await fetchAlbumById('644bc2b2093ad501e860964d', token);
+    return data;
+  });
+  
+  console.log(albumData);
+  
+
 const allPlaylists = [
 { playlists: playlistsRecomendados, title: "Mis recomendaciones" },
 { playlists: Throwbackjams, title: "Throwback jams" },

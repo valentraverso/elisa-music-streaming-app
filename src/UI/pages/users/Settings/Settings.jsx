@@ -2,7 +2,7 @@ import { useAuth0 } from "@auth0/auth0-react";
 import TitleCenterPage from "../../../components/TitleCenterPage/TitleCenterPage";
 import { links } from "../../../config.links";
 import { ContainerSettings, SubClassSettingsTitle, TitleSetting, ContainerTitleSettings, LogOutButton } from "../../../Styles/Pages/Users/SettingsStyle";
-import UseWidth from "../../../../utils/hooks/useWidth";
+import UseWidth from "../../../../helpers/hooks/useWidth";
 
 export function Settings() {
     const {logout} = useAuth0();
