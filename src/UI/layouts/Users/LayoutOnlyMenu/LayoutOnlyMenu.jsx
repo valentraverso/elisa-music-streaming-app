@@ -8,35 +8,16 @@ import { useAuth0 } from "@auth0/auth0-react";
 import MenuDesktopSkeleton from "../Components/Skeletons/MenuDesktopSkeleton";
 
 
-function LayoutMain() {
-    const width = UseWidth();
+function LayoutOnlyMenu() {
     const { isLoading: isLoadingAuth0 } = useAuth0();
-
-    if (width === 'desktop') {
-        return (
-            <>
-                {
-                    isLoadingAuth0 ?
-                        <MenuDesktopSkeleton />
-                        :
-                        <MenuDesktop />
-                }
-
-                <Main>
-                    <Outlet />
-                </Main>
-            </>
-        )
-    }
 
     return (
         <Main>
             <NavbarMain />
             <Outlet />
-            <SideBar />
         </Main>
     );
 };
 
 
-export { LayoutMain };
+export { LayoutOnlyMenu };
