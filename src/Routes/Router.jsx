@@ -2,34 +2,34 @@
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 
 // Layouts
-import {LayoutMain, LayoutSearch, LayoutLibrary} from '../UI/layouts/Users';
+import { LayoutMain, LayoutSearch, LayoutLibrary, LayoutOnlyMenu } from '../UI/layouts/Users';
 import { LayoutOnlySidebar } from "../UI/layouts/Users/LayoutOnlySidebar/LayoutOnlySidebar";
 
 // Pages
-import { Login, Main, Profile, Settings, Connections, HomePage, PlayerPage, Library, Upload, LibraryAlbums, Search, SearchResults} from "../UI/pages/users";
+import { Login, Profile, Settings, Connections, HomePage, PlayerPage, Library, Upload, LibraryAlbums, Search, SearchResults, Register } from "../UI/pages/users";
 import { Playlist } from "../UI/pages/users/Playlist/Playlist";
 import PrivateRoutes from "./RouteTypes";
 
 const router = createBrowserRouter([
     {
-        element:<LayoutMain/>,
-        children:[
+        element: <PrivateRoutes><LayoutMain /></PrivateRoutes>,
+        children: [
             {
-                path:'/',
-                element:<PrivateRoutes><HomePage /></PrivateRoutes>
+                path: '/',
+                element: <HomePage />
             }
         ]
     },
     {
-        element:<PrivateRoutes><LayoutSearch/></PrivateRoutes>,
-        children:[
+        element: <PrivateRoutes><LayoutSearch /></PrivateRoutes>,
+        children: [
             {
-                path:'/search',
-                element:<Search/>
+                path: '/search',
+                element: <Search />
             },
             {
-                path:'/search/:type/:query',
-                element:<SearchResults/>
+                path: '/search/:type/:query',
+                element: <SearchResults />
             }
         ]
     },
@@ -47,26 +47,26 @@ const router = createBrowserRouter([
             {
                 path: '/connections/:typeConnection',
                 element: <Connections />
-            },{
+            }, {
                 path: '/user/upload',
                 element: <Upload />
             },
         ]
     },
     {
-        element:<PrivateRoutes><LayoutLibrary/></PrivateRoutes>,
-        children:[
+        element: <PrivateRoutes><LayoutLibrary /></PrivateRoutes>,
+        children: [
             {
-                path:'/user/library/:type',
-                element:<Library />
+                path: '/user/library/:type',
+                element: <Library />
             },
             {
-                path:'/playlist',
-                element:<Playlist img="https://i.scdn.co/image/ab67616d0000b27396384c98ac4f3e7c2440f5b5" playlistName="Sad Playlist" info="50 Songs" likes="50 Likes" btnLike={true}/>
+                path: '/playlist',
+                element: <Playlist img="https://i.scdn.co/image/ab67616d0000b27396384c98ac4f3e7c2440f5b5" playlistName="Sad Playlist" info="50 Songs" likes="50 Likes" btnLike={true} />
             },
             {
-                path:'/album',
-                element:<Playlist img="https://i.scdn.co/image/ab67616d0000b27396384c98ac4f3e7c2440f5b5" playlistName="My Album" info="10 Songs" likes="50 Likes" btnLike={false}/>
+                path: '/album',
+                element: <Playlist img="https://i.scdn.co/image/ab67616d0000b27396384c98ac4f3e7c2440f5b5" playlistName="My Album" info="10 Songs" likes="50 Likes" btnLike={false} />
             }
         ]
     },
@@ -77,11 +77,20 @@ const router = createBrowserRouter([
     {
         path: '/PlayerPage/:id',
         element: <PrivateRoutes><PlayerPage /></PrivateRoutes>
+    },
+    {
+        element: <PrivateRoutes><LayoutOnlyMenu /></PrivateRoutes>,
+        children: [
+            {
+                path: '/register',
+                element: <Register />
+            },
+        ]
     }
 ])
 
-export default function Router(){
-    return(
+export default function Router() {
+    return (
         <RouterProvider router={router} />
     )
 }

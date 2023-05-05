@@ -43,7 +43,7 @@ background: ${colors.grey};
 `
 
 export const ContainerInputs = styled.div`
-margin: 4% 0;
+margin: 8% 0;
 `
 
 export const LabelInputForm = styled.label`
