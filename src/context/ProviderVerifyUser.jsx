@@ -24,7 +24,7 @@ export default function ProviderVerifyUser({ children }) {
     }
 
     const { isLoading } = useQuery(['user'], async () => {
-        if(window.pathname === "/register"){
+        if (window.pathname === "/register") {
             return;
         }
 
@@ -39,6 +39,13 @@ export default function ProviderVerifyUser({ children }) {
     })
 
     return (
-        children
+        <>
+            {
+                isLoading ?
+                    <p>Loading info user</p>
+                    :
+                    children
+            }
+        </>
     )
 }
