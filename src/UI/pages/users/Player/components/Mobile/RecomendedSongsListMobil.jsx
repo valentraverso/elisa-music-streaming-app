@@ -1,14 +1,13 @@
 import React, { useState } from "react";
 import { cancionesRecomendadas } from "../../../../../../data/recomendedSongs";
-import { RecomendedSongs, MiniatureSong, Td, Tr,ShowSongs,ShowSongsLogo,PlainButton, HideSongs  } from "../../../../../Styles/Pages/Users/components/PlayerStyles/PlayerMobileStyle";
+import { RecomendedSongs, MiniatureSong, Td, Tr,ShowSongs, PlainButton, HideSongs, SongsContainer  } from "../../../../../Styles/Pages/Users/components/PlayerStyles/PlayerMobileStyle";
 
 function RecomendedSongsListMobile() {
     const [showSongs, setShowSongs] = useState(false);
 
     return (
-      <>
+      <SongsContainer>
       <ShowSongs>
-      {/* <ShowSongsLogo> Songs </ShowSongsLogo >  */}
         <PlainButton onClick={() => setShowSongs(true)}>Mostrar canciones recomendadas</PlainButton>
         </ShowSongs>
         <RecomendedSongs show={showSongs}>
@@ -25,7 +24,7 @@ function RecomendedSongsListMobile() {
           <PlainButton onClick={() => setShowSongs(false)}>Cerrar</PlainButton>
           </HideSongs>
         </RecomendedSongs>
-      </>
+      </SongsContainer>
     );
   }
 

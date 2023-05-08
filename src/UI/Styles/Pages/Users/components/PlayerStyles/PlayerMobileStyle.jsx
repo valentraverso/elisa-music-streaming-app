@@ -18,9 +18,9 @@ export const ContainerImage = styled.img`
 export const PlaylistBackground = styled.div`
   position: absolute;
   top: 15%;
-  left: 32%;
-  width: 30%;
-  height: 40%;
+  left: 20%;
+  width: 60%;
+  height: 50%;
   background-image: url(${props => props.image});
   background-size: 10rem;
   filter: blur(5rem);
@@ -39,7 +39,7 @@ z-index: 1055;
 export const SongTitle = styled.h1`
 background-color: transparent;
 position: absolute;
-margin-top: 2%;
+margin-top: -10%;
 left: 10%;
 `
 
@@ -109,6 +109,11 @@ export const RecomendedSongs = styled.table`
     }
   }
 `;
+
+export const SongsContainer = styled.div`
+  height: 100vh;
+  overflow-y: auto;
+`
 
 export const CurrentSong = styled.img`
 filter: grayscale(100%);

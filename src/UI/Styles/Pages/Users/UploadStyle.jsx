@@ -43,7 +43,7 @@ background: ${colors.grey};
 `
 
 export const ContainerInputs = styled.div`
-margin: 4% 0;
+margin: 8% 0;
 `
 
 export const LabelInputForm = styled.label`
@@ -108,4 +108,14 @@ font-size: 1.5rem;
     border-radius: 5px;
     background: blue;
     padding: 10px 20%;
+`
+
+export const ErrorMessage = styled.span`
+    background-color: red;
+    padding: 5px;
+    margin: 5px 0;
+    display: block;
+    text-align: center;
+    border-radius: 5px;
+    width: 100%;
 `

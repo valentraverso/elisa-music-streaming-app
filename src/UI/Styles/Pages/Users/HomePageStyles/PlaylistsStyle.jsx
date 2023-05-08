@@ -5,7 +5,6 @@ export const ContainerPlaylist = styled.div`
   display: flex;
   flex-direction: row;
   flex-wrap: nowrap;
-
   white-space: nowrap;
   width: 100%;
   background-color: transparent;
@@ -37,8 +36,8 @@ export const PlaylistBackground = styled.div`
   background-size: cover;
   filter: blur(10px);
   z-index: -1;
-  opacity: 0; /* La imagen de fondo es transparente por defecto */
-  transition: opacity 0.3s ease-in-out; /* Agrega transición para suavizar el efecto */
+  opacity: 0; 
+  transition: opacity 0.3s ease-in-out; 
 `;
 
 export const Playlist = styled.div`

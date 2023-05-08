@@ -5,10 +5,13 @@ import UseWidth from '../../../helpers/hooks/useWidth';
 import { colors } from '../../Styles/config';
 import {AiOutlineHeart} from 'react-icons/ai';
 import { useOutletContext } from 'react-router';
+// import { playlistSound } from '../../../../public/assets/songs/playlist';
+import { useState } from 'react';
 
 export const Player = () => {
   const [playerInPage, setPlayerInPage] = useOutletContext()
   const width = UseWidth();
+  // const [songPlayed, setSongPlayed] = useState("")
 
   return (
     <ContainerPlayer>
@@ -47,7 +50,10 @@ export const Player = () => {
           showJumpControls={false}
           showDownloadProgress={false}
           customAdditionalControls={[<AiOutlineHeart/>]}
-          style={{ padding: 0, backgroundColor: 'inherit', boxShadow: "none", width: "98%" }}/>
+          style={{ padding: 0, backgroundColor: 'inherit', boxShadow: "none", width: "98%" }}
+          onClickPrevious={()=>console.log("hola")}
+          // onClickNext={()=>handleNext()}
+          />
   }
     <span onClick={()=>setPlayerInPage(false)}>x</span>
 
