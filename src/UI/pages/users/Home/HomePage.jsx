@@ -6,6 +6,7 @@ import { useQuery } from "react-query";
 import { useAuth0 } from "@auth0/auth0-react";
 import fetchAllAlbums from "../../../../api/albums/fetchAllAlbums";
 import fetchAlbumById from "../../../../api/albums/fetchAlbumById";
+import { store } from "../../../../utils/redux/store";
 import fetchDeleteSong from "../../../../api/song/fetchDeleteSong";
 
 export function HomePage() {
@@ -23,7 +24,6 @@ const { data: albumsData } = useQuery(['albums'], async () => {
     return data;
   });
   console.log(albumsData);
-
 
 const { data: albumData } = useQuery(['album', '644bc2b2093ad501e860964d'], async () => {
     const token = await getAccessTokenSilently();
