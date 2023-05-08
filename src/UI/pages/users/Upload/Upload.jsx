@@ -6,13 +6,14 @@ import UseWidth from "../../../../helpers/hooks/useWidth";
 import { links } from "../../../config.links";
 import { useForm, Controller } from "react-hook-form";
 import { store } from "../../../../utils/redux/store";
+import postAlbum from "../../../../api/albums/postAlbum";
+import { useAuth0 } from "@auth0/auth0-react";
 
 export function Upload() {
   const width = UseWidth();
 
+  const {getAccessTokenSilently} = useAuth0();
   const user = store.getState().user.data[0];
-
-  console.log("upload", user._id)
 
   const {
     register,
@@ -24,8 +25,11 @@ export function Upload() {
     mode: "all",
     defaultValues: {
       owner: user._id,
+      artist: user.name,
       albumTitle: undefined,
+      release: undefined,
       imgAlbum: "",
+      discography: undefined,
       songsArray: []
     }
   });
@@ -34,8 +38,12 @@ export function Upload() {
   const [songsArray] = watch(['songsArray']);
 
   const uploadAlbum = async (data) => {
+    console.log(data.imgAlbum[0].file)
 
-    console.log(data)
+    const token = await getAccessTokenSilently();
+    const uploadAlbum = await postAlbum(data, token)
+
+    console.log("upload", uploadAlbum)
   }
 
   return (
@@ -109,11 +117,61 @@ export function Upload() {
               maxLength: {
                 value: 40,
                 msg: "The name of the title need to have less than 40 characters."
+              },
+              minLength: {
+                value: 2,
+                msg: "The name of the title need to have more than 2 characters."
               }
             })
           } />
           {
-            errors.albumTitle &&
+            errors.albumTitle?.message &&
+            <ErrorMessage>
+              {
+                errors.albumTitle.message
+              }
+            </ErrorMessage>
+          }
+        </ContainerInputs>
+        <ContainerInputs>
+          <LabelInputForm htmlFor='release'>Release of the album</LabelInputForm><br />
+          <InputForm type='date' name='release' {
+            ...register('release', {
+              required: {
+                value: true,
+                message: "You need to add a discography for the album."
+              },
+              maxLength: {
+                value: 70,
+                msg: "The name of the discography need to have less than 40 characters."
+              },
+              minLength: {
+                value: 2,
+                msg: "The name of the discography need to have more than 2 characters."
+              }
+            })
+          } />
+          {
+            errors.albumTitle?.message  &&
+            <ErrorMessage>
+              {
+                errors.albumTitle.message
+              }
+            </ErrorMessage>
+          }
+        </ContainerInputs>
+        <ContainerInputs>
+          <LabelInputForm htmlFor='release'>Discography</LabelInputForm><br />
+          <InputForm type='text' name='discography' {
+            ...register('discography', {
+              required: {
+                value: true,
+                message: "You need to add the realease of the album."
+              }
+            })
+          } />
+          {
+            errors.albumTitle?.message  &&
             <ErrorMessage>
               {
                 errors.albumTitle.message
