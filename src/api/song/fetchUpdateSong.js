@@ -1,23 +1,26 @@
 
-// const fetchUpdateSong = async (id, token) =>{
 
-//     try {
-//         const request = await fetch(`${process.env.REACT_APP_API_URL}/songs/update/${id}`, {
-//             method: "PATCH",
-//             headers: {
-//                 "Content-Type": "application/json",
-//                 Authorization: `Bearer ${token}`
-//             },
-//             body: JSON.stringify({
-//                 title
-//             })
-//         })
-//         const response =await request.json()
-//         return response
-//     } catch (error) {
-//         console.error(error)
-//         return {msg: error.message, token}
-//     }
-// }
+const fetchUpdateSong = async (id, token) =>{
+const formData = new FormData()
 
-// export default fetchUpdateSong
+formData.append("title", "Temazo Albert");
+
+console.log(formData.get('title'))
+
+    try {
+        const request = await fetch(`${process.env.REACT_APP_API_URL}/songs/update/${id}`, {
+            method: "PATCH",
+            headers: {
+                Authorization: `Bearer ${token}`
+            },
+            body: formData
+        })
+        const response =await request.json()
+        return response
+    } catch (error) {
+        console.error(error)
+        return {msg: error.message, token}
+    }
+}
+
+export default fetchUpdateSong

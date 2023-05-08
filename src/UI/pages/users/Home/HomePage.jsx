@@ -4,34 +4,25 @@ import { playlistsRecomendados, Throwbackjams, Throwbackjams2, Throwbackjams3, T
 import { CategoryeButtons } from "./HomeComponents/CategoryButtons";
 import { useQuery } from "react-query";
 import { useAuth0 } from "@auth0/auth0-react";
-import fetchSongByTitle from "../../../../api/song/fetchSongByTitle";
-import fetchSongById from "../../../../api/song/fetchSongById";
-// import fetchSongByTitle from "../../../../api/song/index"
 import fetchAllAlbums from "../../../../api/albums/fetchAllAlbums";
 import fetchAlbumById from "../../../../api/albums/fetchAlbumById";
-import fetchSongAll from "../../../../api/song/fetchGetAll";
+import fetchDeleteSong from "../../../../api/song/fetchDeleteSong";
 
 export function HomePage() {
     const {getAccessTokenSilently} = useAuth0()
     const {data} = useQuery(['songs'], async ()=>{
         const token = await getAccessTokenSilently()
-        const data = await fetchSongByTitle("song", token)
-        console.log(data.data)
-
-        const dataId = await fetchSongById("6450edf476aa58e705d61993", token)
-        console.log(dataId)
-
-        const dataAll = await fetchSongAll(token)
-        console.log(dataAll)
+        const deleteSong = await fetchDeleteSong("6450edf476aa58e705d61993",token)
+        console.log(deleteSong)
 })
 console.log(data);
 
-// const { data: albumsData } = useQuery(['albums'], async () => {
-//     const token = await getAccessTokenSilently();
-//     const data = await fetchAllAlbums(token);
-//     return data;
-//   });
-//   console.log(albumsData);
+const { data: albumsData } = useQuery(['albums'], async () => {
+    const token = await getAccessTokenSilently();
+    const data = await fetchAllAlbums(token);
+    return data;
+  });
+  console.log(albumsData);
 
 
 const { data: albumData } = useQuery(['album', '644bc2b2093ad501e860964d'], async () => {
@@ -40,7 +31,7 @@ const { data: albumData } = useQuery(['album', '644bc2b2093ad501e860964d'], asyn
     return data;
   });
   
-  console.log(albumData);
+  // console.log(albumData);
   
 
 const allPlaylists = [
