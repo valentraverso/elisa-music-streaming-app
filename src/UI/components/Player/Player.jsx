@@ -55,9 +55,6 @@ export const Player = () => {
           // onClickNext={()=>handleNext()}
           />
   }
-    <span onClick={()=>setPlayerInPage(false)}>x</span>
-
-
     </ContainerPlayer>
   )
 }
