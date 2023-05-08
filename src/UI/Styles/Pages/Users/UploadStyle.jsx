@@ -109,3 +109,13 @@ font-size: 1.5rem;
     background: blue;
     padding: 10px 20%;
 `
+
+export const ErrorMessage = styled.span`
+    background-color: red;
+    padding: 5px;
+    margin: 5px 0;
+    display: block;
+    text-align: center;
+    border-radius: 5px;
+    width: 100%;
+`

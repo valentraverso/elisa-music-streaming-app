@@ -23,7 +23,7 @@ export default function ProviderVerifyUser({ children }) {
         }
     }
 
-    const { data } = useQuery(['user'], async () => {
+    const { isLoading } = useQuery(['user'], async () => {
         if(window.pathname === "/register"){
             return;
         }
