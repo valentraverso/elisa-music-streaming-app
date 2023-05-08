@@ -12,7 +12,7 @@ import { useAuth0 } from "@auth0/auth0-react";
 export function Upload() {
   const width = UseWidth();
 
-  const {getAccessTokenSilently} = useAuth0();
+  const { getAccessTokenSilently } = useAuth0();
   const user = store.getState().user.data[0];
 
   const {
@@ -152,7 +152,7 @@ export function Upload() {
             })
           } />
           {
-            errors.albumTitle?.message  &&
+            errors.albumTitle?.message &&
             <ErrorMessage>
               {
                 errors.albumTitle.message
@@ -171,25 +171,13 @@ export function Upload() {
             })
           } />
           {
-            errors.albumTitle?.message  &&
+            errors.albumTitle?.message &&
             <ErrorMessage>
               {
                 errors.albumTitle.message
               }
             </ErrorMessage>
           }
-        </ContainerInputs>
-        <ContainerInputs>
-          <LabelInputForm>Genre</LabelInputForm><br />
-          <ContainerButtonsGenre>
-            <SpanGenreButton>Rock</SpanGenreButton>
-            <SpanGenreButton>Pop</SpanGenreButton>
-            <SpanGenreButton>Hip Hop</SpanGenreButton>
-            <SpanGenreButton>Reggaeton</SpanGenreButton>
-            <SpanGenreButton>Indie</SpanGenreButton>
-            <SpanGenreButton>Rap</SpanGenreButton>
-          </ContainerButtonsGenre>
-          <PViewMore>View more</PViewMore>
         </ContainerInputs>
         <ContainerInputs>
           <Controller
@@ -227,11 +215,23 @@ export function Upload() {
                                 </ContainerInputs>
                                 <ContainerInputs>
                                   <LabelInputForm htmlFor={`songTitle-${index}`}>Song Title</LabelInputForm><br />
-                                  <InputForm type='text' name={`songTitle-${index}`} maxLength={50} />
+                                  <InputForm type='text' name={`songTitle-${index}`} maxLength={50}/>
                                 </ContainerInputs>
                                 <ContainerInputs>
                                   <LabelInputForm htmlFor={`songFeat-${index}`}>Feat</LabelInputForm><br />
                                   <InputForm type='text' name={`songFeat-${index}`} maxLength={50} />
+                                </ContainerInputs>
+                                <ContainerInputs>
+                                  <LabelInputForm>Genre</LabelInputForm><br />
+                                  <ContainerButtonsGenre>
+                                    <SpanGenreButton>Rock</SpanGenreButton>
+                                    <SpanGenreButton>Pop</SpanGenreButton>
+                                    <SpanGenreButton>Hip Hop</SpanGenreButton>
+                                    <SpanGenreButton>Reggaeton</SpanGenreButton>
+                                    <SpanGenreButton>Indie</SpanGenreButton>
+                                    <SpanGenreButton>Rap</SpanGenreButton>
+                                  </ContainerButtonsGenre>
+                                  <PViewMore>View more</PViewMore>
                                 </ContainerInputs>
                                 <ContainerDeleteSong>
                                   <SpanDeleteSong onClick={() => onSongRemove(index)} >Delete track <AiOutlineDelete /></SpanDeleteSong>
