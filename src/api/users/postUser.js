@@ -1,4 +1,4 @@
-const postUser = async (data, token) =>{
+const postUser = async (data, token) => {
     const formData = new FormData();
 
     formData.append('name', data.name);
@@ -14,11 +14,13 @@ const postUser = async (data, token) =>{
             },
             body: formData
         })
-        const response =await request.json();
+        const response = await request.json();
 
         return response;
     } catch (error) {
-        return {msg: error.message}
+        return {
+            msg: error.message
+        }
     }
 }
 

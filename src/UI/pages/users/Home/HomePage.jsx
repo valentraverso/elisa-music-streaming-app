@@ -9,6 +9,7 @@ import fetchSongById from "../../../../api/song/fetchSongById";
 // import fetchSongByTitle from "../../../../api/song/index"
 import fetchAllAlbums from "../../../../api/albums/fetchAllAlbums";
 import fetchAlbumById from "../../../../api/albums/fetchAlbumById";
+import { store } from "../../../../utils/redux/store";
 
 export function HomePage() {
     const {getAccessTokenSilently} = useAuth0()
@@ -28,7 +29,6 @@ console.log(data);
 //     return data;
 //   });
 //   console.log(albumsData);
-
 
 const { data: albumData } = useQuery(['album', '644bc2b2093ad501e860964d'], async () => {
     const token = await getAccessTokenSilently();
