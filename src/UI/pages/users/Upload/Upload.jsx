@@ -5,9 +5,14 @@ import { AiOutlineDelete } from 'react-icons/ai';
 import UseWidth from "../../../../helpers/hooks/useWidth";
 import { links } from "../../../config.links";
 import { useForm, Controller } from "react-hook-form";
+import { store } from "../../../../utils/redux/store";
 
 export function Upload() {
   const width = UseWidth();
+
+  const user = store.getState().user.data[0];
+
+  console.log("upload", user._id)
 
   const {
     register,
@@ -18,6 +23,7 @@ export function Upload() {
   } = useForm({
     mode: "all",
     defaultValues: {
+      owner: user._id,
       albumTitle: undefined,
       imgAlbum: "",
       songsArray: []
