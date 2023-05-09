@@ -35,7 +35,8 @@ export function Upload() {
   });
 
   const [imgAlbum] = watch('imgAlbum');
-  const [songsArray] = watch(['songsArray']);
+  const songsArray = watch('songsArray');
+  console.log(songsArray)
 
   const uploadAlbum = async (data) => {
     console.log(data.imgAlbum[0].file)
@@ -215,11 +216,17 @@ export function Upload() {
                                 </ContainerInputs>
                                 <ContainerInputs>
                                   <LabelInputForm htmlFor={`songTitle-${index}`}>Song Title</LabelInputForm><br />
-                                  <InputForm type='text' name={`songTitle-${index}`} maxLength={50}/>
+                                  <InputForm type='text' name={`songTitle-${index}`} maxLength={50}
+                                  {
+                                    ...register(`songsArray.${index}.songTitle`)
+                                  }/>
                                 </ContainerInputs>
                                 <ContainerInputs>
                                   <LabelInputForm htmlFor={`songFeat-${index}`}>Feat</LabelInputForm><br />
-                                  <InputForm type='text' name={`songFeat-${index}`} maxLength={50} />
+                                  <InputForm type='text' name={`songFeat-${index}`} maxLength={50}
+                                  {
+                                    ...register(`songsArray.${index}.feat`)
+                                  } />
                                 </ContainerInputs>
                                 <ContainerInputs>
                                   <LabelInputForm>Genre</LabelInputForm><br />
