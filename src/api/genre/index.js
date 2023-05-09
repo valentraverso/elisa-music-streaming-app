@@ -1,0 +1,6 @@
+export * from "./fetchDeleteGenresById"
+export * from "./fetchGetGenresById"
+export * from "./fetchGetGenresByName"
+export * from "./fetchPostGenres"
+export * from "./fetchgetAllGenres"
+export * from "./fetchUpdateGenresById"
