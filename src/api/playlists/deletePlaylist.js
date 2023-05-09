@@ -1,6 +1,6 @@
-const deleteAlbum = async (albumId, token) => {
+const deletePlaylist = async (albumId, token) => {
     try {
-      const request = await fetch(`${process.env.REACT_APP_API_URL}/albums/delete/${albumId}`, {
+      const request = await fetch(`${process.env.REACT_APP_API_URL}/playlists/delete/${albumId}`, {
         method: "DELETE",
         headers: {
           Authorization: `Bearer ${token}`,
@@ -15,5 +15,4 @@ const deleteAlbum = async (albumId, token) => {
     }
   };
   
-  export default deleteAlbum;
-  
+  export default deletePlaylist;

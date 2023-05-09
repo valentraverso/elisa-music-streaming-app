@@ -1,12 +1,12 @@
-const deleteAlbum = async (albumId, token) => {
+ const fetchSongsByAlbumId = async (albumId, token) => {
+    console.log('albumId:', albumId);
     try {
-      const request = await fetch(`${process.env.REACT_APP_API_URL}/albums/delete/${albumId}`, {
-        method: "DELETE",
+      const request = await fetch(`${process.env.REACT_APP_API_URL}/songs/album/${albumId}`, {
         headers: {
+          "Content-Type": "application/json",
           Authorization: `Bearer ${token}`,
         },
       });
-  
       const response = await request.json();
       return response;
     } catch (error) {
@@ -15,5 +15,5 @@ const deleteAlbum = async (albumId, token) => {
     }
   };
   
-  export default deleteAlbum;
+  export default fetchSongsByAlbumId;
   

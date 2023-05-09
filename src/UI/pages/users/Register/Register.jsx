@@ -2,20 +2,34 @@ import { useAuth0 } from "@auth0/auth0-react"
 import { ButtonArtist, ButtonGenre, ContainerButtonsArtist, ContainerFinishButton, ContainerThreeButtons, PrivacyPolicySpan, SectionText } from "../../../Styles/Pages/Users/Register";
 import { ButtonUploadAlbum, ContainerInputs, LabelInputForm } from "../../../Styles/Pages/Users/UploadStyle";
 import { useState } from "react";
+import postUser from "../../../../api/users/postUser";
+import { useNavigate } from "react-router-dom";
 
 function Register() {
-    const { user } = useAuth0();
+    const navigate = useNavigate();
 
-    const [isArtist, setIsArtist] = useState(null);
+    const { user, getAccessTokenSilently } = useAuth0();
+    const [userData, setUserData] = useState({
+        name: user.name || "",
+        email: user.email,
+        picture: user.picture || "",
+        sub: user.sub
+    });
 
-    const handleSubmit = (ev) => {
+    const [isArtist, setIsArtist] = useState(false);
+
+    const handleSubmit = async (ev) => {
         ev.preventDefault();
 
-        if(isArtist === null){
+        const token = await getAccessTokenSilently();
+
+        const createUser = await postUser(userData,token);
+
+        if(!createUser.status){
             return;
         }
 
-        
+        navigate('/');
     }
     return (
         <form onSubmit={handleSubmit}>

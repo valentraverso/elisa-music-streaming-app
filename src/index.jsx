@@ -3,6 +3,8 @@ import Router from './routes/Router';
 import { GlobalStyle } from './UI/Styles/config';
 import { Auth0Provider } from '@auth0/auth0-react';
 import { QueryClientProvider, QueryClient } from 'react-query';
+import { Provider as ProviderRedux } from "react-redux"
+import { store } from './utils/redux/store';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 const queryClient = new QueryClient()
@@ -16,8 +18,10 @@ root.render(
     }}
   >
     <QueryClientProvider client={queryClient}>
-      <GlobalStyle />
-      <Router />
+      <ProviderRedux store={store}>       
+          <GlobalStyle />
+          <Router />
+      </ProviderRedux>
     </QueryClientProvider>
   </Auth0Provider>
 );

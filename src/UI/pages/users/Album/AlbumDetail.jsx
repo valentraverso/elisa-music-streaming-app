@@ -1,29 +1,38 @@
-import React from "react";
-import { useParams } from "react-router-dom";
 import { useQuery } from "react-query";
-import fetchAlbumById from "../../../../api/albums/fetchAlbumById";
+import { useParams } from "react-router-dom";
+import fetchSongsByAlbumId from "../../../../api/albums/fetchByAlbumId";
+import { useAuth0 } from "@auth0/auth0-react";
 
 export const AlbumDetail = () => {
-  const { id } = useParams();
-  const { data: album, isLoading } = useQuery(["album", id], () =>
-    fetchAlbumById(id)
+  const { id } = useParams(); // get the album id from the URL
+  const { getAccessTokenSilently } = useAuth0();
+
+  const { data: songs } = useQuery(
+    ["songs", id], // pass the album id as a key
+    async () => {
+      const token = await getAccessTokenSilently();
+      const data = await fetchSongsByAlbumId(id, token); // fetch songs by album id
+      return data;
+    }
   );
 
-  if (isLoading) {
-    return <div>Loading...</div>;
-  }
-
+  // render the songs
   return (
     <div>
-      <h2>{album.title}</h2>
-      <p>{album.artist}</p>
-      <ul>
-        {album.songs.map((song) => (
-          <li key={song._id}>{song.title}</li>
+      <h2>Songs</h2>
+      {songs &&
+        songs.map((song) => (
+          <div key={song.id}>
+            <p>{song.title}</p>
+            <p>{song.artist}</p>
+           
+          </div>
         ))}
-      </ul>
     </div>
   );
 };
+
+
+
 
 
