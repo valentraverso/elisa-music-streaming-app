@@ -8,6 +8,7 @@ const postSong = async (data, token) => {
         formData.append('title', song.songTitle);
         formData.append("album", song.album);
         formData.append("feat", song.feat);
+        formData.append("artist", song.artist);
     });
 
     try {

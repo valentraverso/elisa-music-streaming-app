@@ -56,10 +56,11 @@ export function Upload() {
     const songs = await songsArray.map((song) =>  ({
       ...song,
       owner: data.owner,
-      album: uploadAlbumResponse._id
+      album: uploadAlbumResponse.data._id,
+      artist: data.artist
   }))
     
-    console.log("songs", songs)
+    console.log("album", uploadAlbumResponse)
 
     const uploadSongsResponse = await postSong(songs, token)
     
