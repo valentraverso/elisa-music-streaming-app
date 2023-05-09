@@ -8,6 +8,7 @@ import { useForm, Controller } from "react-hook-form";
 import { store } from "../../../../utils/redux/store";
 import postAlbum from "../../../../api/albums/postAlbum";
 import { useAuth0 } from "@auth0/auth0-react";
+import postSong from "../../../../api/song/postSong";
 
 export function Upload() {
   const width = UseWidth();
@@ -36,15 +37,33 @@ export function Upload() {
 
   const [imgAlbum] = watch('imgAlbum');
   const songsArray = watch('songsArray');
-  console.log(songsArray)
 
   const uploadAlbum = async (data) => {
-    console.log(data.imgAlbum[0].file)
 
     const token = await getAccessTokenSilently();
-    const uploadAlbum = await postAlbum(data, token)
 
-    console.log("upload", uploadAlbum)
+    const album = {
+      owner: data.owner,
+      artist: data.artist,
+      albumTitle: data.albumTitle,
+      release: data.release,
+      imgAlbum: data.imgAlbum,
+      discography: data.discography,
+    }
+    const uploadAlbumResponse = await postAlbum(album, token)
+
+    const songsArray = [...data.songsArray]
+    const songs = await songsArray.map((song) =>  ({
+      ...song,
+      owner: data.owner,
+      album: uploadAlbumResponse._id
+  }))
+    
+    console.log("songs", songs)
+
+    const uploadSongsResponse = await postSong(songs, token)
+    
+    console.log("songsArray", uploadSongsResponse);
   }
 
   return (
