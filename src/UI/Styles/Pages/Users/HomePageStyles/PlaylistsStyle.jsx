@@ -96,3 +96,7 @@ export const PlaylistImage = styled.img`
   height: auto;
   object-fit: cover;
 `;
+
+
+
+
