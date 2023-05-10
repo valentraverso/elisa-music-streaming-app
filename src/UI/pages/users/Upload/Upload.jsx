@@ -9,6 +9,7 @@ import { store } from "../../../../utils/redux/store";
 import postAlbum from "../../../../api/albums/postAlbum";
 import { useAuth0 } from "@auth0/auth0-react";
 import postSong from "../../../../api/song/postSong";
+import { useState } from "react";
 
 export function Upload() {
   const width = UseWidth();
@@ -37,7 +38,26 @@ export function Upload() {
 
   const [imgAlbum] = watch('imgAlbum');
   const songsArray = watch('songsArray');
+  const [songInfo, setSongInfo] = useState([])
 
+  const handleTitleInfo = (ev, index) => {
+    const newInfo = [...songInfo]
+    newInfo[index] = {
+      ...newInfo[index],
+      title: ev.target.value
+    }
+    setSongInfo(newInfo)
+  }
+  const handleFeatInfo = (ev, index) => {
+    const newInfo = [...songInfo]
+    newInfo[index] = {
+      ...newInfo[index],
+      feat: ev.target.value
+    }
+    setSongInfo(newInfo)
+  }
+
+  console.log(songInfo)
   const uploadAlbum = async (data) => {
 
     const token = await getAccessTokenSilently();
@@ -53,18 +73,16 @@ export function Upload() {
     const uploadAlbumResponse = await postAlbum(album, token)
 
     const songsArray = [...data.songsArray]
-    const songs = songsArray.map((song) =>  ({
+    const songs = songsArray.map((song, index) =>  ({
       ...song,
       owner: data.owner,
       album: uploadAlbumResponse.data._id,
-      artist: data.artist
+      artist: data.artist,
+      title: songInfo[index].title,
+      feat: songInfo[index].feat
   }))
-    
-    console.log("song creating", songs)
-
     const uploadSongsResponse = await postSong(songs, token)
-    
-    console.log("songsArray", uploadSongsResponse);
+  
   }
 
   return (
@@ -236,16 +254,16 @@ export function Upload() {
                                 </ContainerInputs>
                                 <ContainerInputs>
                                   <LabelInputForm htmlFor={`songTitle-${index}`}>Song Title</LabelInputForm><br />
-                                  <InputForm type='text' name={`songTitle-${index}`} maxLength={50}
-                                  {
-                                    ...register(`songsArray.${index}.songTitle`)
+                                  <InputForm type='text' name={`songTitle-${index}`} maxLength={50} 
+                                  onChange={
+                                    (ev) => handleTitleInfo(ev, index)
                                   }/>
                                 </ContainerInputs>
                                 <ContainerInputs>
                                   <LabelInputForm htmlFor={`songFeat-${index}`}>Feat</LabelInputForm><br />
                                   <InputForm type='text' name={`songFeat-${index}`} maxLength={50}
-                                  {
-                                    ...register(`songsArray.${index}.feat`)
+                                  onChange={
+                                    (ev) => handleFeatInfo(ev, index)
                                   } />
                                 </ContainerInputs>
                                 <ContainerInputs>

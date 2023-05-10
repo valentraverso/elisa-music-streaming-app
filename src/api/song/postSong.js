@@ -5,7 +5,7 @@ const postSong = async (data, token) => {
     data.forEach(song => {
         formData.append("songFile", song.file);
         formData.append('owner', song.owner);
-        formData.append('title', song.songTitle);
+        formData.append('title', song.title);
         formData.append("album", song.album);
         formData.append("feat", song.feat);
         formData.append("artist", song.artist);
