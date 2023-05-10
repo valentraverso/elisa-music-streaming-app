@@ -60,7 +60,7 @@ export function Upload() {
       artist: data.artist
   }))
     
-    console.log("album", uploadAlbumResponse)
+    console.log("song creating", songs)
 
     const uploadSongsResponse = await postSong(songs, token)
     
