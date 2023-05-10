@@ -53,7 +53,7 @@ export function Upload() {
     const uploadAlbumResponse = await postAlbum(album, token)
 
     const songsArray = [...data.songsArray]
-    const songs = await songsArray.map((song) =>  ({
+    const songs = songsArray.map((song) =>  ({
       ...song,
       owner: data.owner,
       album: uploadAlbumResponse.data._id,

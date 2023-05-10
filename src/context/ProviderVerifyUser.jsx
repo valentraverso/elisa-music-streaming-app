@@ -16,7 +16,7 @@ export default function ProviderVerifyUser({ children }) {
         switch (user?.status) {
             case true:
                 store.dispatch(ADD_DATA_USER(user));
-                navigate('/');
+               // navigate('/');
                 break;
             default:
                 navigate('/register');
