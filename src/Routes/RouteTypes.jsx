@@ -15,7 +15,7 @@ const PrivateRoutes = ({ children }) => {
         switch (user?.status) {
             case true:
                 store.dispatch(ADD_DATA_USER(user));
-                navigate('/');
+                navigate(window.location.pathname || '/');
                 break;
             default:
                 navigate('/register');
@@ -31,9 +31,10 @@ const PrivateRoutes = ({ children }) => {
         await userAction(data);
 
         return data;
+    },
+    {
+        enabled: !reduxUser.status
     })
-
-    console.log(reduxUser)
 
     return (
         isLoadingAuth || isLoading ?
