@@ -19,6 +19,13 @@ export const Song = styled.p`
 `
 export const Artist = styled.p`
     display: grid;
+    width:85px;
+    height:25px;
+    justify-content:center;
+    align-items: center;
+`
+export const ArtistButton = styled.p`
+    display: grid;
     border-radius: 5px;
     border-style: solid;
     background-color: #4a4b4d;

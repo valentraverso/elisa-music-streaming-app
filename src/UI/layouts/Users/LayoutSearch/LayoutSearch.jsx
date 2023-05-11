@@ -16,9 +16,11 @@ export function LayoutSearch() {
   const handleSearchQuery = (value) => {
     if (value.length <= 2) {
       navigate('/search')
-    } else {
+      return
+    }  
       navigate('/search/songs/' + value)
-    }
+      // navigate('/search/albums/' + value);
+    
   }
 
   if (width === "desktop") {
