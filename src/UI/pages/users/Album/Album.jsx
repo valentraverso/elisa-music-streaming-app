@@ -1,7 +1,6 @@
 import { useQuery } from "react-query";
 import { useParams } from "react-router-dom";
 import { useAuth0 } from "@auth0/auth0-react";
-import { Playlist } from "../Playlist/Playlist";
 import fetchAlbumById from "../../../../api/albums/getById";
 import AlbumStructure from "./components/AlbumStructure/AlbumStructure";
 

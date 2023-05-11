@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 export const ContainerAlbum = styled.div`
-  position: relative;
+   position: relative;
   display: flex;
   flex-direction: row;
   flex-wrap: nowrap;
@@ -55,6 +55,7 @@ export const Album = styled.div`
   margin: 10px;
   border-radius: 10px;
   box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.1);
+  
   cursor: pointer;
 
   &:hover ${AlbumBackground}{

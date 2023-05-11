@@ -2,6 +2,8 @@ const postSong = async (data, token) => {
 
     const formData = new FormData()
 
+    const IdSongs = [];
+
     data.forEach(song => {
         formData.append("songFile", song.file);
         formData.append('owner', song.owner);
@@ -20,7 +22,9 @@ const postSong = async (data, token) => {
             body: formData
         })
         const response = await request.json()
+
         return response
+
     } catch (error) {
         console.error(error)
         return { msg: error.message, token }

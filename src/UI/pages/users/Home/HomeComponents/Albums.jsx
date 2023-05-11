@@ -23,7 +23,11 @@ const Albums = () => {
       <ContainerAlbum>
         {albums &&
           albums.map((album) => (
+<<<<<<< HEAD
             <Link key={album.id} to={`/album/${album._id}`}>
+=======
+            <Link key={album.id} to={`/albumdetail/${album._id}`}>
+>>>>>>> 76b0dbcb734972856aeed38fd60e81a3e361c15e
               <Album>
                 <AlbumBackground image={album.img && album.img.secure_url} />
                 <AlbumImage
