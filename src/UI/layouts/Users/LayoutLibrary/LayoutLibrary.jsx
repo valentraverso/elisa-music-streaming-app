@@ -7,41 +7,40 @@ import SkeletonLibrary from "./SkeletonLibrary";
 import UseWidth from "../../../../helpers/hooks/useWidth";
 import MenuDesktop from "../Components/MenuDesktop";
 import MenuDesktopSkeleton from "../Components/Skeletons/MenuDesktopSkeleton";
-import OutletSongPlayer from "../OutletSongPlayer.jsx/OutletSongPlayer";
 
 export function LayoutLibrary() {
     const { isLoading: isLoadingAuth0 } = useAuth0();
     const width = UseWidth();
 
-    if (width === 'desktop') {
-        return (
-            <>
-                 {
+    return (
+        <>
+            {
+                width === 'desktop' &&
+                (
                     isLoadingAuth0 ?
                         <MenuDesktopSkeleton />
                         :
                         <MenuDesktop />
-                }
-                <Main>
-                    <OutletSongPlayer />
-                </Main>
-            </>
-        )
-    }
-
-
-    return (
-        <Main>
-            {
-                isLoadingAuth0 ?
-                    <SkeletonLibrary />
-                    :
-                    <>
-                        <BarLibrary />
-                        <OutletSongPlayer />
-                    </>
+                )
             }
-            <SideBar />
-        </Main>
+            <Main>
+                {
+                    width !== 'desktop' &&
+                    (
+                        isLoadingAuth0 ?
+                            <SkeletonLibrary />
+                            :
+                            <BarLibrary />
+                    )
+                }
+                <Outlet />
+                {
+                    width !== 'desktop' &&
+                    (
+                        <SideBar />
+                    )
+                }
+            </Main>
+        </>
     );
 }

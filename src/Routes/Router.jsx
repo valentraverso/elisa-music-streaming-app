@@ -9,6 +9,8 @@ import { LayoutOnlySidebar } from "../UI/layouts/Users/LayoutOnlySidebar/LayoutO
 import { Login, Profile, Settings, Connections, HomePage, PlayerPage, AlbumDetail, Library, Upload, LibraryAlbums, Search, SearchResults, Register } from "../UI/pages/users";
 import { Playlist } from "../UI/pages/users/Playlist/Playlist";
 import PrivateRoutes from "./RouteTypes";
+import { useSelector } from "react-redux";
+import { Player } from "../UI/components/Player/Player";
 
 const router = createBrowserRouter([
     {
@@ -94,7 +96,14 @@ const router = createBrowserRouter([
 ])
 
 export default function Router() {
+    const {withSong} = useSelector(state => state.player)
     return (
-        <RouterProvider router={router} />
+        <>
+            <RouterProvider router={router} />
+            {
+                withSong &&
+                <Player />
+            }
+        </>
     )
 }

@@ -47,8 +47,8 @@ const allPlaylists = [
   return (
     <div>
       <CategoryeButtons />
-      {allPlaylists.map((playlist) => (
-        <Playlists playlists={playlist.playlists} title={playlist.title} />
+      {allPlaylists.map((playlist, index) => (
+        <Playlists key={index} playlists={playlist.playlists} title={playlist.title} />
       ))}
     
     

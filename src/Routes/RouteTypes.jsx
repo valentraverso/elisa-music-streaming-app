@@ -15,6 +15,7 @@ const PrivateRoutes = ({ children }) => {
         switch (user?.status) {
             case true:
                 store.dispatch(ADD_DATA_USER(user));
+                console.log("doing redux")
                 navigate(window.location.pathname || '/');
                 break;
             default:

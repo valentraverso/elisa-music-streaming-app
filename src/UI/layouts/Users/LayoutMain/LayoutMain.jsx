@@ -7,34 +7,40 @@ import MenuDesktop from "../Components/MenuDesktop";
 import { useAuth0 } from "@auth0/auth0-react";
 import MenuDesktopSkeleton from "../Components/Skeletons/MenuDesktopSkeleton";
 
-
 function LayoutMain() {
     const width = UseWidth();
     const { isLoading: isLoadingAuth0 } = useAuth0();
 
-    if (width === 'desktop') {
-        return (
-            <>
-                {
+    return (
+        <>
+            {
+                width === 'desktop' &&
+                (
                     isLoadingAuth0 ?
                         <MenuDesktopSkeleton />
                         :
                         <MenuDesktop />
+                )
+            }
+            <Main>
+                {
+                    width !== 'desktop' &&
+                    (
+                        isLoadingAuth0 ?
+                            <span>Loading mai</span>
+                            :
+                            <NavbarMain />
+                    )
                 }
-
-                <Main>
-                    <Outlet />
-                </Main>
-            </>
-        )
-    }
-
-    return (
-        <Main>
-            <NavbarMain />
-            <Outlet />
-            <SideBar />
-        </Main>
+                <Outlet />
+                {
+                    width !== 'desktop' &&
+                    (
+                        <SideBar />
+                    )
+                }
+            </Main>
+        </>
     );
 };
 
