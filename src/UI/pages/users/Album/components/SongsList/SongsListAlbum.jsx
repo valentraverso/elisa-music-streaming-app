@@ -15,13 +15,16 @@ export const SongsListAlbum = ({data, imgAlbum}) => {
             <ContainerSong key={index} onClick={() => setPlayer({
               ...player,
               withSong: true,
-              queu: songs,
+              queu: {
+                data,
+                imgAlbum
+              },
               index: index
             })}>
               <ImgSong src={imgAlbum} />
               <ContainerSongInfo >
-                <TitleSmall>{song.title}</TitleSmall>
-                <NameArtist>{song.artist}</NameArtist>
+                <TitleSmall>{data[index].title}</TitleSmall>
+                <NameArtist>{data[index].artist}</NameArtist>
               </ContainerSongInfo>
               <SongSettings>...</SongSettings>
             </ContainerSong>
