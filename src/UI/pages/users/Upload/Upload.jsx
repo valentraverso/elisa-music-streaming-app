@@ -109,7 +109,7 @@ export function Upload() {
       <p>We are uploading your album...</p>
 
     </div>)
-  }
+}
 
   return (
     <ContainerUpload>
