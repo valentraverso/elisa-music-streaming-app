@@ -6,11 +6,10 @@ import { useAuth0 } from "@auth0/auth0-react";
 import SkeletonLibrary from "./SkeletonLibrary";
 import UseWidth from "../../../../helpers/hooks/useWidth";
 import MenuDesktop from "../Components/MenuDesktop";
-import { useState } from "react";
 import MenuDesktopSkeleton from "../Components/Skeletons/MenuDesktopSkeleton";
+import OutletSongPlayer from "../OutletSongPlayer.jsx/OutletSongPlayer";
 
 export function LayoutLibrary() {
-    const [playerInPage, setPlayerInPage] = useState(false)
     const { isLoading: isLoadingAuth0 } = useAuth0();
     const width = UseWidth();
 
@@ -24,7 +23,7 @@ export function LayoutLibrary() {
                         <MenuDesktop />
                 }
                 <Main>
-                    <Outlet context={[playerInPage, setPlayerInPage]}/>
+                    <OutletSongPlayer />
                 </Main>
             </>
         )
@@ -39,7 +38,7 @@ export function LayoutLibrary() {
                     :
                     <>
                         <BarLibrary />
-                        <Outlet context={[playerInPage, setPlayerInPage]} />
+                        <OutletSongPlayer />
                     </>
             }
             <SideBar />

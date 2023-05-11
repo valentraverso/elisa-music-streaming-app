@@ -1,4 +1,13 @@
-const postUser = async (data, token) =>{
+import postPlaylist from "../playlists/postPlaylist";
+
+const postUser = async (data, token) => {
+    if (!data) {
+        return {
+            status: false,
+            msg: "Theres no data to post!"
+        }
+    }
+
     const formData = new FormData();
 
     formData.append('name', data.name);
@@ -14,11 +23,20 @@ const postUser = async (data, token) =>{
             },
             body: formData
         })
-        const response =await request.json();
+        const response = await request.json();
+
+        const objLikedPlaylist = {
+            title: "Likes",
+            owner: response.data._id,
+            likePlaylist: true,
+            private: true
+        }
+
+        const likePlaylist = await postPlaylist(objLikedPlaylist, token);
 
         return response;
     } catch (error) {
-        return {msg: error.message}
+        return { msg: error.message }
     }
 }
 

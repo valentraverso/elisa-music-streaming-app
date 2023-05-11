@@ -1,6 +1,6 @@
 import { useAuth0 } from "@auth0/auth0-react"
 import { ButtonArtist, ButtonGenre, ContainerButtonsArtist, ContainerFinishButton, ContainerThreeButtons, PrivacyPolicySpan, SectionText } from "../../../Styles/Pages/Users/Register";
-import { ButtonUploadAlbum, ContainerInputs, LabelInputForm } from "../../../Styles/Pages/Users/UploadStyle";
+import { ButtonUploadAlbum, ContainerInputs, ContainerUpload, LabelInputForm } from "../../../Styles/Pages/Users/UploadStyle";
 import { useState } from "react";
 import postUser from "../../../../api/users/postUser";
 import { useNavigate } from "react-router-dom";
@@ -23,43 +23,45 @@ function Register() {
 
         const token = await getAccessTokenSilently();
 
-        const createUser = await postUser(userData,token);
+        const createUser = await postUser(userData, token);
 
-        if(!createUser.status){
+        if (!createUser.status) {
             return;
         }
 
         navigate('/');
     }
     return (
-        <form onSubmit={handleSubmit}>
-            <SectionText>
-                <h1>Hi {user.name.split(" ")[0]}!</h1>
-                <p>Tell us a little about you</p>
-            </SectionText>
-            <ContainerInputs>
-                <LabelInputForm>Are you an artist?</LabelInputForm>
-                <ContainerButtonsArtist>
-                    <ButtonArtist isActive={isArtist && "#3B46F1"} type="button" onClick={() => setIsArtist(true)}>Yes</ButtonArtist>
-                    <ButtonArtist isActive={!isArtist && "#3B46F1"} type="button" onClick={() => setIsArtist(false)}>No</ButtonArtist>
-                </ContainerButtonsArtist>
+        <ContainerUpload>
+            <form onSubmit={handleSubmit}>
+                <SectionText>
+                    <h1>Hi {user.name.split(" ")[0]}!</h1>
+                    <p>Tell us a little about you</p>
+                </SectionText>
                 <ContainerInputs>
-                    <LabelInputForm>Choose your favorites genres</LabelInputForm>
-                    <ContainerThreeButtons>
-                        <ButtonGenre>Pop</ButtonGenre>
-                        <ButtonGenre>HipHop</ButtonGenre>
-                        <ButtonGenre>Electro</ButtonGenre>
-                        <ButtonGenre>Reggaeton</ButtonGenre>
-                        <ButtonGenre>Funk</ButtonGenre>
-                        <ButtonGenre>Rock</ButtonGenre>
-                    </ContainerThreeButtons>
+                    <LabelInputForm>Are you an artist?</LabelInputForm>
+                    <ContainerButtonsArtist>
+                        <ButtonArtist isActive={isArtist && "#3B46F1"} type="button" onClick={() => setIsArtist(true)}>Yes</ButtonArtist>
+                        <ButtonArtist isActive={!isArtist && "#3B46F1"} type="button" onClick={() => setIsArtist(false)}>No</ButtonArtist>
+                    </ContainerButtonsArtist>
+                    <ContainerInputs>
+                        <LabelInputForm>Choose your favorites genres</LabelInputForm>
+                        <ContainerThreeButtons>
+                            <ButtonGenre disabled>Pop</ButtonGenre>
+                            <ButtonGenre disabled>HipHop</ButtonGenre>
+                            <ButtonGenre disabled>Electro</ButtonGenre>
+                            <ButtonGenre disabled>Reggaeton</ButtonGenre>
+                            <ButtonGenre disabled>Funk</ButtonGenre>
+                            <ButtonGenre disabled>Rock</ButtonGenre>
+                        </ContainerThreeButtons>
+                    </ContainerInputs>
                 </ContainerInputs>
-            </ContainerInputs>
-            <PrivacyPolicySpan>By clicking continue you accept our Terms and Conditions.</PrivacyPolicySpan>
-            <ContainerFinishButton>
-                <ButtonUploadAlbum>Finish</ButtonUploadAlbum>
-            </ContainerFinishButton>
-        </form>
+                <PrivacyPolicySpan>By clicking continue you accept our Terms and Conditions.</PrivacyPolicySpan>
+                <ContainerFinishButton>
+                    <ButtonUploadAlbum type="submit">Finish</ButtonUploadAlbum>
+                </ContainerFinishButton>
+            </form>
+        </ContainerUpload>
     )
 }
 
