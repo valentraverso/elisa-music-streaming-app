@@ -6,9 +6,11 @@ import { LayoutMain, LayoutSearch, LayoutLibrary, LayoutOnlyMenu } from '../UI/l
 import { LayoutOnlySidebar } from "../UI/layouts/Users/LayoutOnlySidebar/LayoutOnlySidebar";
 
 // Pages
-import { Login, Profile, Settings, Connections, HomePage, PlayerPage, AlbumDetail, Library, Upload, LibraryAlbums, Search, SearchResults, Register } from "../UI/pages/users";
+import { Login, Profile, Settings, Connections, HomePage, PlayerPage, Album, Library, Upload, LibraryAlbums, Search, SearchResults, Register } from "../UI/pages/users";
 import { Playlist } from "../UI/pages/users/Playlist/Playlist";
 import PrivateRoutes from "./RouteTypes";
+import { useSelector } from "react-redux";
+import { Player } from "../UI/components/Player/Player";
 
 const router = createBrowserRouter([
     {
@@ -65,8 +67,8 @@ const router = createBrowserRouter([
                 element: <Playlist img="https://i.scdn.co/image/ab67616d0000b27396384c98ac4f3e7c2440f5b5" playlistName="Sad Playlist" info="50 Songs" likes="50 Likes" btnLike={true} />
             },
             {
-                path: '/album',
-                element: <PrivateRoutes><AlbumDetail /></PrivateRoutes>
+                path: '/album/:id',
+                element: <Album img="https://i.scdn.co/image/ab67616d0000b27396384c98ac4f3e7c2440f5b5" playlistName="My Album" info="10 Songs" likes="50 Likes" btnLike={false} />
             }
         ]
     },
@@ -77,10 +79,6 @@ const router = createBrowserRouter([
     {
         path: '/PlayerPage/:id',
         element: <PrivateRoutes><PlayerPage /></PrivateRoutes>
-    },
-    {
-        path: '/albumdetail/:id',
-        element: <PrivateRoutes><AlbumDetail /></PrivateRoutes>
     },
     {
         element: <PrivateRoutes><LayoutOnlyMenu /></PrivateRoutes>,
@@ -94,7 +92,14 @@ const router = createBrowserRouter([
 ])
 
 export default function Router() {
+    const {withSong} = useSelector(state => state.player)
     return (
-        <RouterProvider router={router} />
+        <>
+            <RouterProvider router={router} />
+            {
+                withSong &&
+                <Player />
+            }
+        </>
     )
 }

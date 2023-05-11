@@ -5,7 +5,7 @@ import { songs } from "../../../../../../songs.js";
 import { setPlayer } from '../../../../../../utils/player/player';
 import { store } from '../../../../../../utils/redux/store';
 
-export const SongsList = ({data, imgAlbum}) => {
+export const SongsListAlbum = ({data, imgAlbum}) => {
   const player = store.getState().player;
   return (
     <ContainerSongsList>
