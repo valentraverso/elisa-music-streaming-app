@@ -81,12 +81,8 @@ export function Upload() {
       title: songInfo[index].title,
       feat: songInfo[index].feat
   }))
-    console.log("songs", songs)
-    console.log("album", uploadAlbumResponse)
-
     const uploadSongsResponse = await postSong(songs, token)
-    
-    console.log("response", uploadSongsResponse);
+  
   }
 
   return (
