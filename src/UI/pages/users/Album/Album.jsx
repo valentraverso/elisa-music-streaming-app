@@ -1,0 +1,31 @@
+import { useQuery } from "react-query";
+import { useParams } from "react-router-dom";
+import { useAuth0 } from "@auth0/auth0-react";
+import { Playlist } from "../Playlist/Playlist";
+import fetchAlbumById from "../../../../api/albums/getById";
+
+export const Album = () => {
+  const { id } = useParams();
+  const { getAccessTokenSilently } = useAuth0();
+
+  const { data: songs, isLoading } = useQuery(["albumSong", id], async () => {
+    const token = await getAccessTokenSilently();
+    const data = await fetchAlbumById(id, token);
+
+    return data;
+  });
+
+  console.log(songs)
+
+  return (
+    isLoading ?
+      <p>Loading</p>
+      :
+      <Playlist data={songs.data}/>
+  );
+};
+
+
+
+
+

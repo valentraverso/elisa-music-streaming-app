@@ -1,16 +1,18 @@
-import {ContainerPlaylist} from "../../../Styles/Pages/Users/PlaylistStyle";
+import { ContainerPlaylist } from "../../../Styles/Pages/Users/PlaylistStyle";
 import { ButtonAddSong, ContainerPagePlaylist } from "../../../Styles/Pages/Users/PlaylistStyle";
 import { PlaylistTitle } from "./components/PlaylistTitle/PlaylistTitle";
 import { SongsList } from "./components/SongsList/SongsList";
 
-export const Playlist = (props) => {
+export const Playlist = ({ data }) => {
+  const { img, title } = data;
+
   return (
     <ContainerPagePlaylist>
-        <ContainerPlaylist >
-            <PlaylistTitle img = {props.img}  playlistName={props.playlistName} info={props.info} likes={props.likes} btnLike={props.btnLike}/>
-            <SongsList />
-        </ContainerPlaylist>
-        <ButtonAddSong> + Add new Song</ButtonAddSong>
+      <ContainerPlaylist >
+        <PlaylistTitle img={img.secure_url} playlistName={title} info={""}  likes={""} btnLike={true} />
+        <SongsList data={data.songs} />
+      </ContainerPlaylist>
+      <ButtonAddSong> + Add new Song</ButtonAddSong>
     </ ContainerPagePlaylist>
   )
 }
