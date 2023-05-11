@@ -10,12 +10,18 @@ import postAlbum from "../../../../api/albums/postAlbum";
 import { useAuth0 } from "@auth0/auth0-react";
 import postSong from "../../../../api/song/postSong";
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
+import { Audio } from 'react-loader-spinner'
 
 export function Upload() {
   const width = UseWidth();
 
   const { getAccessTokenSilently } = useAuth0();
   const user = store.getState().user.data[0];
+
+  const [isUploading, setIsUploding] = useState(false)
+
+  const navigate = useNavigate()
 
   const {
     register,
@@ -56,9 +62,9 @@ export function Upload() {
     }
     setSongInfo(newInfo)
   }
-
-  console.log(songInfo)
   const uploadAlbum = async (data) => {
+    console.log(data)
+
 
     const token = await getAccessTokenSilently();
 
@@ -73,22 +79,43 @@ export function Upload() {
     const uploadAlbumResponse = await postAlbum(album, token)
 
     const songsArray = [...data.songsArray]
-    const songs = songsArray.map((song, index) =>  ({
+    const songs = songsArray.map((song, index) => ({
       ...song,
       owner: data.owner,
       album: uploadAlbumResponse.data._id,
       artist: data.artist,
       title: songInfo[index].title,
       feat: songInfo[index].feat
-  }))
+    }))
     const uploadSongsResponse = await postSong(songs, token)
-  
+
+    setIsUploding(false);
+    navigate(`/album/${uploadAlbumResponse.data._id}`);
+  }
+
+  if (isUploading) {
+    return (
+    <div>
+      <Audio
+        margin="0 auto"
+        height="80"
+        width="80"
+        radius="9"
+        color='green'
+        ariaLabel='three-dots-loading'
+        wrapperStyle
+        wrapperClass
+      />
+      <p>We are uploading your album...</p>
+
+    </div>)
   }
 
   return (
     <ContainerUpload>
       <form onSubmit={
         handleSubmit((data) => {
+          setIsUploding(true)
           uploadAlbum(data)
         })
       }>
@@ -254,17 +281,17 @@ export function Upload() {
                                 </ContainerInputs>
                                 <ContainerInputs>
                                   <LabelInputForm htmlFor={`songTitle-${index}`}>Song Title</LabelInputForm><br />
-                                  <InputForm type='text' name={`songTitle-${index}`} maxLength={50} 
-                                  onChange={
-                                    (ev) => handleTitleInfo(ev, index)
-                                  }/>
+                                  <InputForm type='text' name={`songTitle-${index}`} maxLength={50}
+                                    onChange={
+                                      (ev) => handleTitleInfo(ev, index)
+                                    } />
                                 </ContainerInputs>
                                 <ContainerInputs>
                                   <LabelInputForm htmlFor={`songFeat-${index}`}>Feat</LabelInputForm><br />
                                   <InputForm type='text' name={`songFeat-${index}`} maxLength={50}
-                                  onChange={
-                                    (ev) => handleFeatInfo(ev, index)
-                                  } />
+                                    onChange={
+                                      (ev) => handleFeatInfo(ev, index)
+                                    } />
                                 </ContainerInputs>
                                 <ContainerInputs>
                                   <LabelInputForm>Genre</LabelInputForm><br />
