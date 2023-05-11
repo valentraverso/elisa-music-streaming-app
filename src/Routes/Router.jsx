@@ -66,7 +66,7 @@ const router = createBrowserRouter([
             },
             {
                 path: '/album',
-                element: <Playlist img="https://i.scdn.co/image/ab67616d0000b27396384c98ac4f3e7c2440f5b5" playlistName="My Album" info="10 Songs" likes="50 Likes" btnLike={false} />
+                element: <PrivateRoutes><AlbumDetail /></PrivateRoutes>
             }
         ]
     },
@@ -79,8 +79,8 @@ const router = createBrowserRouter([
         element: <PrivateRoutes><PlayerPage /></PrivateRoutes>
     },
     {
-        path: '/AlbumDetail/:id',
-        element: <LayoutMain><AlbumDetail /></LayoutMain>
+        path: '/albumdetail/:id',
+        element: <PrivateRoutes><AlbumDetail /></PrivateRoutes>
     },
     {
         element: <PrivateRoutes><LayoutOnlyMenu /></PrivateRoutes>,

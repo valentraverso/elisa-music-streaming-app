@@ -14,6 +14,5 @@ const deleteAlbum = async (albumId, token) => {
       return { status: false, msg: error.message };
     }
   };
-  
   export default deleteAlbum;
   
