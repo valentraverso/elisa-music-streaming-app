@@ -1,19 +1,17 @@
-import { ContainerListPlaylists } from "./components/ContainerListPlaylists";
-import { PageTitle, GeneralDivMenu, DivChangePlaylistAlbum, PageChanger, BtnAddNew } from "../../../Styles/Pages/Users/MenuPlaylistsStyle";
-import { Link } from "react-router-dom";
 import { useParams } from "react-router-dom";
-import LibraryGrid from "../../../components/LibraryGrid/LibraryGrid";
-import { useQuery } from "react-query";
-import getPlaylistByOwner from "../../../../api/playlists/getByOwner";
-import { store } from "../../../../utils/redux/store";
+import { Link } from "react-router-dom";
 import { useAuth0 } from "@auth0/auth0-react";
+import { useQuery } from "react-query";
+import { ContainerListPlaylists } from "./components/ContainerListPlaylists";
+import LibraryGrid from "../../../components/LibraryGrid/LibraryGrid";
+import getPlaylistByOwner from "../../../../api/playlists/getByOwner";
+import { PageTitle, DivChangePlaylistAlbum, PageChanger, ContainerLibrary } from "../../../Styles/Pages/Users/MenuPlaylistsStyle";
+import { store } from "../../../../utils/redux/store";
 
 export const Library = () => {
   const { type } = useParams();
   const { _id: idUser } = store.getState().user.data[0];
   const { getAccessTokenSilently } = useAuth0()
-
-  console.log("id", idUser)
 
   const switchLibraryData = async (token) => {
     switch (type) {
@@ -25,21 +23,17 @@ export const Library = () => {
   }
 
   const { data, isLoading } = useQuery(['library'], async () => {
-    console.log("entradno en use")
     const token = getAccessTokenSilently();
     const data = await switchLibraryData(token);
-    console.log("inside", data)
     return data;
   })
-
-  console.log(data)
 
   return (
 
     isLoading ?
       <p>Loading library</p>
       :
-      <GeneralDivMenu>
+      <ContainerLibrary>
         {
           <DivChangePlaylistAlbum>
             <PageTitle>{type === "playlist" ? "Playlist" : "Albums"}</PageTitle>
@@ -50,7 +44,6 @@ export const Library = () => {
         }
         <LibraryGrid title={"My " + type + "s"} data={data.data} type={type} />
         <ContainerListPlaylists name={"Followed " + type + "s"} />
-      </GeneralDivMenu>
-
+      </ContainerLibrary>
   )
 }

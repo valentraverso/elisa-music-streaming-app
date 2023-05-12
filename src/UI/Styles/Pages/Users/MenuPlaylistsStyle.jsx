@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import { colors, device } from "../../config.jsx";
 
-export const GeneralDivMenu = styled.div`
+export const ContainerLibrary = styled.div`
     margin: 0 auto;
     margin-bottom: 12vw;
     @media ${device.mobile} {

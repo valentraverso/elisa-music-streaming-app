@@ -1,9 +1,14 @@
 import styled from "styled-components";
-import { colors, fontSize } from "../../config.jsx"
+import { colors, fontSize, device } from "../../config.jsx"
 
-export const ContainerPagePlaylist = styled.div`
-    width: 50%;
-    margin: 0 auto;
+export const ContainerPagePlaylist = styled.div` 
+    @media ${device.desktop}{
+        margin: 0 auto;
+        width: 50%;
+    }
+    @media ${device.mobile}{
+        margin: 30px auto;
+    }
 `
 
 export const ContainerPlaylist = styled.div`
