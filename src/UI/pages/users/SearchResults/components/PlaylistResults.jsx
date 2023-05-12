@@ -2,6 +2,7 @@ import { ContainerRecentImg, ContainerRecentSearchAll, RecentDescription, Recent
 import { Playlist } from "../../../../Styles/Pages/Users/components/TypeOfSearchStyle"
 
 export default function PlaylistResults({ playlistResults }) {
+    console.log("estas llegando al playlist", playlistResults)
     return (
         <>
             {

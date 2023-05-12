@@ -7,7 +7,9 @@ import Results from "./components/Results";
 import fetchAlbumByTitle from "../../../../api/albums/getAlbumByTitle";
 import AlbumResults from "./components/AlbumResults";
 import fetchPlaylistByTitle from "../../../../api/playlists/fetchPlaylistByTitle";
-import PlaylistResults from "./components/AlbumResults";
+import PlaylistResults from "./components/PlaylistResults";
+import getUserByName from "../../../../api/users/getByName";
+import UserResults from "./components/UserResults";
 
 export function SearchResults() {
     const { getAccessTokenSilently } = useAuth0()
@@ -18,10 +20,12 @@ export function SearchResults() {
             case "songs":
                 return await fetchSongByTitle(query, token);
             case "albums":
-                console.log("esta entrando en album")
                 return await fetchAlbumByTitle(query, token);
-            case "playlist":
+            case "playlists":
                 return await fetchPlaylistByTitle(query, token);
+            case "users":
+                console.log("esta entrando en users")
+                return await getUserByName(query, token);
         }
     }
 
@@ -46,6 +50,8 @@ export function SearchResults() {
                             <AlbumResults albumResults={data.data} />
                         ) : type === "playlists" ? (
                             <PlaylistResults playlistResults={data.data} />
+                        ) : type === "users" ? (
+                            <UserResults userResults={data.data} />
                         ) : null
                     ) : (
                         <p>{data && data.msg}</p>

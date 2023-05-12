@@ -1,7 +1,7 @@
 const getUserByName = async (name, token) =>{
 
     try {
-        const request = await fetch(`${process.env.REACT_APP_API_URL}/songs/name/${name}`, {
+        const request = await fetch(`${process.env.REACT_APP_API_URL}/users/name/${name}`, {
             headers: {
                 Authorization: `Bearer ${token}`
             }
