@@ -1,4 +1,4 @@
-import { ButtonAddSong, ContainerPagePlaylist, ContainerPlaylist } from "../../../../../Styles/Pages/Users/PlaylistStyle";
+import { ButtonAddSong, ContainerAddSong, ContainerPagePlaylist, ContainerPlaylist } from "../../../../../Styles/Pages/Users/PlaylistStyle";
 import { AlbumTitle } from "../AlbumTitle/AlbumTitle";
 import { SongsListAlbum } from "../SongsList/SongsListAlbum";
 
@@ -10,8 +10,10 @@ export default function AlbumStructure({ album }) {
             <ContainerPlaylist >
                 <AlbumTitle img={imgAlbum} playlistName={title} info={""} likes={""} btnLike={true} />
                 <SongsListAlbum data={album.songs} imgAlbum={imgAlbum} />
+                <ContainerAddSong>
+                    <ButtonAddSong>Add new Song</ButtonAddSong>
+                </ContainerAddSong>
             </ContainerPlaylist>
-            <ButtonAddSong> + Add new Song</ButtonAddSong>
         </ ContainerPagePlaylist>
     )
 }

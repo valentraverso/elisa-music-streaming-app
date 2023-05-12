@@ -1,11 +1,16 @@
 import { createGlobalStyle } from 'styled-components';
 
 export const colors = {
-    "white": "#FCFDFF",
-    "black": "#010A13",
-    "grey": "#888D93",
-    "dark-blue": "#0A1428",
-    "blue": "#3B46F1"
+  "white": "#FCFDFF",
+  "black": "#010A13",
+  "grey": "#888D93",
+  "dark-blue": "#0A1428",
+  "blue": "#3B46F1"
+}
+
+export const fontSize = {
+  "span": "15px",
+  "p": "20px"
 }
 
 export const device = {

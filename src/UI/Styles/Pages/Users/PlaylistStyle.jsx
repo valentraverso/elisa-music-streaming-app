@@ -1,8 +1,9 @@
 import styled from "styled-components";
-import { colors } from "../../config.jsx"
+import { colors, fontSize } from "../../config.jsx"
 
 export const ContainerPagePlaylist = styled.div`
-    
+    width: 50%;
+    margin: 0 auto;
 `
 
 export const ContainerPlaylist = styled.div`
@@ -105,14 +106,15 @@ export const SongSettings = styled.span`
     grid-column: 3;
 `
 
+export const ContainerAddSong = styled.div`
+    width:100%;
+`
+
 export const ButtonAddSong = styled.span`
     width: 125px;
     height: 24px;
-    border: 1px ${colors.white} solid;
     border-radius: 5px;
     padding: 0.1rem;
-    position: fixed;
-    bottom: 16%;
-    right: 10%;
-    background-color: ${colors.blue};
+    float: right;
+    font-size: ${fontSize.span};
 `
