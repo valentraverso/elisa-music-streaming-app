@@ -9,7 +9,7 @@ export default function Results({ songsResults }) {
                     
                         <ContainerRecentSearchAll>
                             <ContainerRecentImg>
-                                <RecentImg src={song.img} />
+                                <RecentImg src={song.album.img.secure_url} />
                             </ContainerRecentImg>
                             <RecentDescription>
                                 <Title>{song.title}</Title>

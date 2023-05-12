@@ -1,18 +1,19 @@
 import { ContainerRecentImg, ContainerRecentSearchAll, RecentDescription, RecentImg, Title } from "../../../../Styles/Pages/Users/components/RecentBarStyle"
-import { Artist } from "../../../../Styles/Pages/Users/components/TypeOfSearchStyle"
+import { User } from "../../../../Styles/Pages/Users/components/TypeOfSearchStyle"
 
-export default function Results({ usersResults }) {
+export default function UserResults({ userResults }) {
+    console.log(userResults)
     return (
         <>
             {
-                usersResults.map((user) => (
+                userResults.map((user) => (
                     
                         <ContainerRecentSearchAll>
                             <ContainerRecentImg>
-                                <RecentImg src={user.img} />
+                                <RecentImg src={user.picture} />
                             </ContainerRecentImg>
                             <RecentDescription>
-                                <Artist>{users.artist}</Artist>
+                                <User>{user.name}</User>
                             </RecentDescription>
                         </ContainerRecentSearchAll>
                     
