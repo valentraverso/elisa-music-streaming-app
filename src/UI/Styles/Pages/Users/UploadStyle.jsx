@@ -108,6 +108,7 @@ font-size: 1.5rem;
     border-radius: 5px;
     background: blue;
     padding: 10px 20%;
+    cursor: pointer;
 `
 
 export const ErrorMessage = styled.span`

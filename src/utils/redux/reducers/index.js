@@ -1,5 +1,7 @@
 import userSlice from './user'
+import playerSlice from './player'
 
 export {
-    userSlice
+    userSlice,
+    playerSlice
 }

@@ -12,10 +12,12 @@ function LayoutOnlyMenu() {
     const { isLoading: isLoadingAuth0 } = useAuth0();
 
     return (
-        <Main>
+        <>
             <NavbarMain />
-            <Outlet />
-        </Main>
+            <Main>
+                <Outlet />
+            </Main>
+        </>
     );
 };
 
