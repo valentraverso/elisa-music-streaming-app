@@ -1,19 +1,19 @@
 import { ContainerRecentImg, ContainerRecentSearchAll, RecentDescription, RecentImg, Title } from "../../../../Styles/Pages/Users/components/RecentBarStyle"
-import { Artist } from "../../../../Styles/Pages/Users/components/TypeOfSearchStyle"
+import { User } from "../../../../Styles/Pages/Users/components/TypeOfSearchStyle"
 
-export default function Results({ songsResults }) {
+export default function UserResults({ userResults }) {
+    console.log(userResults)
     return (
         <>
             {
-                songsResults.map((song) => (
+                userResults.map((user) => (
                     
                         <ContainerRecentSearchAll>
                             <ContainerRecentImg>
-                                <RecentImg src={song.album.img.secure_url} />
+                                <RecentImg src={user.picture} />
                             </ContainerRecentImg>
                             <RecentDescription>
-                                <Title>{song.title}</Title>
-                                <Artist>{song.artist}</Artist>
+                                <User>{user.name}</User>
                             </RecentDescription>
                         </ContainerRecentSearchAll>
                     
@@ -22,5 +22,3 @@ export default function Results({ songsResults }) {
         </>
     )
 }
-
-

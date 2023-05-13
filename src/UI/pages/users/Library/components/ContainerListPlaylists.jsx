@@ -3,7 +3,7 @@ import { PlaylistDisplay } from "./PlaylistDisplay";
 import { Link} from "react-router-dom";
 import { useParams } from "react-router-dom";
 
-export const ListPlaylists = ({name}) => {
+export const ContainerListPlaylists = ({name}) => {
   const {type} = useParams();
   return (
     <GeneralDiv>
@@ -13,21 +13,11 @@ export const ListPlaylists = ({name}) => {
               <Link to = "/playlist">
                 <PlaylistDisplay name = {"Sad "+ type}/>
               </Link>
-              <Link to = "/playlist">
-                <PlaylistDisplay name ={"Chill "+ type} />
-              </Link>
-              <Link to = "/playlist">
-              < PlaylistDisplay name ={"Rock "+ type}/>
-              </Link>
-              <Link to = "/playlist">
-                <PlaylistDisplay name = {"Hola Beats "+ type}/>
-              </Link>
             </DivAllPlaylist>
         </DivTypePlaylist>
         <DivBtnAddNew>
           <BtnAddNew>Add new {type}</BtnAddNew>
         </DivBtnAddNew>
     </GeneralDiv>
-    
   )
 }

@@ -32,7 +32,7 @@ const postUser = async (data, token) => {
             private: true
         }
 
-        const likePlaylist = await postPlaylist(objLikedPlaylist, token);
+        await postPlaylist(objLikedPlaylist, token);
 
         return response;
     } catch (error) {

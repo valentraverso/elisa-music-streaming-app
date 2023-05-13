@@ -20,7 +20,9 @@ const postSong = async (data, token) => {
             body: formData
         })
         const response = await request.json()
+
         return response
+
     } catch (error) {
         console.error(error)
         return { msg: error.message, token }
