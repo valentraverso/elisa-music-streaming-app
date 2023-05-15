@@ -1,12 +1,12 @@
 import {
   ContainerSong, ContainerSongInfo, ContainerSongsList, ImgSong, NameArtist, SongSettings, TitleSmall
 } from '../../../../../Styles/Pages/Users/PlaylistStyle';
-import { songs } from "../../../../../../songs.js";
 import { setPlayer } from '../../../../../../utils/player/player';
 import { store } from '../../../../../../utils/redux/store';
 
 export const SongsList = ({data}) => {
   const player = store.getState().player;
+  console.log(player)
   return (
     <ContainerSongsList>
       {
@@ -15,7 +15,7 @@ export const SongsList = ({data}) => {
             <ContainerSong key={index} onClick={() => setPlayer({
               ...player,
               withSong: true,
-              queu: songs,
+              queu: data,
               index: index
             })}>
               <ImgSong src={song.album.img.secure_url} />
