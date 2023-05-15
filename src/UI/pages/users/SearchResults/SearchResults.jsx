@@ -42,21 +42,6 @@ export function SearchResults() {
             {isLoading ? (
                 <p>Searching...</p>
             ) : (
-<<<<<<< HEAD
-
-                data && data.status ? (
-                    type === "songs" ? (
-                        <Results songsResults={data.data} />
-                    ) : type === "albums" ? (
-                        <AlbumResults albumResults={data.data} />
-                    ) : type === "playlists" ? (
-                        <PlaylistResults playlistResults={data.data} />
-                    ) : null
-                ) : (
-                    <p>{data && data.msg}</p>
-                )
-=======
-                
                     data && data.status ? (
                         type === "songs" ? (
                             <Results songsResults={data.data} />
@@ -70,7 +55,6 @@ export function SearchResults() {
                     ) : (
                         <p>{data && data.msg}</p>
                     )
->>>>>>> 493aa7a012f43dc10406fae9a0e5a4c5d74c94dd
             )}
         </>
     );
