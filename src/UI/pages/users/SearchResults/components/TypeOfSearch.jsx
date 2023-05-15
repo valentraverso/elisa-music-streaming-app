@@ -1,4 +1,4 @@
-import { TypeOfSearchDiv, Song, Artist, Playlist, Album, ArtistButton } from "../../../../Styles/Pages/Users/components/TypeOfSearchStyle";
+import { TypeOfSearchDiv, ArtistButton, PlaylistButton, AlbumButton, SongButton } from "../../../../Styles/Pages/Users/components/TypeOfSearchStyle";
 import { useNavigate } from "react-router-dom";
 
 export default function TypeOfSearch({ query }) {
@@ -10,10 +10,10 @@ export default function TypeOfSearch({ query }) {
 
     return (
         <TypeOfSearchDiv>
-            <Song onClick={() => handleClick("songs")}>Song</Song>
+            <SongButton onClick={() => handleClick("songs")}>Song</SongButton>
             <ArtistButton onClick={() => handleClick("users")}>Artist</ArtistButton>
-            <Playlist onClick={() => handleClick("playlists")}>Playlist</Playlist>
-            <Album onClick={() => handleClick("albums")}>Album</Album>
+            <PlaylistButton onClick={() => handleClick("playlists")}>Playlist</PlaylistButton>
+            <AlbumButton onClick={() => handleClick("albums")}>Album</AlbumButton>
         </TypeOfSearchDiv>
     );
 }

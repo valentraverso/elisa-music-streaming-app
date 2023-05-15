@@ -19,8 +19,6 @@ export function LayoutSearch() {
       return
     }  
       navigate('/search/songs/' + value)
-      // navigate('/search/albums/' + value);
-    
   }
 
   if (width === "desktop") {
