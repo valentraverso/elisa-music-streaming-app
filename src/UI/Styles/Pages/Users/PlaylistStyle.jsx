@@ -116,10 +116,8 @@ export const ContainerAddSong = styled.div`
 `
 
 export const ButtonAddSong = styled.span`
-    width: 125px;
-    height: 24px;
     border-radius: 5px;
-    padding: 0.1rem;
+    padding: 20px 0;
     float: right;
     font-size: ${fontSize.span};
 `
