@@ -10,7 +10,7 @@ import fetchManyAlbumById from "../../../../api/albums/getManyById";
 
 export const Library = () => {
   const { type } = useParams();
-  const { _id: idUser, albums } = store.getState().user.data[0];
+  const { _id: idUser, albums } = store.getState().user.data;
   const { getAccessTokenSilently } = useAuth0()
 
   console.log("albums", albums)

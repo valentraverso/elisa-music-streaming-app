@@ -23,7 +23,6 @@ function Register() {
         console.log(ev.target.value);
         setUserData({...userData, username:ev.target.value})
     }
-    console.log(userData)
 
     const handleSubmit = async (ev) => {
         ev.preventDefault();
@@ -31,6 +30,8 @@ function Register() {
         const token = await getAccessTokenSilently();
 
         const createUser = await postUser(userData, token);
+
+        console.log(createUser)
 
         if (!createUser.status) {
             return;

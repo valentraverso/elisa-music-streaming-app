@@ -2,9 +2,9 @@ import AudioPlayer from 'react-h5-audio-player';
 import 'react-h5-audio-player/lib/styles.css';
 import { ContainerPlayer, ContainerInfoSong, ImgInfoSong, ContainerDataSong, SpanSongTitle, SpanSongArtist } from '../../Styles/components/PlayerStyles';
 import UseWidth from '../../../helpers/hooks/useWidth';
-import { AiOutlineHeart } from 'react-icons/ai';
 import { useSelector } from 'react-redux';
 import { setIndex } from '../../../utils/player/player';
+import LikeSong from './components/LikeSong';
 
 export const Player = () => {
   const width = UseWidth();
@@ -28,7 +28,7 @@ export const Player = () => {
             layout="horizontal"
             showJumpControls={false}
             autoPlay
-            customAdditionalControls={[<AiOutlineHeart />]}
+            customAdditionalControls={[<LikeSong id={data[index]._id} />]}
             showSkipControls={true}
             customVolumeControls={[]}
             customProgressBarSection={[]}
@@ -47,7 +47,7 @@ export const Player = () => {
             showJumpControls={false}
             showDownloadProgress={false}
             autoPlay
-            customAdditionalControls={[<AiOutlineHeart />]}
+            customAdditionalControls={[]}
             customProgressBarSection={[]}
             customVolumeControls={[]}
             style={{ padding: 0, backgroundColor: 'inherit', boxShadow: "none", width: "98%" }}
