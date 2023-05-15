@@ -77,7 +77,9 @@ export function Upload() {
       imgAlbum: data.imgAlbum,
       discography: data.discography,
     }
-    const uploadAlbumResponse = await postAlbum(album, token)
+    const uploadAlbumResponse = await postAlbum(album, token);
+
+    console.log(uploadAlbumResponse)
 
     const songsArray = [...data.songsArray]
     const songs = songsArray.map((song, index) => ({
