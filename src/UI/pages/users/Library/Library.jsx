@@ -2,31 +2,44 @@ import { useParams } from "react-router-dom";
 import { Link } from "react-router-dom";
 import { useAuth0 } from "@auth0/auth0-react";
 import { useQuery } from "react-query";
-import { ContainerListPlaylists } from "./components/ContainerListPlaylists";
 import LibraryGrid from "../../../components/LibraryGrid/LibraryGrid";
 import getPlaylistByOwner from "../../../../api/playlists/getByOwner";
 import { PageTitle, DivChangePlaylistAlbum, PageChanger, ContainerLibrary } from "../../../Styles/Pages/Users/MenuPlaylistsStyle";
 import { store } from "../../../../utils/redux/store";
+import fetchManyAlbumById from "../../../../api/albums/getManyById";
 
 export const Library = () => {
   const { type } = useParams();
-  const { _id: idUser } = store.getState().user.data[0];
+  const { _id: idUser, albums } = store.getState().user.data[0];
   const { getAccessTokenSilently } = useAuth0()
+
+  console.log("albums", albums)
 
   const switchLibraryData = async (token) => {
     switch (type) {
       case "playlist":
         return await getPlaylistByOwner(idUser, token);
+      case "album":
+        if (albums.length < 1) {
+          return {
+            status: false,
+            msg: "You don't have albums."
+          }
+        }
+        return await fetchManyAlbumById(albums, token);
       default:
         return;
     }
   }
 
-  const { data, isLoading } = useQuery(['library'], async () => {
-    const token = getAccessTokenSilently();
+  const { data, isLoading } = useQuery(['library', type], async () => {
+    const token = await getAccessTokenSilently();
     const data = await switchLibraryData(token);
+
     return data;
   })
+
+  console.log(data)
 
   return (
 
@@ -42,8 +55,8 @@ export const Library = () => {
             </Link>
           </DivChangePlaylistAlbum>
         }
-        <LibraryGrid title={"My " + type + "s"} data={data.data} type={type} />
-        <ContainerListPlaylists name={"Followed " + type + "s"} />
+        <LibraryGrid data={data} type={type} />
+
       </ContainerLibrary>
   )
 }

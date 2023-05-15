@@ -3,7 +3,7 @@ import { colors, device } from "../../config.jsx";
 
 export const ContainerLibrary = styled.div`
     margin: 0 auto;
-    margin-bottom: 12vw;
+    width: 90%;
     @media ${device.mobile} {
         margin-bottom: 17vh;
     }
