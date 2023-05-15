@@ -1,5 +1,5 @@
 import { useAuth0 } from "@auth0/auth0-react"
-import { ButtonArtist, ButtonGenre, ContainerButtonsArtist, ContainerFinishButton, ContainerThreeButtons, PrivacyPolicySpan, SectionText } from "../../../Styles/Pages/Users/Register";
+import { ButtonArtist, ButtonGenre, ContainerButtonsArtist, InputText, ContainerFinishButton, ContainerInputsText, ContainerThreeButtons, PrivacyPolicySpan, SectionText } from "../../../Styles/Pages/Users/Register";
 import { ButtonUploadAlbum, ContainerInputs, ContainerUpload, LabelInputForm } from "../../../Styles/Pages/Users/UploadStyle";
 import { useState } from "react";
 import postUser from "../../../../api/users/postUser";
@@ -13,10 +13,17 @@ function Register() {
         name: user.name || "",
         email: user.email,
         picture: user.picture || "",
-        sub: user.sub
+        sub: user.sub,
+        username:""
     });
 
     const [isArtist, setIsArtist] = useState(false);
+
+    const handleUsername = (ev) => {
+        console.log(ev.target.value);
+        setUserData({...userData, username:ev.target.value})
+    }
+    console.log(userData)
 
     const handleSubmit = async (ev) => {
         ev.preventDefault();
@@ -38,6 +45,10 @@ function Register() {
                     <h1>Hi {user.name.split(" ")[0]}!</h1>
                     <p>Tell us a little about you</p>
                 </SectionText>
+                <ContainerInputsText>
+                    <LabelInputForm>Write your Username</LabelInputForm>
+                    <InputText onChange={handleUsername}/>
+                </ContainerInputsText>
                 <ContainerInputs>
                     <LabelInputForm>Are you an artist?</LabelInputForm>
                     <ContainerButtonsArtist>

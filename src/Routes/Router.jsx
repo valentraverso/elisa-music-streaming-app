@@ -11,6 +11,7 @@ import { Playlist } from "../UI/pages/users/Playlist/Playlist";
 import PrivateRoutes from "./RouteTypes";
 import { useSelector } from "react-redux";
 import { Player } from "../UI/components/Player/Player";
+import { VisitProfiles } from "../UI/pages/users/VisitProfiles/VisitProfiles";
 
 const router = createBrowserRouter([
     {
@@ -53,6 +54,10 @@ const router = createBrowserRouter([
                 path: '/user/upload',
                 element: <Upload />
             },
+            {
+                path: '/user/visit/:id',
+                element: <VisitProfiles />
+            }
         ]
     },
     {
