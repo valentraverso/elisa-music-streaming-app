@@ -11,6 +11,7 @@ import { Playlist } from "../UI/pages/users/Playlist/Playlist";
 import PrivateRoutes from "./RouteTypes";
 import { useSelector } from "react-redux";
 import { Player } from "../UI/components/Player/Player";
+import { VisitProfiles } from "../UI/pages/users/VisitProfiles/VisitProfiles";
 
 const router = createBrowserRouter([
     {
@@ -53,6 +54,10 @@ const router = createBrowserRouter([
                 path: '/user/upload',
                 element: <Upload />
             },
+            {
+                path: '/user/visit/:id',
+                element: <VisitProfiles />
+            }
         ]
     },
     {
@@ -63,12 +68,12 @@ const router = createBrowserRouter([
                 element: <Library />
             },
             {
-                path: '/playlist',
+                path: '/playlist/:id',
                 element: <Playlist img="https://i.scdn.co/image/ab67616d0000b27396384c98ac4f3e7c2440f5b5" playlistName="Sad Playlist" info="50 Songs" likes="50 Likes" btnLike={true} />
             },
             {
                 path: '/album/:id',
-                element: <Album img="https://i.scdn.co/image/ab67616d0000b27396384c98ac4f3e7c2440f5b5" playlistName="My Album" info="10 Songs" likes="50 Likes" btnLike={false} />
+                element: <Album />
             }
         ]
     },

@@ -30,20 +30,19 @@ export function SearchResults() {
         }
     }
 
-    const { data, isLoading } = useQuery( ['results', type], async () => {
+    const { data, isLoading } = useQuery(['results', type], async () => {
         const token = await getAccessTokenSilently();
         const searchData = await switchByType(token);
-        console.log("query",searchData)
+        console.log("query", searchData)
         return searchData;
     });
     console.log("respose", data)
     return (
         <>
-            <TypeOfSearch query={query}/>
+            <TypeOfSearch query={query} />
             {isLoading ? (
                 <p>Searching...</p>
             ) : (
-                
                     data && data.status ? (
                         type === "songs" ? (
                             <Results songsResults={data.data} />

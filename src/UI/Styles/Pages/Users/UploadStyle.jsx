@@ -46,6 +46,11 @@ export const ContainerInputs = styled.div`
 margin: 8% 0;
 `
 
+export const ContainerInputsText = styled.div`
+margin: 8% 0;
+`
+
+
 export const LabelInputForm = styled.label`
 `
 

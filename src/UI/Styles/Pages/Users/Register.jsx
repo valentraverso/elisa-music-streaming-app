@@ -51,3 +51,16 @@ export const PrivacyPolicySpan = styled.span`
     color: ${colors.grey};
     font-size: 12px;
 `
+
+export const ContainerInputsText = styled.section`
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 40%;
+    margin-top: 10%;
+`
+
+export const InputText = styled.input`
+    color: black;
+    margin-top: 1rem;
+`

@@ -11,6 +11,8 @@ const postPlaylist = async (data, token) => {
   formData.append("owner", data.owner);
   formData.append("songs", JSON.stringify(data.songs));
   formData.append("img", data.img);
+  formData.append("likePlaylist", data.likePlaylist);
+  formData.append("private", data.private);
 
   try {
     const request = await fetch(`${process.env.REACT_APP_API_URL}/playlists/create`, {
