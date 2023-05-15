@@ -5,7 +5,7 @@ import { songs } from "../../../../../../songs.js";
 import { setPlayer } from '../../../../../../utils/player/player';
 import { store } from '../../../../../../utils/redux/store';
 
-export const SongsList = ({data, imgAlbum}) => {
+export const SongsList = ({data}) => {
   const player = store.getState().player;
   return (
     <ContainerSongsList>
@@ -18,7 +18,7 @@ export const SongsList = ({data, imgAlbum}) => {
               queu: songs,
               index: index
             })}>
-              <ImgSong src={imgAlbum} />
+              <ImgSong src={song.album.img.secure_url} />
               <ContainerSongInfo >
                 <TitleSmall>{song.title}</TitleSmall>
                 <NameArtist>{song.artist}</NameArtist>
