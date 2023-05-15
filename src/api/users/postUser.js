@@ -1,5 +1,3 @@
-import postPlaylist from "../playlists/postPlaylist";
-
 const postUser = async (data, token) => {
     if (!data) {
         return {
@@ -24,15 +22,6 @@ const postUser = async (data, token) => {
             body: formData
         })
         const response = await request.json();
-
-        const objLikedPlaylist = {
-            title: "Likes",
-            owner: response.data._id,
-            likePlaylist: true,
-            private: true
-        }
-
-        const likePlaylist = await postPlaylist(objLikedPlaylist, token);
 
         return response;
     } catch (error) {
