@@ -6,7 +6,6 @@ import { Link } from "react-router-dom";
 import UseWidth from "../../../../helpers/hooks/useWidth";
 import FollowButton from "../../../components/FollowButton/FollowButton";
 import { DivAllPlaylist, Subtitle } from '../../../Styles/Pages/Users/MenuPlaylistsStyle';
-import { PlaylistDisplay } from "../Library/components/PlaylistDisplay";
 
 export function Profile() {
     const { user: { picture, name } } = useAuth0();
@@ -44,17 +43,13 @@ export function Profile() {
             <ContainerPlaylistProfile>
                 <Subtitle>Playlists</Subtitle>
                 <DivAllPlaylist>
-                    <Link to="/playlist">
-                        <PlaylistDisplay name={"Sad"} />
-                    </Link>
+
                 </DivAllPlaylist>
             </ContainerPlaylistProfile>
             <ContainerPlaylistProfile>
                 <Subtitle>Albums</Subtitle>
                 <DivAllPlaylist>
-                    <Link to="/playlist">
-                        <PlaylistDisplay name={"Sad"} />
-                    </Link>
+
                 </DivAllPlaylist>
             </ContainerPlaylistProfile>
         </ContainerProfile>

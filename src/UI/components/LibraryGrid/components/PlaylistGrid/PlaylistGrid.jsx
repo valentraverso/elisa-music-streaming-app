@@ -1,22 +1,27 @@
 import { Link } from "react-router-dom";
-import { Album, AlbumBackground, AlbumImage, AlbumTitle, ContainerAlbum } from "../../../../Styles/Pages/Users/HomePageStyles/AlbumsStyle";
+import { DivAllPlaylist, DivInfoPlaylist, DivPlaylistsDisplay, DivTypePlaylist, GeneralDiv, ImgPlaylist, InfoPlaylist, TitlePlaylist } from "../../../../Styles/Pages/Users/MenuPlaylistsStyle";
 
-export default function PlaylistGrid({ data, type }) {
+export default function AlbumGrid({ data }) {
     return (
-        <ContainerAlbum>
-            {data &&
-                data.map((playlist) => (
-                    <Link key={playlist._id} to={`/playlist/${playlist._id}`}>
-                        <Album>
-                            <AlbumBackground image={playlist.img && playlist.img.secure_url} />
-                            <AlbumImage
-                                src={playlist.img && playlist.img.secure_url}
-                                alt={playlist.title}
-                            />
-                            <AlbumTitle>{playlist.title}</AlbumTitle>
-                        </Album>
-                    </Link>
-                ))}
-        </ContainerAlbum>
+        <GeneralDiv>
+            <DivTypePlaylist>
+                <DivAllPlaylist>
+                    {data &&
+                        data.map((playlist) => (
+                            <div key={playlist._id}>
+                                <Link to={`/playlist/${playlist._id}`}>
+                                    <DivPlaylistsDisplay>
+                                        <ImgPlaylist src={playlist.img.secure_url} />
+                                        <DivInfoPlaylist>
+                                            <TitlePlaylist>{playlist.title}</TitlePlaylist>
+                                        </DivInfoPlaylist>
+                                    </DivPlaylistsDisplay>
+                                </Link>
+                            </div>
+                        ))
+                    }
+                </DivAllPlaylist>
+            </DivTypePlaylist>
+        </GeneralDiv>
     )
 }

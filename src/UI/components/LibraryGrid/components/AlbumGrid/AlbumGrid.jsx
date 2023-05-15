@@ -1,22 +1,27 @@
 import { Link } from "react-router-dom";
-import { Album, AlbumBackground, AlbumImage, AlbumTitle, ContainerAlbum } from "../../../../Styles/Pages/Users/HomePageStyles/AlbumsStyle";
+import { DivAllPlaylist, DivInfoPlaylist, DivPlaylistsDisplay, DivTypePlaylist, GeneralDiv, ImgPlaylist, InfoPlaylist, TitlePlaylist } from "../../../../Styles/Pages/Users/MenuPlaylistsStyle";
 
 export default function AlbumGrid({ data }) {
     return (
-        <ContainerAlbum>
-            {data &&
-                data.map((album) => (
-                    <Link key={album.id} to={`/album/${album._id}`}>
-                        <Album>
-                            <AlbumBackground image={album.img && album.img.secure_url} />
-                            <AlbumImage
-                                src={album.img && album.img.secure_url}
-                                alt={album.title}
-                            />
-                            <AlbumTitle>{album.title}</AlbumTitle>
-                        </Album>
-                    </Link>
-                ))}
-        </ContainerAlbum>
+        <GeneralDiv>
+            <DivTypePlaylist>
+                <DivAllPlaylist>
+                    {data &&
+                        data.map((album) => (
+                            <div key={album._id}>
+                                <Link to={`/album/${album._id}`}>
+                                    <DivPlaylistsDisplay >
+                                        <ImgPlaylist src={album.img.secure_url} />
+                                        <DivInfoPlaylist>
+                                            <TitlePlaylist>{album.title}</TitlePlaylist>
+                                        </DivInfoPlaylist>
+                                    </DivPlaylistsDisplay>
+                                </Link>
+                            </div>
+                        ))
+                    }
+                </DivAllPlaylist>
+            </DivTypePlaylist>
+        </GeneralDiv>
     )
 }

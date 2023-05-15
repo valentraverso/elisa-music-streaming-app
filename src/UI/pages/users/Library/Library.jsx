@@ -47,16 +47,13 @@ export const Library = () => {
       <p>Loading library</p>
       :
       <ContainerLibrary>
-        {
-          <DivChangePlaylistAlbum>
-            <PageTitle>{type === "playlist" ? "Playlist" : "Albums"}</PageTitle>
-            <Link to={type !== "playlist" ? "/user/library/playlist" : "/user/library/album"}>
-              <PageChanger>{type !== "playlist" ? "Playlist" : "Albums"}</PageChanger>
-            </Link>
-          </DivChangePlaylistAlbum>
-        }
+        <DivChangePlaylistAlbum>
+          <PageTitle>{type === "playlist" ? "Playlist" : "Albums"}</PageTitle>
+          <Link to={type !== "playlist" ? "/user/library/playlist" : "/user/library/album"}>
+            <PageChanger>{type !== "playlist" ? "Playlist" : "Albums"}</PageChanger>
+          </Link>
+        </DivChangePlaylistAlbum>
         <LibraryGrid data={data} type={type} />
-
       </ContainerLibrary>
   )
 }
