@@ -86,3 +86,13 @@ export const PlaylistButton = styled.p`
     justify-content:center;
     align-items: center;
 `
+export const ErrorMessage = styled.p`
+            border: 1px solid;
+			margin: 10px 0px;
+			padding: 15px 10px 15px 50px;
+			background-repeat: no-repeat;
+			background-position: 10px center;
+            color: #9F6000;
+			background-color: #FEEFB3;
+			background-image: url('https://i.imgur.com/Z8q7ww7.png');
+`
