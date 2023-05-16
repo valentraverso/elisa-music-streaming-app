@@ -1,17 +1,47 @@
-import { AiOutlineHeart } from "react-icons/ai";
+import { AiFillHeart, AiOutlineHeart } from "react-icons/ai";
 import updateLikedSongsPlaylist from "../../../../api/playlists/updateLikedSongs";
 import { useAuth0 } from "@auth0/auth0-react";
+import updateDislikedSongsPlaylist from "../../../../api/playlists/updateDislikedSongs";
+import { setLikePlaylist } from "../../../../utils/player/user";
+import { useSelector } from "react-redux";
+import { useEffect, useState } from "react";
 
 export default function LikeSong({ id }) {
     const { getAccessTokenSilently } = useAuth0();
+    const playlistLikes = useSelector(state => state.user.data.playlists[0].songs);
+
+    const [isLiked, setIsLiked] = useState(false);
+
+    const playlistIncludesLike = playlistLikes.find(song => song._id === id);
+
+    useEffect(() => {
+        playlistIncludesLike ? setIsLiked(true) : setIsLiked(false);
+    }, [playlistIncludesLike])
+
 
     const handleLike = async (id) => {
         const token = await getAccessTokenSilently();
-        const like = await updateLikedSongsPlaylist(id, token);
+        const likePlaylist = await updateLikedSongsPlaylist(id, token);
 
-        console.log(like)
+        setLikePlaylist(await likePlaylist.data);
+
+        return;
     }
+
+    const handleDislike = async () => {
+        const token = await getAccessTokenSilently();
+        const likePlaylist = await updateDislikedSongsPlaylist(id, token);
+
+        setLikePlaylist(await likePlaylist.data);
+
+        return;
+    }
+
     return (
-        <AiOutlineHeart onClick={() => handleLike(id)} />
+        isLiked ?
+            <AiFillHeart onClick={() => handleDislike(id)} />
+            :
+            <AiOutlineHeart onClick={() => handleLike(id)} />
+
     )
 }

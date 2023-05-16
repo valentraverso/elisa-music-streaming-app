@@ -18,7 +18,7 @@ export function Upload() {
   const width = UseWidth();
 
   const { getAccessTokenSilently } = useAuth0();
-  const user = store.getState().user.data[0];
+  const user = store.getState().user.data;
 
   const [isUploading, setIsUploding] = useState(false)
 

@@ -10,7 +10,7 @@ export const Player = () => {
   const width = UseWidth();
   const {queu, index} = useSelector(state => state.player);
 
-  console.log(queu)
+  console.log("queu",queu)
 
   const albumImg = queu[index]?.album.img.secure_url || queu.imgAlbum;
   const songTitle = queu[index]?.title || queu.data[index].title;
