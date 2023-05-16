@@ -55,8 +55,7 @@ export const Player = () => {
             showJumpControls={false}
             showDownloadProgress={false}
             autoPlay
-            customAdditionalControls={[]}
-            customProgressBarSection={[]}
+            customAdditionalControls={[<LikeSong id={likeSong} />]}
             customVolumeControls={[]}
             style={{ padding: 0, backgroundColor: 'inherit', boxShadow: "none", width: "98%" }}
             onClickPrevious={() => console.log("hola")}

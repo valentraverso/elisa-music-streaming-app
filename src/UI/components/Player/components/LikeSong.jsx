@@ -5,6 +5,7 @@ import updateDislikedSongsPlaylist from "../../../../api/playlists/updateDislike
 import { setLikePlaylist } from "../../../../utils/player/user";
 import { useSelector } from "react-redux";
 import { useEffect, useState } from "react";
+import { HeartLikeBorders, HeartLikeFill } from "../../../Styles/components/PlayerStyles";
 
 export default function LikeSong({ id }) {
     const { getAccessTokenSilently } = useAuth0();
@@ -39,9 +40,9 @@ export default function LikeSong({ id }) {
 
     return (
         isLiked ?
-            <AiFillHeart onClick={() => handleDislike(id)} />
+            <HeartLikeFill onClick={() => handleDislike(id)} />
             :
-            <AiOutlineHeart onClick={() => handleLike(id)} />
+            <HeartLikeBorders onClick={() => handleLike(id)} />
 
     )
 }
