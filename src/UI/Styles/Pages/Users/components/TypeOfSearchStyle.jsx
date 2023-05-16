@@ -1,3 +1,4 @@
+import { AiOutlineInfoCircle } from "react-icons/ai"
 import styled from "styled-components"
 
 export const TypeOfSearchDiv = styled.div`
@@ -9,10 +10,14 @@ export const TypeOfSearchDiv = styled.div`
 export const TypeButtons = styled.p`
     border-radius: 5px;
     border-style: solid;
-    background-color: #4a4b4d;
-    border-color: #4a4b4d;
-    width:58px;
-    height:25px;
+    background-color: rgb(74, 75, 77);
+    border-color: rgb(74, 75, 77);
+    width: 70px;
+    height: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: auto;
 `
 export const Artist = styled.p`
     display: grid;
@@ -56,13 +61,20 @@ export const Song = styled.p`
     margin: auto;
 `
 
-export const ErrorMessage = styled.p`
-            border: 1px solid;
-			margin: 10px 0px;
-			padding: 15px 10px 15px 50px;
-			background-repeat: no-repeat;
-			background-position: 10px center;
-            color: #9F6000;
-			background-color: #FEEFB3;
-			background-image: url('https://i.imgur.com/Z8q7ww7.png');
+export const ErrorMessage = styled.div`
+	margin: auto;
+    background-repeat: no-repeat;
+    background-position: 10px center;
+    height: 20vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+`
+
+export const InfoIcon = styled(AiOutlineInfoCircle)`
+    stroke: #fff;
+    width: 3em;
+    height: 3em;
+    margin-bottom: 20px;
 `
