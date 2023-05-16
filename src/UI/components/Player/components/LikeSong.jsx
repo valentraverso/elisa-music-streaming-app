@@ -1,4 +1,3 @@
-import { AiFillHeart, AiOutlineHeart } from "react-icons/ai";
 import updateLikedSongsPlaylist from "../../../../api/playlists/updateLikedSongs";
 import { useAuth0 } from "@auth0/auth0-react";
 import updateDislikedSongsPlaylist from "../../../../api/playlists/updateDislikedSongs";
@@ -43,6 +42,5 @@ export default function LikeSong({ id }) {
             <HeartLikeFill onClick={() => handleDislike(id)} />
             :
             <HeartLikeBorders onClick={() => handleLike(id)} />
-
     )
 }

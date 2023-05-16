@@ -25,8 +25,9 @@ export function SearchResults() {
             case "playlists":
                 return await fetchPlaylistByTitle(query, token);
             case "users":
-                console.log("esta entrando en users")
                 return await getUserByName(query, token);
+            default:
+                return;
         }
     }
 

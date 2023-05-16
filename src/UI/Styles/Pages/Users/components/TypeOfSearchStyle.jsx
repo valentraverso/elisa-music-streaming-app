@@ -7,15 +7,12 @@ export const TypeOfSearchDiv = styled.div`
     grid-gap:15px;
 `
 export const SongButton = styled.p`
-    display: grid;
     border-radius: 5px;
     border-style: solid;
     background-color: #4a4b4d;
     border-color: #4a4b4d;
     width:58px;
     height:25px;
-    justify-content:center;
-    align-items: center;
 `
 export const Artist = styled.p`
     display: grid;
@@ -45,47 +42,19 @@ export const Album = styled.p`
     justify-content:center;
     align-items: center;
 `
-export const Song = styled.p`
-    display: grid;
-    width:145px;
-    height:25px;
-    justify-content:center;
+export const TypeButtons = styled.p`
+    display:flex;
+    justify-content: center;
     align-items: center;
+    width: 70px;
+    height: 30px;
+    border-radius: 5px;
+    border-style: solid;
+    background-color: #4a4b4d;
+    border: 0;
+    margin: auto;
 `
 
-export const ArtistButton = styled.p`
-    display: grid;
-    border-radius: 5px;
-    border-style: solid;
-    background-color: #4a4b4d;
-    border-color: #4a4b4d;
-    width:58px;
-    height:25px;
-    justify-content:center;
-    align-items: center;
-`
-export const AlbumButton = styled.p`
-    display: grid;
-    border-radius: 5px;
-    border-style: solid;
-    background-color: #4a4b4d;
-    border-color: #4a4b4d;
-    width:58px;
-    height:25px;
-    justify-content:center;
-    align-items: center;
-`
-export const PlaylistButton = styled.p`
-    display: grid;
-    border-radius: 5px;
-    border-style: solid;
-    background-color: #4a4b4d;
-    border-color: #4a4b4d;
-    width:58px;
-    height:25px;
-    justify-content:center;
-    align-items: center;
-`
 export const ErrorMessage = styled.p`
             border: 1px solid;
 			margin: 10px 0px;
