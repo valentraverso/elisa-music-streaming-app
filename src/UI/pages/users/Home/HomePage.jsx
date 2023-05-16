@@ -12,6 +12,7 @@ import fetchDeleteSong from "../../../../api/song/fetchDeleteSong";
 import fetchAllPlaylists from "../../../../api/playlists/fetchPlaylistAll";
 import CreateMixModal from "./HomeComponents/CreateMixModal";
 import fetchAllMixes from "../../../../api/mixes/getAllMixes";
+import PlaylistPage from "../Library/components/PlaylistPage";
 
 export function HomePage() {
     const {getAccessTokenSilently} = useAuth0()
@@ -60,6 +61,7 @@ const allPlaylists = [
 
       <CreateMixModal />
       <Albums />
+      <PlaylistPage />
     </div>
   );
 }

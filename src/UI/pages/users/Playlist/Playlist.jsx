@@ -1,36 +1,46 @@
+import { useParams } from "react-router-dom";
 import { ContainerPlaylist } from "../../../Styles/Pages/Users/PlaylistStyle";
 import { ButtonAddSong, ContainerPagePlaylist } from "../../../Styles/Pages/Users/PlaylistStyle";
-import { useState, useEffect } from "react";
+import { PlaylistTitle } from "./components/PlaylistTitle/PlaylistTitle";
+import { SongsList } from "./components/SongsList/SongsList";
 import { useAuth0 } from "@auth0/auth0-react";
 import { useQuery } from "react-query";
-import fetchPlaylistById from "../../../../api/playlists/fetchPlaylistById";
-import PlaylistPage from "./components/PlaylistDetails";
-import { useLocation } from "react-router-dom";
+import fetchPlaylistById from "../../../../api/playlists/getById";
 
-
-export function Playlist() {
+export const Playlist = () => {
+  const { id } = useParams();
   const { getAccessTokenSilently } = useAuth0();
-  const location = useLocation();
-  const playlistId = location.pathname.split("/").pop();
 
-  const { isLoading, isError, data: playlist } = useQuery(
-    ["playlist", playlistId],
-    async () => {
-      const token = await getAccessTokenSilently();
-      return fetchPlaylistById(playlistId, token);
-    },
-    {
-      enabled: !!getAccessTokenSilently(),
-    }
-  );
+  const { data, isLoading } = useQuery(["playlistSong", id], async () => {
+    const token = await getAccessTokenSilently();
+    const data = await fetchPlaylistById(id, token);
 
-  if (isLoading) {
-    return <div>Loading...</div>;
-  }
+    return data;
+  });
 
-  if (isError) {
-    return <div>Error fetching playlist</div>;
-  }
+  console.log(data);
 
-  return <PlaylistPage playlist={playlist} />;
+  return (
+    isLoading ?
+      <p>Loading playlist...</p>
+      :
+      <ContainerPagePlaylist>
+        <ContainerPlaylist >
+          <PlaylistTitle img={data.data.img.secure_url} playlistName={data.data.title} info={""} likes={""} btnLike={true} />
+          {
+            data.data.songs.length < 1 ?
+              <>
+                <p>This playlist is empty.</p>
+                <span>Add songs and save your favorite music</span>
+              </>
+              :
+              <SongsList data={data.data.songs} />
+          }
+        </ContainerPlaylist>
+        <ButtonAddSong>Add songs</ButtonAddSong>
+      </ ContainerPagePlaylist>
+  )
 }
+
+  // return <PlaylistPage playlist={playlist} />;
+// };

@@ -6,29 +6,49 @@ import { Link } from "react-router-dom";
 import UseWidth from "../../../../helpers/hooks/useWidth";
 import FollowButton from "../../../components/FollowButton/FollowButton";
 import { DivAllPlaylist, Subtitle } from '../../../Styles/Pages/Users/MenuPlaylistsStyle';
+import getUserById from "../../../../api/users/getById";
+import { useParams } from "react-router-dom";
+import { useQuery } from "react-query";
 
-export function Profile() {
-    const { user: { picture, name } } = useAuth0();
+export function VisitProfiles() {
+
     const width = UseWidth();
 
+    const { id } = useParams();
+    const { getAccessTokenSilently } = useAuth0();
+  
+    const { data: user, isLoading } = useQuery(["albumSong", id], async () => {
+      const token = await getAccessTokenSilently();
+      const data = await getUserById(id, token);
+  
+      return data;
+    });
+
+
+    console.log("X");
+    
+    if (isLoading) {
+        return <p>Loading...</p>
+    }
     return (
+
         <ContainerProfile>
             {
                 width !== 'desktop' &&
                 <TitleCenterPage title='Profile' back={true} />
             }
             <ContainerTopProfile>
-                <ImageProfile src={picture} />
+                <ImageProfile src={user.data.picture} />
                 <ContainerProfileData>
-                    <H1NameProfile>{name}</H1NameProfile>
+                    <H1NameProfile>{user.data.name}</H1NameProfile>
                     <DivInfoProfile>
                         <DivConnectionsProfile>
                             <Link to={links.connections + "/followers"}>
-                                <SpanInfoProfile>15 Followers</SpanInfoProfile>
+                                <SpanInfoProfile>{`${user.data.followers.length} Followers`}</SpanInfoProfile>
                             </Link>
                             |
                             <Link to={links.connections + "/following"}>
-                                <SpanInfoProfile>10 Following</SpanInfoProfile>
+                                <SpanInfoProfile>{`${user.data.follows.length} Following`}</SpanInfoProfile>
                             </Link>
                         </DivConnectionsProfile>
                         <DivDiscographyProfile>
@@ -43,13 +63,17 @@ export function Profile() {
             <ContainerPlaylistProfile>
                 <Subtitle>Playlists</Subtitle>
                 <DivAllPlaylist>
-
+                    <Link to="/playlist">
+                       
+                    </Link>
                 </DivAllPlaylist>
             </ContainerPlaylistProfile>
             <ContainerPlaylistProfile>
                 <Subtitle>Albums</Subtitle>
                 <DivAllPlaylist>
-
+                    <Link to="/playlist">
+                        
+                    </Link>
                 </DivAllPlaylist>
             </ContainerPlaylistProfile>
         </ContainerProfile>

@@ -9,7 +9,7 @@ import AddToPlaylistModal from '../../../../../components/SongsMenu/SongsModal';
 import { Playlist } from '../../../Playlist/Playlist';
 import Dropdown from '../../../../../components/SettingsMenu/SettingsMenu';
 
-export const SongsListAlbum = ({ data, imgAlbum, songId })  => {
+export const SongsListAlbum = ({ data, imgAlbum }) => {
   const player = store.getState().player;
   const [showModal, setShowModal] = useState(false);
   const [selectedSongId, setSelectedSongId] = useState(null);
@@ -19,15 +19,10 @@ export const SongsListAlbum = ({ data, imgAlbum, songId })  => {
     setShowModal(false);
   }
 
-
-  const toggleModal = (songId) => {
+  const openModal = (songId) => {
     setSelectedSongId(songId);
     setShowModal((prevShowModal) => !prevShowModal);
   };
-  
-  console.log(selectedSongId);
-  
-
 
   return (
     <ContainerSongsList>
@@ -43,24 +38,21 @@ export const SongsListAlbum = ({ data, imgAlbum, songId })  => {
             index: index
           })}>
             <ImgSong src={imgAlbum} />
-            <ContainerSongInfo >
+            <ContainerSongInfo>
               <TitleSmall>{data[index].title}</TitleSmall>
               <NameArtist>{data[index].artist}</NameArtist>
             </ContainerSongInfo>
-            <SongSettings onClick={() => toggleModal(song._id)}>...</SongSettings>
-            
-            {showModal && (
-      <AddToPlaylistModal
-        onAddToPlaylist={handleAddToPlaylist}
-        onClose={() => setShowModal(false)}
-        songId={selectedSongId}
-      />
-    )}
-   
+            <SongSettings onClick={() => openModal(song._id)}>...</SongSettings>
+            {showModal && selectedSongId === song._id && (
+              <AddToPlaylistModal
+                onAddToPlaylist={handleAddToPlaylist}
+                onClose={() => setShowModal(false)}
+                songId={selectedSongId}
+              />
+            )}
           </ContainerSong>
         )
       })}
-
     </ContainerSongsList>
   )
 }

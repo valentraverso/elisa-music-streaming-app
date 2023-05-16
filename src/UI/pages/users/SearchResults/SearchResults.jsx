@@ -10,6 +10,7 @@ import fetchPlaylistByTitle from "../../../../api/playlists/fetchPlaylistByTitle
 import PlaylistResults from "./components/PlaylistResults";
 import getUserByName from "../../../../api/users/getByName";
 import UserResults from "./components/UserResults";
+import { ErrorMessage } from "../../../Styles/Pages/Users/components/TypeOfSearchStyle";
 
 export function SearchResults() {
     const { getAccessTokenSilently } = useAuth0()
@@ -29,20 +30,19 @@ export function SearchResults() {
         }
     }
 
-    const { data, isLoading } = useQuery( ['results', type], async () => {
+    const { data, isLoading } = useQuery(['results', type], async () => {
         const token = await getAccessTokenSilently();
         const searchData = await switchByType(token);
-        console.log("query",searchData)
+        console.log("query", searchData)
         return searchData;
     });
     console.log("respose", data)
     return (
         <>
-            <TypeOfSearch query={query}/>
+            <TypeOfSearch query={query} />
             {isLoading ? (
                 <p>Searching...</p>
             ) : (
-                
                     data && data.status ? (
                         type === "songs" ? (
                             <Results songsResults={data.data} />
@@ -54,7 +54,7 @@ export function SearchResults() {
                             <UserResults userResults={data.data} />
                         ) : null
                     ) : (
-                        <p>{data && data.msg}</p>
+                        <ErrorMessage>{data && data.msg}</ErrorMessage>
                     )
             )}
         </>

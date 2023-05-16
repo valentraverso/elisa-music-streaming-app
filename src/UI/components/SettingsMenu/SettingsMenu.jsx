@@ -1,24 +1,26 @@
 import React, { useState } from 'react';
 import { DropdownMenuItem,  DropdownMenu, DropdownButton, DropdownContainer,  } from '../../Styles/components/SettingsMenu';
 
-const Dropdown = () => {
+const Dropdown = (songId) => {
     const [isOpen, setIsOpen] = useState(false);
-  
+    const [showModal, setShowModal] = useState(false);
+  const [selectedSongId, setSelectedSongId] = useState(null);
+
+
     const toggleDropdown = () => {
       setIsOpen((prevIsOpen) => !prevIsOpen);
+            setSelectedSongId(songId);
+      setShowModal((prevShowModal) => !prevShowModal);
     };
   
+
     const handleMenuItemClick = (item) => {
       console.log(`Selected item: ${item}`);
       setIsOpen(false);
     };
   
     return (
-      <DropdownContainer>
-        <DropdownButton onClick={toggleDropdown}>
-          Click to Open Dropdown
-        </DropdownButton>
-        {isOpen && (
+
           <DropdownMenu>
             <DropdownMenuItem onClick={() => handleMenuItemClick('Option 1')}>
               Option 1
@@ -30,8 +32,7 @@ const Dropdown = () => {
               Option 3
             </DropdownMenuItem>
           </DropdownMenu>
-        )}
-      </DropdownContainer>
+     
     );
   };
   
