@@ -18,8 +18,6 @@ export const Playlist = () => {
     return data;
   });
 
-  console.log(data);
-
   return (
     isLoading ?
       <p>Loading playlist...</p>

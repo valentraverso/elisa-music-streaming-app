@@ -6,7 +6,6 @@ import { store } from '../../../../../../utils/redux/store';
 
 export const SongsList = ({data}) => {
   const player = store.getState().player;
-  console.log(player)
   return (
     <ContainerSongsList>
       {

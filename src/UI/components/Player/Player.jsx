@@ -8,9 +8,9 @@ import LikeSong from './components/LikeSong';
 
 export const Player = () => {
   const width = UseWidth();
-  const {queu, index} = useSelector(state => state.player);
+  const { queu, index } = useSelector(state => state.player);
 
-  console.log("queu",queu)
+  const queueLength = queu.length - 1;
 
   const albumImg = queu[index]?.album.img.secure_url || queu.imgAlbum;
   const songTitle = queu[index]?.title || queu.data[index].title;
@@ -41,8 +41,13 @@ export const Player = () => {
             customVolumeControls={[]}
             customProgressBarSection={[]}
             style={{ padding: 0, backgroundColor: 'inherit', boxShadow: "none", width: "98%" }}
+            onClickPrevious={() => {
+              if (queueLength <= index) {
+                setIndex(index - 1)
+              }
+            }}
             onClickNext={() => {
-              if (queu.lenght > index) {
+              if (queueLength > index) {
                 setIndex(index + 1)
               }
             }}
@@ -58,8 +63,16 @@ export const Player = () => {
             customAdditionalControls={[<LikeSong id={likeSong} />]}
             customVolumeControls={[]}
             style={{ padding: 0, backgroundColor: 'inherit', boxShadow: "none", width: "98%" }}
-            onClickPrevious={() => console.log("hola")}
-          // onClickNext={()=>handleNext()}
+            onClickPrevious={() => {
+              if (queueLength <= index) {
+                setIndex(index - 1)
+              }
+            }}
+            onClickNext={() => {
+              if (queueLength > index) {
+                setIndex(index + 1)
+              }
+            }}
           />
       }
     </ContainerPlayer>
