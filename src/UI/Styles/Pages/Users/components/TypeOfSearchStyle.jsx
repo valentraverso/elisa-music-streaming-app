@@ -6,7 +6,7 @@ export const TypeOfSearchDiv = styled.div`
     width: 100%;
     grid-gap:15px;
 `
-export const SongButton = styled.p`
+export const TypeButtons = styled.p`
     border-radius: 5px;
     border-style: solid;
     background-color: #4a4b4d;
@@ -16,9 +16,8 @@ export const SongButton = styled.p`
 `
 export const Artist = styled.p`
     display: grid;
-    width:85px;
+    width:155px;
     height:25px;
-    justify-content:center;
     align-items: center;
 `
 export const User = styled.p`
@@ -42,9 +41,11 @@ export const Album = styled.p`
     justify-content:center;
     align-items: center;
 `
-export const TypeButtons = styled.p`
-    display:flex;
-    justify-content: center;
+export const Song = styled.p`
+    display: grid;
+    width:165px;
+    height:25px;
+    justify-content:center;
     align-items: center;
     width: 70px;
     height: 30px;
