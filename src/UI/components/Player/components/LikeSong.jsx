@@ -11,13 +11,9 @@ export default function LikeSong({ id }) {
     const { getAccessTokenSilently } = useAuth0();
     const playlistLikes = useSelector(state => state.user.data.playlists[0].songs);
 
-    console.log("like playlist", playlistLikes)
-
     const [isLiked, setIsLiked] = useState(false);
 
     const playlistIncludesLike = playlistLikes.find(song => song._id === id);
-
-    console.log("liked", playlistIncludesLike)
 
     useEffect(() => {
         playlistIncludesLike ? setIsLiked(true) : setIsLiked(false);
