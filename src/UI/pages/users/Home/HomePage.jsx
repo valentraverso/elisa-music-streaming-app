@@ -9,9 +9,8 @@ import fetchAlbumById from "../../../../api/albums/getById";
 import Albums from "./HomeComponents/Albums";
 import { store } from "../../../../utils/redux/store";
 import fetchDeleteSong from "../../../../api/song/fetchDeleteSong";
-import  CreatePlaylistModal  from "./HomeComponents/CreatePlaylistModal";
 import fetchAllPlaylists from "../../../../api/playlists/fetchPlaylistAll";
-import CreateMixModal from "./HomeComponents/CreatePlaylistModal";
+import CreateMixModal from "./HomeComponents/CreateMixModal";
 import fetchAllMixes from "../../../../api/mixes/getAllMixes";
 
 export function HomePage() {

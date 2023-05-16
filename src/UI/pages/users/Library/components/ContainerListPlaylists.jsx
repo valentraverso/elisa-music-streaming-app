@@ -2,6 +2,7 @@ import { GeneralDiv, DivTypePlaylist,Subtitle, DivAllPlaylist, BtnAddNew, DivBtn
 import { PlaylistDisplay } from "./PlaylistDisplay";
 import { Link} from "react-router-dom";
 import { useParams } from "react-router-dom";
+import CreatePlaylistModal from "./playlistModal";
 
 export const ContainerListPlaylists = ({name}) => {
   const {type} = useParams();
@@ -17,6 +18,7 @@ export const ContainerListPlaylists = ({name}) => {
         </DivTypePlaylist>
         <DivBtnAddNew>
           <BtnAddNew>Add new {type}</BtnAddNew>
+          <CreatePlaylistModal />
         </DivBtnAddNew>
     </GeneralDiv>
   )

@@ -63,7 +63,7 @@ const router = createBrowserRouter([
                 element: <Library />
             },
             {
-                path: '/playlist',
+                path: '/playlist/:id',
                 element: <Playlist img="https://i.scdn.co/image/ab67616d0000b27396384c98ac4f3e7c2440f5b5" playlistName="Sad Playlist" info="50 Songs" likes="50 Likes" btnLike={true} />
             },
             {

@@ -2,7 +2,7 @@ const postMix = async (data, token) => {
   const formData = new FormData();
 
    formData.append("name", data.name);
-    formData.append("description", data.description);
+   formData.append("description", data.description);
    
 
 

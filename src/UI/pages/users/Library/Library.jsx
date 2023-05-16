@@ -13,7 +13,7 @@ export const Library = () => {
   const { _id: idUser } = store.getState().user.data[0];
   const { getAccessTokenSilently } = useAuth0()
 
-  console.log("id", idUser)
+
 
   const switchLibraryData = async (token) => {
     switch (type) {
@@ -28,11 +28,11 @@ export const Library = () => {
     console.log("entradno en use")
     const token = getAccessTokenSilently();
     const data = await switchLibraryData(token);
-    console.log("inside", data)
+
     return data;
   })
 
-  console.log(data)
+
 
   return (
 
