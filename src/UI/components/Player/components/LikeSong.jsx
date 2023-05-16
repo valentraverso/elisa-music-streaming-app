@@ -11,6 +11,8 @@ export default function LikeSong({ id }) {
     const { getAccessTokenSilently } = useAuth0();
     const playlistLikes = useSelector(state => state.user.data.playlists[0].songs);
 
+    console.log("playlistLikes", playlistLikes)
+
     const [isLiked, setIsLiked] = useState(false);
 
     const playlistIncludesLike = playlistLikes.find(song => song._id === id);
@@ -29,6 +31,7 @@ export default function LikeSong({ id }) {
         return;
     }
 
+    
     const handleDislike = async () => {
         const token = await getAccessTokenSilently();
         const likePlaylist = await updateDislikedSongsPlaylist(id, token);
