@@ -4,11 +4,10 @@ import { Playlist } from '../../../../Styles/Pages/Users/components/TypeOfSearch
 
 export default function PlaylistResults({ playlistResults }) {
     return (
-        <>
-            {playlistResults?.map((playlist) => (
-                <div key={playlist._id}>
-                    <Link to={`/playlists/${playlist._id}`}>
-                        <ContainerRecentSearchAll>
+            playlistResults?.map((playlist) => (
+                <div>
+                    <Link to={`/playlist/${playlist._id}`}>
+                        <ContainerRecentSearchAll key={playlist._id}>
                             <ContainerRecentImg>
                                 <RecentImg src={playlist.img} />
                             </ContainerRecentImg>
@@ -18,7 +17,6 @@ export default function PlaylistResults({ playlistResults }) {
                         </ContainerRecentSearchAll>
                     </Link>
                 </div>
-            ))}
-        </>
+            ))
     );
 }

@@ -19,9 +19,8 @@ export const SongButton = styled.p`
 `
 export const Artist = styled.p`
     display: grid;
-    width:85px;
+    width:155px;
     height:25px;
-    justify-content:center;
     align-items: center;
 `
 export const User = styled.p`
@@ -47,7 +46,7 @@ export const Album = styled.p`
 `
 export const Song = styled.p`
     display: grid;
-    width:145px;
+    width:165px;
     height:25px;
     justify-content:center;
     align-items: center;
