@@ -6,10 +6,15 @@ import { Link } from "react-router-dom";
 import UseWidth from "../../../../helpers/hooks/useWidth";
 import FollowButton from "../../../components/FollowButton/FollowButton";
 import { DivAllPlaylist, Subtitle } from '../../../Styles/Pages/Users/MenuPlaylistsStyle';
+import { useSelector } from "react-redux";
 
 export function Profile() {
     const { user: { picture, name } } = useAuth0();
     const width = UseWidth();
+    const storeInfo = useSelector((state) => state.user);
+    const userId = storeInfo.data[0]._id;
+
+    
 
     return (
         <ContainerProfile>

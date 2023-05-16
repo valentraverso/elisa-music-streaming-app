@@ -6,28 +6,30 @@ import { Link } from "react-router-dom";
 import UseWidth from "../../../../helpers/hooks/useWidth";
 import FollowButton from "../../../components/FollowButton/FollowButton";
 import { DivAllPlaylist, Subtitle } from '../../../Styles/Pages/Users/MenuPlaylistsStyle';
-import { PlaylistDisplay } from "../Library/components/PlaylistDisplay";
+// import { PlaylistDisplay } from "../Library/components/PlaylistDisplay";
 import getUserById from "../../../../api/users/getById";
 import { useParams } from "react-router-dom";
 import { useQuery } from "react-query";
+import getUserByUsername from "../../../../api/users/getUserByUsername";
+import { useState } from "react";
 
 export function VisitProfiles() {
 
     const width = UseWidth();
-
-    const { id } = useParams();
+    // const [idVisiting, setIdVisiting] = useState("")
+    const { username } = useParams();
     const { getAccessTokenSilently } = useAuth0();
+
+    // console.log(username)
   
-    const { data: user, isLoading } = useQuery(["albumSong", id], async () => {
+    const { data: user, isLoading } = useQuery(["albumSong", username], async () => {
       const token = await getAccessTokenSilently();
-      const data = await getUserById(id, token);
-  
+      const data = await getUserByUsername(username, token);
       return data;
     });
-
-
-    console.log("X");
     
+    // console.log("username", user);
+
     if (isLoading) {
         return <p>Loading...</p>
     }
@@ -58,14 +60,14 @@ export function VisitProfiles() {
                             <SpanInfoProfile>1 Album</SpanInfoProfile>
                         </DivDiscographyProfile>
                     </DivInfoProfile>
-                    <FollowButton status='Follow' />
+                    <FollowButton idVisiting={user.data._id} status='Follow' />
                 </ContainerProfileData>
             </ContainerTopProfile>
             <ContainerPlaylistProfile>
                 <Subtitle>Playlists</Subtitle>
                 <DivAllPlaylist>
                     <Link to="/playlist">
-                        <PlaylistDisplay name={"Sad"} />
+                        {/* <PlaylistDisplay name={"Sad"} /> */}
                     </Link>
                 </DivAllPlaylist>
             </ContainerPlaylistProfile>
@@ -73,7 +75,7 @@ export function VisitProfiles() {
                 <Subtitle>Albums</Subtitle>
                 <DivAllPlaylist>
                     <Link to="/playlist">
-                        <PlaylistDisplay name={"Sad"} />
+                        {/* <PlaylistDisplay name={"Sad"} /> */}
                     </Link>
                 </DivAllPlaylist>
             </ContainerPlaylistProfile>
