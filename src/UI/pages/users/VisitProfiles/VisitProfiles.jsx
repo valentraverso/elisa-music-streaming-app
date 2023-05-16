@@ -6,7 +6,6 @@ import { Link } from "react-router-dom";
 import UseWidth from "../../../../helpers/hooks/useWidth";
 import FollowButton from "../../../components/FollowButton/FollowButton";
 import { DivAllPlaylist, Subtitle } from '../../../Styles/Pages/Users/MenuPlaylistsStyle';
-// import { PlaylistDisplay } from "../Library/components/PlaylistDisplay";
 import getUserById from "../../../../api/users/getById";
 import { useParams } from "react-router-dom";
 import { useQuery } from "react-query";
@@ -67,7 +66,7 @@ export function VisitProfiles() {
                 <Subtitle>Playlists</Subtitle>
                 <DivAllPlaylist>
                     <Link to="/playlist">
-                        {/* <PlaylistDisplay name={"Sad"} /> */}
+                       
                     </Link>
                 </DivAllPlaylist>
             </ContainerPlaylistProfile>
@@ -75,7 +74,7 @@ export function VisitProfiles() {
                 <Subtitle>Albums</Subtitle>
                 <DivAllPlaylist>
                     <Link to="/playlist">
-                        {/* <PlaylistDisplay name={"Sad"} /> */}
+                        
                     </Link>
                 </DivAllPlaylist>
             </ContainerPlaylistProfile>
