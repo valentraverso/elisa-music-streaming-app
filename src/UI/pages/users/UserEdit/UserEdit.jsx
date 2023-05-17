@@ -3,7 +3,7 @@ import { useAuth0 } from "@auth0/auth0-react";
 import updateBasic from "../../../../api/users/updateBasic";
 import { useNavigate } from "react-router-dom";
 import { EditForm, ContainerUserInfo, DisplayName, DisplayEmail, EditButton, LabelName, LabelEmail, LabelUsername, DisplayUsername } from "./UserEditStyles"
-import { ContainerUploaderImage, ContainerUpload, PlacerDivUpload, PlacerImageUpload, IconNoUploadImage, SpanDragorClick } from "../../../Styles/Pages/Users/UploadStyle";
+import { ContainerUploaderImage, ContainerUpload, PlacerDivUpload, PlacerImageUpload, IconNoUploadImage, SpanDragorClick, MessageContainer, MessageText } from "../../../Styles/Pages/Users/UploadStyle";
 import ReactImageUploading from "react-images-uploading";
 import TitleCenterPage from "../../../components/TitleCenterPage/TitleCenterPage";
 import UseWidth from "../../../../helpers/hooks/useWidth";
@@ -21,6 +21,14 @@ export function UserEdit() {
         name: user.name || "",
         picture: user.picture || "",
     });
+    const [message, setMessage] = useState("");
+
+    const clearMessage = () => {
+        setTimeout(() => {
+            setMessage("");
+        }, 3000);
+    };
+
     const handleImageChange = (imageList) => {
         const [image] = imageList
         setUserData({
@@ -42,11 +50,12 @@ export function UserEdit() {
 
         const token = await getAccessTokenSilently();
 
-        if(userData.picture.imageUser){
+        if (userData.picture.imageUser) {
             const updateImage = await updateImageUser(userData, token);
             console.log(updateImage)
-            if(updateImage.status){
-
+            if (updateImage.status) {
+                setMessage("Picture updated successfully!");
+                clearMessage();
             }
             return
         }
@@ -56,7 +65,8 @@ export function UserEdit() {
         if (!updateUser.status) {
             return;
         }
-
+        setMessage("Name updated successfully!");
+        clearMessage();
     };
 
 
@@ -111,6 +121,11 @@ export function UserEdit() {
                 </ContainerUserInfo>
                 <EditButton type="submit">Save</EditButton>
             </EditForm>
+            {message && (
+                <MessageContainer>
+                    <MessageText>{message}</MessageText>
+                </MessageContainer>
+            )}
         </ContainerUpload>
     );
 }
