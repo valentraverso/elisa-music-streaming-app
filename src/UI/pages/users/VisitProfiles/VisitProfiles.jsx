@@ -63,20 +63,10 @@ export function VisitProfiles() {
             <ContainerPlaylistProfile>
                 <Subtitle>Playlists</Subtitle>
                 <LibraryGrid data={user.data.playlists} type={"playlist"} />
-                <DivAllPlaylist>
-                    <Link to="/playlist">
-                       
-                    </Link>
-                </DivAllPlaylist>
             </ContainerPlaylistProfile>
             <ContainerPlaylistProfile>
                 <Subtitle>Albums</Subtitle>
                 <LibraryGrid data={user.data.albums} type={"album"} />
-                <DivAllPlaylist>
-                    <Link to="/playlist">
-                        
-                    </Link>
-                </DivAllPlaylist>
             </ContainerPlaylistProfile>
         </ContainerProfile>
     )
