@@ -25,7 +25,7 @@ export function VisitProfiles() {
       return data;
     });
     
-    console.log(user);
+    // console.log(user);
 
     if (isLoading) {
         return <p>Loading...</p>
@@ -62,7 +62,7 @@ export function VisitProfiles() {
             </ContainerTopProfile>
             <ContainerPlaylistProfile>
                 <Subtitle>Playlists</Subtitle>
-                <LibraryGrid data={user.data.playlists} type={"albums"} />
+                <LibraryGrid data={user.data.playlists} type={"playlist"} />
                 <DivAllPlaylist>
                     <Link to="/playlist">
                        
@@ -71,7 +71,7 @@ export function VisitProfiles() {
             </ContainerPlaylistProfile>
             <ContainerPlaylistProfile>
                 <Subtitle>Albums</Subtitle>
-                <LibraryGrid data={user.data.albums} type={"albums"} />
+                <LibraryGrid data={user.data.albums} type={"album"} />
                 <DivAllPlaylist>
                     <Link to="/playlist">
                         
