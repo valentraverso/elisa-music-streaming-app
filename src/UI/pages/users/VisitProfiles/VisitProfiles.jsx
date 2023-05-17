@@ -10,6 +10,7 @@ import { useParams } from "react-router-dom";
 import { useQuery } from "react-query";
 import getUserByUsername from "../../../../api/users/getUserByUsername";
 import fetchPlaylistById from "../../../../api/playlists/getById";
+import LibraryGrid from "../../../components/LibraryGrid/LibraryGrid";
 
 export function VisitProfiles() {
 
@@ -61,6 +62,7 @@ export function VisitProfiles() {
             </ContainerTopProfile>
             <ContainerPlaylistProfile>
                 <Subtitle>Playlists</Subtitle>
+                <LibraryGrid data={user.data.playlists} type={"albums"} />
                 <DivAllPlaylist>
                     <Link to="/playlist">
                        
@@ -69,6 +71,7 @@ export function VisitProfiles() {
             </ContainerPlaylistProfile>
             <ContainerPlaylistProfile>
                 <Subtitle>Albums</Subtitle>
+                <LibraryGrid data={user.data.albums} type={"albums"} />
                 <DivAllPlaylist>
                     <Link to="/playlist">
                         
