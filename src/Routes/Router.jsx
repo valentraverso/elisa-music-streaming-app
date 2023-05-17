@@ -6,7 +6,7 @@ import { LayoutMain, LayoutSearch, LayoutLibrary, LayoutOnlyMenu } from '../UI/l
 import { LayoutOnlySidebar } from "../UI/layouts/Users/LayoutOnlySidebar/LayoutOnlySidebar";
 
 // Pages
-import { Login, Profile, Settings, Connections, HomePage, PlayerPage, Album, Library, Upload, Search, SearchResults, Register } from "../UI/pages/users";
+import { Login, Profile, Settings, Connections, HomePage, PlayerPage, Album, Library, Upload, LibraryAlbums, Search, SearchResults, Register, UserEdit } from "../UI/pages/users";
 import { Playlist } from "../UI/pages/users/Playlist/Playlist";
 import PrivateRoutes from "./RouteTypes";
 import { useSelector } from "react-redux";
@@ -57,6 +57,10 @@ const router = createBrowserRouter([
             {
                 path: '/user/visit/:username',
                 element: <VisitProfiles />
+            },
+            {
+                path: '/user/edit',
+                element: <UserEdit />
             }
         ]
     },

@@ -12,7 +12,7 @@ export default function AlbumResults({ albumResults }) {
                             <RecentImg src={album.img.secure_url} />
                         </ContainerRecentImg>
                         <RecentDescription>
-                            <Album>{album.artist}</Album>
+                            <Album>{album.title}</Album>
                         </RecentDescription>
                         </ContainerRecentSearchAll>
                     </Link>
