@@ -22,8 +22,3 @@ export const Album = () => {
       <AlbumStructure album={album.data}/>
   );
 };
-
-
-
-
-
