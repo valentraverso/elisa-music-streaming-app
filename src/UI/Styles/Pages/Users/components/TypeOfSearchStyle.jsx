@@ -1,4 +1,5 @@
 import styled from "styled-components"
+import { AiOutlineWarning } from 'react-icons/ai';
 
 export const TypeOfSearchDiv = styled.div`
     display: grid;
@@ -86,12 +87,16 @@ export const PlaylistButton = styled.p`
     align-items: center;
 `
 export const ErrorMessage = styled.p`
-            border: 1px solid;
-			margin: 10px 0px;
-			padding: 15px 10px 15px 50px;
-			background-repeat: no-repeat;
-			background-position: 10px center;
-            color: #9F6000;
-			background-color: #FEEFB3;
-			background-image: url('https://i.imgur.com/Z8q7ww7.png');
-`
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 10px 0px;
+    padding: 15px 10px 15px 50px;
+    background-repeat: no-repeat;
+    background-position: 10px center;
+    position: relative;
+`;
+
+const ErrorIcon = styled(AiOutlineWarning)`
+    margin-right: 10px;
+`;
