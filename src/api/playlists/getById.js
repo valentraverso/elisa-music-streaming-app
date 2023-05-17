@@ -7,8 +7,6 @@ const fetchPlaylistById = async (id, token) => {
     });
     const response = await request.json();
 
-    console.log("Fetched playlist data:", response); 
-
     return response;
   } catch (error) {
     console.log("Error fetching playlist:", error); 

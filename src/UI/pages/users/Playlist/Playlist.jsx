@@ -19,15 +19,13 @@ export const Playlist = () => {
     return data;
   });
 
-  console.log("storeUser", store.getState().user);
-
   return (
     isLoading ?
       <p>Loading playlist...</p>
       :
       <ContainerPagePlaylist>
         <ContainerPlaylist >
-          <PlaylistTitle img={data.data.img.secure_url} playlistName={data.data.title} info={""} likes={""} btnLike={true} />
+          <PlaylistTitle id={id} img={data.data.img.secure_url} playlistName={data.data.title} info={""} likes={""} btnLike={true} />
           {
             data.data.songs.length < 1 ?
               <>
@@ -42,6 +40,3 @@ export const Playlist = () => {
       </ ContainerPagePlaylist>
   )
 }
-
-  // return <PlaylistPage playlist={playlist} />;
-// };

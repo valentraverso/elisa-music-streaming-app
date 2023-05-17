@@ -2,17 +2,17 @@ import { useAuth0 } from "@auth0/auth0-react";
 import { ButtonLike } from "../../../../../../Styles/Pages/Users/PlaylistStyle";
 import { useSelector } from "react-redux";
 import { useEffect, useState } from "react";
-import { setAlbums } from "../../../../../../../utils/player/user";
+import { setPlaylists } from "../../../../../../../utils/player/user";
 import updateFollowType from "../../../../../../../api/users/updateFollowType";
 import updateUnfollowType from "../../../../../../../api/users/updateUnfollowType";
 
 export default function ButtonFollow({ id }) {
     const { getAccessTokenSilently } = useAuth0();
-    const {albums, _id: userId} = useSelector((state) => state.user.data);
+    const {playlists, _id: userId} = useSelector((state) => state.user.data);
 
     const [isFollow, setIsFollow] = useState(false);
 
-    const searchFollow = albums.find(album => album === id);
+    const searchFollow = playlists.find(playlist => playlist._id === id);
 
     useEffect(() => {
         searchFollow ? setIsFollow(true) : setIsFollow(false)
@@ -24,7 +24,7 @@ export default function ButtonFollow({ id }) {
 
     const data = {
         id,
-        type: "albums"
+        type: "playlists"
     }
 
     const handleLike = async () => {
@@ -32,13 +32,11 @@ export default function ButtonFollow({ id }) {
         switch (isFollow) {
             case false:
                 const follow = await updateFollowType(data, token);
-                setAlbums(await follow.data.albums);
+                setPlaylists(await follow.data.playlists);
                 break;
             case true:
                 const unfollow = await updateUnfollowType(data, token);
-                console.log(unfollow)
-                setAlbums(await unfollow.data.albums);
-
+                setPlaylists(await unfollow.data.playlists);
                 break;
             default:
                 return;

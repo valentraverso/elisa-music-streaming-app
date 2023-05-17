@@ -1,6 +1,6 @@
 import { store } from "../../utils/redux/store";
 
-export default async function updateUnfollowAlbum(albumId, token) {
+export default async function updateUnfollowType(data, token) {
     const { _id: userId } = store.getState().user.data;
 
     const formData = new FormData();
@@ -8,7 +8,7 @@ export default async function updateUnfollowAlbum(albumId, token) {
     formData.append("userId", userId);
 
     try {
-        const request = await fetch(`${process.env.REACT_APP_API_URL}/users/update/albums/unfollow/${albumId}`, {
+        const request = await fetch(`${process.env.REACT_APP_API_URL}/users/update/${data.type}/unfollow/${data.id}`, {
             method: "PATCH",
             headers: {
                 Authorization: `Bearer ${token}`,

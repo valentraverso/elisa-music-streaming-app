@@ -1,7 +1,7 @@
 import { ContainerTitlePlaylist, ImgPlaylist, ContainerPlaylistInfo, Title, Info, ContainerLikes, TotalLikes, ButtonLike } from "../../../../../Styles/Pages/Users/PlaylistStyle";
 import ButtonFollow from "./ButtonFollow/ButtonFollow";
 
-export const AlbumTitle = ({ img, id, playlistName, info, likes, type }) => {
+export const AlbumTitle = ({ img, id, playlistName, info, likes }) => {
   return (
     <ContainerTitlePlaylist>
       <ImgPlaylist src={img} />
@@ -10,7 +10,7 @@ export const AlbumTitle = ({ img, id, playlistName, info, likes, type }) => {
         <Info>{info}</Info>
         <ContainerLikes>
           <TotalLikes>{likes}</TotalLikes>
-          <ButtonFollow id={id} type={type} />
+          <ButtonFollow id={id} />
         </ContainerLikes>
       </ContainerPlaylistInfo>
     </ContainerTitlePlaylist>
