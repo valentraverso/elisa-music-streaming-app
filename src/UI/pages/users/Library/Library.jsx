@@ -39,7 +39,6 @@ export const Library = () => {
   })
 
   return (
-
     isLoading ?
       <p>Loading library</p>
       :
@@ -51,7 +50,10 @@ export const Library = () => {
           </Link>
         </DivChangePlaylistAlbum>
         <LibraryGrid data={data} type={type} />
-        <CreatePlaylistModal />
+        {
+          type === 'playlist' &&
+          <CreatePlaylistModal />
+        }
       </ContainerLibrary>
   )
 }
