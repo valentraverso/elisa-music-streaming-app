@@ -7,13 +7,12 @@ import getPlaylistByOwner from "../../../../api/playlists/getByOwner";
 import { PageTitle, DivChangePlaylistAlbum, PageChanger, ContainerLibrary } from "../../../Styles/Pages/Users/MenuPlaylistsStyle";
 import { store } from "../../../../utils/redux/store";
 import fetchManyAlbumById from "../../../../api/albums/getManyById";
+import CreatePlaylistModal from "./components/playlistModal";
 
 export const Library = () => {
   const { type } = useParams();
   const { _id: idUser, albums } = store.getState().user.data;
   const { getAccessTokenSilently } = useAuth0()
-
-  console.log("albums", albums)
 
   const switchLibraryData = async (token) => {
     switch (type) {
@@ -39,10 +38,7 @@ export const Library = () => {
     return data;
   })
 
-
-
   return (
-
     isLoading ?
       <p>Loading library</p>
       :
@@ -54,6 +50,10 @@ export const Library = () => {
           </Link>
         </DivChangePlaylistAlbum>
         <LibraryGrid data={data} type={type} />
+        {
+          type === 'playlist' &&
+          <CreatePlaylistModal />
+        }
       </ContainerLibrary>
   )
 }

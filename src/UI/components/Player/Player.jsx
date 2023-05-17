@@ -42,7 +42,7 @@ export const Player = () => {
             customProgressBarSection={[]}
             style={{ padding: 0, backgroundColor: 'inherit', boxShadow: "none", width: "98%" }}
             onClickPrevious={() => {
-              if (queueLength <= index) {
+              if (queueLength >= index && index > 0) {
                 setIndex(index - 1)
               }
             }}
@@ -64,7 +64,7 @@ export const Player = () => {
             customVolumeControls={[]}
             style={{ padding: 0, backgroundColor: 'inherit', boxShadow: "none", width: "98%" }}
             onClickPrevious={() => {
-              if (queueLength <= index) {
+              if (queueLength >= index && index > 0) {
                 setIndex(index - 1)
               }
             }}
