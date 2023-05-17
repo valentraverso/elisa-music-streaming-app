@@ -1,28 +1,32 @@
 import { useState } from "react";
 import { useAuth0 } from "@auth0/auth0-react";
 import postPlaylist from "../../../../../api/playlists/postPlaylist";
-import fetchSongById from "../../../../../api/song/fetchSongById";
 import {
-    Button,
-    ModalBackground,
-    ModalContainer,
-    Title,
-    Input,
-    ErrorMessage,
-    ButtonCreate,
-  } from "../../../../Styles/components/ModalStyle";
+  Button,
+  ModalBackground,
+  ModalContainer,
+  Title,
+  ErrorMessage,
+  ButtonCreate,
+  ContainerButtonsCreate,
+  ContainerTitle,
+} from "../../../../Styles/components/ModalStyle";
+import { InputForm } from "../../../../Styles/Pages/Users/UploadStyle";
+import { ButtonArtist, ContainerButtonsArtist } from "../../../../Styles/Pages/Users/Register";
+import { store } from "../../../../../utils/redux/store";
 
+const CreatePlaylistModal = () => {
+  const { getAccessTokenSilently } = useAuth0();
+  const user = store.getState().user.data;
 
-const CreatePlaylistModal = ({ token, user, onCreateSuccess }) => {
+  const [errorMsg, setErrorMsg] = useState("");
   const [isModalOpen, setIsModalOpen] = useState(false);
+
   const [formData, setFormData] = useState({
     title: "",
-    img: { public_id: "", secure_url: "" },
     private: true,
-    songs: [] // add songs array to formData state
+    owner: user._id
   });
-  const [errorMsg, setErrorMsg] = useState("");
-  const { getAccessTokenSilently } = useAuth0();
 
   const handleModalOpen = () => setIsModalOpen(true);
 
@@ -30,9 +34,7 @@ const CreatePlaylistModal = ({ token, user, onCreateSuccess }) => {
     setIsModalOpen(false);
     setFormData({
       title: "",
-      img: { public_id: "", secure_url: "" },
       private: true,
-      songs: []
     });
     setErrorMsg("");
   };
@@ -45,54 +47,24 @@ const CreatePlaylistModal = ({ token, user, onCreateSuccess }) => {
     }));
   };
 
-  const handleCheckboxChange = (e) => {
-    const { name, checked } = e.target;
-    setFormData((prevState) => ({
-      ...prevState,
-      [name]: checked,
-    }));
-  };
-
-  const handleSongSelect = (songId) => {
-    if (formData.songs.includes(songId)) {
-      // remove song from list if already selected
-      setFormData(prevState => ({
-        ...prevState,
-        songs: prevState.songs.filter(id => id !== songId)
-      }));
-    } else {
-      // add song to list if not already selected
-      setFormData(prevState => ({
-        ...prevState,
-        songs: [...prevState.songs, songId]
-      }));
-    }
-  }
-
   const handleSubmit = async (e) => {
     e.preventDefault();
 
     const token = await getAccessTokenSilently();
+    const createPlaylist = await postPlaylist(formData, token);
 
-    const { success, errors } = await postPlaylist(
-      {
-        title: formData.title,
-        songs: formData.songs // pass selected song IDs to postPlaylist function
-      },
-      token
-    );
+    console.log(createPlaylist)
 
-    if (success) {
-      onCreateSuccess("Playlist created successfully.");
+    if (createPlaylist.status) {
+      setErrorMsg("Playlist created successfully.");
       handleModalClose();
-    } else {
-      const errorMessages = errors ? Object.values(errors).join(", ") : "Unknown error";
-      setErrorMsg(errorMessages);
     }
+
+    setErrorMsg(createPlaylist.msg);
   };
-  
-    return (
-      <>
+
+  return (
+    <>
       <Button onClick={handleModalOpen}>Create Playlist</Button>
       {isModalOpen && (
         <ModalBackground>
@@ -100,21 +72,36 @@ const CreatePlaylistModal = ({ token, user, onCreateSuccess }) => {
             <Title>Create New Playlist</Title>
             {errorMsg && <ErrorMessage>{errorMsg}</ErrorMessage>}
             <form onSubmit={handleSubmit}>
-              <Input
-                type="text"
-                name="title"
-                placeholder="Title"
-                value={formData.title}
-                onChange={handleInputChange}
-              />
-              <ButtonCreate type="submit">Create</ButtonCreate>
-              <Button onClick={handleModalClose}>Cancel</Button>
+              <ContainerTitle>
+                <InputForm
+                  type="text"
+                  name="title"
+                  placeholder="My playlist"
+                  value={formData.title}
+                  onChange={handleInputChange}
+                  required
+                />
+              </ContainerTitle>
+              <ContainerButtonsArtist>
+                <ButtonArtist
+                  isActive={formData.private && "#3B46F1"}
+                  type="button"
+                  onClick={() => setFormData({ ...formData, private: true })}>Private</ButtonArtist>
+                <ButtonArtist
+                  isActive={!formData.private && "#3B46F1"}
+                  type="button"
+                  onClick={() => setFormData({ ...formData, private: false })}>Public</ButtonArtist>
+              </ContainerButtonsArtist>
+              <ContainerButtonsCreate>
+                <ButtonCreate type="submit">Create</ButtonCreate>
+                <Button onClick={handleModalClose}>Cancel</Button>
+              </ContainerButtonsCreate>
             </form>
           </ModalContainer>
         </ModalBackground>
       )}
     </>
-    );
-  };
-  
-  export default CreatePlaylistModal;
+  );
+};
+
+export default CreatePlaylistModal;

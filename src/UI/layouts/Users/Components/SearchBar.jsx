@@ -1,11 +1,11 @@
 import { SearchBarContainer, SearchBarIcon, SearchBarInput, IconSearch } from "../../../Styles/LayoutsStyles/SearchBarStyle"
 import { Main } from "../../../Styles/LayoutsStyles/NavbarStyle"
 import { colors } from "../../../Styles/config"
-import { useRef, } from "react"
+import { useRef } from "react"
 import { useParams } from "react-router-dom"
 
 export function SearchBar ({handleSearchQuery}){
-    const searchInput = useRef(null);
+    const searchInput = useRef("");
     const {query}= useParams();
     const handleSearch = () =>{
         handleSearchQuery(searchInput.current.value)

@@ -17,9 +17,11 @@ export function LayoutSearch() {
     if (value.length <= 2) {
       navigate('/search')
       return
-    }  
-      navigate('/search/songs/' + value)
+    }
+    navigate('/search/songs/' + value)
   }
+
+
 
   if (width === "desktop") {
     return (
@@ -28,7 +30,7 @@ export function LayoutSearch() {
           isLoadingAuth0 ?
             <MenuDesktopSkeleton />
             :
-            <MenuDesktop search />
+            <MenuDesktop search handleSearchQuery={(value) => handleSearchQuery(value)} />
         }
         <Main>
           <Outlet />
@@ -36,11 +38,7 @@ export function LayoutSearch() {
       </>
     )
   }
-  const handleSearchQueryDesktop = (value) => {
-    if(value.length <= 2) {
-      navigate('/search/songs/' + value)
-    }
-  }
+
   return (
     <Main>
       <SearchBar handleSearchQuery={(value) => handleSearchQuery(value)} />

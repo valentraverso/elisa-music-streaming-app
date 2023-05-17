@@ -6,13 +6,12 @@ import { LayoutMain, LayoutSearch, LayoutLibrary, LayoutOnlyMenu } from '../UI/l
 import { LayoutOnlySidebar } from "../UI/layouts/Users/LayoutOnlySidebar/LayoutOnlySidebar";
 
 // Pages
-import { Login, Profile, Settings, Connections, HomePage, PlayerPage, Album, Library, Upload, LibraryAlbums, Search, SearchResults, Register } from "../UI/pages/users";
+import { Login, Profile, Settings, Connections, HomePage, PlayerPage, Album, Library, Upload, Search, SearchResults, Register } from "../UI/pages/users";
 import { Playlist } from "../UI/pages/users/Playlist/Playlist";
 import PrivateRoutes from "./RouteTypes";
 import { useSelector } from "react-redux";
 import { Player } from "../UI/components/Player/Player";
 import { VisitProfiles } from "../UI/pages/users/VisitProfiles/VisitProfiles";
-import PlaylistPage from "../UI/pages/users/Playlist/components/PlaylistDetails";
 
 const router = createBrowserRouter([
     {
@@ -56,7 +55,7 @@ const router = createBrowserRouter([
                 element: <Upload />
             },
             {
-                path: '/user/visit/:id',
+                path: '/user/visit/:username',
                 element: <VisitProfiles />
             }
         ]
@@ -70,7 +69,7 @@ const router = createBrowserRouter([
             },
             {
                 path: '/playlist/:id',
-                element: <PlaylistPage />
+                element: <Playlist />
             },
             {
                 path: '/album/:id',

@@ -3,6 +3,7 @@ const setLikePlaylists = (state, action) => {
         if (song._id === action.payload._id) {
             return action.payload;
         }
+        return song
         return song;
     })
 

@@ -64,3 +64,12 @@ export const InputText = styled.input`
     color: black;
     margin-top: 1rem;
 `
+
+export const ErrorMessage = styled.p`
+    height: 60px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: red;
+    border-radius: 5px;
+`
