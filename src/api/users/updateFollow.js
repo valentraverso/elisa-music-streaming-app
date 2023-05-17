@@ -5,7 +5,7 @@ const updatefollows = async (data, token) => {
     formData.append('idVisiting', data.idVisiting);
      
     try {
-      const request = await fetch(`${process.env.REACT_APP_API_URL}/users/update/follows`, {
+      const request = await fetch(`${process.env.REACT_APP_API_URL}/users/updatefollows`, {
           method: "PATCH",
           headers: {
               Authorization: `Bearer ${token}`

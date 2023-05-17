@@ -30,7 +30,7 @@ export const ContainerProfileData = styled.div`
     flex-direction: column;
     align-items: start;
     margin-left: 20px;
-    justify-content: space-between;
+    justify-content: space-evenly;
     height: 100%;
 }
 `

@@ -25,11 +25,11 @@ export function Profile() {
                     <DivInfoProfile>
                         <DivConnectionsProfile>
                             <Link to={links.connections + "/followers"}>
-                                <SpanInfoProfile>{storeInfo.followers.length}</SpanInfoProfile>
+                                <SpanInfoProfile>{storeInfo.followers.length} Followers</SpanInfoProfile>
                             </Link>
                             |
                             <Link to={links.connections + "/following"}>
-                                <SpanInfoProfile>{storeInfo.follows.length}</SpanInfoProfile>
+                                <SpanInfoProfile>{storeInfo.follows.length} Following</SpanInfoProfile>
                             </Link>
                         </DivConnectionsProfile>
                         <DivDiscographyProfile>
