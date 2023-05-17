@@ -1,6 +1,7 @@
 import {
   ContainerSong, ContainerSongInfo, ContainerSongsList, ImgSong, NameArtist, SongSettings, TitleSmall
 } from '../../../../../Styles/Pages/Users/PlaylistStyle';
+import { NavLink } from 'react-router-dom';
 import { songs } from "../../../../../../songs.js";
 import { setPlayer } from '../../../../../../utils/player/player';
 import { store } from '../../../../../../utils/redux/store';
@@ -17,31 +18,42 @@ export const SongsListAlbum = ({ data, imgAlbum }) => {
   const handleAddToPlaylist = (playlistId) => {
     console.log(`Adding song with ID ${selectedSongId} to playlist with ID ${playlistId}`);
     setShowModal(false);
-  }
+  };
 
   const openModal = (songId) => {
     setSelectedSongId(songId);
     setShowModal((prevShowModal) => !prevShowModal);
   };
 
+  // <NavLink
+  //             to={{
+  //               pathname: `/PlayerPage/${song._id}`,
+  //               state: { albumImg: imgAlbum }
+  //             }}
+  //             onClick={() => handleClickSong(song._id, index)}
+  //             activeClassName="active"
+  //           ></NavLink>
+
   return (
     <ContainerSongsList>
       {data?.map((song, index) => {
         return (
-          <ContainerSong key={index} onClick={() => setPlayer({
-            ...player,
-            withSong: true,
-            queu: {
-              data,
-              imgAlbum
-            },
-            index: index
-          })}>
-            <ImgSong src={imgAlbum} />
-            <ContainerSongInfo>
-              <TitleSmall>{data[index].title}</TitleSmall>
-              <NameArtist>{data[index].artist}</NameArtist>
-            </ContainerSongInfo>
+          <ContainerSong key={index} onClick={() => {
+            setPlayer({
+              ...player,
+              withSong: true,
+              queu: {
+                data,
+                imgAlbum
+              },
+              index: index
+            })
+          }}>
+              <ImgSong src={imgAlbum} />
+              <ContainerSongInfo>
+                <TitleSmall>{data[index].title}</TitleSmall>
+                <NameArtist>{data[index].artist}</NameArtist>
+              </ContainerSongInfo>
             <SongSettings onClick={() => openModal(song._id)}>...</SongSettings>
             {showModal && selectedSongId === song._id && (
               <AddToPlaylistModal
@@ -51,8 +63,8 @@ export const SongsListAlbum = ({ data, imgAlbum }) => {
               />
             )}
           </ContainerSong>
-        )
+        );
       })}
     </ContainerSongsList>
-  )
-}
+  );
+};

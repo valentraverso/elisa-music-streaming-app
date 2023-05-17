@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { colors } from "../config";
+import { colors, device, fontSize } from "../config";
 
 export const ButtonAddPlaylist = styled.button`
   width: 125px;
@@ -34,27 +34,26 @@ export const ModalContainer = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: center;
-  align-items: center;
 `;
 
 export const Title = styled.h2`
   font-size: 24px;
   font-weight: bold;
   margin-bottom: 20px;
+  text-align: center;
 `;
 
 export const Input = styled.input`
   width: 100%;
   padding: 10px;
   color: black;
-  margin-bottom: 20px;
   border: 1px solid ${colors.grey};
   border-radius: 5px;
 `;
 
 export const Button = styled.button`
-  width: 100px;
-  height: 40px;
+float: right;
+  padding: 10px;
   background-color: ${colors.blue};
   color: ${colors.white};
   border: none;
@@ -73,3 +72,15 @@ export const ButtonCreate = styled(Button)`
   background-color: ${colors.green};
   margin-right: 10px;
 `;
+
+export const ContainerButtonsCreate = styled.div`
+display: flex;
+    justify-content: end;
+    margin-top:5%;
+`
+
+export const ContainerTitle = styled.div`
+@media ${device.mobile}{
+  margin: 0 3% 5% 3%;
+}
+`

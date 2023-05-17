@@ -17,8 +17,9 @@ const PrivateRoutes = ({ children }) => {
                 store.dispatch(ADD_DATA_USER(user));
                 if(window.location.pathname !== "/register"){
                     navigate(window.location.pathname || '/');
+                    return;
                 }
-                // navigate("/");
+                navigate("/");
                 break;
             default:
                 navigate('/register');

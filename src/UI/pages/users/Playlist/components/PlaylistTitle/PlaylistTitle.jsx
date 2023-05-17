@@ -1,18 +1,16 @@
 import { ContainerTitlePlaylist, ImgPlaylist, ContainerPlaylistInfo, Title, Info, ContainerLikes, TotalLikes, ButtonLike} from "../../../../../Styles/Pages/Users/PlaylistStyle";
+import ButtonFollow from "./ButtonFollow/ButtonFollow";
 
-
-export const PlaylistTitle = (props) => {
+export const PlaylistTitle = ({img, playlistName, info, likes, id}) => {
   return (
     <ContainerTitlePlaylist>
-        <ImgPlaylist src= {props.img} />
+        <ImgPlaylist src= {img} />
         <ContainerPlaylistInfo>
-            <Title>{props.playlistName}</Title>
-            <Info>{props.info}</Info>
+            <Title>{playlistName}</Title>
+            <Info>{info}</Info>
             <ContainerLikes>
-                <TotalLikes>{props.likes}</TotalLikes>
-                {
-                  props.btnLike ? <ButtonLike>Like</ButtonLike> : null
-                }
+                <TotalLikes>{likes}</TotalLikes>
+                <ButtonFollow id={id} />
             </ContainerLikes>
         </ContainerPlaylistInfo>
     </ContainerTitlePlaylist>

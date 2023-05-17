@@ -3,21 +3,25 @@ import { useParams } from "react-router-dom";
 import { playlistsRecomendados } from "../../../../../data/playlists";
 import { ContainerImage, PlaylistBackground, MainContainer, SongTitle, AudioReproductor } from "../../../../Styles/Pages/Users/components/PlayerStyles/PlayerStyle";
 
+import { useSelector } from "react-redux";
+
 function Playlist() {
-const { id } = useParams();
-const playlist = playlistsRecomendados.find(p => p.id === id);
+  const { songId } = useParams(); // Change the variable name to `songId`
+  const playlist = playlistsRecomendados.find(p => p.id === songId);
+  
+  const albumImg = useSelector(state => state.player.queu.imgAlbum);
 
-return (
-<>
-<PlaylistBackground image={playlist.foto} />
-<ContainerImage src={playlist.foto} alt="Playlist" />
+  return (
+    <>
+      {albumImg && (
+        <>
+          <PlaylistBackground image={albumImg} />
+          <ContainerImage src={albumImg} alt="Playlist" />
+        </>
+      )}
 
-  <MainContainer>
-    <AudioReproductor src="./onlymp3.to - Howl's Moving Castle.mp3" />
-    <SongTitle>{playlist.cancion}</SongTitle>
-  </MainContainer>
-</>
-);
+    </>
+  );
 }
 
 export default Playlist;

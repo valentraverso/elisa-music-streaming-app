@@ -1,17 +1,56 @@
 import { ButtonFollowStyled } from "../../Styles/components/FollowButtonStyle";
-import { useParams } from "react-router-dom";
 import { useAuth0 } from "@auth0/auth0-react";
+import { useSelector } from "react-redux";
+import { useState } from "react";
+import updatefollows from "../../../api/users/updateFollow";
+import updateUnfollow from "../../../api/users/updateUnfollow";
+import { useEffect } from "react";
+import { setFollows } from "../../../utils/player/user";
 
+export default function FollowButton({ idVisiting, status }) {
 
-export default function FollowButton({status}) {
-  const { id:idVisit } = useParams();
   const { getAccessTokenSilently } = useAuth0();
-  const { user } = useAuth0();
-  const handleFollow = async () => {
-    const token = await getAccessTokenSilently();
-    console.log(idVisit);
+
+  const [isFollowing, setIsFollowing] = useState(false)
+
+  const storeInfo = useSelector((state) => state.user);
+  const followsUser = storeInfo.data.follows;
+  const userId = storeInfo.data._id;
+
+  const userInfo = {
+    userId,
+    idVisiting
   }
+
+  const searchFollow = followsUser.find(follows => follows === idVisiting)
+
+  useEffect(() => {
+    searchFollow ? setIsFollowing(true) : setIsFollowing(false)
+  }, [searchFollow])
+
+  const handleFollow = async () => {
+    console.log("button works")
+    const token = await getAccessTokenSilently();
+    switch (isFollowing) {
+      case false:
+        const follow = await updatefollows(userInfo, token)
+        console.log(follow)
+        setFollows(follow.data.follows)
+        break
+      case true:
+        const unfollow = await updateUnfollow(userInfo, token)
+        console.log(unfollow);
+        setFollows(unfollow.data.follows)
+        break
+    }
+
+  }
+
   return (
-    <ButtonFollowStyled onClick={handleFollow} className={status === 'Following' && 'followed'}>{status}</ButtonFollowStyled>
+    isFollowing ?
+      <ButtonFollowStyled onClick={handleFollow} >Following</ButtonFollowStyled>
+      :
+      <ButtonFollowStyled onClick={handleFollow} >Follow</ButtonFollowStyled>
   )
+
 }

@@ -6,6 +6,7 @@ import { SongsList } from "./components/SongsList/SongsList";
 import { useAuth0 } from "@auth0/auth0-react";
 import { useQuery } from "react-query";
 import fetchPlaylistById from "../../../../api/playlists/getById";
+import { store } from "../../../../utils/redux/store";
 
 export const Playlist = () => {
   const { id } = useParams();
@@ -24,7 +25,7 @@ export const Playlist = () => {
       :
       <ContainerPagePlaylist>
         <ContainerPlaylist >
-          <PlaylistTitle img={data.data.img.secure_url} playlistName={data.data.title} info={""} likes={""} btnLike={true} />
+          <PlaylistTitle id={id} img={data.data.img.secure_url} playlistName={data.data.title} info={""} likes={""} btnLike={true} />
           {
             data.data.songs.length < 1 ?
               <>
@@ -39,6 +40,3 @@ export const Playlist = () => {
       </ ContainerPagePlaylist>
   )
 }
-
-  // return <PlaylistPage playlist={playlist} />;
-// };
