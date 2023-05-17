@@ -29,7 +29,6 @@ const { data: mixesData } = useQuery(['mixes'], async () => {
   const data = await fetchAllMixes(token);
   return data;
 });
-console.log(mixesData);
 
 
 
@@ -54,13 +53,6 @@ const allPlaylists = [
   return (
     <div>
       <CategoryeButtons />
-    
-   
-  
-    
-    
-
-
       <Albums />
       <PlaylistPage />
     </div>
