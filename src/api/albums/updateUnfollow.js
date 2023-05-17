@@ -8,7 +8,7 @@ export default async function updateUnfollowAlbum(albumId, token) {
     formData.append("userId", userId);
 
     try {
-        const request = await fetch(`${process.env.REACT_APP_API_URL}/users/update/unfollow/${albumId}`, {
+        const request = await fetch(`${process.env.REACT_APP_API_URL}/users/update/albums/unfollow/${albumId}`, {
             method: "PATCH",
             headers: {
                 Authorization: `Bearer ${token}`,
