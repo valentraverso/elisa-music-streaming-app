@@ -6,28 +6,23 @@ import { Link } from "react-router-dom";
 import UseWidth from "../../../../helpers/hooks/useWidth";
 import FollowButton from "../../../components/FollowButton/FollowButton";
 import { DivAllPlaylist, Subtitle } from '../../../Styles/Pages/Users/MenuPlaylistsStyle';
-import getUserById from "../../../../api/users/getById";
 import { useParams } from "react-router-dom";
 import { useQuery } from "react-query";
 import getUserByUsername from "../../../../api/users/getUserByUsername";
-import { useState } from "react";
 
 export function VisitProfiles() {
 
     const width = UseWidth();
-    // const [idVisiting, setIdVisiting] = useState("")
     const { username } = useParams();
     const { getAccessTokenSilently } = useAuth0();
 
-    // console.log(username)
   
-    const { data: user, isLoading } = useQuery(["albumSong", username], async () => {
+    const { data: user, isLoading } = useQuery(["user", username], async () => {
       const token = await getAccessTokenSilently();
       const data = await getUserByUsername(username, token);
       return data;
     });
     
-    console.log("username", user);
 
     if (isLoading) {
         return <p>Loading...</p>
