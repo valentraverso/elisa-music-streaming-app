@@ -39,7 +39,7 @@ export const Library = () => {
     return data;
   })
 
-  console.log(data)
+
 
   return (
 

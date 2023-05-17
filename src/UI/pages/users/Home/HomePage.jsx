@@ -9,9 +9,10 @@ import fetchAlbumById from "../../../../api/albums/getById";
 import Albums from "./HomeComponents/Albums";
 import { store } from "../../../../utils/redux/store";
 import fetchDeleteSong from "../../../../api/song/fetchDeleteSong";
-import  CreatePlaylistModal  from "./HomeComponents/CreatePlaylistModal";
 import fetchAllPlaylists from "../../../../api/playlists/fetchPlaylistAll";
-import CreateMixModal from "./HomeComponents/CreatePlaylistModal";
+import CreateMixModal from "./HomeComponents/CreateMixModal";
+import fetchAllMixes from "../../../../api/mixes/getAllMixes";
+import PlaylistPage from "../Library/components/PlaylistPage";
 
 export function HomePage() {
     const {getAccessTokenSilently} = useAuth0()
@@ -22,12 +23,13 @@ export function HomePage() {
 // })
 // console.log(data);
 
-const { data: playlistsData } = useQuery(['playlists'], async () => {
+const { data: mixesData } = useQuery(['mixes'], async () => {
   const token = await getAccessTokenSilently();
-  const data = await fetchAllPlaylists(token);
+  const data = await fetchAllMixes(token);
   return data;
 });
-console.log(playlistsData);
+console.log(mixesData);
+
 
 
 // const { data: albumData } = useQuery(['album', '644bc2b2093ad501e860964d'], async () => {
@@ -59,6 +61,7 @@ const allPlaylists = [
 
       <CreateMixModal />
       <Albums />
+      <PlaylistPage />
     </div>
   );
 }

@@ -10,7 +10,7 @@ import fetchPlaylistByTitle from "../../../../api/playlists/fetchPlaylistByTitle
 import PlaylistResults from "./components/PlaylistResults";
 import getUserByName from "../../../../api/users/getByName";
 import UserResults from "./components/UserResults";
-import { ErrorMessage } from "../../../Styles/Pages/Users/components/TypeOfSearchStyle";
+import { ErrorMessage, InfoIcon } from "../../../Styles/Pages/Users/components/TypeOfSearchStyle";
 
 export function SearchResults() {
     const { getAccessTokenSilently } = useAuth0()
@@ -25,8 +25,9 @@ export function SearchResults() {
             case "playlists":
                 return await fetchPlaylistByTitle(query, token);
             case "users":
-                console.log("esta entrando en users")
                 return await getUserByName(query, token);
+            default:
+                return;
         }
     }
 
@@ -54,7 +55,10 @@ export function SearchResults() {
                             <UserResults userResults={data.data} />
                         ) : null
                     ) : (
-                        <ErrorMessage>{data && data.msg}</ErrorMessage>
+                        <ErrorMessage>
+                            <InfoIcon />
+                            <p>{data && data.msg}</p>
+                        </ErrorMessage>
                     )
             )}
         </>

@@ -1,3 +1,4 @@
+import { AiOutlineInfoCircle } from "react-icons/ai"
 import styled from "styled-components"
 import { AiOutlineWarning } from 'react-icons/ai';
 
@@ -7,16 +8,17 @@ export const TypeOfSearchDiv = styled.div`
     width: 100%;
     grid-gap:15px;
 `
-export const SongButton = styled.p`
-    display: grid;
+export const TypeButtons = styled.p`
     border-radius: 5px;
     border-style: solid;
-    background-color: #4a4b4d;
-    border-color: #4a4b4d;
-    width:58px;
-    height:25px;
-    justify-content:center;
+    background-color: rgb(74, 75, 77);
+    border-color: rgb(74, 75, 77);
+    width: 70px;
+    height: 30px;
+    display: flex;
+    justify-content: center;
     align-items: center;
+    margin: auto;
 `
 export const Artist = styled.p`
     display: grid;
@@ -51,52 +53,29 @@ export const Song = styled.p`
     height:25px;
     justify-content:center;
     align-items: center;
+    width: 70px;
+    height: 30px;
+    border-radius: 5px;
+    border-style: solid;
+    background-color: #4a4b4d;
+    border: 0;
+    margin: auto;
 `
 
-export const ArtistButton = styled.p`
-    display: grid;
-    border-radius: 5px;
-    border-style: solid;
-    background-color: #4a4b4d;
-    border-color: #4a4b4d;
-    width:58px;
-    height:25px;
-    justify-content:center;
-    align-items: center;
-`
-export const AlbumButton = styled.p`
-    display: grid;
-    border-radius: 5px;
-    border-style: solid;
-    background-color: #4a4b4d;
-    border-color: #4a4b4d;
-    width:58px;
-    height:25px;
-    justify-content:center;
-    align-items: center;
-`
-export const PlaylistButton = styled.p`
-    display: grid;
-    border-radius: 5px;
-    border-style: solid;
-    background-color: #4a4b4d;
-    border-color: #4a4b4d;
-    width:58px;
-    height:25px;
-    justify-content:center;
-    align-items: center;
-`
-export const ErrorMessage = styled.p`
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin: 10px 0px;
-    padding: 15px 10px 15px 50px;
+export const ErrorMessage = styled.div`
+	margin: auto;
     background-repeat: no-repeat;
     background-position: 10px center;
-    position: relative;
-`;
+    height: 20vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+`
 
-const ErrorIcon = styled(AiOutlineWarning)`
-    margin-right: 10px;
-`;
+export const InfoIcon = styled(AiOutlineInfoCircle)`
+    stroke: #fff;
+    width: 3em;
+    height: 3em;
+    margin-bottom: 20px;
+`

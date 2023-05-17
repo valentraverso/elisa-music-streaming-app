@@ -1,26 +1,20 @@
-
-
-const fetchUpdateSong = async (id, token) =>{
-const formData = new FormData()
-
-formData.append("title", "Temazo Albert");
-
-console.log(formData.get('title'))
-
+const updatePlaylist = async (playlistId, newSongId, token) => {
     try {
-        const request = await fetch(`${process.env.REACT_APP_API_URL}/songs/update/${id}`, {
-            method: "PATCH",
-            headers: {
-                Authorization: `Bearer ${token}`
-            },
-            body: formData
-        })
-        const response =await request.json()
-        return response
+      const response = await fetch(`${process.env.REACT_APP_API_URL}/playlists/${playlistId}`, {
+        method: 'PUT',
+        headers: {
+          'Content-Type': 'application/json',
+          'Authorization': `Bearer ${token}`
+        },
+        body: JSON.stringify({ songIds: [newSongId] })
+      });
+      const data = await response.json();
+      return data;
     } catch (error) {
-        console.error(error)
-        return {msg: error.message, token}
+      console.error(error);
+      return { msg: error.message, token };
     }
-}
-
-export default fetchUpdateSong
+  };
+  
+  export default updatePlaylist;
+  

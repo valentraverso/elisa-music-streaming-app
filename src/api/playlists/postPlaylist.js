@@ -34,4 +34,3 @@ const postPlaylist = async (data, token) => {
 };
 
 export default postPlaylist;
-
