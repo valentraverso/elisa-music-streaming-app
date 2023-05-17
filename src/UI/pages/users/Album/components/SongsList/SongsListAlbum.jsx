@@ -16,7 +16,6 @@ export const SongsListAlbum = ({ data, imgAlbum }) => {
   const [selectedSongId, setSelectedSongId] = useState(null);
 
   const handleAddToPlaylist = (playlistId) => {
-    console.log(`Adding song with ID ${selectedSongId} to playlist with ID ${playlistId}`);
     setShowModal(false);
   };
 
@@ -49,19 +48,18 @@ export const SongsListAlbum = ({ data, imgAlbum }) => {
               index: index
             })
           }}>
-              <ImgSong src={imgAlbum} />
-              <ContainerSongInfo>
-                <TitleSmall>{data[index].title}</TitleSmall>
-                <NameArtist>{data[index].artist}</NameArtist>
-              </ContainerSongInfo>
-            <SongSettings onClick={() => openModal(song._id)}>...</SongSettings>
-            {showModal && selectedSongId === song._id && (
-              <AddToPlaylistModal
-                onAddToPlaylist={handleAddToPlaylist}
-                onClose={() => setShowModal(false)}
-                songId={selectedSongId}
-              />
-            )}
+            <ImgSong src={imgAlbum} />
+            <ContainerSongInfo>
+              <TitleSmall>{data[index].title}</TitleSmall>
+              <NameArtist>{data[index].artist}</NameArtist>
+            </ContainerSongInfo>
+            <div>
+                <AddToPlaylistModal
+                  onAddToPlaylist={handleAddToPlaylist}
+                  onClose={() => setShowModal(false)}
+                  songId={song._id}
+                />
+            </div>
           </ContainerSong>
         );
       })}
