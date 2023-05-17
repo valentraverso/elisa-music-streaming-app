@@ -41,6 +41,7 @@ export const Playlist = styled.p`
     align-items: center;
 `
 export const Album = styled.p`
+    font-weight: bold;
     display: grid;
     width:145px;
     height:25px;

@@ -4,4 +4,5 @@ export const links = {
     library: "/user/library/playlist",
     connections: "/connections",
     upload: "/user/upload",
+    edit: "/user/edit",
 }

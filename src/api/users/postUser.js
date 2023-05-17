@@ -10,7 +10,7 @@ const postUser = async (data, token) => {
 
     formData.append('name', data.name);
     formData.append('email', data.email);
-    formData.append('picture', data.picture);
+    formData.append('img', data.picture);
     formData.append('sub', data.sub);
     formData.append("username", data.username)
     try {
