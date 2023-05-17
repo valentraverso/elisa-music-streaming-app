@@ -9,6 +9,7 @@ import TitleCenterPage from "../../../components/TitleCenterPage/TitleCenterPage
 import UseWidth from "../../../../helpers/hooks/useWidth";
 import { links } from "../../../config.links";
 import { store } from "../../../../utils/redux/store";
+import updateImageUser from "../../../../api/users/updateImage";
 
 export function UserEdit() {
     const navigate = useNavigate();
@@ -20,7 +21,6 @@ export function UserEdit() {
         name: user.name || "",
         picture: user.picture || "",
     });
-    console.log(userData)
     const handleImageChange = (imageList) => {
         const [image] = imageList
         setUserData({
@@ -36,24 +36,27 @@ export function UserEdit() {
             name: value,
         });
     };
-
+    console.log(userData)
     const handleSubmit = async (event) => {
         event.preventDefault();
 
         const token = await getAccessTokenSilently();
 
-        const updateUser = await updateBasic(userId,{
-            name: userData.name,
-            picture: userData.picture
-        }, token);
+        if(userData.picture.imageUser){
+            const updateImage = await updateImageUser(userData, token);
+            console.log(updateImage)
+            if(updateImage.status){
 
-        console.log("hola", updateUser);
+            }
+            return
+        }
+        const updateUser = await updateBasic(userData, token);
+
 
         if (!updateUser.status) {
             return;
         }
 
-        navigate("/");
     };
 
 
@@ -81,8 +84,8 @@ export function UserEdit() {
                                 <ContainerUploaderImage>
                                     <PlacerDivUpload onClick={onImageUpload} {...dragProps}>
                                         {
-                                            user.picture || userData.picture.imageUser ?
-                                                <PlacerImageUpload src={userData.picture.imageUser ? userData.picture.imageUser : user.picture} />
+                                            user.img.secure_url || userData.picture.imageUser ?
+                                                <PlacerImageUpload src={userData.picture.imageUser ? userData.picture.imageUser : user.img.secure_url} />
                                                 :
                                                 <IconNoUploadImage />
                                         }

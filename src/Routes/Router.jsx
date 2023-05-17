@@ -7,7 +7,6 @@ import { LayoutOnlySidebar } from "../UI/layouts/Users/LayoutOnlySidebar/LayoutO
 
 // Pages
 import { Login, Profile, Settings, Connections, HomePage, PlayerPage, Album, Library, Upload, LibraryAlbums, Search, SearchResults, Register, UserEdit } from "../UI/pages/users";
-import { Login, Profile, Settings, Connections, HomePage, PlayerPage, Album, Library, Upload, Search, SearchResults, Register } from "../UI/pages/users";
 import { Playlist } from "../UI/pages/users/Playlist/Playlist";
 import PrivateRoutes from "./RouteTypes";
 import { useSelector } from "react-redux";
