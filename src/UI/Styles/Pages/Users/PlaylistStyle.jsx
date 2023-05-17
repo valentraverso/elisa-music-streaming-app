@@ -77,7 +77,7 @@ export const ContainerSongsList = styled.div`
 
 export const ContainerSong = styled.div`
     display: grid;
-    grid-template-columns: auto 78% auto;
+    grid-template-columns: auto 70% auto;
     align-items: center;
     margin-top: 0.7rem;
 `

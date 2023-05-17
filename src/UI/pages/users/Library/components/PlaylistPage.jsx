@@ -21,18 +21,18 @@ const PlaylistPage = () => {
     <div>
       <h2>Playlists</h2>
       <ContainerPlaylist>
-      {Array.isArray(playlists) && playlists.map((playlist) => (
-  <Link key={playlist._id} to={`/playlist/${playlist._id}`}>
-    <Playlist>
-      <PlaylistBackground image={playlist.img && playlist.img.secure_url} />
-      <PlaylistImage
-        src={playlist.img && playlist.img.secure_url}
-        alt={playlist.title}
-      />
-      <PlaylistTitle>{playlist.title}</PlaylistTitle>
-    </Playlist>
-  </Link>
-))}
+        {Array.isArray(playlists) && playlists.map((playlist) => (
+          <Link key={playlist._id} to={`/playlist/${playlist._id}`}>
+            <Playlist>
+              <PlaylistBackground image={playlist.img && playlist.img.secure_url} />
+              <PlaylistImage
+                src={playlist.img && playlist.img.secure_url}
+                alt={playlist.title}
+              />
+              <PlaylistTitle>{playlist.title}</PlaylistTitle>
+            </Playlist>
+          </Link>
+        ))}
       </ContainerPlaylist>
     </div>
   );

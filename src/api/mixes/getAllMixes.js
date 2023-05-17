@@ -6,7 +6,6 @@ const fetchAllMixes = async (token) =>{
           Authorization: `Bearer ${token}`
         }
       });
-      console.log(token)
       const response = await request.json();
       return response;
     } catch (error) {

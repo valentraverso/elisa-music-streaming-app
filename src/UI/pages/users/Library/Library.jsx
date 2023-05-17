@@ -38,8 +38,6 @@ export const Library = () => {
     return data;
   })
 
-  // console.log("datalibrary", data)
-
   return (
     isLoading ?
       <p>Loading library</p>
@@ -51,7 +49,7 @@ export const Library = () => {
             <PageChanger>{type !== "playlist" ? "Playlist" : "Albums"}</PageChanger>
           </Link>
         </DivChangePlaylistAlbum>
-        <LibraryGrid data={data.data} type={type}/>
+        <LibraryGrid data={data.data} type={type} />
         {
           type === 'playlist' &&
           <CreatePlaylistModal />
