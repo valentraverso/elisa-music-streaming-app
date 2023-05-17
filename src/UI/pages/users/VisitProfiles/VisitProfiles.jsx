@@ -9,6 +9,7 @@ import { DivAllPlaylist, Subtitle } from '../../../Styles/Pages/Users/MenuPlayli
 import { useParams } from "react-router-dom";
 import { useQuery } from "react-query";
 import getUserByUsername from "../../../../api/users/getUserByUsername";
+import fetchPlaylistById from "../../../../api/playlists/getById";
 
 export function VisitProfiles() {
 
@@ -23,6 +24,7 @@ export function VisitProfiles() {
       return data;
     });
     
+    console.log(user);
 
     if (isLoading) {
         return <p>Loading...</p>

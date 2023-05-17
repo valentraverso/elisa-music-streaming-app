@@ -9,7 +9,7 @@ export default function UserResults({ userResults }) {
             {
                 userResults.map((user) => (
                     <div>
-                        <Link to={`/user/${user._id}`}>
+                        <Link to={`/user/visit/${user.username}`}>
                             <ContainerRecentSearchAll key={user._id}>
                                 <ContainerRecentImg>
                                     <RecentImg src={user.picture} />
