@@ -25,38 +25,35 @@ export const SongsListAlbum = ({ data, imgAlbum }) => {
     setShowModal((prevShowModal) => !prevShowModal);
   };
 
-  const handleClickSong = (songId, index) => {
-    // Set the player state
-    setPlayer({
-      ...player,
-      withSong: true,
-      queu: {
-        data,
-        imgAlbum
-      },
-      index: index
-    });
-  };
+  // <NavLink
+  //             to={{
+  //               pathname: `/PlayerPage/${song._id}`,
+  //               state: { albumImg: imgAlbum }
+  //             }}
+  //             onClick={() => handleClickSong(song._id, index)}
+  //             activeClassName="active"
+  //           ></NavLink>
 
   return (
     <ContainerSongsList>
       {data?.map((song, index) => {
         return (
-          <ContainerSong key={index}>
-            <NavLink
-              to={{
-                pathname: `/PlayerPage/${song._id}`,
-                state: { albumImg: imgAlbum }
-              }}
-              onClick={() => handleClickSong(song._id, index)}
-              activeClassName="active"
-            >
+          <ContainerSong key={index} onClick={() => {
+            setPlayer({
+              ...player,
+              withSong: true,
+              queu: {
+                data,
+                imgAlbum
+              },
+              index: index
+            })
+          }}>
               <ImgSong src={imgAlbum} />
               <ContainerSongInfo>
                 <TitleSmall>{data[index].title}</TitleSmall>
                 <NameArtist>{data[index].artist}</NameArtist>
               </ContainerSongInfo>
-            </NavLink>
             <SongSettings onClick={() => openModal(song._id)}>...</SongSettings>
             {showModal && selectedSongId === song._id && (
               <AddToPlaylistModal

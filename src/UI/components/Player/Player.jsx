@@ -5,6 +5,7 @@ import UseWidth from '../../../helpers/hooks/useWidth';
 import { useSelector } from 'react-redux';
 import { setIndex } from '../../../utils/player/player';
 import LikeSong from './components/LikeSong';
+import { NavLink } from 'react-router-dom';
 
 
 export const Player = () => {
@@ -19,6 +20,8 @@ export const Player = () => {
   const fileSong = queu[index]?.file.secure_url || queu.data[index].file.secure_url;
   const likeSong = queu[index]?._id || queu.data[index]._id;
 
+
+  
   return (
     
     <ContainerPlayer>
@@ -28,6 +31,7 @@ export const Player = () => {
           <SpanSongTitle>{songTitle}</SpanSongTitle>
           <SpanSongArtist>{songArtist}</SpanSongArtist>
         </ContainerDataSong>
+
       </ContainerInfoSong>
       {
         width !== 'desktop' ?
