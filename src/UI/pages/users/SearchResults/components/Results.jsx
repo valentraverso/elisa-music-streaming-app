@@ -2,7 +2,6 @@ import { setPlayer } from "../../../../../utils/player/player";
 import { store } from "../../../../../utils/redux/store";
 import { ContainerRecentImg, ContainerRecentSearchAll, RecentDescription, RecentImg, Title } from "../../../../Styles/Pages/Users/components/RecentBarStyle"
 import { Artist } from "../../../../Styles/Pages/Users/components/TypeOfSearchStyle"
-import { Link } from 'react-router-dom';
 
 export default function Results({ songsResults }) {
     const player = store.getState().player;

@@ -1,5 +1,6 @@
 import { AiOutlineInfoCircle } from "react-icons/ai"
 import styled from "styled-components"
+import { AiOutlineWarning } from 'react-icons/ai';
 
 export const TypeOfSearchDiv = styled.div`
     display: grid;
