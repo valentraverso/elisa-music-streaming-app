@@ -54,14 +54,13 @@ const allPlaylists = [
   return (
     <div>
       <CategoryeButtons />
-      {allPlaylists.map((playlist, index) => (
-        <Playlists key={index} playlists={playlist.playlists} title={playlist.title} />
-      ))}
+    
+   
+  
     
     
 
-      <CreateMixModal />
-      <CreatePlaylistModal />
+
       <Albums />
       <PlaylistPage />
     </div>
