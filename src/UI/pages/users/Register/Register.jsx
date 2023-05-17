@@ -4,6 +4,8 @@ import { ButtonUploadAlbum, ContainerInputs, ContainerUpload, InputForm, LabelIn
 import { useState } from "react";
 import postUser from "../../../../api/users/postUser";
 import { useNavigate } from "react-router-dom";
+import { ADD_DATA_USER } from "../../../../utils/redux/reducers/user";
+import { store } from "../../../../utils/redux/store";
 
 function Register() {
     const navigate = useNavigate();
@@ -49,12 +51,12 @@ function Register() {
 
         const createUser = await postUser(userData, token);
 
-        console.log(createUser)
-
         if (!createUser.status) {
             setError(createUser);
             return;
         }
+
+        store.dispatch(ADD_DATA_USER(createUser))
 
         navigate('/');
     }

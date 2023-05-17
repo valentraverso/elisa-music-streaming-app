@@ -38,6 +38,8 @@ export const Library = () => {
     return data;
   })
 
+  console.log("datalibrary", data)
+
   return (
     isLoading ?
       <p>Loading library</p>
