@@ -6,7 +6,6 @@ const fetchManyAlbumById = async (ids, token) => {
         }
       });
       const response = await request.json();
-      
       return response;
     } catch (error) {
       console.error(error);

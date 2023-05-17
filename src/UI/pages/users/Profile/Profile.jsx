@@ -6,10 +6,15 @@ import { Link } from "react-router-dom";
 import UseWidth from "../../../../helpers/hooks/useWidth";
 import FollowButton from "../../../components/FollowButton/FollowButton";
 import { DivAllPlaylist, Subtitle } from '../../../Styles/Pages/Users/MenuPlaylistsStyle';
+import { useSelector } from "react-redux";
 
 export function Profile() {
     const { user: { picture, name } } = useAuth0();
     const width = UseWidth();
+    const storeInfo = useSelector((state) => state.user.data);
+    const userId = storeInfo._id;
+
+    console.log(storeInfo)
 
     return (
         <ContainerProfile>
@@ -24,11 +29,11 @@ export function Profile() {
                     <DivInfoProfile>
                         <DivConnectionsProfile>
                             <Link to={links.connections + "/followers"}>
-                                <SpanInfoProfile>15 Followers</SpanInfoProfile>
+                                <SpanInfoProfile>{storeInfo.followers.length}</SpanInfoProfile>
                             </Link>
                             |
                             <Link to={links.connections + "/following"}>
-                                <SpanInfoProfile>10 Following</SpanInfoProfile>
+                                <SpanInfoProfile>{storeInfo.follows.length}</SpanInfoProfile>
                             </Link>
                         </DivConnectionsProfile>
                         <DivDiscographyProfile>
@@ -37,7 +42,7 @@ export function Profile() {
                             <SpanInfoProfile>1 Album</SpanInfoProfile>
                         </DivDiscographyProfile>
                     </DivInfoProfile>
-                    <FollowButton status='Follow' />
+                    {/* <FollowButton status='Follow' /> */}
                 </ContainerProfileData>
             </ContainerTopProfile>
             <ContainerPlaylistProfile>

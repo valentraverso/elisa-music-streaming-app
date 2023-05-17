@@ -6,6 +6,7 @@ import { SongsList } from "./components/SongsList/SongsList";
 import { useAuth0 } from "@auth0/auth0-react";
 import { useQuery } from "react-query";
 import fetchPlaylistById from "../../../../api/playlists/getById";
+import { store } from "../../../../utils/redux/store";
 
 export const Playlist = () => {
   const { id } = useParams();
@@ -17,6 +18,8 @@ export const Playlist = () => {
 
     return data;
   });
+
+  console.log("storeUser", store.getState().user);
 
   return (
     isLoading ?

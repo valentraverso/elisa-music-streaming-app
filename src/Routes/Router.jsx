@@ -55,7 +55,7 @@ const router = createBrowserRouter([
                 element: <Upload />
             },
             {
-                path: '/user/visit/:id',
+                path: '/user/visit/:username',
                 element: <VisitProfiles />
             }
         ]
