@@ -6,6 +6,7 @@ import { useSelector } from 'react-redux';
 import { setIndex } from '../../../utils/player/player';
 import LikeSong from './components/LikeSong';
 
+
 export const Player = () => {
   const width = UseWidth();
   const { queu, index } = useSelector(state => state.player);
@@ -19,6 +20,7 @@ export const Player = () => {
   const likeSong = queu[index]?._id || queu.data[index]._id;
 
   return (
+    
     <ContainerPlayer>
       <ContainerInfoSong>
         <ImgInfoSong src={albumImg} />

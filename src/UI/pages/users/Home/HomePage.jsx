@@ -13,6 +13,7 @@ import fetchAllPlaylists from "../../../../api/playlists/fetchPlaylistAll";
 import CreateMixModal from "./HomeComponents/CreateMixModal";
 import fetchAllMixes from "../../../../api/mixes/getAllMixes";
 import PlaylistPage from "../Library/components/PlaylistPage";
+import CreatePlaylistModal from "../Library/components/playlistModal";
 
 export function HomePage() {
     const {getAccessTokenSilently} = useAuth0()
@@ -60,6 +61,7 @@ const allPlaylists = [
     
 
       <CreateMixModal />
+      <CreatePlaylistModal />
       <Albums />
       <PlaylistPage />
     </div>

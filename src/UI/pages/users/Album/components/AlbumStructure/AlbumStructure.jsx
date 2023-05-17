@@ -11,7 +11,7 @@ export default function AlbumStructure({ album }) {
                 <AlbumTitle img={imgAlbum} playlistName={title} info={""} likes={""} btnLike={true} />
                 <SongsListAlbum data={album.songs} imgAlbum={imgAlbum} />
                 <ContainerAddSong>
-                    <ButtonAddSong>Add new Song</ButtonAddSong>
+                    <ButtonAddSong>Add news Song</ButtonAddSong>
                 </ContainerAddSong>
             </ContainerPlaylist>
         </ ContainerPagePlaylist>
