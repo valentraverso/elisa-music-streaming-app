@@ -41,7 +41,9 @@ export default function FollowButton({ idVisiting, status }) {
         const unfollow = await updateUnfollow(userInfo, token)
         console.log(unfollow);
         setFollows(unfollow.data.follows)
-        break
+        break;
+      default:
+        return;
     }
 
   }

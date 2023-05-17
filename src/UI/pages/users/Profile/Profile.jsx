@@ -4,7 +4,6 @@ import TitleCenterPage from "../../../components/TitleCenterPage/TitleCenterPage
 import { links } from "../../../config.links";
 import { Link } from "react-router-dom";
 import UseWidth from "../../../../helpers/hooks/useWidth";
-import FollowButton from "../../../components/FollowButton/FollowButton";
 import { DivAllPlaylist, Subtitle } from '../../../Styles/Pages/Users/MenuPlaylistsStyle';
 import { useSelector } from "react-redux";
 
@@ -12,9 +11,6 @@ export function Profile() {
     const { user: { picture, name } } = useAuth0();
     const width = UseWidth();
     const storeInfo = useSelector((state) => state.user.data);
-    const userId = storeInfo._id;
-
-    console.log(storeInfo)
 
     return (
         <ContainerProfile>
@@ -23,9 +19,9 @@ export function Profile() {
                 <TitleCenterPage title='Profile' back={true} />
             }
             <ContainerTopProfile>
-                <ImageProfile src={picture} />
+                <ImageProfile src={storeInfo.img.secure_url} />
                 <ContainerProfileData>
-                    <H1NameProfile>{name}</H1NameProfile>
+                    <H1NameProfile>{storeInfo.name}</H1NameProfile>
                     <DivInfoProfile>
                         <DivConnectionsProfile>
                             <Link to={links.connections + "/followers"}>
@@ -42,7 +38,6 @@ export function Profile() {
                             <SpanInfoProfile>1 Album</SpanInfoProfile>
                         </DivDiscographyProfile>
                     </DivInfoProfile>
-                    {/* <FollowButton status='Follow' /> */}
                 </ContainerProfileData>
             </ContainerTopProfile>
             <ContainerPlaylistProfile>

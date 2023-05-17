@@ -14,6 +14,7 @@ text-align:center;
 `
 
 export const ImageProfile = styled.img`
+object-fit: cover;
 width: 150px;
 height: 150px;
 border-radius: 200px;
