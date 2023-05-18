@@ -4,10 +4,9 @@ import styled from 'styled-components';
 import { BsMusicNoteList } from 'react-icons/bs';
 import { useAuth0 } from '@auth0/auth0-react';
 import updatePlaylist from '../../../api/playlists/updatePlaylist';
-import Dropdown from '../SettingsMenu/SettingsMenu';
-import { store } from '../../../utils/redux/store';
 import getPlaylistByOwner from '../../../api/playlists/getByOwner';
 import { useSelector } from 'react-redux';
+import { colors } from '../../Styles/config';
 
 const AddButton = styled(BsMusicNoteList)`
     color: rgb(89, 89, 89);
@@ -42,7 +41,9 @@ const ModalWrapper = styled.div`
 `;
 
 const Title = styled.span`
-color: black;
+color: ${colors.white};
+margin-left: 10px;
+line-height: 17px;
 `
 
 const AddToPlaylistModal = ({ onAddToPlaylist, onClose, songId }) => {
@@ -52,7 +53,6 @@ const AddToPlaylistModal = ({ onAddToPlaylist, onClose, songId }) => {
   const [modalVisible, setModalVisible] = useState(false);
   const user = useSelector((state) => state.user.data);
 
-  console.log(selectedPlaylists)
   useEffect(() => {
     const fetchSelectedPlaylists = async () => {
       try {
@@ -75,22 +75,19 @@ const AddToPlaylistModal = ({ onAddToPlaylist, onClose, songId }) => {
 
 
   const handleAddToPlaylist = async (playlist) => {
-    console.log(playlist)
     try {
       const token = await getAccessTokenSilently();
-      console.log(`Adding song with ID "${songId}" to playlist with ID "${playlist._id}`);
-
       const data = {
         playlistId: playlist._id,
         songId
       } 
       const updatedPlaylist = await updatePlaylist(data, token);
-      console.log(updatedPlaylist)
-      console.log(`Song successfully added to playlist "${updatedPlaylist.name}" with ID "${updatedPlaylist._id}".`);
+    
       setSelectedPlaylists([]);
+
       setModalVisible(false);
     } catch (error) {
-      console.error('Failed to add song to playlist:', error);
+     
     }
   };
 
@@ -103,7 +100,6 @@ const AddToPlaylistModal = ({ onAddToPlaylist, onClose, songId }) => {
       updatedSelections.splice(index, 1);
       setSelectedPlaylists(updatedSelections);
     }
-    console.log('Selected playlists:', selectedPlaylists);
   };
 
 
@@ -112,12 +108,16 @@ const AddToPlaylistModal = ({ onAddToPlaylist, onClose, songId }) => {
       <AddButton onClick={() => setModalVisible(true)} />
       <ModalWrapper>
         <Modal
+        style={{
+          color: "#fff"
+        }}
           title="Add to Playlist"
           open={modalVisible}
           onCancel={() => {
             setSelectedPlaylists([]);
             setModalVisible(false);
           }}
+          closable={false}
           onOk={() => {
             selectedPlaylists.forEach((playlist) => handleAddToPlaylist(playlist));
           }}
@@ -125,10 +125,12 @@ const AddToPlaylistModal = ({ onAddToPlaylist, onClose, songId }) => {
           {playlists.map((playlist) => (
             <div key={playlist._id}>
               <Checkbox
+              style={{alignItems: "center"}}
                 checked={selectedPlaylists.includes(playlist)}
                 onChange={() => togglePlaylistSelection(playlist)}
-              />
+              >
               <Title >{playlist.title}</Title >
+              </Checkbox>
             </div>
           ))}
         </Modal>

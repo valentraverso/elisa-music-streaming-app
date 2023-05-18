@@ -1,10 +1,10 @@
 const updatePlaylist = async (data, token) => {
   const formData = new FormData();
   formData.append("songId", data.songId);
-
+  
   try {
     const request = await fetch(`${process.env.REACT_APP_API_URL}/playlists/update/${data.playlistId}`, {
-      method: "PUT",
+      method: "PATCH",
       headers: {
         Authorization: `Bearer ${token}`
       },
