@@ -10,10 +10,12 @@ import {
   ButtonCreate,
   ContainerButtonsCreate,
   ContainerTitle,
+  SpanCreatePlaylist,
 } from "../../../../Styles/components/ModalStyle";
 import { InputForm } from "../../../../Styles/Pages/Users/UploadStyle";
 import { ButtonArtist, ContainerButtonsArtist } from "../../../../Styles/Pages/Users/Register";
 import { store } from "../../../../../utils/redux/store";
+import { setPlaylists } from "../../../../../utils/player/user";
 
 const CreatePlaylistModal = () => {
   const { getAccessTokenSilently } = useAuth0();
@@ -53,9 +55,9 @@ const CreatePlaylistModal = () => {
     const token = await getAccessTokenSilently();
     const createPlaylist = await postPlaylist(formData, token);
 
-    console.log(createPlaylist)
-
     if (createPlaylist.status) {
+      setPlaylists(createPlaylist.data.playlists);
+
       setErrorMsg("Playlist created successfully.");
       handleModalClose();
     }
@@ -65,7 +67,7 @@ const CreatePlaylistModal = () => {
 
   return (
     <>
-      <Button onClick={handleModalOpen}>Create Playlist</Button>
+      <SpanCreatePlaylist onClick={handleModalOpen}>Create Playlist</SpanCreatePlaylist>
       {isModalOpen && (
         <ModalBackground>
           <ModalContainer>
@@ -80,6 +82,8 @@ const CreatePlaylistModal = () => {
                   value={formData.title}
                   onChange={handleInputChange}
                   required
+                  minLength={2}
+                  maxLength={20}
                 />
               </ContainerTitle>
               <ContainerButtonsArtist>

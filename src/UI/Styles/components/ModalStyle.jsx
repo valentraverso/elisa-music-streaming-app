@@ -1,5 +1,6 @@
 import styled, { keyframes } from "styled-components";
 import { colors, device, fontSize } from "../config";
+import { AiOutlineDelete } from "react-icons/ai";
 
 const fadeAnimation = keyframes`
   from {
@@ -146,3 +147,24 @@ export const ContainerTitle = styled.div`
   margin: 0 3% 5% 3%;
 }
 `
+
+export const ContainerButtonsDelete = styled.div`
+display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 5%;
+`
+
+export const ButtonDelete = styled(Button)`
+background-color: red;
+`
+
+export const IconDelete = styled(AiOutlineDelete)`
+height: 1.5em;
+width: 1.5em;
+`
+
+export const ContainerDelete = styled.div`
+display: flex;
+    align-items: center;
+    `

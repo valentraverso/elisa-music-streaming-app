@@ -4,8 +4,9 @@ import { colors, device } from "../../config.jsx";
 export const ContainerLibrary = styled.div`
     margin: 0 auto;
     width: 90%;
+    margin-bottom: 10vh;
     @media ${device.mobile} {
-        margin-bottom: 17vh;
+        margin-bottom: 30vh;
     }
 `
 
@@ -15,7 +16,7 @@ export const DivPlaylistsDisplay = styled.div`
     margin-top: 10px;
     @media ${device.desktop} {
         display: grid;
-        grid-template-columns: 200px;
+        grid-template-columns: 100%;
         gap: 10px;
     }
 `
@@ -67,9 +68,9 @@ export const Subtitle = styled.h2`
 
 export const DivAllPlaylist = styled.div`
     @media ${device.desktop} {
-        display: flex;
-        flex-direction: row;
-        gap: 4%;
+        display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+    margin-bottom: 50px;
     }
 `
 // Inside DivAllPlaylist, General INFO PLAYLIST
@@ -89,7 +90,7 @@ export const ImgPlaylist = styled.img`
     object-fit: cover;
     @media ${device.desktop} {
         width: 170px;
-        height: 170px;
+    height: 170px;
     }
 `
 
@@ -112,7 +113,7 @@ export const InfoPlaylist = styled.p`
 
 // ADD NEW, div and button
 
-export const DivBtnAddNew=styled.div`
+export const DivBtnAddNew = styled.div`
     display: flex;
     justify-content: end;
 `
@@ -121,4 +122,8 @@ export const BtnAddNew = styled.span`
     border: none;
     font-weight: bold;
     cursor: pointer;
+`
+
+export const ContainerSong = styled.div`
+margin: 4% 0;
 `

@@ -15,7 +15,6 @@ const Dropdown = (songId) => {
   
 
     const handleMenuItemClick = (item) => {
-      console.log(`Selected item: ${item}`);
       setIsOpen(false);
     };
   

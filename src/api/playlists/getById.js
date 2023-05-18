@@ -9,7 +9,6 @@ const fetchPlaylistById = async (id, token) => {
 
     return response;
   } catch (error) {
-    console.log("Error fetching playlist:", error); 
     return { msg: error.message };
   }
 };

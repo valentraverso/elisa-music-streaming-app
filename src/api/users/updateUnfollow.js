@@ -1,6 +1,6 @@
 const updateUnfollow = async (data, token) => {
 
-    const formData = new FormData
+    const formData = new FormData();
     formData.append('userId', data.userId);
     formData.append('idVisiting', data.idVisiting);
 
