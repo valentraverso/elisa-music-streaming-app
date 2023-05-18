@@ -33,7 +33,7 @@ export const Playlist = () => {
                 <span>Add songs and save your favorite music</span>
               </>
               :
-              <SongsList data={data.data.songs} />
+              <SongsList data={data.data.songs} owner={data.data.owner}/>
           }
         </ContainerPlaylist>
         <ButtonAddSong>Add songs</ButtonAddSong>
