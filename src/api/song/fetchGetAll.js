@@ -1,25 +1,22 @@
-const fetchSongAll = async (token, albumId) => {
+const fetchSongAll = async (token) => {
   try {
     const request = await fetch(
       `${process.env.REACT_APP_API_URL}/songs/all`,
       {
         headers: {
-          "Content-Type": "application/json",
+
           Authorization: `Bearer ${token}`,
         },
       }
     );
     const response = await request.json();
-    
-    if (response.status) {
-      return response.data;
-    } else {
-      console.error(response.msg);
-      return [];
-    }
+
+    return response;
   } catch (error) {
-    console.error(error);
-    return [];
+    return {
+      status: false,
+      msg: error.message
+    }
   }
 };
 
