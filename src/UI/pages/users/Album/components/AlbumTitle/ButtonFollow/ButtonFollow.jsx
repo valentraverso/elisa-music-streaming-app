@@ -6,7 +6,7 @@ import { setAlbums } from "../../../../../../../utils/player/user";
 import updateFollowType from "../../../../../../../api/users/updateFollowType";
 import updateUnfollowType from "../../../../../../../api/users/updateUnfollowType";
 
-export default function ButtonFollow({ id }) {
+export default function ButtonFollow({ id, owner }) {
     const { getAccessTokenSilently } = useAuth0();
     const {albums, _id: userId} = useSelector((state) => state.user.data);
 
@@ -18,7 +18,7 @@ export default function ButtonFollow({ id }) {
         searchFollow ? setIsFollow(true) : setIsFollow(false)
     }, [searchFollow])
 
-    if(searchFollow?.owner === userId){
+    if(searchFollow?.owner === userId || owner === userId){
         return;
     }
 

@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import { DivAllPlaylist, DivInfoPlaylist, DivPlaylistsDisplay, DivTypePlaylist, GeneralDiv, ImgPlaylist, InfoPlaylist, TitlePlaylist } from "../../../../Styles/Pages/Users/MenuPlaylistsStyle";
 
-export default function AlbumGrid({ data }) {
+export default function PlaylistGrid({ data }) {
     return (
         <GeneralDiv>
             <DivTypePlaylist>

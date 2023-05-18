@@ -1,16 +1,9 @@
 import styled from "styled-components";
 import { colors, device, fontSize } from "../config";
+import { AiOutlineDelete } from "react-icons/ai";
 
-export const ButtonAddPlaylist = styled.button`
-  width: 125px;
-  height: 24px;
-  border: 1px ${colors.white} solid;
-  border-radius: 5px;
-  padding: 0.1rem;
-  position: fixed;
-  bottom: 16%;
-  right: 10%;
-  background-color: ${colors.blue};
+export const SpanCreatePlaylist = styled.span`
+  float: right;
 `;
 
 export const ModalBackground = styled.div`
@@ -84,3 +77,24 @@ export const ContainerTitle = styled.div`
   margin: 0 3% 5% 3%;
 }
 `
+
+export const ContainerButtonsDelete = styled.div`
+display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 5%;
+`
+
+export const ButtonDelete = styled(Button)`
+background-color: red;
+`
+
+export const IconDelete = styled(AiOutlineDelete)`
+height: 1.5em;
+width: 1.5em;
+`
+
+export const ContainerDelete = styled.div`
+display: flex;
+    align-items: center;
+    `

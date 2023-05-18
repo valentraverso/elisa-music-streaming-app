@@ -33,8 +33,8 @@ export const Library = () => {
     }
   }
 
-  const { data, isLoading } = useQuery(['library', {type, playlists}], async () => {
-    if(type === "playlist"){
+  const { data, isLoading } = useQuery(['library', { type, playlists }], async () => {
+    if (type === "playlist") {
       return playlists;
     }
 
@@ -46,7 +46,9 @@ export const Library = () => {
   return (
     isLoading ?
       <Skeleton>
-        
+        <DivChangePlaylistAlbum>
+        </DivChangePlaylistAlbum>
+        <LibraryGrid data={data} type={type} />
       </Skeleton>
       :
       <ContainerLibrary>

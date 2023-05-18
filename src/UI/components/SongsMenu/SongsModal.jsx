@@ -25,8 +25,8 @@ const AddButton = styled(BsMusicNoteList)`
 
 
 const Container = styled.div`
-  position: relative;
-  color: black;
+  display: flex;
+    justify-content: end;
 `;
 
 const OptionsButton = styled(Button)`
@@ -80,14 +80,14 @@ const AddToPlaylistModal = ({ onAddToPlaylist, onClose, songId }) => {
       const data = {
         playlistId: playlist._id,
         songId
-      } 
+      }
       const updatedPlaylist = await updatePlaylist(data, token);
-    
+
       setSelectedPlaylists([]);
 
       setModalVisible(false);
     } catch (error) {
-     
+
     }
   };
 
@@ -108,9 +108,9 @@ const AddToPlaylistModal = ({ onAddToPlaylist, onClose, songId }) => {
       <AddButton onClick={() => setModalVisible(true)} />
       <ModalWrapper>
         <Modal
-        style={{
-          color: "#fff"
-        }}
+          style={{
+            color: "#fff"
+          }}
           title="Add to Playlist"
           open={modalVisible}
           onCancel={() => {
@@ -125,11 +125,11 @@ const AddToPlaylistModal = ({ onAddToPlaylist, onClose, songId }) => {
           {playlists.map((playlist) => (
             <div key={playlist._id}>
               <Checkbox
-              style={{alignItems: "center"}}
+                style={{ alignItems: "center" }}
                 checked={selectedPlaylists.includes(playlist)}
                 onChange={() => togglePlaylistSelection(playlist)}
               >
-              <Title >{playlist.title}</Title >
+                <Title >{playlist.title}</Title >
               </Checkbox>
             </div>
           ))}

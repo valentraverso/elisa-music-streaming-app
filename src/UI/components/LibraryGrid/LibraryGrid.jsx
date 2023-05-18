@@ -15,7 +15,7 @@ export default function LibraryGrid({ data, type }) {
             )
             :
             <>
-                <h2>{`We do not find any` + type}</h2>
+                <h2>{`We do not find any ` + type}</h2>
                 <p>It's time to start liking!</p>
             </>
     )
