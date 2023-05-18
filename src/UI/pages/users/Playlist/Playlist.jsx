@@ -25,7 +25,7 @@ export const Playlist = () => {
       :
       <ContainerPagePlaylist>
         <ContainerPlaylist >
-          <PlaylistTitle id={id} img={data.data.img.secure_url} playlistName={data.data.title} info={""} likes={""} btnLike={true} />
+          <PlaylistTitle id={id} img={data.data.img.secure_url} playlistName={data.data.title} info={""} likes={""} isPrivate={data.data.private}/>
           {
             data.data.songs.length < 1 ?
               <>

@@ -1,72 +1,116 @@
-import { useState, useEffect } from 'react';
-import { Modal, Checkbox, Button } from 'antd';
-import styled from 'styled-components';
-import { BsMusicNoteList } from 'react-icons/bs';
+import { Button, ButtonCreate, ButtonDelete, ContainerButtonsCreate, ContainerButtonsDelete, ContainerDelete, ContainerTitle, IconDelete, ModalBackground, ModalContainer, Title } from "../../../../../Styles/components/ModalStyle";
+import { useAuth0 } from "@auth0/auth0-react";
+import { useState } from "react";
+import ReactImageUploading from "react-images-uploading";
+import { useNavigate } from "react-router-dom";
+import { ContainerUploaderImage, IconNoUploadImage, InputForm, PlacerDivUpload, PlacerImageUpload, SpanDragorClick } from "../../../../../Styles/Pages/Users/UploadStyle";
+import { ButtonArtist, ContainerButtonsArtist } from "../../../../../Styles/Pages/Users/Register";
 
-import { colors } from '../../../../../Styles/config';
+export default function PlaylistModalUpdate({ isModalOpen, setIsModalOpen, id, playlistName, img, isPrivate }) {
+    const { getAccessTokenSilently } = useAuth0();
+    const navigate = useNavigate();
 
-export const PlaylistModalUpdate = ({showModal, onClose}) => {
-    const [modalVisible, setModalVisible] = useState(true);
+    const handleModalClose = () => {
+        setIsModalOpen(false);
+    };
 
-    const AddButton = styled(BsMusicNoteList)`
-    color: rgb(89, 89, 89);
-    border: none;
-    width: 2rem;
-    height: 2rem;
+    const [data, setData] = useState({
+        title: playlistName,
+        picture: "",
+        private: isPrivate
+    })
 
-  &:hover {
-    color: #595959;
-  }
+    const handleInputChange = (e) => {
+        const { value } = e.target;
+        setData((prevState) => ({
+          ...prevState,
+          title: value,
+        }));
+      };
 
-  &.expanded {
-    transform: translateX(0);
-  }
-`;
+    const handleImageChange = (imageList) => {
+        const [image] = imageList
+        setData({
+            ...data,
+            picture: image
+        })
+    };
 
-const Container = styled.div`
-  position: relative;
-  color: black;
-`;
+    const handleSubmit = async (e) => {
+        e.preventDefault();
+        console.log(data)
 
-const OptionsButton = styled(Button)`
-  position: absolute;
-  top: 0;
-  right: 0;
-`;
-const ModalWrapper = styled.div`
-  .modal {
-    background-color: blue; 
-  }
-`;
+        const token = await getAccessTokenSilently();
 
-const Title = styled.span`
-color: ${colors.white};
-margin-left: 10px;
-line-height: 17px;
-`
+
+
+    }
+
     return (
-        <div>
-            <Container>
-                <AddButton onClick={() => setModalVisible(true)} />
-                <ModalWrapper>
-                    <Modal
-                        style={{
-                            color: "#fff"
-                        }}
-                        title="Add to Playlist"
-                        open={showModal}
-                        onCancel={() => {
+        isModalOpen && (
+            <ModalBackground>
+                <ModalContainer>
+                    <Title>Update Playlist</Title>
+                    
+                    <form onSubmit={handleSubmit}>
+                    <ReactImageUploading
+                    onChange={handleImageChange}
+                    acceptType={['jpg', 'png', 'webp']}
+                    dataURLKey="imagePlaylist"
+                >
+                    {
+                        ({
+                            onImageUpload,
+                            onImageRemove,
+                            errors,
+                            dragProps,
+                            isDragging }) => {
+                            return (
+                                <ContainerUploaderImage>
+                                    <PlacerDivUpload onClick={onImageUpload} {...dragProps}>
+                                        {
+                                            img || data.picture.imagePlaylist ?
+                                                <PlacerImageUpload src={data.picture.imagePlaylist ? data.picture.imagePlaylist : img} />
+                                                :
+                                                <IconNoUploadImage />
+                                        }
 
-                        }}
-                        closable={false}
-                        onOk={() => {
-
-                        }}
-                    >
-
-                    </Modal>
-                </ModalWrapper>
-            </Container>
-        </div>
+                                    </PlacerDivUpload>
+                                    <SpanDragorClick>Select Image or drag</SpanDragorClick>
+                                </ContainerUploaderImage>
+                            )
+                        }
+                    }
+                </ReactImageUploading>
+                        <ContainerTitle>
+                            <InputForm
+                                type="text"
+                                name="title"
+                                placeholder="My playlist"
+                                value={data.title}
+                                onChange={handleInputChange}
+                                required
+                                minLength={2}
+                                maxLength={20}
+                            />
+                        </ContainerTitle>
+                        <ContainerButtonsArtist>
+                            <ButtonArtist
+                                isActive={data.private && "#3B46F1"}
+                                type="button"
+                                onClick={() => setData({ ...data, private: true })}>Private</ButtonArtist>
+                            <ButtonArtist
+                                isActive={!data.private && "#3B46F1"}
+                                type="button"
+                                onClick={() => setData({ ...data, private: false })}>Public</ButtonArtist>
+                        </ContainerButtonsArtist>
+                        <ContainerButtonsCreate>
+                            <ButtonCreate type="submit">Update</ButtonCreate>
+                            <Button onClick={handleModalClose}>Cancel</Button>
+                        </ContainerButtonsCreate>
+                    </form>
+                </ModalContainer>
+            </ModalBackground>
+        )
     )
 }
