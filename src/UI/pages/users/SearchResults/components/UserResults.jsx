@@ -12,7 +12,7 @@ export default function UserResults({ userResults }) {
                         <Link to={`/user/visit/${user.username}`}>
                             <ContainerRecentSearchAll key={user._id}>
                                 <ContainerRecentImg>
-                                    <RecentImg src={user.picture} />
+                                    <RecentImg src={user.img.secure_url} />
                                 </ContainerRecentImg>
                                 <RecentDescription>
                                     <User>{user.name}</User>

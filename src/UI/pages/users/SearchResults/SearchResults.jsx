@@ -11,6 +11,7 @@ import PlaylistResults from "./components/PlaylistResults";
 import getUserByName from "../../../../api/users/getByName";
 import UserResults from "./components/UserResults";
 import { ErrorMessage, InfoIcon } from "../../../Styles/Pages/Users/components/TypeOfSearchStyle";
+import { Skeleton } from "antd";
 
 export function SearchResults() {
     const { getAccessTokenSilently } = useAuth0()
@@ -39,9 +40,10 @@ export function SearchResults() {
     return (
         <>
             <TypeOfSearch query={query} />
-            {isLoading ? (
-                <p>Searching...</p>
-            ) : (
+            {
+                isLoading ? (
+                    <Skeleton />
+                ) : (
                     data && data.status ? (
                         type === "songs" ? (
                             <Results songsResults={data.data} />
@@ -58,7 +60,7 @@ export function SearchResults() {
                             <p>{data && data.msg}</p>
                         </ErrorMessage>
                     )
-            )}
+                )}
         </>
     );
 }
