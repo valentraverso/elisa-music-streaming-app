@@ -29,7 +29,7 @@ export const ImgPlaylist = styled.img`
 
 export const ContainerPlaylistInfo = styled.div`
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     width: 100%;
 `
 
@@ -120,4 +120,10 @@ export const ButtonAddSong = styled.span`
     padding: 20px 0;
     float: right;
     font-size: ${fontSize.span};
+`
+
+export const ContainerPlaylistDescription = styled.div`
+display: flex;
+    flex-direction: column;
+    width: 100%;
 `

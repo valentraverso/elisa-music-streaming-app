@@ -25,7 +25,6 @@ const AddButton = styled(BsMusicNoteList)`
 
 
 const Container = styled.div`
-  position: relative;
   color: black;
 `;
 

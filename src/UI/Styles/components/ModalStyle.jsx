@@ -84,3 +84,14 @@ export const ContainerTitle = styled.div`
   margin: 0 3% 5% 3%;
 }
 `
+
+export const ContainerButtonsDelete = styled.div`
+display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 5%;
+`
+
+export const ButtonDelete = styled(Button)`
+background-color: red;
+`

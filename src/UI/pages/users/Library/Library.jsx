@@ -46,7 +46,9 @@ export const Library = () => {
   return (
     isLoading ?
       <Skeleton>
-        
+        <DivChangePlaylistAlbum>
+        </DivChangePlaylistAlbum>
+        <LibraryGrid data={data} type={type} />
       </Skeleton>
       :
       <ContainerLibrary>
