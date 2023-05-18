@@ -13,6 +13,7 @@ const fadeAnimation = keyframes`
 
 export const SpanCreatePlaylist = styled.span`
 float: right;
+cursor: pointer;
 `
 
 export const ButtonAddPlaylist = styled.button`

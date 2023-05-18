@@ -6,13 +6,14 @@ import postUser from "../../../../api/users/postUser";
 import { useNavigate } from "react-router-dom";
 import { ADD_DATA_USER } from "../../../../utils/redux/reducers/user";
 import { store } from "../../../../utils/redux/store";
+import { useQuery } from "react-query";
+import getAllGenres from "../../../../api/genre/fetchgetAllGenres";
 
 function Register() {
     const navigate = useNavigate();
+    const { user, getAccessTokenSilently } = useAuth0();
 
     const [error, setError] = useState({ status: "unset", msg: "" })
-
-    const { user, getAccessTokenSilently } = useAuth0();
 
     const [isArtist, setIsArtist] = useState(false);
 
@@ -38,6 +39,12 @@ function Register() {
             username: username
         })
     }
+
+    const { data: genres, isLoading } = useQuery(["genres"], async () => {
+        const token = await getAccessTokenSilently();
+        const data = await getAllGenres(token);
+        return data;
+    })
 
     const handleSubmit = async (ev) => {
         ev.preventDefault();
