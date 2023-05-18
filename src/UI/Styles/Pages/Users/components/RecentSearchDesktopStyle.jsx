@@ -1,7 +1,30 @@
 import styled from "styled-components";
 
 export const ContainerRecentSearchDesktop = styled.div`
-  /* Styles for the recent search container */
+position: relative;
+gap: 6%;
+display: flex;
+flex-direction: row;
+flex-wrap: nowrap;
+white-space: nowrap;
+width: 100%;
+background-color: transparent;
+margin: 1% auto; 
+.content::-webkit-scrollbar-x {
+height: 8px;
+}
+
+.content::-webkit-scrollbar-thumb {
+background-color: #bbb;
+border-radius: 10px;
+}
+
+.content::-webkit-scrollbar-thumb:hover {
+background-color: #999;
+}
+@media (max-width: 768px){
+overflow-x: scroll;
+}
 `;
 
 export const H2RecentTitleDesktop = styled.span`
