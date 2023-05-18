@@ -53,8 +53,6 @@ const CreatePlaylistModal = () => {
     const token = await getAccessTokenSilently();
     const createPlaylist = await postPlaylist(formData, token);
 
-    console.log(createPlaylist)
-
     if (createPlaylist.status) {
       setErrorMsg("Playlist created successfully.");
       handleModalClose();

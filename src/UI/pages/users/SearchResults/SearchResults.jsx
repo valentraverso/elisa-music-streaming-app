@@ -34,10 +34,8 @@ export function SearchResults() {
     const { data, isLoading } = useQuery(['results', type], async () => {
         const token = await getAccessTokenSilently();
         const searchData = await switchByType(token);
-        console.log("query", searchData)
         return searchData;
     });
-    console.log("respose", data)
     return (
         <>
             <TypeOfSearch query={query} />

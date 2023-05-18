@@ -36,9 +36,7 @@ export default function ButtonFollow({ id }) {
                 break;
             case true:
                 const unfollow = await updateUnfollowType(data, token);
-                console.log(unfollow)
                 setAlbums(await unfollow.data.albums);
-
                 break;
             default:
                 return;
