@@ -8,10 +8,11 @@ import { ADD_DATA_USER } from "../../../../utils/redux/reducers/user";
 import { store } from "../../../../utils/redux/store";
 import { useQuery } from "react-query";
 import getAllGenres from "../../../../api/genre/fetchgetAllGenres";
+import { Skeleton } from "antd";
 
 function Register() {
     const navigate = useNavigate();
-    const { user, getAccessTokenSilently } = useAuth0();
+    const { user, getAccessTokenSilently, isLoading: isLoadingUser } = useAuth0();
 
     const [error, setError] = useState({ status: "unset", msg: "" })
 
@@ -22,7 +23,8 @@ function Register() {
         email: user.email,
         picture: user.picture || "",
         sub: user.sub,
-        username: ""
+        username: "",
+        genres: []
     });
 
     const handleUsername = (ev) => {
@@ -46,6 +48,26 @@ function Register() {
         return data;
     })
 
+    const handleGenres = (genreId) => {
+        const existGenre = userData?.genres.find(genre => genre === genreId);
+
+        if (existGenre) {
+            const newGenreArray = userData.genres.filter(genre => genre !== genreId);
+
+            setUserData((prevState) => ({
+                ...prevState,
+                genres: newGenreArray
+            }))
+
+            return;
+        }
+
+        setUserData((prevState) => ({
+            ...prevState,
+            genres: [...prevState.genres, genreId]
+        }))
+    }
+
     const handleSubmit = async (ev) => {
         ev.preventDefault();
 
@@ -53,6 +75,7 @@ function Register() {
             ...userData,
             role: 2
         })
+
 
         const token = await getAccessTokenSilently();
 
@@ -68,44 +91,46 @@ function Register() {
         navigate('/');
     }
     return (
-        <ContainerUpload>
-            <form onSubmit={handleSubmit}>
-                <SectionText>
-                    <h1>Hi {user.name.split(" ")[0]}!</h1>
-                    <p>Tell us a little about you</p>
-                </SectionText>
-                <ContainerInputs>
-                    <LabelInputForm>Write your Username</LabelInputForm>
-                    <InputForm value={userData.username} maxLength={20} onChange={(ev) => handleUsername(ev)} required />
-                </ContainerInputs>
-                <ContainerInputs>
-                    <LabelInputForm>Are you an artist?</LabelInputForm>
-                    <ContainerButtonsArtist>
-                        <ButtonArtist isActive={isArtist && "#3B46F1"} type="button" onClick={() => setIsArtist(true)}>Yes</ButtonArtist>
-                        <ButtonArtist isActive={!isArtist && "#3B46F1"} type="button" onClick={() => setIsArtist(false)}>No</ButtonArtist>
-                    </ContainerButtonsArtist>
+        isLoadingUser || isLoading ?
+            <Skeleton />
+            :
+            <ContainerUpload>
+                <form onSubmit={handleSubmit}>
+                    <SectionText>
+                        <h1>Hi {user.name.split(" ")[0]}!</h1>
+                        <p>Tell us a little about you</p>
+                    </SectionText>
                     <ContainerInputs>
-                        <LabelInputForm>Choose your favorites genres</LabelInputForm>
-                        <ContainerThreeButtons>
-                            <ButtonGenre disabled>Pop</ButtonGenre>
-                            <ButtonGenre disabled>HipHop</ButtonGenre>
-                            <ButtonGenre disabled>Electro</ButtonGenre>
-                            <ButtonGenre disabled>Reggaeton</ButtonGenre>
-                            <ButtonGenre disabled>Funk</ButtonGenre>
-                            <ButtonGenre disabled>Rock</ButtonGenre>
-                        </ContainerThreeButtons>
+                        <LabelInputForm>Write your Username</LabelInputForm>
+                        <InputForm value={userData.username} maxLength={20} onChange={(ev) => handleUsername(ev)} required />
                     </ContainerInputs>
-                </ContainerInputs>
-                {
-                    !error.status &&
-                    <ErrorMessage>{error.msg}</ErrorMessage>
-                }
-                <PrivacyPolicySpan>By clicking continue you accept our Terms and Conditions.</PrivacyPolicySpan>
-                <ContainerFinishButton>
-                    <ButtonUploadAlbum type="submit">Finish</ButtonUploadAlbum>
-                </ContainerFinishButton>
-            </form>
-        </ContainerUpload>
+                    <ContainerInputs>
+                        <LabelInputForm>Are you an artist?</LabelInputForm>
+                        <ContainerButtonsArtist>
+                            <ButtonArtist isActive={isArtist && "#3B46F1"} type="button" onClick={() => setIsArtist(true)}>Yes</ButtonArtist>
+                            <ButtonArtist isActive={!isArtist && "#3B46F1"} type="button" onClick={() => setIsArtist(false)}>No</ButtonArtist>
+                        </ContainerButtonsArtist>
+                        <ContainerInputs>
+                            <LabelInputForm>Choose your favorites genres</LabelInputForm>
+                            <ContainerThreeButtons>
+                                {
+                                    genres.map((genre) => (
+                                        <ButtonGenre isActive={userData.genres.find(find => genre._id === find) && "#3B46F1"} type="button" key={genre._id} onClick={() => handleGenres(genre._id)} >{genre.name}</ButtonGenre>
+                                    ))
+                                }
+                            </ContainerThreeButtons>
+                        </ContainerInputs>
+                    </ContainerInputs>
+                    {
+                        !error.status &&
+                        <ErrorMessage>{error.msg}</ErrorMessage>
+                    }
+                    <PrivacyPolicySpan>By clicking continue you accept our Terms and Conditions.</PrivacyPolicySpan>
+                    <ContainerFinishButton>
+                        <ButtonUploadAlbum type="submit">Finish</ButtonUploadAlbum>
+                    </ContainerFinishButton>
+                </form>
+            </ContainerUpload>
     )
 }
 

@@ -31,6 +31,7 @@ margin-top: 3%;
 `
 
 export const ButtonGenre = styled(ButtonFollowStyled)`
+background-color: ${props => props.isActive};
     padding: 5px 0px;
     @media ${device.desktop}{
     margin: 5%;
