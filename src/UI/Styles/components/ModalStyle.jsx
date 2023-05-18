@@ -44,12 +44,13 @@ export const ModalContainer = styled.div`
   background-color: ${colors["dark-blue"]};
   border-radius: 5px;
   padding: 20px;
-  width: 500px;
-  height: 400px;
   display: flex;
   flex-direction: column;
   justify-content: center;
   animation: ${fadeAnimation} 0.3s ease-in-out;
+  @media ${device.desktop}{
+    width: 80vh;
+  }
 `;
 
 export const Title = styled.h2`
