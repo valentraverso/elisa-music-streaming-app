@@ -1,5 +1,4 @@
-import { RiDeleteBinLine } from "react-icons/ri"
-import { Button, ButtonDelete, ContainerButtonsDelete, ModalBackground, ModalContainer, Title } from '../../../../../../Styles/components/ModalStyle';
+import { Button, ButtonDelete, ContainerButtonsDelete, ContainerDelete, IconDelete, ModalBackground, ModalContainer, Title } from '../../../../../../Styles/components/ModalStyle';
 import { useState } from "react";
 import deleteAlbum from "../../../../../../../api/albums/deleteAlbum";
 import { useAuth0 } from "@auth0/auth0-react";
@@ -32,8 +31,8 @@ export default function DeleteAlbum({ id }) {
     }
 
     return (
-        <>
-            <RiDeleteBinLine onClick={() => setIsModalOpen(true)} />
+        <ContainerDelete>
+            <IconDelete onClick={() => setIsModalOpen(true)} />
             {
                 isModalOpen && (
                     <ModalBackground>
@@ -47,6 +46,6 @@ export default function DeleteAlbum({ id }) {
                     </ModalBackground>
                 )
             }
-        </>
+        </ContainerDelete>
     )
 }
