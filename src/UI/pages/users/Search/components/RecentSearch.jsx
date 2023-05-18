@@ -67,4 +67,3 @@ const RecentSearch = () => {
 };
 
 export default RecentSearch;
-
