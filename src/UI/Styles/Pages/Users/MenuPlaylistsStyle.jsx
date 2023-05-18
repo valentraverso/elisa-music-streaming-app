@@ -4,6 +4,7 @@ import { colors, device } from "../../config.jsx";
 export const ContainerLibrary = styled.div`
     margin: 0 auto;
     width: 90%;
+    margin-bottom: 10vh;
     @media ${device.mobile} {
         margin-bottom: 30vh;
     }
@@ -69,7 +70,6 @@ export const DivAllPlaylist = styled.div`
     @media ${device.desktop} {
         display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
-    gap: 4%;
     margin-bottom: 50px;
     }
 `
@@ -122,4 +122,8 @@ export const BtnAddNew = styled.span`
     border: none;
     font-weight: bold;
     cursor: pointer;
+`
+
+export const ContainerSong = styled.div`
+margin: 4% 0;
 `

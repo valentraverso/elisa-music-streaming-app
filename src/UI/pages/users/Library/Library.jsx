@@ -9,6 +9,7 @@ import { store } from "../../../../utils/redux/store";
 import fetchManyAlbumById from "../../../../api/albums/getManyById";
 import CreatePlaylistModal from "./components/playlistModal";
 import { useSelector } from "react-redux";
+import { Skeleton } from "antd";
 
 export const Library = () => {
   const { type } = useParams();
@@ -32,7 +33,7 @@ export const Library = () => {
     }
   }
 
-  const { data, isLoading } = useQuery(['library', type], async () => {
+  const { data, isLoading } = useQuery(['library', {type, playlists}], async () => {
     if(type === "playlist"){
       return playlists;
     }
@@ -44,7 +45,9 @@ export const Library = () => {
   })
   return (
     isLoading ?
-      <p>Loading library</p>
+      <Skeleton>
+        
+      </Skeleton>
       :
       <ContainerLibrary>
         <DivChangePlaylistAlbum>

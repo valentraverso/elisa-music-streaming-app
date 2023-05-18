@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { DivAllPlaylist, DivInfoPlaylist, DivPlaylistsDisplay, DivTypePlaylist, GeneralDiv, ImgPlaylist, InfoPlaylist, TitlePlaylist } from "../../../../Styles/Pages/Users/MenuPlaylistsStyle";
+import { ContainerSong, DivAllPlaylist, DivInfoPlaylist, DivPlaylistsDisplay, DivTypePlaylist, GeneralDiv, ImgPlaylist, InfoPlaylist, TitlePlaylist } from "../../../../Styles/Pages/Users/MenuPlaylistsStyle";
 
 export default function AlbumGrid({ data }) {
     return (
@@ -8,7 +8,7 @@ export default function AlbumGrid({ data }) {
                 <DivAllPlaylist>
                     {data &&
                         data.map((album) => (
-                            <div key={album._id}>
+                            <ContainerSong key={album._id}>
                                 <Link to={`/album/${album._id}`}>
                                     <DivPlaylistsDisplay >
                                         <ImgPlaylist src={album.img.secure_url} />
@@ -17,7 +17,7 @@ export default function AlbumGrid({ data }) {
                                         </DivInfoPlaylist>
                                     </DivPlaylistsDisplay>
                                 </Link>
-                            </div>
+                            </ContainerSong>
                         ))
                     }
                 </DivAllPlaylist>

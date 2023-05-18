@@ -14,6 +14,7 @@ import {
 import { InputForm } from "../../../../Styles/Pages/Users/UploadStyle";
 import { ButtonArtist, ContainerButtonsArtist } from "../../../../Styles/Pages/Users/Register";
 import { store } from "../../../../../utils/redux/store";
+import { setPlaylists } from "../../../../../utils/player/user";
 
 const CreatePlaylistModal = () => {
   const { getAccessTokenSilently } = useAuth0();
@@ -54,7 +55,7 @@ const CreatePlaylistModal = () => {
     const createPlaylist = await postPlaylist(formData, token);
 
     if (createPlaylist.status) {
-      console.log(createPlaylist)
+      setPlaylists(createPlaylist.data.playlists);
 
       setErrorMsg("Playlist created successfully.");
       handleModalClose();
