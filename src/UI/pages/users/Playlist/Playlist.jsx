@@ -1,6 +1,6 @@
 import { useParams } from "react-router-dom";
-import { ContainerPlaylist } from "../../../Styles/Pages/Users/PlaylistStyle";
-import { ButtonAddSong, ContainerPagePlaylist } from "../../../Styles/Pages/Users/PlaylistStyle";
+import { ContainerPlaylist, IconContainer, InfoIcon } from "../../../Styles/Pages/Users/PlaylistStyle";
+import { ButtonAddSong, ContainerPagePlaylist, PlaylistInfo, PlaylistAdvice, PlaylistInfoContainer } from "../../../Styles/Pages/Users/PlaylistStyle";
 import { PlaylistTitle } from "./components/PlaylistTitle/PlaylistTitle";
 import { SongsList } from "./components/SongsList/SongsList";
 import { useAuth0 } from "@auth0/auth0-react";
@@ -28,10 +28,13 @@ export const Playlist = () => {
           <PlaylistTitle id={id} img={data.data.img.secure_url} playlistName={data.data.title} info={""} likes={""} isPrivate={data.data.private}/>
           {
             data.data.songs.length < 1 ?
-              <>
-                <p>This playlist is empty.</p>
-                <span>Add songs and save your favorite music</span>
-              </>
+              <PlaylistInfoContainer>
+                <IconContainer>
+                  <InfoIcon />
+                </IconContainer>
+                <PlaylistInfo>This playlist is empty.</PlaylistInfo>
+                <PlaylistAdvice>Add songs and save your favorite music</PlaylistAdvice>
+              </PlaylistInfoContainer>
               :
               <SongsList data={data.data.songs} owner={data.data.owner}/>
           }

@@ -22,7 +22,6 @@ export const SongsList = ({ data, owner }) => {
     try {
       const token = await getAccessTokenSilently();
       const response = await deleteSongFromPlaylist(playlistId, songId, token);
-      console.log(response);
       setShowConfirmation(false);
 
     } catch (error) {
@@ -44,7 +43,6 @@ export const SongsList = ({ data, owner }) => {
   return (
     <ContainerSongsList>
       {data?.map((song, index) => {
-        console.log(`This is the song ${song._id}`); 
         return (
           <ContainerSong key={index} onClick={() => setPlayer({ withSong: true, queu: data, index: index })}>
             <ImgSong src={song.album.img.secure_url} />
