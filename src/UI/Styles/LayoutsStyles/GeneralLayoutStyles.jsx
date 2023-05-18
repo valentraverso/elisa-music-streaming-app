@@ -10,6 +10,9 @@ min-height: 100vh;
     min-height: 70vh;
     margin: 2% auto;
 }
+@media ${device.mobile}{
+    margin-bottom: 20vh;
+}
 `
 
 

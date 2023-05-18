@@ -54,6 +54,8 @@ const CreatePlaylistModal = () => {
     const createPlaylist = await postPlaylist(formData, token);
 
     if (createPlaylist.status) {
+      console.log(createPlaylist)
+
       setErrorMsg("Playlist created successfully.");
       handleModalClose();
     }
@@ -78,6 +80,8 @@ const CreatePlaylistModal = () => {
                   value={formData.title}
                   onChange={handleInputChange}
                   required
+                  minLength={2}
+                  maxLength={20}
                 />
               </ContainerTitle>
               <ContainerButtonsArtist>
