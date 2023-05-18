@@ -25,7 +25,6 @@ export default function SongList({ album }) {
 return (
     <div>
       <h1>Songs from "{album.title}"</h1>
-      {console.log(album.songs)}
       {album.songs.map((song) => (
         <div key={song._id}>
           <p>{song.title}</p>

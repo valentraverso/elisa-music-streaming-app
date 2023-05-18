@@ -10,7 +10,6 @@ const postMix = async (data, token) => {
     //   const songIds = data.songs.map((songId) => ({ song: songId }));
     //   formData.append("songs", JSON.stringify(songIds));
     // }
-console.log(data );
   try {
     const response = await fetch(`${process.env.REACT_APP_API_URL}/mixes/create/`, {
       method: "POST",
@@ -20,7 +19,6 @@ console.log(data );
       body: formData
     });
     
-console.log(token);
     const responseData = await response.json();
     return { status: true, data: responseData };
   } catch (error) {

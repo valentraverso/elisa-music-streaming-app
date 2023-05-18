@@ -8,10 +8,12 @@ import { PageTitle, DivChangePlaylistAlbum, PageChanger, ContainerLibrary } from
 import { store } from "../../../../utils/redux/store";
 import fetchManyAlbumById from "../../../../api/albums/getManyById";
 import CreatePlaylistModal from "./components/playlistModal";
+import { useSelector } from "react-redux";
+import { Skeleton } from "antd";
 
 export const Library = () => {
   const { type } = useParams();
-  const { _id: idUser, albums } = store.getState().user.data;
+  const { _id: idUser, albums, playlists } = useSelector(state => state.user.data);
   const { getAccessTokenSilently } = useAuth0()
 
   const switchLibraryData = async (token) => {
@@ -31,16 +33,21 @@ export const Library = () => {
     }
   }
 
-  const { data, isLoading } = useQuery(['library', type], async () => {
+  const { data, isLoading } = useQuery(['library', {type, playlists}], async () => {
+    if(type === "playlist"){
+      return playlists;
+    }
+
     const token = await getAccessTokenSilently();
     const data = await switchLibraryData(token);
 
-    return data;
+    return data.data;
   })
-
   return (
     isLoading ?
-      <p>Loading library</p>
+      <Skeleton>
+        
+      </Skeleton>
       :
       <ContainerLibrary>
         <DivChangePlaylistAlbum>
@@ -49,7 +56,7 @@ export const Library = () => {
             <PageChanger>{type !== "playlist" ? "Playlist" : "Albums"}</PageChanger>
           </Link>
         </DivChangePlaylistAlbum>
-        <LibraryGrid data={data.data} type={type} />
+        <LibraryGrid data={data} type={type} />
         {
           type === 'playlist' &&
           <CreatePlaylistModal />
