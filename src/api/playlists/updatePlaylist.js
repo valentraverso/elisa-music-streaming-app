@@ -1,15 +1,19 @@
-const updatePlaylist = async (playlistId, songs, token) => {
-  try {
-    const request = await fetch(`${process.env.REACT_APP_API_URL}/playlists/update/${playlistId}`, {
-      method: "PUT",
-      headers: {
-        Authorization: `Bearer ${token}`,
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({ songs }),
-    });
+const updatePlaylist = async (data, token) => {
 
+  const formData = new FormData();
+
+  formData.append("songId", data.songId);
+  
+  try {
+    const request = await fetch(`${process.env.REACT_APP_API_URL}/playlists/update/${data.playlistId}`, {
+      method: "PATCH",
+      headers: {
+        Authorization: `Bearer ${token}`
+      },
+      body: formData,
+    });
     const response = await request.json();
+
     return response;
   } catch (error) {
     console.error(error);

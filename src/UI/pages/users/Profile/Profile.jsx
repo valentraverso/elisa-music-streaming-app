@@ -4,17 +4,25 @@ import TitleCenterPage from "../../../components/TitleCenterPage/TitleCenterPage
 import { links } from "../../../config.links";
 import { Link } from "react-router-dom";
 import UseWidth from "../../../../helpers/hooks/useWidth";
-import FollowButton from "../../../components/FollowButton/FollowButton";
 import { DivAllPlaylist, Subtitle } from '../../../Styles/Pages/Users/MenuPlaylistsStyle';
 import { useSelector } from "react-redux";
+import LibraryGrid from "../../../components/LibraryGrid/LibraryGrid";
+import { useQuery } from "react-query";
+import { Skeleton } from "antd";
+import fetchManyAlbumById from "../../../../api/albums/getManyById";
 
 export function Profile() {
-    const { user: { picture, name } } = useAuth0();
     const width = UseWidth();
-    const storeInfo = useSelector((state) => state.user.data);
-    const userId = storeInfo._id;
+    const user = useSelector((state) => state.user.data);
 
-    console.log(storeInfo)
+    const { getAccessTokenSilently } = useAuth0();
+
+    const { data: albumsData , isLoading } = useQuery(['albums'], async () => {
+        const token = await getAccessTokenSilently();
+        const data = await fetchManyAlbumById(await user.albums, token);
+
+        return data;
+    })
 
     return (
         <ContainerProfile>
@@ -23,40 +31,53 @@ export function Profile() {
                 <TitleCenterPage title='Profile' back={true} />
             }
             <ContainerTopProfile>
-                <ImageProfile src={picture} />
+                <ImageProfile src={user?.img.secure_url} />
                 <ContainerProfileData>
-                    <H1NameProfile>{name}</H1NameProfile>
+                    <H1NameProfile>{user?.name}</H1NameProfile>
                     <DivInfoProfile>
                         <DivConnectionsProfile>
                             <Link to={links.connections + "/followers"}>
-                                <SpanInfoProfile>{storeInfo.followers.length}</SpanInfoProfile>
+                                <SpanInfoProfile>{user?.followers.length + " Followers"}</SpanInfoProfile>
                             </Link>
                             |
                             <Link to={links.connections + "/following"}>
-                                <SpanInfoProfile>{storeInfo.follows.length}</SpanInfoProfile>
+                                <SpanInfoProfile>{user?.follows.length + " Following"}</SpanInfoProfile>
                             </Link>
                         </DivConnectionsProfile>
                         <DivDiscographyProfile>
-                            <SpanInfoProfile>5 playlists</SpanInfoProfile>
+                            <SpanInfoProfile>{user?.playlists.length + " Playlists"}</SpanInfoProfile>
                             |
-                            <SpanInfoProfile>1 Album</SpanInfoProfile>
+                            <SpanInfoProfile>{user?.albums.length + " Albums"}</SpanInfoProfile>
                         </DivDiscographyProfile>
                     </DivInfoProfile>
-                    {/* <FollowButton status='Follow' /> */}
                 </ContainerProfileData>
             </ContainerTopProfile>
             <ContainerPlaylistProfile>
                 <Subtitle>Playlists</Subtitle>
-                <DivAllPlaylist>
-
-                </DivAllPlaylist>
+                <LibraryGrid data={user?.playlists} type={"playlist"} />
             </ContainerPlaylistProfile>
-            <ContainerPlaylistProfile>
-                <Subtitle>Albums</Subtitle>
-                <DivAllPlaylist>
-
-                </DivAllPlaylist>
-            </ContainerPlaylistProfile>
+            {
+                isLoading ?
+                    <Skeleton>
+                        <ContainerPlaylistProfile>
+                            <Subtitle>Albums</Subtitle>
+                            <DivAllPlaylist>
+                            </DivAllPlaylist>
+                        </ContainerPlaylistProfile>
+                    </Skeleton>
+                    :
+                    (
+                        albumsData.status ?
+                            <ContainerPlaylistProfile>
+                                <Subtitle>Albums</Subtitle>
+                                <DivAllPlaylist>
+                                    <LibraryGrid data={albumsData?.data} type={"album"} />
+                                </DivAllPlaylist>
+                            </ContainerPlaylistProfile>
+                            :
+                            <p>You don't have albums!</p>
+                    )
+            }
         </ContainerProfile>
     )
 }

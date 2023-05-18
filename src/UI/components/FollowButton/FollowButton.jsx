@@ -7,7 +7,7 @@ import updateUnfollow from "../../../api/users/updateUnfollow";
 import { useEffect } from "react";
 import { setFollows } from "../../../utils/player/user";
 
-export default function FollowButton({ idVisiting, status }) {
+export default function FollowButton({ idVisiting }) {
 
   const { getAccessTokenSilently } = useAuth0();
 
@@ -29,28 +29,27 @@ export default function FollowButton({ idVisiting, status }) {
   }, [searchFollow])
 
   const handleFollow = async () => {
-    console.log("button works")
     const token = await getAccessTokenSilently();
     switch (isFollowing) {
       case false:
         const follow = await updatefollows(userInfo, token)
-        console.log(follow)
         setFollows(follow.data.follows)
         break
       case true:
         const unfollow = await updateUnfollow(userInfo, token)
-        console.log(unfollow);
         setFollows(unfollow.data.follows)
-        break
+        break;
+      default:
+        return;
     }
 
   }
 
   return (
     isFollowing ?
-      <ButtonFollowStyled onClick={handleFollow} >Following</ButtonFollowStyled>
+      <ButtonFollowStyled onClick={handleFollow}>Following</ButtonFollowStyled>
       :
-      <ButtonFollowStyled onClick={handleFollow} >Follow</ButtonFollowStyled>
+      <ButtonFollowStyled onClick={handleFollow}>Follow</ButtonFollowStyled>
   )
 
 }

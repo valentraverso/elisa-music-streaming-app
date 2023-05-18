@@ -14,6 +14,7 @@ text-align:center;
 `
 
 export const ImageProfile = styled.img`
+object-fit: cover;
 width: 150px;
 height: 150px;
 border-radius: 200px;
@@ -29,7 +30,7 @@ export const ContainerProfileData = styled.div`
     flex-direction: column;
     align-items: start;
     margin-left: 20px;
-    justify-content: space-between;
+    justify-content: space-evenly;
     height: 100%;
 }
 `

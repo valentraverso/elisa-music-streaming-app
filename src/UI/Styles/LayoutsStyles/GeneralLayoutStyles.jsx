@@ -5,10 +5,13 @@ export const Main = styled.div`
 position: relative;
 width: 90%;
 margin: 5% auto;
-min-height: 90vh;
+min-height: 100vh;
 @media ${device.desktop}{
-    min-height: 70vh;
-    margin: 2% auto;
+    margin-top: 2%;
+    margin-bottom: 30vh;
+}
+@media ${device.mobile}{
+    margin-bottom: 20vh;
 }
 `
 
