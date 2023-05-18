@@ -2,7 +2,7 @@ import styled from "styled-components";
 import { colors, device, fontSize } from "../config";
 import { AiOutlineDelete } from "react-icons/ai";
 
-export const SpanCreatePlaylist = styled.button`
+export const SpanCreatePlaylist = styled.span`
   float: right;
 `;
 
