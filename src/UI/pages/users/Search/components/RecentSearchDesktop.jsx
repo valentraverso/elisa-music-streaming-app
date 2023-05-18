@@ -32,6 +32,7 @@ const RecentSearchDesktop = () => {
                         </ContainerRecentDesktop>
                     </Skeleton>
                 ) : (
+                    
                     limitedAlbums &&
                     limitedAlbums.map((album) => (
                         <ContainerRecentDesktop key={album._id}>

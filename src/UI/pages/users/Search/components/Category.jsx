@@ -4,14 +4,16 @@ import { useQuery } from "react-query";
 import { Link } from "react-router-dom";
 import fetchAllSongs from "../../../../../api/song/fetchGetAll";
 import { Skeleton } from "antd";
+import { useAuth0 } from "@auth0/auth0-react";
 
 export default function Category() {
+    const {getAccessTokenSilently}= useAuth0();
     const { data: songs, isLoading } = useQuery(["allSongs"], async () => {
-        const data = await fetchAllSongs();
+        const token = await getAccessTokenSilently()
+        const data = await fetchAllSongs(token);
         return data;
     });
 
-    const limitedSongs = songs?.slice(0, 6);
 
     return (
         <ContainerBrowserCategory>
@@ -27,11 +29,11 @@ export default function Category() {
                         </ContainerCategory>
                     </Skeleton>
                 ) : (
-                    limitedSongs &&
-                    limitedSongs.map((song) => (
+                    songs &&
+                    songs.data.map((song) => (
                         <ContainerCategory key={song._id}>
                             <Link to={`/song/${song._id}`}>
-                                <CategoryBox src={song.img && song.img.secure_url} />
+                                <CategoryBox src={song.album.img.secure_url} />
                                 <CategoryTitle>{song.title}</CategoryTitle>
                             </Link>
                         </ContainerCategory>

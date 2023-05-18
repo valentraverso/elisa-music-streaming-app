@@ -35,7 +35,7 @@ export const H2RecentTitleDesktop = styled.span`
 
 export const ContainerRecentDesktop = styled.div`
     display: flex;
-    flex-wrap: wrap; /* Allow albums to wrap to the next row */
+    flex-wrap: wrap; 
     gap: 4%;
     margin-top: 2%;
     margin-bottom: 10%;
@@ -53,7 +53,7 @@ export const RecentDescriptionDesktop = styled.div`
     flex-direction: column;
     align-items: center;
     text-align: center;
-    width: 120px; /* Set a fixed width for each album */
+    width: 120px; 
 `;
 
 export const Title = styled.p`
