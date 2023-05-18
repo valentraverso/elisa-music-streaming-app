@@ -7,10 +7,10 @@ const postPlaylist = async (data, token) => {
   }
 
   const formData = new FormData();
+  
   formData.append("title", data.title);
   formData.append("owner", data.owner);
-  formData.append("songs", JSON.stringify(data.songs));
-  formData.append("img", data.img);
+  formData.append("private", data.private);
 
   try {
     const request = await fetch(`${process.env.REACT_APP_API_URL}/playlists/create`, {
@@ -26,10 +26,9 @@ const postPlaylist = async (data, token) => {
   } catch (err) {
     return {
       status: false,
-      msg: err,
+      msg: err.message,
     };
   }
 };
 
 export default postPlaylist;
-

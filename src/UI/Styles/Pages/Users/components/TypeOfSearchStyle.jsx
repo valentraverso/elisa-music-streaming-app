@@ -1,4 +1,6 @@
+import { AiOutlineInfoCircle } from "react-icons/ai"
 import styled from "styled-components"
+import { AiOutlineWarning } from 'react-icons/ai';
 
 export const TypeOfSearchDiv = styled.div`
     display: grid;
@@ -6,22 +8,22 @@ export const TypeOfSearchDiv = styled.div`
     width: 100%;
     grid-gap:15px;
 `
-export const SongButton = styled.p`
-    display: grid;
+export const TypeButtons = styled.p`
     border-radius: 5px;
     border-style: solid;
-    background-color: #4a4b4d;
-    border-color: #4a4b4d;
-    width:58px;
-    height:25px;
-    justify-content:center;
+    background-color: rgb(74, 75, 77);
+    border-color: rgb(74, 75, 77);
+    width: 70px;
+    height: 30px;
+    display: flex;
+    justify-content: center;
     align-items: center;
+    margin: auto;
 `
 export const Artist = styled.p`
     display: grid;
-    width:85px;
+    width:155px;
     height:25px;
-    justify-content:center;
     align-items: center;
 `
 export const User = styled.p`
@@ -39,6 +41,7 @@ export const Playlist = styled.p`
     align-items: center;
 `
 export const Album = styled.p`
+    font-weight: bold;
     display: grid;
     width:145px;
     height:25px;
@@ -47,42 +50,33 @@ export const Album = styled.p`
 `
 export const Song = styled.p`
     display: grid;
-    width:145px;
+    width:165px;
     height:25px;
     justify-content:center;
     align-items: center;
+    width: 70px;
+    height: 30px;
+    border-radius: 5px;
+    border-style: solid;
+    background-color: #4a4b4d;
+    border: 0;
+    margin: auto;
 `
 
-export const ArtistButton = styled.p`
-    display: grid;
-    border-radius: 5px;
-    border-style: solid;
-    background-color: #4a4b4d;
-    border-color: #4a4b4d;
-    width:58px;
-    height:25px;
-    justify-content:center;
+export const ErrorMessage = styled.div`
+	margin: auto;
+    background-repeat: no-repeat;
+    background-position: 10px center;
+    height: 20vh;
+    display: flex;
+    justify-content: center;
     align-items: center;
+    flex-direction: column;
 `
-export const AlbumButton = styled.p`
-    display: grid;
-    border-radius: 5px;
-    border-style: solid;
-    background-color: #4a4b4d;
-    border-color: #4a4b4d;
-    width:58px;
-    height:25px;
-    justify-content:center;
-    align-items: center;
-`
-export const PlaylistButton = styled.p`
-    display: grid;
-    border-radius: 5px;
-    border-style: solid;
-    background-color: #4a4b4d;
-    border-color: #4a4b4d;
-    width:58px;
-    height:25px;
-    justify-content:center;
-    align-items: center;
+
+export const InfoIcon = styled(AiOutlineInfoCircle)`
+    stroke: #fff;
+    width: 3em;
+    height: 3em;
+    margin-bottom: 20px;
 `

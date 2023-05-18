@@ -43,7 +43,6 @@ export const PlaylistBackground = styled.div`
 export const Playlist = styled.div`
   position: relative;
   width: 20vh;
-  height: 20vh;
   margin: 10px;
   border-radius: 10px;
   box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.1);

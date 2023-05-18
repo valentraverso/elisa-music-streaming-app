@@ -15,8 +15,11 @@ const PrivateRoutes = ({ children }) => {
         switch (user?.status) {
             case true:
                 store.dispatch(ADD_DATA_USER(user));
-                console.log("doing redux")
-                navigate(window.location.pathname || '/');
+                if(window.location.pathname !== "/register"){
+                    navigate(window.location.pathname || '/');
+                    return;
+                }
+                navigate("/");
                 break;
             default:
                 navigate('/register');

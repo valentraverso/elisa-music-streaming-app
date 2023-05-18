@@ -1,11 +1,11 @@
 import { Main } from "../../../Styles/LayoutsStyles/NavbarStyle";
 import { IconAddAlbum, IconSettings, IconAvatar, ContainerIconsMenuLibrary, UserAvatar } from "../../../Styles/LayoutsStyles/BarLibraryStyle";
-import { useAuth0 } from "@auth0/auth0-react";
 import { Link } from "react-router-dom";
 import { links } from "../../../config.links";
+import { store } from "../../../../utils/redux/store";
 
 export const BarLibrary = () => {
-    const { user } = useAuth0();
+    const { img: {secure_url: imageUser} } = store.getState().user.data;
 
     return (
         <Main>
@@ -18,7 +18,7 @@ export const BarLibrary = () => {
                 </Link>
                 <Link to={links.profile}>
                     <IconAvatar>
-                        <UserAvatar src={user?.picture} />
+                        <UserAvatar src={imageUser} />
                     </IconAvatar>
                 </Link>
             </ContainerIconsMenuLibrary>

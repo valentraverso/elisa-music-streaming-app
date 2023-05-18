@@ -1,9 +1,10 @@
 import styled from "styled-components";
 import { colors, device } from "../config";
+import { AiFillHeart, AiOutlineHeart } from "react-icons/ai";
 
 export const ContainerPlayer = styled.div`
     display: grid;
-    grid-template-columns: 60% 40%;
+    grid-template-columns: 55% 45%;
     border-radius: 10px;
     position: fixed;
     bottom: 70px;
@@ -66,3 +67,16 @@ font-weight: bolder;
 export const SpanSongArtist = styled.span`
 
 `
+
+export const HeartLikeBorders = styled(AiOutlineHeart)`
+    height: 2em;
+    width: 2em;
+`
+
+export const HeartLikeFill = styled(AiFillHeart)`
+    height: 2em;
+    width: 2em;
+`
+
+
+

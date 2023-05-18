@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import {HiOutlinePencil} from "react-icons/hi"
+import { HiOutlinePencil } from "react-icons/hi"
 import { colors, device } from "../../config";
 import { ButtonFollowStyled } from "../../components/FollowButtonStyle";
 
@@ -45,6 +45,11 @@ background: ${colors.grey};
 export const ContainerInputs = styled.div`
 margin: 8% 0;
 `
+
+export const ContainerInputsText = styled.div`
+margin: 8% 0;
+`
+
 
 export const LabelInputForm = styled.label`
 `
@@ -119,4 +124,20 @@ export const ErrorMessage = styled.span`
     text-align: center;
     border-radius: 5px;
     width: 100%;
+`
+
+export const MessageContainer = styled.div`
+    background-color: ${colors.darkblue}; 
+    color: ${colors.white};
+    padding: 10px;
+    margin-top: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+`
+
+export const MessageText = styled.p`
+    color:${colors.blue};
+    margin: 0;
+    text-align: center;
 `

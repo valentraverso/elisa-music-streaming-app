@@ -12,12 +12,13 @@ import postSong from "../../../../api/song/postSong";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { Audio } from 'react-loader-spinner'
+import './upload.css';
 
 export function Upload() {
   const width = UseWidth();
 
   const { getAccessTokenSilently } = useAuth0();
-  const user = store.getState().user.data[0];
+  const user = store.getState().user.data;
 
   const [isUploading, setIsUploding] = useState(false)
 
@@ -76,7 +77,9 @@ export function Upload() {
       imgAlbum: data.imgAlbum,
       discography: data.discography,
     }
-    const uploadAlbumResponse = await postAlbum(album, token)
+    const uploadAlbumResponse = await postAlbum(album, token);
+
+    console.log(uploadAlbumResponse)
 
     const songsArray = [...data.songsArray]
     const songs = songsArray.map((song, index) => ({
@@ -94,22 +97,26 @@ export function Upload() {
   }
 
   if (isUploading) {
-    return (
-    <div>
-      <Audio
-        margin="0 auto"
-        height="80"
-        width="80"
-        radius="9"
-        color='green'
-        ariaLabel='three-dots-loading'
-        wrapperStyle
-        wrapperClass
-      />
-      <p>We are uploading your album...</p>
-
-    </div>)
-}
+  return (
+    <div className="divGeneral">
+      <div className="divAudio">
+        <div className="audioIcon">
+          <Audio
+            margin="0 auto"
+            height="80"
+            width="80"
+            radius="9"
+            color='green'
+            ariaLabel='three-dots-loading'
+            wrapperStyle
+            wrapperClass
+          />
+        </div>
+        <p>We are uploading your album...</p>
+      </div>
+    </div>
+  )
+  }
 
   return (
     <ContainerUpload>
@@ -281,7 +288,7 @@ export function Upload() {
                                 </ContainerInputs>
                                 <ContainerInputs>
                                   <LabelInputForm htmlFor={`songTitle-${index}`}>Song Title</LabelInputForm><br />
-                                  <InputForm type='text' name={`songTitle-${index}`} maxLength={50}
+                                  <InputForm type='text' name={`songTitle-${index}`} maxLength={50} required={true}
                                     onChange={
                                       (ev) => handleTitleInfo(ev, index)
                                     } />

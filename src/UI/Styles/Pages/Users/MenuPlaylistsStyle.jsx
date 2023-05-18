@@ -1,9 +1,9 @@
 import styled from "styled-components";
 import { colors, device } from "../../config.jsx";
 
-export const GeneralDivMenu = styled.div`
+export const ContainerLibrary = styled.div`
     margin: 0 auto;
-    margin-bottom: 12vw;
+    width: 90%;
     @media ${device.mobile} {
         margin-bottom: 17vh;
     }
@@ -11,12 +11,12 @@ export const GeneralDivMenu = styled.div`
 
 export const DivPlaylistsDisplay = styled.div`
     display: grid;
-    grid-template-columns: 80px 150px;
-    gap: 10px;
+    grid-template-columns: 30% 70%;
     margin-top: 10px;
     @media ${device.desktop} {
         display: grid;
         grid-template-columns: 200px;
+        gap: 10px;
     }
 `
 
@@ -84,10 +84,12 @@ export const DivPlaylists = styled.div`
 
 export const ImgPlaylist = styled.img`
     width: 80px;
+    height: 80px;
     border-radius: 5px;
+    object-fit: cover;
     @media ${device.desktop} {
         width: 170px;
-        width: 170px;
+        height: 170px;
     }
 `
 

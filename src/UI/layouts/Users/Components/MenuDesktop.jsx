@@ -1,16 +1,22 @@
 import { Main, Logo, LogoLetters, StyledLink, Navbar, LogoContainer } from "../../../Styles/LayoutsStyles/NavbarStyle";
 import { SideBarContainer, IconsContainer } from '../../../Styles/LayoutsStyles/SideBarStyle'
 import { BiHomeAlt2, BiSearch, BiLibrary } from "react-icons/bi";
-import { Link, NavLink } from 'react-router-dom';
+import { Link, NavLink, useParams } from 'react-router-dom';
 import { IconAddAlbum, IconSettings, IconAvatar, ContainerIconsMenuLibrary, UserAvatar } from "../../../Styles/LayoutsStyles/BarLibraryStyle";
-import { useAuth0 } from "@auth0/auth0-react";
 import { links } from "../../../config.links";
 import { SearchBarContainer, SearchBarIcon, SearchBarInput, IconSearch } from "../../../Styles/LayoutsStyles/SearchBarStyle"
 import { colors } from "../../../Styles/config";
+import { useRef } from "react";
+import { store } from "../../../../utils/redux/store";
 
-export default function MenuDesktop({ search = false }) {
-    const { user } = useAuth0();
+export default function MenuDesktop({ search = false, handleSearchQuery }) {
+    const { img: {secure_url: imageUser} } = store.getState().user.data;
 
+    const searchInput = useRef("");
+    const {query}= useParams();
+    const handleSearch = () =>{
+        handleSearchQuery(searchInput.current.value)
+    }
 
     return (
         <Main>
@@ -30,7 +36,7 @@ export default function MenuDesktop({ search = false }) {
                             search ?
                                 <SearchBarContainer>
                                     <SearchBarIcon><IconSearch stroke={colors.black} fill={colors.black} /></SearchBarIcon>
-                                    <SearchBarInput />
+                                    <SearchBarInput ref= {searchInput} type='text' onChange={handleSearch} value={query}/>
                                 </SearchBarContainer>
                                 :
                                 <NavLink to="/search">
@@ -52,7 +58,7 @@ export default function MenuDesktop({ search = false }) {
                     </Link>
                     <Link to={links.profile}>
                         <IconAvatar>
-                            <UserAvatar src={user?.picture} />
+                            <UserAvatar src={imageUser} />
                         </IconAvatar>
                     </Link>
                 </ContainerIconsMenuLibrary>

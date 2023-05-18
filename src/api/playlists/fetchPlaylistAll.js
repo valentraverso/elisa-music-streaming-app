@@ -1,6 +1,6 @@
 const fetchAllPlaylists = async (token) => {
     try {
-        const request = await fetch(`${process.env.REACT_APP_API_URL}/mixes/all/`, {
+        const request = await fetch(`${process.env.REACT_APP_API_URL}/playlists/all/`, {
           headers: {
             "Content-Type": "application/json",
             Authorization: `Bearer ${token}`

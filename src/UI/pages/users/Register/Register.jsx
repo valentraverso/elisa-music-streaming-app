@@ -1,33 +1,62 @@
 import { useAuth0 } from "@auth0/auth0-react"
-import { ButtonArtist, ButtonGenre, ContainerButtonsArtist, ContainerFinishButton, ContainerThreeButtons, PrivacyPolicySpan, SectionText } from "../../../Styles/Pages/Users/Register";
-import { ButtonUploadAlbum, ContainerInputs, ContainerUpload, LabelInputForm } from "../../../Styles/Pages/Users/UploadStyle";
+import { ButtonArtist, ButtonGenre, ContainerButtonsArtist, ContainerFinishButton, ContainerInputsText, ContainerThreeButtons, ErrorMessage, PrivacyPolicySpan, SectionText } from "../../../Styles/Pages/Users/Register";
+import { ButtonUploadAlbum, ContainerInputs, ContainerUpload, InputForm, LabelInputForm } from "../../../Styles/Pages/Users/UploadStyle";
 import { useState } from "react";
 import postUser from "../../../../api/users/postUser";
 import { useNavigate } from "react-router-dom";
+import { ADD_DATA_USER } from "../../../../utils/redux/reducers/user";
+import { store } from "../../../../utils/redux/store";
 
 function Register() {
     const navigate = useNavigate();
 
+    const [error, setError] = useState({ status: "unset", msg: "" })
+
     const { user, getAccessTokenSilently } = useAuth0();
+
+    const [isArtist, setIsArtist] = useState(false);
+
     const [userData, setUserData] = useState({
         name: user.name || "",
         email: user.email,
         picture: user.picture || "",
-        sub: user.sub
+        sub: user.sub,
+        username: ""
     });
 
-    const [isArtist, setIsArtist] = useState(false);
+    const handleUsername = (ev) => {
+        if (ev.nativeEvent.data === '-' && userData.username.includes("-")) {
+            return;
+        }
+
+        const regex = /[^a-z0-9-]/g;
+
+        const username = ev.target.value.replace(regex, "")
+
+        setUserData({
+            ...userData,
+            username: username
+        })
+    }
 
     const handleSubmit = async (ev) => {
         ev.preventDefault();
+
+        isArtist && setUserData({
+            ...userData,
+            role: 2
+        })
 
         const token = await getAccessTokenSilently();
 
         const createUser = await postUser(userData, token);
 
         if (!createUser.status) {
+            setError(createUser);
             return;
         }
+
+        store.dispatch(ADD_DATA_USER(createUser))
 
         navigate('/');
     }
@@ -38,6 +67,10 @@ function Register() {
                     <h1>Hi {user.name.split(" ")[0]}!</h1>
                     <p>Tell us a little about you</p>
                 </SectionText>
+                <ContainerInputs>
+                    <LabelInputForm>Write your Username</LabelInputForm>
+                    <InputForm value={userData.username} maxLength={20} onChange={(ev) => handleUsername(ev)} required />
+                </ContainerInputs>
                 <ContainerInputs>
                     <LabelInputForm>Are you an artist?</LabelInputForm>
                     <ContainerButtonsArtist>
@@ -56,6 +89,10 @@ function Register() {
                         </ContainerThreeButtons>
                     </ContainerInputs>
                 </ContainerInputs>
+                {
+                    !error.status &&
+                    <ErrorMessage>{error.msg}</ErrorMessage>
+                }
                 <PrivacyPolicySpan>By clicking continue you accept our Terms and Conditions.</PrivacyPolicySpan>
                 <ContainerFinishButton>
                     <ButtonUploadAlbum type="submit">Finish</ButtonUploadAlbum>

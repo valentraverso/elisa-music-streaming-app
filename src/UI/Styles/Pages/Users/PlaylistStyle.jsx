@@ -1,8 +1,14 @@
 import styled from "styled-components";
-import { colors } from "../../config.jsx"
+import { colors, fontSize, device } from "../../config.jsx"
 
-export const ContainerPagePlaylist = styled.div`
-    
+export const ContainerPagePlaylist = styled.div` 
+    @media ${device.desktop}{
+        margin: 0 auto;
+        width: 50%;
+    }
+    @media ${device.mobile}{
+        margin: 30px auto;
+    }
 `
 
 export const ContainerPlaylist = styled.div`
@@ -71,7 +77,7 @@ export const ContainerSongsList = styled.div`
 
 export const ContainerSong = styled.div`
     display: grid;
-    grid-template-columns: auto 78% auto;
+    grid-template-columns: auto 70% auto;
     align-items: center;
     margin-top: 0.7rem;
 `
@@ -105,14 +111,13 @@ export const SongSettings = styled.span`
     grid-column: 3;
 `
 
+export const ContainerAddSong = styled.div`
+    width:100%;
+`
+
 export const ButtonAddSong = styled.span`
-    width: 125px;
-    height: 24px;
-    border: 1px ${colors.white} solid;
     border-radius: 5px;
-    padding: 0.1rem;
-    position: fixed;
-    bottom: 16%;
-    right: 10%;
-    background-color: ${colors.blue};
+    padding: 20px 0;
+    float: right;
+    font-size: ${fontSize.span};
 `
