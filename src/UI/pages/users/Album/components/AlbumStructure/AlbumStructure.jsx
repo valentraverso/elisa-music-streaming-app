@@ -8,7 +8,7 @@ export default function AlbumStructure({ album }) {
     return (
         <ContainerPagePlaylist>
             <ContainerPlaylist >
-                <AlbumTitle id={album._id} img={imgAlbum} playlistName={title} info={""} likes={""} btnLike={true} />
+                <AlbumTitle id={album._id} owner={album.owner} img={imgAlbum} playlistName={title} info={""} likes={""} btnLike={true} />
                 <SongsListAlbum data={album.songs} imgAlbum={imgAlbum} />
             </ContainerPlaylist>
         </ ContainerPagePlaylist>
