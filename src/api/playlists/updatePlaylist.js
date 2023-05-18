@@ -1,7 +1,5 @@
 const updatePlaylist = async (data, token) => {
-
   const formData = new FormData();
-
   formData.append("songId", data.songId);
   
   try {
@@ -12,6 +10,7 @@ const updatePlaylist = async (data, token) => {
       },
       body: formData,
     });
+
     const response = await request.json();
 
     return response;
@@ -22,3 +21,4 @@ const updatePlaylist = async (data, token) => {
 };
 
 export default updatePlaylist;
+
