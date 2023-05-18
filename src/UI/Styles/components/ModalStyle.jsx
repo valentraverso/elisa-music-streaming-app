@@ -2,16 +2,8 @@ import styled from "styled-components";
 import { colors, device, fontSize } from "../config";
 import { AiOutlineDelete } from "react-icons/ai";
 
-export const ButtonAddPlaylist = styled.button`
-  width: 125px;
-  height: 24px;
-  border: 1px ${colors.white} solid;
-  border-radius: 5px;
-  padding: 0.1rem;
-  position: fixed;
-  bottom: 16%;
-  right: 10%;
-  background-color: ${colors.blue};
+export const SpanCreatePlaylist = styled.button`
+  float: right;
 `;
 
 export const ModalBackground = styled.div`

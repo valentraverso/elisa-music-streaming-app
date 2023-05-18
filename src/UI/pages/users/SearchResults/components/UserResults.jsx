@@ -3,7 +3,6 @@ import { ContainerRecentImg, ContainerRecentSearchAll, RecentDescription, Recent
 import { User } from "../../../../Styles/Pages/Users/components/TypeOfSearchStyle"
 
 export default function UserResults({ userResults }) {
-    console.log(userResults)
     return (
         <>
             {

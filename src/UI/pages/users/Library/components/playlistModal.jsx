@@ -10,6 +10,7 @@ import {
   ButtonCreate,
   ContainerButtonsCreate,
   ContainerTitle,
+  SpanCreatePlaylist,
 } from "../../../../Styles/components/ModalStyle";
 import { InputForm } from "../../../../Styles/Pages/Users/UploadStyle";
 import { ButtonArtist, ContainerButtonsArtist } from "../../../../Styles/Pages/Users/Register";
@@ -66,7 +67,7 @@ const CreatePlaylistModal = () => {
 
   return (
     <>
-      <Button onClick={handleModalOpen}>Create Playlist</Button>
+      <SpanCreatePlaylist onClick={handleModalOpen}>Create Playlist</SpanCreatePlaylist>
       {isModalOpen && (
         <ModalBackground>
           <ModalContainer>

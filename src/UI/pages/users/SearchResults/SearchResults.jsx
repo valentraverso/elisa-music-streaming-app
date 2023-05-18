@@ -32,7 +32,7 @@ export function SearchResults() {
         }
     }
 
-    const { data, isLoading } = useQuery(['results', type], async () => {
+    const { data, isLoading } = useQuery(['results', {type, query}], async () => {
         const token = await getAccessTokenSilently();
         const searchData = await switchByType(token);
         return searchData;
@@ -42,7 +42,10 @@ export function SearchResults() {
             <TypeOfSearch query={query} />
             {
                 isLoading ? (
-                    <Skeleton />
+                    <div>
+                        <br />
+                        <Skeleton />
+                    </div>
                 ) : (
                     data && data.status ? (
                         type === "songs" ? (

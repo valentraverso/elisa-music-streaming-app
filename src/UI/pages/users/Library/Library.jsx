@@ -33,8 +33,8 @@ export const Library = () => {
     }
   }
 
-  const { data, isLoading } = useQuery(['library', {type, playlists}], async () => {
-    if(type === "playlist"){
+  const { data, isLoading } = useQuery(['library', { type, playlists }], async () => {
+    if (type === "playlist") {
       return playlists;
     }
 
