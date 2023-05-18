@@ -11,6 +11,10 @@ const fadeAnimation = keyframes`
   }
 `;
 
+export const SpanCreatePlaylist = styled.span`
+float: right;
+`
+
 export const ButtonAddPlaylist = styled.button`
   width: 125px;
   height: 24px;
