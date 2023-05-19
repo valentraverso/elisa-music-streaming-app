@@ -109,7 +109,8 @@ export function Upload() {
             wrapperClass
           />
         </div>
-        <p>We are uploading your album...</p>
+        <p className="minutes">We are uploading your album.</p>
+        <p>This process can take some minutes...</p>
       </div>
     </div>
   )

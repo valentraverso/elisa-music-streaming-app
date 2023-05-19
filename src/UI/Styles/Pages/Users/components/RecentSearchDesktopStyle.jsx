@@ -38,7 +38,7 @@ export const ContainerRecentDesktop = styled.div`
     flex-wrap: wrap; 
     gap: 4%;
     margin-top: 2%;
-    margin-bottom: 10%;
+    margin-bottom: 5%;
 `;
 
 export const RecentImgDesktop = styled.img`
