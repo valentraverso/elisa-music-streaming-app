@@ -62,10 +62,19 @@ export const ContainerDataSong = styled.div`
 
 export const SpanSongTitle = styled.span`
 font-weight: bolder;
+display: inline-block;
+    width: 100%;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 `
 
 export const SpanSongArtist = styled.span`
-
+display: inline-block;
+    width: 100%;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 `
 
 export const HeartLikeBorders = styled(AiOutlineHeart)`
