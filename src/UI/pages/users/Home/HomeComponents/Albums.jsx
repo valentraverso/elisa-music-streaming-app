@@ -3,7 +3,7 @@ import { useQuery } from "react-query";
 import { Link } from "react-router-dom";
 import fetchAllAlbums from "../../../../../api/albums/fetchAllAlbums";
 import { useAuth0 } from "@auth0/auth0-react";
-import { ContainerAlbum, AlbumBackground, Album, AlbumTitle, AlbumImage, } from "../../../../Styles/Pages/Users/HomePageStyles/AlbumsStyle"
+import { ContainerAlbum, AlbumBackground, Album, AlbumTitle, AlbumImage, ContainerAlbumPrincipal, } from "../../../../Styles/Pages/Users/HomePageStyles/AlbumsStyle"
 import { Skeleton } from "antd";
 
 const Albums = () => {
@@ -18,7 +18,7 @@ const Albums = () => {
   );
 
   return (
-    <div>
+    <ContainerAlbumPrincipal>
       <h2>Albums</h2>
       <ContainerAlbum>
         {
@@ -44,7 +44,7 @@ const Albums = () => {
             )
         }
       </ContainerAlbum>
-    </div>
+    </ContainerAlbumPrincipal>
   );
 }
 

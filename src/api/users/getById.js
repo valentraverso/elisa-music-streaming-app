@@ -7,7 +7,6 @@ const getUserById = async (id, token) =>{
             }
         })
         const response =await request.json()
-        console.log("id2", id);
         return response
     } catch (error) {
         return {msg: error.message}

@@ -64,7 +64,6 @@ export function Upload() {
     setSongInfo(newInfo)
   }
   const uploadAlbum = async (data) => {
-    console.log(data)
 
 
     const token = await getAccessTokenSilently();
@@ -78,8 +77,6 @@ export function Upload() {
       discography: data.discography,
     }
     const uploadAlbumResponse = await postAlbum(album, token);
-
-    console.log(uploadAlbumResponse)
 
     const songsArray = [...data.songsArray]
     const songs = songsArray.map((song, index) => ({

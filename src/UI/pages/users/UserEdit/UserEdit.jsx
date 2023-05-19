@@ -44,7 +44,6 @@ export function UserEdit() {
             name: value,
         });
     };
-    console.log(userData)
     const handleSubmit = async (event) => {
         event.preventDefault();
 
@@ -52,7 +51,6 @@ export function UserEdit() {
 
         if (userData.picture.imageUser) {
             const updateImage = await updateImageUser(userData, token);
-            console.log(updateImage)
             if (updateImage.status) {
                 setMessage("Picture updated successfully!");
                 clearMessage();

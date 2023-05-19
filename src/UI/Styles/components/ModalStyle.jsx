@@ -1,5 +1,20 @@
-import styled from "styled-components";
+import styled, { keyframes } from "styled-components";
 import { colors, device, fontSize } from "../config";
+import { AiOutlineDelete } from "react-icons/ai";
+
+const fadeAnimation = keyframes`
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+`;
+
+export const SpanCreatePlaylist = styled.span`
+float: right;
+cursor: pointer;
+`
 
 export const ButtonAddPlaylist = styled.button`
   width: 125px;
@@ -23,17 +38,20 @@ export const ModalBackground = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
+  animation: ${fadeAnimation} 0.3s ease-in-out;
 `;
 
 export const ModalContainer = styled.div`
   background-color: ${colors["dark-blue"]};
   border-radius: 5px;
   padding: 20px;
-  width: 500px;
-  height: 400px;
   display: flex;
   flex-direction: column;
   justify-content: center;
+  animation: ${fadeAnimation} 0.3s ease-in-out;
+  @media ${device.desktop}{
+    width: 80vh;
+  }
 `;
 
 export const Title = styled.h2`
@@ -43,6 +61,7 @@ export const Title = styled.h2`
   text-align: center;
 `;
 
+
 export const Input = styled.input`
   width: 100%;
   padding: 10px;
@@ -51,6 +70,43 @@ export const Input = styled.input`
   border-radius: 5px;
 `;
 
+export const ButtonOpen = styled.button`
+float: right;
+  padding: 10px;
+  background-color: ${colors.blue};
+  color: ${colors.white};
+  border: none;
+  border-radius: 5px;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+  padding: 5px;
+  background-color: transparent;
+  color: ${colors.white};
+  border: none;
+  font-size: 24px;
+  cursor: pointer;
+  transition: transform 0.3s ease-in-out;
+
+  &:hover {
+    transform: rotate(90deg);
+  }
+`;
+export const ButtonConfirm = styled.button`
+float: right;
+  padding: 10px;
+  margin-right: 1rem;
+  background-color: #dc2f2f;
+  color: ${colors.white};
+  border: none;
+  border-radius: 5px;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+  &:hover {
+    background-color: #363636;
+  }
+`;
 export const Button = styled.button`
 float: right;
   padding: 10px;
@@ -61,6 +117,19 @@ float: right;
   font-size: 16px;
   font-weight: bold;
   cursor: pointer;
+  
+`;
+export const ButtonCancel = styled.button`
+float: right;
+  padding: 10px;
+  background-color: ${colors.blue};
+  color: ${colors.white};
+  border: none;
+  border-radius: 5px;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+  
 `;
 
 export const ErrorMessage = styled.p`
@@ -84,3 +153,24 @@ export const ContainerTitle = styled.div`
   margin: 0 3% 5% 3%;
 }
 `
+
+export const ContainerButtonsDelete = styled.div`
+display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 5%;
+`
+
+export const ButtonDelete = styled(Button)`
+background-color: red;
+`
+
+export const IconDelete = styled(AiOutlineDelete)`
+height: 1.5em;
+width: 1.5em;
+`
+
+export const ContainerDelete = styled.div`
+display: flex;
+    align-items: center;
+    `

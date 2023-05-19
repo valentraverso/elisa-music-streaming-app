@@ -15,8 +15,8 @@ export function PlayerPage() {
 
 
 
-    return (
-      <>
+  return (
+    <>
       {width !== "mobile" && (
         <>
           {id ? (
@@ -31,11 +31,11 @@ export function PlayerPage() {
         </>
       )}
 
-{width === "mobile" && (
+      {width === "mobile" && (
         <>
           {id ? (
             <>
-            <PlayerComponentMobile id={id} />
+              <PlayerComponentMobile id={id} />
             </>
           ) : (
             <p>Error: Playlist not found</p>

@@ -31,6 +31,7 @@ margin-top: 3%;
 `
 
 export const ButtonGenre = styled(ButtonFollowStyled)`
+background-color: ${props => props.isActive};
     padding: 5px 0px;
     @media ${device.desktop}{
     margin: 5%;
@@ -38,9 +39,9 @@ export const ButtonGenre = styled(ButtonFollowStyled)`
 `
 
 export const ContainerFinishButton = styled(ContainerUploadButton)`
-    position: absolute;
+    position: fixed;
     right: 0;
-    bottom: 0;
+    bottom: 20px;
     width: 100%;
     @media ${device.desktop}{
     position: relative;

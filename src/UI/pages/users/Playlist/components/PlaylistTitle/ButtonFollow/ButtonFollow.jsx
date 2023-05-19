@@ -6,14 +6,13 @@ import { setPlaylists } from "../../../../../../../utils/player/user";
 import updateFollowType from "../../../../../../../api/users/updateFollowType";
 import updateUnfollowType from "../../../../../../../api/users/updateUnfollowType";
 
-export default function ButtonFollow({ id }) {
+export default function ButtonFollow({ id, playlists, userId }) {
     const { getAccessTokenSilently } = useAuth0();
-    const {playlists, _id: userId} = useSelector((state) => state.user.data);
 
     const [isFollow, setIsFollow] = useState(false);
 
     const searchFollow = playlists.find(playlist => playlist._id === id);
-
+    
     useEffect(() => {
         searchFollow ? setIsFollow(true) : setIsFollow(false)
     }, [searchFollow])
