@@ -1,4 +1,3 @@
-import { category } from "../category";
 import { ContainerBrowserCategory, ContainerTitleCategory, H2TitleCategory, ContainerCategory, CategoryBox, CategoryTitle, ContainerCategorydiv } from "../../../../Styles/Pages/Users/components/CategoryStyle";
 import { useQuery } from "react-query";
 import { Link } from "react-router-dom";
@@ -18,7 +17,7 @@ export default function Category() {
     return (
         <ContainerBrowserCategory>
             <ContainerTitleCategory>
-                <H2TitleCategory>New Songs</H2TitleCategory>
+                <H2TitleCategory>Newest Songs</H2TitleCategory>
             </ContainerTitleCategory>
             <ContainerCategorydiv>
                 {isLoading ? (

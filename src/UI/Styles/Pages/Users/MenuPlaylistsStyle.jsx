@@ -35,9 +35,6 @@ export const DivChangePlaylistAlbum = styled.div`
     width: 200px;
     display: grid;
     grid-template-columns: auto auto;
-    /* display: flex;
-    flex-direction: row;
-    gap: 10%; */
 `
 
 export const PageTitle = styled.p`

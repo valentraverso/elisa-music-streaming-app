@@ -12,15 +12,13 @@ export const Player = () => {
   const width = UseWidth();
   const { queu, index } = useSelector(state => state.player);
 
-  const queueLength = queu.length - 1;
+  const queueLength = queu.length - 1 || queu.data.length - 1;
 
   const albumImg = queu[index]?.album.img.secure_url || queu.imgAlbum;
   const songTitle = queu[index]?.title || queu.data[index].title;
   const songArtist = queu[index]?.artist || queu.data[index].artist;
   const fileSong = queu[index]?.file.secure_url || queu.data[index].file.secure_url;
   const likeSong = queu[index]?._id || queu.data[index]._id;
-
-
   
   return (
     
@@ -46,7 +44,7 @@ export const Player = () => {
             showSkipControls={true}
             customVolumeControls={[]}
             customProgressBarSection={[]}
-            style={{ padding: 0, backgroundColor: 'inherit', boxShadow: "none", width: "98%" }}
+            style={{ padding: 0, backgroundColor: 'inherit', boxShadow: "none", width: "98%", color: "#fff" }}
             onClickPrevious={() => {
               if (queueLength >= index && index > 0) {
                 setIndex(index - 1)
@@ -68,7 +66,7 @@ export const Player = () => {
             autoPlay
             customAdditionalControls={[<LikeSong id={likeSong} />]}
             customVolumeControls={[]}
-            style={{ padding: 0, backgroundColor: 'inherit', boxShadow: "none", width: "98%" }}
+            style={{ padding: 0, backgroundColor: 'inherit', boxShadow: "none", width: "98%", color: "#fff" }}
             onClickPrevious={() => {
               if (queueLength >= index && index > 0) {
                 setIndex(index - 1)
