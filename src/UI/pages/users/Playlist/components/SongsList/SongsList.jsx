@@ -9,6 +9,7 @@ import { store } from '../../../../../../utils/redux/store';
 import deleteSongFromPlaylist from '../../../../../../api/playlists/deleteSongs';
 import { useParams } from "react-router-dom";
 import { useSelector } from 'react-redux';
+import AddToPlaylistModal from '../../../../../components/SongsMenu/SongsModal';
 
 
 
@@ -17,6 +18,7 @@ export const SongsList = ({ data, owner }) => {
   const { getAccessTokenSilently } = useAuth0();
   const [showConfirmation, setShowConfirmation] = useState(false);
   const [songToDelete, setSongToDelete] = useState(null);
+  const [showModal, setShowModal] = useState(false);
 
   const handleDeleteSong = async (playlistId, songId) => {
     try {
@@ -39,6 +41,10 @@ export const SongsList = ({ data, owner }) => {
   };
   const confirmDelete = (songId) => {
     setShowConfirmation(songId);
+  };
+
+  const handleAddToPlaylist = (playlistId) => {
+    // Handle adding song to playlist here
   };
 
   return (
@@ -68,6 +74,13 @@ export const SongsList = ({ data, owner }) => {
                     </ModalBackground>
                   )}
                 </>
+              )}
+              {userId !== playlistOwnerId && (
+                <AddToPlaylistModal
+                  // onAddToPlaylist={handleAddToPlaylist}
+                  onClose={() => setShowModal(false)}
+                  songId={song._id}
+                />
               )}
             </SongSettings>
           </ContainerSong>

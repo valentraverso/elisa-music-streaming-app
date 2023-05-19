@@ -24,15 +24,6 @@ export const SongsListAlbum = ({ data, imgAlbum }) => {
     setShowModal((prevShowModal) => !prevShowModal);
   };
 
-  // <NavLink
-  //             to={{
-  //               pathname: `/PlayerPage/${song._id}`,
-  //               state: { albumImg: imgAlbum }
-  //             }}
-  //             onClick={() => handleClickSong(song._id, index)}
-  //             activeClassName="active"
-  //           ></NavLink>
-
   return (
     <ContainerSongsList>
       {data?.map((song, index) => {
@@ -48,11 +39,18 @@ export const SongsListAlbum = ({ data, imgAlbum }) => {
               index: index
             })
           }}>
+  <NavLink
+              to={{
+                pathname: `/PlayerPage/${song._id}`,
+              }}
+ 
+            >
+
             <ImgSong src={imgAlbum} />
             <ContainerSongInfo>
               <TitleSmall>{data[index].title}</TitleSmall>
               <NameArtist>{data[index].artist}</NameArtist>
-            </ContainerSongInfo>
+            </ContainerSongInfo></NavLink>
             <div>
                 <AddToPlaylistModal
                   onAddToPlaylist={handleAddToPlaylist}

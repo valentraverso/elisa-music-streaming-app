@@ -1,22 +1,27 @@
-// import React from "react";
-// import { useParams } from "react-router-dom";
-// import { ContainerImage, PlaylistBackground, MainContainer, SongTitle, AudioReproductor } from "../../../../../Styles/Pages/Users/components/PlayerStyles/PlayerMobileStyle";
+import React from "react";
+import { useParams } from "react-router-dom";
+import { ContainerImage, ContainerImageMobile, PlaylistBackground, PlaylistBackgroundMobile  } from "../../../../../Styles/Pages/Users/components/PlayerStyles/PlayerStyle";
 
-// function PlaylistMobile() {
-// const { id } = useParams();
-// const playlist = playlistsRecomendados.find(p => p.id === id);
+import { useSelector } from "react-redux";
 
-// return (
-// <>
-// <PlaylistBackground image={playlist.foto} />
-// <ContainerImage src={playlist.foto} alt="Playlist" />
+function Playlist() {
+  const { songId } = useParams(); 
 
-//   <MainContainer>
-//     <AudioReproductor src="./onlymp3.to - Howl's Moving Castle.mp3" />
-//     <SongTitle>{playlist.cancion}</SongTitle>
-//   </MainContainer>
-// </>
-// );
-// }
+  // Retrieve the queu object from local storage
+  const queu = JSON.parse(localStorage.getItem("playerQueue"));
+  
+  const albumImg = queu?.imgAlbum;
 
-// export default PlaylistMobile;
+  return (
+    <>
+      {albumImg && (
+        <>
+          <PlaylistBackgroundMobile image={albumImg} />
+          <ContainerImageMobile src={albumImg} alt="Playlist" />
+        </>
+      )}
+    </>
+  );
+}
+
+export default Playlist;
