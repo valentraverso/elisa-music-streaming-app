@@ -1,12 +1,15 @@
-[![All Contributors](https://img.shields.io/badge/all_contributors-4-orange.svg?style=flat-square)](#contributors-)
+![Elisa Banner](https://res.cloudinary.com/dppekhvoo/image/upload/v1684478149/Elisa_nr0ym6.png)
 
 <h1 align=center>Elisa Music Streaming APP</h1>
 
-_Index_
+ [![License: MIT](https://img.shields.io/badge/LICENSE-APACHE-yellow?style=flat-square&logo=apache)](http://www.apache.org/licenses/LICENSE-2.0) [![All Contributors](https://img.shields.io/badge/all_contributors-4-orange.svg?style=flat-square)](#contributors-) 
+
+
+## Index
 - [Getting Stated](#getting-started)
 - [Authors](#authors)
 
-## Authors 🚀
+### Authors 🚀
 
 <!-- ALL-CONTRIBUTORS-LIST:START - Do not remove or modify this section -->
 <!-- prettier-ignore-start -->
