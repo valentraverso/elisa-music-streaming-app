@@ -6,6 +6,7 @@ import { Link } from 'react-router-dom';
 
 const CirclePhotosContainer = styled.div`
 overflow: hidden;
+
     overflow-x: scroll;
     position: relative;
     display: flex;
