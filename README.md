@@ -2,7 +2,7 @@
 
 <h1 align=center>Elisa Music Streaming APP</h1>
 
-Index
+_Index_
 - [Getting Stated](#getting-started)
 - [Authors](#authors)
 
