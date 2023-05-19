@@ -12,7 +12,7 @@ import postSong from "../../../../api/song/postSong";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { Audio } from 'react-loader-spinner'
-import './upload.css';
+import './components/upload.css';
 
 export function Upload() {
   const width = UseWidth();
