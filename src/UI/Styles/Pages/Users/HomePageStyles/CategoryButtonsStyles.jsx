@@ -9,6 +9,7 @@ export const CategoryButtonsContainer = styled.div`
   align-items: center;
   width: 100%;
   overflow-x: scroll;
+  margin: 30px 0;
   &::-webkit-scrollbar {
     display: none;
   }
