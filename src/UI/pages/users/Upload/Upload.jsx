@@ -300,12 +300,12 @@ export function Upload() {
                                 <ContainerInputs>
                                   <LabelInputForm>Genre</LabelInputForm><br />
                                   <ContainerButtonsGenre>
-                                    <SpanGenreButton>Rock</SpanGenreButton>
-                                    <SpanGenreButton>Pop</SpanGenreButton>
-                                    <SpanGenreButton>Hip Hop</SpanGenreButton>
-                                    <SpanGenreButton>Reggaeton</SpanGenreButton>
-                                    <SpanGenreButton>Indie</SpanGenreButton>
-                                    <SpanGenreButton>Rap</SpanGenreButton>
+                                    <SpanGenreButton disabled>Rock</SpanGenreButton>
+                                    <SpanGenreButton disabled>Pop</SpanGenreButton>
+                                    <SpanGenreButton disabled>Hip Hop</SpanGenreButton>
+                                    <SpanGenreButton disabled>Reggaeton</SpanGenreButton>
+                                    <SpanGenreButton disabled>Indie</SpanGenreButton>
+                                    <SpanGenreButton disabled>Rap</SpanGenreButton>
                                   </ContainerButtonsGenre>
                                   <PViewMore>View more</PViewMore>
                                 </ContainerInputs>

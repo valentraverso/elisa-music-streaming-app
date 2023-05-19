@@ -81,6 +81,8 @@ function Register() {
 
         const createUser = await postUser(userData, token);
 
+        console.log(createUser)
+
         if (!createUser.status) {
             setError(createUser);
             return;
