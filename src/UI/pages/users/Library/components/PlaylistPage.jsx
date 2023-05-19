@@ -3,7 +3,7 @@ import { useQuery } from "react-query";
 import { Link } from "react-router-dom";
 import fetchAllPlaylists from "../../../../../api/playlists/fetchPlaylistAll";
 import { useAuth0 } from "@auth0/auth0-react";
-import { ContainerPlaylist, PlaylistBackground, Playlist, PlaylistTitle, PlaylistImage } from "../../../../Styles/Pages/Users/HomePageStyles/PlaylistsStyle";
+import { ContainerPlaylist, PlaylistBackground, Playlist, PlaylistTitle, PlaylistImage, ContainerPrincipalPlaylist } from "../../../../Styles/Pages/Users/HomePageStyles/PlaylistsStyle";
 
 const PlaylistPage = () => {
   const { getAccessTokenSilently } = useAuth0();
@@ -18,7 +18,7 @@ const PlaylistPage = () => {
   );
 
   return (
-    <div>
+    <ContainerPrincipalPlaylist>
       <h2>Playlists</h2>
       <ContainerPlaylist>
         {Array.isArray(playlists) && playlists.map((playlist) => (
@@ -34,7 +34,7 @@ const PlaylistPage = () => {
           </Link>
         ))}
       </ContainerPlaylist>
-    </div>
+    </ContainerPrincipalPlaylist>
   );
 }
 
