@@ -1,15 +1,16 @@
+import { useSelector } from "react-redux";
 import { store } from "../../../../../../utils/redux/store";
-import { ContainerTitlePlaylist, ImgPlaylist, ContainerPlaylistInfo, Title, Info, ContainerLikes, TotalLikes, ContainerPlaylistDescription } from "../../../../../Styles/Pages/Users/PlaylistStyle";
+import { ContainerTitlePlaylist, ImgPlaylist, ContainerPlaylistInfo, Title, Info, ContainerLikes, TotalLikes, ContainerPlaylistDescription, ContainerAbumInfo } from "../../../../../Styles/Pages/Users/PlaylistStyle";
 import ButtonFollow from "./ButtonFollow/ButtonFollow";
 import DeleteAlbum from "./DeleteAlbum/DeleteAlbum";
 
 export const AlbumTitle = ({ img, id, playlistName, info, likes, owner }) => {
-  const { _id: userId } = store.getState().user.data;
+  const { _id: userId } = useSelector(state => state.user.data);
 
   return (
     <ContainerTitlePlaylist>
       <ImgPlaylist src={img} />
-      <ContainerPlaylistInfo>
+      <ContainerAbumInfo>
         <ContainerPlaylistDescription>
           <Title>{playlistName}</Title>
           <Info>{info}</Info>
@@ -26,7 +27,7 @@ export const AlbumTitle = ({ img, id, playlistName, info, likes, owner }) => {
             <DeleteAlbum id={id} />
           </div>
         }
-      </ContainerPlaylistInfo>
+      </ContainerAbumInfo>
     </ContainerTitlePlaylist>
   )
 }
