@@ -1,8 +1,8 @@
 import React, { useState } from "react";
-import { NavLink } from "react-router-dom";
 import styled, { keyframes } from "styled-components";
 import Playlist from "./Playlist";
 import RecomendedSongsList from "./RecomendedSongsList";
+import { Player } from "../../../../components/Player/Player";
 
 const slideInFromBottom = keyframes`
   from {
@@ -25,12 +25,12 @@ export function PlayerComponent() {
   };
 
   return (
+    <>
     <PageContainer className={showPage ? "slide-in" : ""}>
-      <NavLink to="/" onClick={togglePage}>
-        {/* Back button */}
-      </NavLink>
+
       <Playlist />
       <RecomendedSongsList />
     </PageContainer>
+    </>
   );
 }

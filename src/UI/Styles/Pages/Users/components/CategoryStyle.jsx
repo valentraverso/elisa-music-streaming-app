@@ -17,7 +17,6 @@ export const H2TitleCategory = styled.span`
 export const ContainerCategorydiv = styled.div`
     display: flex;
     flex-direction: row;
-    gap: 4%;
     margin-top: 2%;
 `
 

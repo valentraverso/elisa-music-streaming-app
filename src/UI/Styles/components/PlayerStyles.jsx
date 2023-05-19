@@ -14,7 +14,7 @@ export const ContainerPlayer = styled.div`
     margin: 0 auto;
     height: 50px;
     align-items: center;
-    background-color: ${colors.grey};
+    background-color: rgb(16 16 16);
     opacity: 0.9;
     @media ${device.desktop}{
         width:100%;
@@ -62,10 +62,19 @@ export const ContainerDataSong = styled.div`
 
 export const SpanSongTitle = styled.span`
 font-weight: bolder;
+display: inline-block;
+    width: 100%;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 `
 
 export const SpanSongArtist = styled.span`
-
+display: inline-block;
+    width: 100%;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 `
 
 export const HeartLikeBorders = styled(AiOutlineHeart)`

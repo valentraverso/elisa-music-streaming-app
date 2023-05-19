@@ -25,7 +25,13 @@ export const ContainerTitlePlaylist = styled.div`
 `
 
 export const ImgPlaylist = styled.img`
-    width: 100px;
+    object-fit: cover;
+    width: 120px;
+    height: 120px;
+    @media ${device.desktop}{
+    width: 170px;
+    height: 170px;
+    }
 `
 
 export const ContainerPlaylistInfo = styled.div`

@@ -38,7 +38,7 @@ export const ContainerRecentDesktop = styled.div`
     flex-wrap: wrap; 
     gap: 4%;
     margin-top: 2%;
-    margin-bottom: 10%;
+    margin-bottom: 5%;
 `;
 
 export const RecentImgDesktop = styled.img`
@@ -58,6 +58,9 @@ export const RecentDescriptionDesktop = styled.div`
 
 export const Title = styled.p`
     font-weight: bold;
+    width: 100%;
+    overflow: hidden;
+    text-overflow: ellipsis;
 `;
 
 export const Artist = styled.p`

@@ -109,7 +109,8 @@ export function Upload() {
             wrapperClass
           />
         </div>
-        <p>We are uploading your album...</p>
+        <p className="minutes">We are uploading your album.</p>
+        <p>This process can take some minutes...</p>
       </div>
     </div>
   )
@@ -300,12 +301,12 @@ export function Upload() {
                                 <ContainerInputs>
                                   <LabelInputForm>Genre</LabelInputForm><br />
                                   <ContainerButtonsGenre>
-                                    <SpanGenreButton>Rock</SpanGenreButton>
-                                    <SpanGenreButton>Pop</SpanGenreButton>
-                                    <SpanGenreButton>Hip Hop</SpanGenreButton>
-                                    <SpanGenreButton>Reggaeton</SpanGenreButton>
-                                    <SpanGenreButton>Indie</SpanGenreButton>
-                                    <SpanGenreButton>Rap</SpanGenreButton>
+                                    <SpanGenreButton disabled>Rock</SpanGenreButton>
+                                    <SpanGenreButton disabled>Pop</SpanGenreButton>
+                                    <SpanGenreButton disabled>Hip Hop</SpanGenreButton>
+                                    <SpanGenreButton disabled>Reggaeton</SpanGenreButton>
+                                    <SpanGenreButton disabled>Indie</SpanGenreButton>
+                                    <SpanGenreButton disabled>Rap</SpanGenreButton>
                                   </ContainerButtonsGenre>
                                   <PViewMore>View more</PViewMore>
                                 </ContainerInputs>

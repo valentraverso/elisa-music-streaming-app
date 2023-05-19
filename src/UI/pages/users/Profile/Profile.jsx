@@ -17,7 +17,7 @@ export function Profile() {
 
     const { getAccessTokenSilently } = useAuth0();
 
-    const { data: albumsData , isLoading } = useQuery(['albums'], async () => {
+    const { data: albumsData, isLoading } = useQuery(['albums'], async () => {
         const token = await getAccessTokenSilently();
         const data = await fetchManyAlbumById(await user.albums, token);
 
@@ -70,9 +70,7 @@ export function Profile() {
                         albumsData.status ?
                             <ContainerPlaylistProfile>
                                 <Subtitle>Albums</Subtitle>
-                                <DivAllPlaylist>
-                                    <LibraryGrid data={albumsData?.data} type={"album"} />
-                                </DivAllPlaylist>
+                                <LibraryGrid data={albumsData?.data} type={"album"} />
                             </ContainerPlaylistProfile>
                             :
                             <p>You don't have albums!</p>

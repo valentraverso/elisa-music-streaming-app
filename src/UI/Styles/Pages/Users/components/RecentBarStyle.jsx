@@ -44,6 +44,9 @@ export const RecentDescription = styled.div`
 
 export const Title = styled.p`
     font-weight: bold;
+    width: 100%;
+    overflow: hidden;
+    text-overflow: ellipsis;
 `
 
 export const Artist = styled.p`

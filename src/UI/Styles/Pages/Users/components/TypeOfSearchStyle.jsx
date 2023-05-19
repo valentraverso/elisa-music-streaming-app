@@ -1,6 +1,14 @@
 import { AiOutlineInfoCircle } from "react-icons/ai"
 import styled from "styled-components"
 import { AiOutlineWarning } from 'react-icons/ai';
+import { device } from "../../../config";
+
+export const SearchContainer = styled.div`
+@media ${device.desktop}{
+width: 60%;
+    margin: 0 auto;
+}
+    `
 
 export const TypeOfSearchDiv = styled.div`
     display: grid;

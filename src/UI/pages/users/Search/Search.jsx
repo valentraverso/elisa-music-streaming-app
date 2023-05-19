@@ -11,7 +11,7 @@ export const Search = () => {
     return (
         <>
             {
-                width == "desktop" ?
+                width === "desktop" ?
                     <RecentSearchDesktop />
                     :
                     <RecentSearch />

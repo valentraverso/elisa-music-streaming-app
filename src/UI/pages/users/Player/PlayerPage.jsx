@@ -6,6 +6,7 @@ import UseWidth from "../../../../helpers/hooks/useWidth";
 import { SideBarDesktop } from "../../../layouts/Users/Components/SideBarDesktop";
 import { BarLibraryDesktop } from "../../../layouts/Users/Components/BarLibraryDesktop";
 import { useLocation } from "react-router-dom";
+import RecomendedSongsList from "./components/RecomendedSongsList";
 
 export function PlayerPage() {
   const width = UseWidth();
@@ -24,6 +25,7 @@ export function PlayerPage() {
               <SideBarDesktop />
               <BarLibraryDesktop />
               <PlayerComponent id={id} albumImg={albumImg} />
+             <RecomendedSongsList />
             </>
           ) : (
             <p>Error: Playlist not found</p>

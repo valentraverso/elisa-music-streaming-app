@@ -96,6 +96,9 @@ export const AlbumTitle = styled.h2`
   font-size: 1rem;
   position: relative;
   top: 0;
+  width: 100%;
+    overflow: hidden;
+    text-overflow: ellipsis;
 `;
 
 
