@@ -5,8 +5,8 @@ import UseWidth from '../../../helpers/hooks/useWidth';
 import { useSelector } from 'react-redux';
 import { setIndex } from '../../../utils/player/player';
 import LikeSong from './components/LikeSong';
-import { NavLink } from 'react-router-dom';
-
+import { Link } from 'react-router-dom';
+import { useEffect } from 'react';
 
 export const Player = () => {
   const width = UseWidth();
@@ -14,16 +14,20 @@ export const Player = () => {
 
   const queueLength = queu.data?.length - 1|| queu.length - 1;
 
-  const albumImg = queu[index]?.album.img.secure_url || queu.imgAlbum;
+  const albumImg = queu[index]?.album?.img?.secure_url || queu.imgAlbum;
   const songTitle = queu[index]?.title || queu.data[index].title;
   const songArtist = queu[index]?.artist || queu.data[index].artist;
   const fileSong = queu[index]?.file.secure_url || queu.data[index].file.secure_url;
   const likeSong = queu[index]?._id || queu.data[index]._id;
   
   return (
-    
     <ContainerPlayer>
-      <ContainerInfoSong>
+    <ContainerInfoSong>
+      {/* <div
+        onClick={() => {
+          window.location.href = `/PlayerPage/${songId}`;
+        }}
+      > */}
         <ImgInfoSong src={albumImg} />
         <ContainerDataSong>
           <SpanSongTitle>{songTitle}</SpanSongTitle>
@@ -79,6 +83,6 @@ export const Player = () => {
             }}
           />
       }
-    </ContainerPlayer>
-  )
-}
+     </ContainerPlayer>
+      )
+    }
