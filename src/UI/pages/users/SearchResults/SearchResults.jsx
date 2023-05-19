@@ -10,7 +10,7 @@ import fetchPlaylistByTitle from "../../../../api/playlists/fetchPlaylistByTitle
 import PlaylistResults from "./components/PlaylistResults";
 import getUserByName from "../../../../api/users/getByName";
 import UserResults from "./components/UserResults";
-import { ErrorMessage, InfoIcon } from "../../../Styles/Pages/Users/components/TypeOfSearchStyle";
+import { ErrorMessage, InfoIcon, SearchContainer } from "../../../Styles/Pages/Users/components/TypeOfSearchStyle";
 import { Skeleton } from "antd";
 
 export function SearchResults() {
@@ -38,7 +38,7 @@ export function SearchResults() {
         return searchData;
     });
     return (
-        <>
+        <SearchContainer>
             <TypeOfSearch query={query} />
             {
                 isLoading ? (
@@ -64,6 +64,6 @@ export function SearchResults() {
                         </ErrorMessage>
                     )
                 )}
-        </>
+        </SearchContainer>
     );
 }

@@ -2,6 +2,11 @@ import { AiOutlineInfoCircle } from "react-icons/ai"
 import styled from "styled-components"
 import { AiOutlineWarning } from 'react-icons/ai';
 
+export const SearchContainer = styled.div`
+width: 60%;
+    margin: 0 auto;
+    `
+
 export const TypeOfSearchDiv = styled.div`
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr;
