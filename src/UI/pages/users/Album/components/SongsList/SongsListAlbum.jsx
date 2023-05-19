@@ -39,18 +39,13 @@ export const SongsListAlbum = ({ data, imgAlbum }) => {
               index: index
             })
           }}>
-  <NavLink
-              to={{
-                pathname: `/PlayerPage/${song._id}`,
-              }}
- 
-            >
+
 
             <ImgSong src={imgAlbum} />
             <ContainerSongInfo>
               <TitleSmall>{data[index].title}</TitleSmall>
               <NameArtist>{data[index].artist}</NameArtist>
-            </ContainerSongInfo></NavLink>
+            </ContainerSongInfo>
             <div>
                 <AddToPlaylistModal
                   onAddToPlaylist={handleAddToPlaylist}

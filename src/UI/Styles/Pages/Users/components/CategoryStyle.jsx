@@ -17,22 +17,23 @@ export const H2TitleCategory = styled.span`
 export const ContainerCategorydiv = styled.div`
     display: flex;
     flex-direction: row;
-    gap: 4%;
     margin-top: 2%;
 `
 
 export const ContainerCategory = styled.div`
     display: grid;
     grid-template-columns: 200px;
+    align-items: center;
+    text-align: center;
 `
 
 export const CategoryBox = styled.img`
     width: 120px;
     height: 120px;
-    display: block;
+
     border-radius: 5px;
 `
 
 export const CategoryTitle = styled.p`
-    
+    font-weight: bold;
 `

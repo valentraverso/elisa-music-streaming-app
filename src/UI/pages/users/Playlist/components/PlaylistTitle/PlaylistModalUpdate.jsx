@@ -2,13 +2,24 @@ import { Button, ButtonCreate, ButtonDelete, ContainerButtonsCreate, ContainerBu
 import { useAuth0 } from "@auth0/auth0-react";
 import { useState } from "react";
 import ReactImageUploading from "react-images-uploading";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import { ContainerUploaderImage, IconNoUploadImage, InputForm, PlacerDivUpload, PlacerImageUpload, SpanDragorClick } from "../../../../../Styles/Pages/Users/UploadStyle";
 import { ButtonArtist, ContainerButtonsArtist } from "../../../../../Styles/Pages/Users/Register";
+import updatePlaylistImg from "../../../../../../api/playlists/updatePlaylistImg";
+import updatePlaylist from "../../../../../../api/playlists/updatePlaylist";
+import updatePlaylistInfo from "../../../../../../api/playlists/updatePlaylistInfo";
 
 export default function PlaylistModalUpdate({ isModalOpen, setIsModalOpen, id, playlistName, img, isPrivate }) {
     const { getAccessTokenSilently } = useAuth0();
     const navigate = useNavigate();
+
+    const [message, setMessage] = useState("");
+
+    const clearMessage = () => {
+        setTimeout(() => {
+            setMessage("");
+        }, 3000);
+    };
 
     const handleModalClose = () => {
         setIsModalOpen(false);
@@ -17,7 +28,8 @@ export default function PlaylistModalUpdate({ isModalOpen, setIsModalOpen, id, p
     const [data, setData] = useState({
         title: playlistName,
         picture: "",
-        private: isPrivate
+        private: isPrivate,
+        playlistId: id
     })
 
     const handleInputChange = (e) => {
@@ -38,11 +50,27 @@ export default function PlaylistModalUpdate({ isModalOpen, setIsModalOpen, id, p
 
     const handleSubmit = async (e) => {
         e.preventDefault();
-        console.log(data)
 
         const token = await getAccessTokenSilently();
+        if (data.picture.imagePlaylist) {
+            const updateImage = await updatePlaylistImg(data, token);
+            if (await updateImage.status) {
+                setMessage("Picture updated successfully!");
+                clearMessage();
+                setIsModalOpen(false)
+            }
+            return
+        }
+
+        const updateUser = await updatePlaylistInfo(data, token);
 
 
+        if (await updateUser.status) {
+            setIsModalOpen(false)
+            return;
+        }
+        setMessage("Name updated successfully!");
+        clearMessage();
 
     }
 

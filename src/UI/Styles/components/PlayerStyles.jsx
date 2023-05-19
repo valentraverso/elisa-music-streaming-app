@@ -14,7 +14,7 @@ export const ContainerPlayer = styled.div`
     margin: 0 auto;
     height: 50px;
     align-items: center;
-    background-color: ${colors.grey};
+    background-color: rgb(16 16 16);
     opacity: 0.9;
     @media ${device.desktop}{
         width:100%;

@@ -7,10 +7,8 @@ import { useSelector } from "react-redux";
 function Playlist() {
   const { songId } = useParams(); 
 
-  // Retrieve the queu object from local storage
-  const queu = JSON.parse(localStorage.getItem("playerQueue"));
   
-  const albumImg = queu?.imgAlbum;
+  const albumImg = useSelector(state => state.player.queu.imgAlbum);
 
   return (
     <>
@@ -20,6 +18,7 @@ function Playlist() {
           <ContainerImage src={albumImg} alt="Playlist" />
         </>
       )}
+
     </>
   );
 }

@@ -25,7 +25,6 @@ export function VisitProfiles() {
         return data;
     });
 
-    console.log(user)
     return (
         isLoading ?
             <>

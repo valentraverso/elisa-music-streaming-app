@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import { colors, fontSize, device } from "../../config.jsx"
+import { FaRegSadCry } from 'react-icons/fa';
 
 export const ContainerPagePlaylist = styled.div` 
     @media ${device.desktop}{
@@ -29,9 +30,16 @@ export const ImgPlaylist = styled.img`
 
 export const ContainerPlaylistInfo = styled.div`
     display: flex;
+    flex-direction: column;
+    width: 100%;
+`
+
+export const ContainerAbumInfo = styled.div`
+    display: flex;
     flex-direction: row;
     width: 100%;
 `
+
 
 export const Title = styled.p`
     font-size: 25px;
@@ -123,7 +131,37 @@ export const ButtonAddSong = styled.span`
 `
 
 export const ContainerPlaylistDescription = styled.div`
-display: flex;
+    display: flex;
     flex-direction: column;
     width: 100%;
 `
+
+export const PlaylistInfo = styled.p`
+    font-size: 18px;
+    color: ${colors.grey};
+    margin-bottom: 10px;
+`;
+
+export const PlaylistAdvice = styled.span`
+    font-size: 14px;
+    color: ${colors.white};
+`;
+
+export const InfoIcon = styled(FaRegSadCry)`
+    stroke: ${colors.white};
+    width: 3em;
+    height: 3em;
+    margin-bottom: 20px;
+`;
+
+export const IconContainer = styled.div`
+    display: flex;
+    align-items: center;
+`;
+
+export const PlaylistInfoContainer = styled.div`
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 40px;
+`;

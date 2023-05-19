@@ -26,6 +26,10 @@ export const ContainerAlbum = styled.div`
 }
 `;
 
+export const ContainerAlbumPrincipal = styled.div`
+  margin: 20px 0%;
+`
+
 export const AlbumImage = styled.img`
   display: block;
   border-radius: 1rem;

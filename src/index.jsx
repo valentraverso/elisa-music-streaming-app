@@ -7,6 +7,9 @@ import { Provider as ProviderRedux } from "react-redux"
 import { store } from './utils/redux/store';
 import { ConfigProvider, theme } from 'antd';
 import { colors } from './UI/Styles/config';
+import handelRightClick from './utils/handleRigthClick';
+
+document.addEventListener('contextmenu', handelRightClick);
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 const queryClient = new QueryClient()
